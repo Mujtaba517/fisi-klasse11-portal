@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کوییز | FISI Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
+    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
+    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="lf6.html">LF 6</a>
+      <a href="lf7.html">LF 7</a>
+      <a href="lf8.html">LF 8</a>
+      <a href="lf9.html">LF 9</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" class="active" data-i18n="navQuiz">کوییز</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Quiz</div>
+      <h1 data-i18n="quizPageTitle">✅ کوییز تعاملی صنف ۱۱</h1>
+      <p class="subtitle" data-i18n="quizPageSub">۱۰ سؤال از تمام Lernfelder – خودت را محک بزن</p>
+    </div>
+  </header>
+
+  <main class="container" id="quizArea">
+    <!-- Questions will be injected by JS -->
+  </main>
+
+  <div class="container" style="text-align:center;margin:2rem 0">
+    <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()" data-i18n="submitQuiz">ثبت پاسخ‌ها</button>
+    <button class="btn btn-ghost" id="retryBtn" style="display:none" onclick="location.reload()" data-i18n="retryQuiz">دوباره امتحان کن</button>
+  </div>
+
+  <div class="container">
+    <div class="quiz-score" id="scoreBox" style="display:none"></div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const questions = [
+      {
+        q: {
+          fa: "اولین مرحله در پردازش یک Serviceanfrage چیست؟",
+          de: "Was ist der erste Schritt bei der Bearbeitung einer Serviceanfrage?",
+          en: "What is the first step when handling a service request?"
+        },
+        options: {
+          fa: ["بستن تیکت", "ثبت و دریافت اطلاعات کامل", "ارسال به سطح ۲", "نوشتن Knowledge Base"],
+          de: ["Ticket schließen", "Aufnahme und vollständige Informationserfassung", "An 2nd Level eskalieren", "Knowledge Base schreiben"],
+          en: ["Close the ticket", "Record and gather complete information", "Escalate to 2nd level", "Write Knowledge Base"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "MQTT برای چه چیزی طراحی شده؟",
+          de: "Wofür wurde MQTT entwickelt?",
+          en: "What was MQTT designed for?"
+        },
+        options: {
+          fa: ["پایگاه داده بزرگ", "دستگاه‌های IoT با پهنای باند کم", "ویدیو استریم", "ایمیل"],
+          de: ["Große Datenbanken", "IoT-Geräte mit geringer Bandbreite", "Video-Streaming", "E-Mail"],
+          en: ["Large databases", "IoT devices with low bandwidth", "Video streaming", "Email"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "در مدل‌سازی داده، ER مخفف چیست؟",
+          de: "Wofür steht ER in der Datenmodellierung?",
+          en: "What does ER stand for in data modelling?"
+        },
+        options: {
+          fa: ["External Relation", "Entity-Relationship", "Error Recovery", "Encrypted Route"],
+          de: ["External Relation", "Entity-Relationship", "Error Recovery", "Encrypted Route"],
+          en: ["External Relation", "Entity-Relationship", "Error Recovery", "Encrypted Route"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "کدام پروتکل برای اختصاص خودکار IP استفاده می‌شود؟",
+          de: "Welches Protokoll wird für die automatische IP-Vergabe genutzt?",
+          en: "Which protocol is used for automatic IP assignment?"
+        },
+        options: {
+          fa: ["DNS", "DHCP", "FTP", "HTTP"],
+          de: ["DNS", "DHCP", "FTP", "HTTP"],
+          en: ["DNS", "DHCP", "FTP", "HTTP"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "تفاوت اصلی Incident و Problem در ITIL چیست؟",
+          de: "Was ist der Hauptunterschied zwischen Incident und Problem in ITIL?",
+          en: "What is the main difference between Incident and Problem in ITIL?"
+        },
+        options: {
+          fa: ["هیچ تفاوتی نیست", "Incident اختلال موقت است، Problem علت ریشه‌ای", "Problem همیشه فوری‌تر است", "Incident فقط سخت‌افزاری است"],
+          de: ["Es gibt keinen Unterschied", "Incident ist eine Störung, Problem die Ursache", "Problem ist immer dringender", "Incident betrifft nur Hardware"],
+          en: ["There is no difference", "Incident is a disruption, Problem is the root cause", "Problem is always more urgent", "Incident is only hardware"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "QoS در MQTT چه چیزی را کنترل می‌کند؟",
+          de: "Was steuert QoS bei MQTT?",
+          en: "What does QoS control in MQTT?"
+        },
+        options: {
+          fa: ["سرعت اینترنت", "سطح تضمین تحویل پیام", "اندازه فایل", "رمزنگاری"],
+          de: ["Internetgeschwindigkeit", "Zustellungsgarantie der Nachricht", "Dateigröße", "Verschlüsselung"],
+          en: ["Internet speed", "Message delivery guarantee level", "File size", "Encryption"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "هدف اصلی VLAN چیست؟",
+          de: "Was ist der Hauptzweck eines VLANs?",
+          en: "What is the main purpose of a VLAN?"
+        },
+        options: {
+          fa: ["افزایش سرعت اینترنت", "جداسازی منطقی شبکه‌ها روی یک سوئیچ فیزیکی", "جایگزینی روتر", "رمزنگاری ترافیک"],
+          de: ["Internetgeschwindigkeit erhöhen", "Logische Trennung von Netzen auf einem physischen Switch", "Router ersetzen", "Verkehr verschlüsseln"],
+          en: ["Increase internet speed", "Logical separation of networks on one physical switch", "Replace a router", "Encrypt traffic"]
+        },
+        correct: 1
+      },
+      {
+        q: {
+          fa: "کدام فرمت داده برای APIهای مدرن رایج‌ترین است؟",
+          de: "Welches Datenformat ist bei modernen APIs am gebräuchlichsten?",
+          en: "Which data format is most common in modern APIs?"
+        },
+        options: {
+          fa: ["XML", "CSV", "JSON", "Binary"],
+          de: ["XML", "CSV", "JSON", "Binary"],
+          en: ["XML", "CSV", "JSON", "Binary"]
+        },
+        correct: 2
+      },
+      {
+        q: {
+          fa: "در یک شبکه /26 چند آدرس usable تقریباً وجود دارد؟",
+          de: "Wie viele nutzbare Adressen hat ein /26-Netz ungefähr?",
+          en: "Approximately how many usable addresses does a /26 network have?"
+        },
+        options: {
+          fa: ["۱۴", "۳۰", "۶۲", "۱۲۶"],
+          de: ["14", "30", "62", "126"],
+          en: ["14", "30", "62", "126"]
+        },
+        correct: 2
+      },
+      {
+        q: {
+          fa: "Node-RED بیشتر برای چه استفاده می‌شود؟",
+          de: "Wofür wird Node-RED hauptsächlich verwendet?",
+          en: "What is Node-RED mainly used for?"
+        },
+        options: {
+          fa: ["ویرایش ویدیو", "اتوماسیون جریان داده و IoT", "طراحی گرافیک", "مدیریت پایگاه داده"],
+          de: ["Videobearbeitung", "Datenfluss-Automatisierung und IoT", "Grafikdesign", "Datenbankverwaltung"],
+          en: ["Video editing", "Data-flow automation and IoT", "Graphic design", "Database management"]
+        },
+        correct: 1
+      }
+    ];
+
+    let answered = {};
+
+    function getLang() {
+      return localStorage.getItem('fisi-lang') || 'fa';
+    }
+
+    function renderQuiz() {
+      const lang = getLang();
+      const area = document.getElementById('quizArea');
+      area.innerHTML = '';
+
+      questions.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.id = 'q' + idx;
+
+        let optsHtml = '';
+        item.options[lang].forEach((opt, oIdx) => {
+          optsHtml += `<div class="quiz-option" data-q="${idx}" data-o="${oIdx}" onclick="selectOption(${idx},${oIdx})">${opt}</div>`;
+        });
+
+        card.innerHTML = `
+          <div class="quiz-question">${idx + 1}. ${item.q[lang]}</div>
+          <div class="quiz-options">${optsHtml}</div>
+        `;
+        area.appendChild(card);
+      });
+    }
+
+    function selectOption(qIdx, oIdx) {
+      if (answered[qIdx] !== undefined) return;
+      answered[qIdx] = oIdx;
+
+      const options = document.querySelectorAll(`#q${qIdx} .quiz-option`);
+      options.forEach(o => o.classList.remove('selected'));
+      options[oIdx].style.borderColor = 'var(--primary)';
+      options[oIdx].style.background = 'rgba(59,130,246,0.15)';
+      options[oIdx].style.color = 'var(--text)';
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      questions.forEach((item, idx) => {
+        const options = document.querySelectorAll(`#q${idx} .quiz-option`);
+        options.forEach(o => o.classList.add('disabled'));
+
+        const userAns = answered[idx];
+        if (userAns === item.correct) {
+          score++;
+          options[item.correct].classList.add('correct');
+        } else {
+          options[item.correct].classList.add('correct');
+          if (userAns !== undefined) options[userAns].classList.add('wrong');
+        }
+      });
+
+      const box = document.getElementById('scoreBox');
+      box.style.display = 'block';
+      const percent = Math.round((score / questions.length) * 100);
+      box.innerHTML = `<strong>${score} / ${questions.length}</strong><br>${percent}%`;
+
+      document.getElementById('submitBtn').style.display = 'none';
+      document.getElementById('retryBtn').style.display = 'inline-flex';
+    }
+
+    document.addEventListener('DOMContentLoaded', renderQuiz);
+
+    // Re-render when language changes
+    const originalSetLang = window.setLang;
+    window.setLang = function(lang) {
+      originalSetLang(lang);
+      if (Object.keys(answered).length === 0) renderQuiz();
+    };
+  </script>
+</body>
+</html>
