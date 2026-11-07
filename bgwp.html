@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BGWP | Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html" class="active">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </nav></div>
+  </header>
+
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1>BGWP – Betriebs- und Gesamtwirtschaftliche Prozesse</h1>
+    <p class="sub">Serviceanfragen bearbeiten · 36 Std. · Lehrplan Bayern</p>
+  </div>
+
+  <main class="container">
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف</h3>
+        <div class="goal">دسته‌بندی درخواست‌های خدمات، پیدا کردن علت خطا و رفع آن.</div>
+        <h3>📚 محتوا</h3>
+        <ul>
+          <li>دریافت Serviceanfrage (مستقیم / غیرمستقیم)</li>
+          <li>بررسی SLA (زمان واکنش و حل)</li>
+          <li>Support-Level 1 / 2 / 3 و Eskalation</li>
+          <li>اولویت‌بندی: Impact + Urgency</li>
+          <li>ارتباط حرفه‌ای و Deeskalation</li>
+          <li>Incident در مقابل Problem (ITIL پایه)</li>
+          <li>مستندسازی و Knowledge Base</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>کاربر به SharePoint وصل نمی‌شود و امروز باید فایل تحویل دهد. سؤالات، دسته و اولویت؟</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>نرم‌افزار بعد از آپدیت کرش می‌کند. برای Eskalation چه می‌نویسی؟</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>SLA: واکنش ۳۰ دقیقه. تیکت ۱۰:۱۵، الان ۱۱:۰۰ بدون پاسخ. اقدام؟</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Ziel</h3>
+        <div class="goal">Serviceanfragen einordnen, Fehlerursachen ermitteln und beheben.</div>
+        <h3>📚 Inhalte</h3>
+        <ul>
+          <li>Serviceanfragen entgegennehmen</li>
+          <li>SLA prüfen (Reaktions- und Lösungszeit)</li>
+          <li>Support-Level und Eskalation</li>
+          <li>Priorisierung nach Impact und Urgency</li>
+          <li>Kommunikation und Deeskalation</li>
+          <li>Incident vs. Problem</li>
+          <li>Dokumentation und Knowledge Base</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Nutzer kommt nicht auf SharePoint und muss heute abgeben. Fragen, Kategorie, Priorität?</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Software crasht nach Update. Was dokumentierst du für die Eskalation?</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>SLA 30 Min. Ticket 10:15, jetzt 11:00 ohne Antwort. Was tun?</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Goal</h3>
+        <div class="goal">Classify service requests, find root causes and fix them.</div>
+        <h3>📚 Content</h3>
+        <ul>
+          <li>Receive service requests</li>
+          <li>Check SLA (response & resolution time)</li>
+          <li>Support levels and escalation</li>
+          <li>Priority = impact + urgency</li>
+          <li>Communication and de-escalation</li>
+          <li>Incident vs problem</li>
+          <li>Documentation and knowledge base</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>User cannot reach SharePoint and must submit today. Questions, category, priority?</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>App crashes after update. What do you write for escalation?</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>SLA 30 min. Ticket 10:15, now 11:00 with no reply. What next?</p></div>
+      </div>
+    </div>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
