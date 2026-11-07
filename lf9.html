@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LF 9 – Netzwerke und Dienste | FISI Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="lang-switcher">
@@ -27,117 +27,139 @@
   <header class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / LF 9</div>
-      <h1>🌐 Lernfeld 9: Netzwerke und Dienste bereitstellen</h1>
-      <p class="subtitle">96 Unterrichtsstunden · IT-Systeme</p>
+      <h1>🌐 Netzwerke und Dienste bereitstellen</h1>
+      <p class="subtitle">96 Std. · IT-Systeme</p>
     </div>
   </header>
   <main class="container">
-    <div class="card">
-      <h3>🎯 Zielformulierung (هدف رسمی Lehrplan)</h3>
-      <p style="color:var(--accent);font-weight:600">Die Schülerinnen und Schüler verfügen über die Kompetenz, Netzwerke und Dienste zu planen, zu konfigurieren und zu erweitern.</p>
-      <p><strong>فارسی:</strong> دانش‌آموزان صلاحیت برنامه‌ریزی، پیکربندی و گسترش شبکه‌ها و سرویس‌ها را دارند.</p>
-      <p><strong>English:</strong> Students can plan, configure and extend networks and services.</p>
-    </div>
 
-    <div class="card">
-      <h3>📚 چه چیزهایی یاد می‌گیری؟ (طبق Lehrplan)</h3>
-      <ul>
-        <li>استخراج نیازمندی‌های شبکه در گفتگو با مشتری</li>
-        <li>بررسی ویژگی‌ها، کارکرد و عملکرد اجزای شبکه و سرویس‌ها</li>
-        <li>در نظر گرفتن جنبه‌های <strong>امنیتی</strong> (sicherheitsrelevante Merkmale)</li>
-        <li>جستجو و ارزیابی منابع (حتی منابع خارجی‌زبان)</li>
-        <li>برنامه‌ریزی سرویس‌ها و زیرساخت شبکه با منابع داخلی و خارجی</li>
-        <li>مقایسه مفاهیم از نظر پایداری، فنی و اقتصادی</li>
-        <li>نصب و پیکربندی شبکه و زیرساخت + پیاده‌سازی سرویس‌ها</li>
-        <li>رعایت استانداردها، آزمون عملکرد، اندازه‌گیری و مستندسازی</li>
-        <li>ارزیابی نهایی از نظر نیاز مشتری، <strong>Datensicherheit</strong> و <strong>Datenschutz</strong></li>
-        <li>بازنگری با توجه به رضایت مشتری و آینده‌نگری</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🔄 فرآیند کار (از نیاز تا تحویل)</h3>
-      <ol style="margin:0.8rem 1.4rem;color:var(--text-muted);line-height:1.9">
-        <li><strong>Anforderungen ermitteln</strong> – نیاز مشتری چیست؟ چند کاربر؟ چه سرویس‌هایی؟</li>
-        <li><strong>Recherche</strong> – قطعات و سرویس‌های مناسب + نکات امنیتی</li>
-        <li><strong>Planung</strong> – طرح IP، VLAN، توپولوژی، سرویس‌ها (DHCP, DNS, File, Web...)</li>
-        <li><strong>Konzeptvergleich</strong> – پایداری، هزینه، قابلیت گسترش</li>
-        <li><strong>Installation & Konfiguration</strong> – سوئیچ، روتر، سرور، سرویس‌ها</li>
-        <li><strong>Tests & Messung</strong> – کارکرد، Latency، Throughput، امنیت</li>
-        <li><strong>Dokumentation</strong> – نقشه شبکه، تنظیمات، رمزها (امن)، راهنما</li>
-        <li><strong>Beurteilung & Reflexion</strong> – آیا نیاز برآورده شد؟ امنیت و حریم خصوصی رعایت شد؟</li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>🧱 اجزای مهم شبکه و سرویس</h3>
-      <ul>
-        <li><strong>Topologie</strong> – ساختار فیزیکی/منطقی (Stern, Baum, Mesh...)</li>
-        <li><strong>IP-Planung & Subnetting</strong> – تقسیم آدرس‌ها</li>
-        <li><strong>VLAN</strong> – جداسازی منطقی بخش‌ها</li>
-        <li><strong>Routing</strong> – ارتباط بین شبکه‌ها</li>
-        <li><strong>DHCP</strong> – اختصاص خودکار IP</li>
-        <li><strong>DNS</strong> – تبدیل نام به IP</li>
-        <li><strong>Serverdienste</strong> – File, Print, Web, Mail, Directory</li>
-        <li><strong>Firewall / ACL</strong> – کنترل دسترسی و فیلتر ترافیک</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🔐 Datensicherheit و Datenschutz</h3>
-      <ul>
-        <li>جداسازی شبکه‌ها (VLAN / DMZ) برای کاهش سطح حمله</li>
-        <li>فایروال و قوانین حداقل دسترسی</li>
-        <li>سرویس‌های مدیریت‌شده با حساب کاربری و رمز قوی</li>
-        <li>پشتیبان‌گیری و بازیابی</li>
-        <li>رعایت حفاظت از داده‌های شخصی در سرویس‌ها</li>
-      </ul>
-      <p style="margin-top:0.8rem;color:var(--text-muted)">برای عمق بیشتر از IT-Grundschutz-Kompendium استفاده کن.</p>
-    </div>
-
-    <div class="card">
-      <h3>✏️ تمرین‌های عملی</h3>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۱ – جمع‌آوری نیاز</div>
-        <p>یک شرکت کوچک با ۳۰ نفر، ۳ بخش (اداری، فنی، مهمان) می‌خواهد شبکه جدید. چه سؤالاتی از مشتری می‌پرسی؟</p>
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف یادگیری</h3>
+        <div class="goal-box">دانش‌آموزان صلاحیت برنامه‌ریزی، پیکربندی و گسترش شبکه‌ها و سرویس‌ها را دارند.</div>
+        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <ul>
+          <li>استخراج نیاز مشتری برای شبکه و سرویس‌ها</li>
+          <li>بررسی قطعات، عملکرد و جنبه‌های امنیتی</li>
+          <li>برنامه‌ریزی زیرساخت و مقایسه مفاهیم (فنی، اقتصادی، پایدار)</li>
+          <li>نصب، پیکربندی، آزمون، اندازه‌گیری و مستندسازی</li>
+          <li>ارزیابی از نظر امنیت داده و حفاظت از داده</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۲ – طرح شبکه</div>
-        <p>برای همان شرکت طرح IP + VLAN + سرویس‌های DHCP و DNS طراحی کن. آدرس Gateway و سرورها را ثابت نگه دار.</p>
+      <div class="card">
+        <h3>🧱 موضوعات کلیدی</h3>
+        <ul>
+          <li>توپولوژی، IP-Planung، Subnetting</li>
+          <li>VLAN، Routing</li>
+          <li>DHCP، DNS</li>
+          <li>سرویس‌های سرور (File, Web, Print...)</li>
+          <li>Firewall و کنترل دسترسی</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۳ – پیاده‌سازی آزمایشی</div>
-        <p>طرح را در Packet Tracer یا روی VM پیاده کن. VLAN، Inter-VLAN Routing و DHCP را تست کن.</p>
+      <div class="card">
+        <h3>✏️ تمرین‌ها</h3>
+        <div class="exercise"><div class="exercise-title">تمرین ۱</div><p>برای شرکت ۳۰ نفره با ۳ بخش، چه سؤالاتی از مشتری می‌پرسی؟</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۲</div><p>طرح IP + VLAN + DHCP/DNS طراحی کن.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۳</div><p>در Packet Tracer یا VM پیاده و تست کن.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۴</div><p>File Server لینوکس با دسترسی گروهی بساز.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۵</div><p>مستند تحویل: نقشه، جدول IP، تنظیمات، امنیت، تست.</p></div>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۴ – File Server</div>
-        <p>روی لینوکس یک Share (Samba یا NFS) بساز، دسترسی گروهی تعریف کن و از کلاینت ویندوز وصل شو.</p>
-      </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۵ – مستندسازی</div>
-        <p>یک مستند کوتاه تحویل بده: نقشه شبکه، جدول IP، تنظیمات اصلی، نکات امنیتی و نحوه تست.</p>
+      <div class="card">
+        <h3>📖 اصطلاحات</h3>
+        <ul>
+          <li><strong>Netzwerkkomponente</strong> – قطعه شبکه</li>
+          <li><strong>Infrastruktur</strong> – زیرساخت</li>
+          <li><strong>Datensicherheit / Datenschutz</strong></li>
+          <li><strong>Funktionsprüfung</strong> – آزمون کارکرد</li>
+        </ul>
       </div>
     </div>
 
-    <div class="card">
-      <h3>📖 اصطلاحات رسمی آلمانی</h3>
-      <ul>
-        <li><strong>Netzwerkkomponente</strong> – قطعه شبکه</li>
-        <li><strong>Leistungsmerkmal</strong> – ویژگی عملکردی</li>
-        <li><strong>Sicherheitsrelevantes Merkmal</strong> – ویژگی مرتبط با امنیت</li>
-        <li><strong>Infrastruktur</strong> – زیرساخت</li>
-        <li><strong>Nachhaltigkeit</strong> – پایداری</li>
-        <li><strong>Technische und wirtschaftliche Eignung</strong> – تناسب فنی و اقتصادی</li>
-        <li><strong>Funktionsprüfung / Messung</strong> – آزمون کارکرد / اندازه‌گیری</li>
-        <li><strong>Datensicherheit / Datenschutz</strong> – امنیت داده / حفاظت از داده</li>
-        <li><strong>Kundenzufriedenheit / Zukunftsfähigkeit</strong> – رضایت مشتری / آینده‌نگری</li>
-      </ul>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Zielformulierung</h3>
+        <div class="goal-box">Die Schülerinnen und Schüler verfügen über die Kompetenz, Netzwerke und Dienste zu planen, zu konfigurieren und zu erweitern.</div>
+        <h3>📚 Was du lernst</h3>
+        <ul>
+          <li>Anforderungen an Netzwerke und Dienste mit dem Kunden ermitteln</li>
+          <li>Komponenten und sicherheitsrelevante Merkmale recherchieren</li>
+          <li>Infrastruktur planen und Konzepte vergleichen</li>
+          <li>Installieren, konfigurieren, prüfen, messen und dokumentieren</li>
+          <li>Lösung hinsichtlich Datensicherheit und Datenschutz beurteilen</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧱 Kernthemen</h3>
+        <ul>
+          <li>Topologie, IP-Planung, Subnetting</li>
+          <li>VLAN, Routing</li>
+          <li>DHCP, DNS</li>
+          <li>Serverdienste (File, Web, Print …)</li>
+          <li>Firewall und Zugriffskontrolle</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">Übung 1</div><p>Welche Fragen stellst du einem Kunden mit 30 Mitarbeitern und 3 Abteilungen?</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 2</div><p>Entwirf IP-Plan, VLANs sowie DHCP/DNS.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 3</div><p>Setze den Plan in Packet Tracer oder einer VM um und teste.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 4</div><p>Richte einen Linux-Fileserver mit Gruppenrechten ein.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 5</div><p>Erstelle die Übergabedoku: Plan, IP-Tabelle, Konfiguration, Sicherheit, Tests.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Wichtige Begriffe</h3>
+        <ul>
+          <li><strong>Netzwerkkomponente</strong></li>
+          <li><strong>Infrastruktur</strong></li>
+          <li><strong>Datensicherheit / Datenschutz</strong></li>
+          <li><strong>Funktionsprüfung</strong></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card" style="border-color:rgba(34,211,238,0.25)">
-      <h3>📄 منبع</h3>
-      <p style="color:var(--text-muted);margin:0">Lehrplanrichtlinien Bayern – Jahrgangsstufe 11, IT-Systeme, Lernfeld «Netzwerke und Dienste bereitstellen» (96 Std.), Mai 2020</p>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Learning Goal</h3>
+        <div class="goal-box">Students can plan, configure and extend networks and services.</div>
+        <h3>📚 What you learn</h3>
+        <ul>
+          <li>Gather network and service requirements with the customer</li>
+          <li>Research components and security-relevant features</li>
+          <li>Plan infrastructure and compare concepts</li>
+          <li>Install, configure, test, measure and document</li>
+          <li>Evaluate data security and privacy</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧱 Core topics</h3>
+        <ul>
+          <li>Topology, IP planning, subnetting</li>
+          <li>VLANs, routing</li>
+          <li>DHCP, DNS</li>
+          <li>Server services (file, web, print…)</li>
+          <li>Firewall and access control</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">Exercise 1</div><p>What questions do you ask a customer with 30 staff and 3 departments?</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 2</div><p>Design an IP plan, VLANs and DHCP/DNS.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 3</div><p>Implement in Packet Tracer or a VM and test.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 4</div><p>Set up a Linux file server with group permissions.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 5</div><p>Hand-over docs: map, IP table, config, security, tests.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Key Terms</h3>
+        <ul>
+          <li><strong>Network component</strong></li>
+          <li><strong>Infrastructure</strong></li>
+          <li><strong>Data security / privacy</strong></li>
+          <li><strong>Functional testing</strong></li>
+        </ul>
+      </div>
     </div>
+
+    <div class="card"><p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Netzwerke und Dienste bereitstellen (96 Std.), Mai 2020</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
   <script src="script.js"></script>
