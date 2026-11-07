@@ -23,7 +23,7 @@ const translations = {
     quizTitle: 'کوییز تعاملی',
     quizDesc: 'آزمون چندگزینه‌ای با امتیاز',
     explainTitle: 'توضیح‌گر کوتاه',
-    explainDesc: 'درس‌های ۱ دقیقه‌ای با مثال ساده (SLA، VLAN، DHCP)',
+    explainDesc: 'درس‌های ۱ دقیقه‌ای برای همه مضامین با مثال (سه زبان)',
     langLabel: 'زبان',
     backHome: '← بازگشت به خانه',
     footer: 'Fachinformatiker Systemintegration · Klasse 11 · 2026'
@@ -52,7 +52,7 @@ const translations = {
     quizTitle: 'Interaktives Quiz',
     quizDesc: 'Multiple-Choice mit Punktzahl',
     explainTitle: 'Kurzerklärer',
-    explainDesc: '1-Minuten-Lektionen mit Beispiel (SLA, VLAN, DHCP)',
+    explainDesc: '1-Minuten-Lektionen für alle Fächer mit Beispiel (3 Sprachen)',
     langLabel: 'Sprache',
     backHome: '← Zurück zur Startseite',
     footer: 'Fachinformatiker Systemintegration · Klasse 11 · 2026'
@@ -81,7 +81,7 @@ const translations = {
     quizTitle: 'Interactive quiz',
     quizDesc: 'Multiple-choice with scoring',
     explainTitle: 'Short explainers',
-    explainDesc: '1-minute lessons with simple examples (SLA, VLAN, DHCP)',
+    explainDesc: '1-minute lessons for all subjects with examples (3 languages)',
     langLabel: 'Language',
     backHome: '← Back to home',
     footer: 'Fachinformatiker Systemintegration · Class 11 · 2026'
