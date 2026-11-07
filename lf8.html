@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LF 8 – Daten systemübergreifend bereitstellen | FISI Klasse 11</title>
+  <title>LF 8 – Daten bereitstellen | FISI Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="lang-switcher">
@@ -27,107 +27,157 @@
   <header class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / LF 8</div>
-      <h1>🗄️ Lernfeld 8: Daten systemübergreifend bereitstellen</h1>
-      <p class="subtitle">96 Unterrichtsstunden · Anwendungsentwicklung und Programmierung</p>
+      <h1>🗄️ Daten systemübergreifend bereitstellen</h1>
+      <p class="subtitle">96 Std. · Anwendungsentwicklung und Programmierung</p>
     </div>
   </header>
   <main class="container">
-    <div class="card">
-      <h3>🎯 Zielformulierung (هدف رسمی Lehrplan)</h3>
-      <p style="color:var(--accent);font-weight:600">Die Schülerinnen und Schüler besitzen die Kompetenz, Daten aus dezentralen Quellen zusammenzuführen, aufzubereiten und zur weiteren Nutzung zur Verfügung zu stellen.</p>
-      <p><strong>فارسی:</strong> دانش‌آموزان صلاحیت گردآوری داده از منابع غیرمتمرکز، آماده‌سازی و در اختیار قرار دادن آن‌ها برای استفاده بعدی را دارند.</p>
-      <p><strong>English:</strong> Students can merge data from decentralized sources, prepare it and make it available for further use.</p>
-    </div>
 
-    <div class="card">
-      <h3>📚 چه چیزهایی یاد می‌گیری؟ (طبق Lehrplan)</h3>
-      <ul>
-        <li>شناسایی <strong>Datenquellen</strong> برای سفارش مشتری</li>
-        <li>تحلیل ساختار داده، شرایط حقوقی، امکان و سازوکار دسترسی</li>
-        <li>انتخاب منابع داده <strong>heterogen</strong> (متنوع و ناهمگون)</li>
-        <li>طراحی مفهوم فراهم‌سازی داده با رعایت <strong>Informationssicherheit</strong></li>
-        <li>پیاده‌سازی کار تیمی و حتی از راه دور با ابزارهای توسعه مناسب</li>
-        <li>تحویل محصول نهایی + مستندات کاربری (حتی به زبان خارجی)</li>
-        <li>بازنگری مناسب بودن ابزارها و کیفیت مستندات</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🧩 منابع داده (Datenquellen)</h3>
-      <ul>
-        <li>پایگاه‌های داده رابطه‌ای (MySQL, PostgreSQL, SQL Server)</li>
-        <li>فایل‌ها (CSV, JSON, XML, Excel)</li>
-        <li>API / Webservices (REST, SOAP)</li>
-        <li>سیستم‌های سازمانی (ERP, CRM, Ticketsystem)</li>
-        <li>سنسورها و سیستم‌های IoT</li>
-      </ul>
-      <p style="margin-top:0.8rem;color:var(--text-muted)">قبل از استفاده باید: ساختار، حقوق دسترسی، مجوز قانونی (Datenschutz) و روش اتصال را بررسی کنی.</p>
-    </div>
-
-    <div class="card">
-      <h3>📐 از تحلیل تا پیاده‌سازی</h3>
-      <ol style="margin:0.8rem 1.4rem;color:var(--text-muted);line-height:1.9">
-        <li><strong>Anforderungsanalyse</strong> – نیاز مشتری چیست؟ کدام داده لازم است؟</li>
-        <li><strong>Quellen analysieren</strong> – ساختار، دسترسی، محدودیت حقوقی</li>
-        <li><strong>Konzept</strong> – چگونه داده را استخراج، تبدیل و ارائه می‌کنی؟ (ETL / API / DB-View)</li>
-        <li><strong>Informationssicherheit</strong> – رمزنگاری، احراز هویت، حداقل دسترسی</li>
-        <li><strong>Implementierung</strong> – پیاده‌سازی با ابزار مناسب (SQL, Python, Node, ...)</li>
-        <li><strong>Dokumentation & Übergabe</strong> – راهنمای استفاده برای مشتری</li>
-        <li><strong>Reflexion</strong> – آیا ابزار و کیفیت مستند کافی بود؟</li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>🔐 Informationssicherheit و Datenschutz</h3>
-      <ul>
-        <li>فقط داده‌ای را بگیر که واقعاً لازم است (Datenminimierung)</li>
-        <li>دسترسی را محدود کن (Least Privilege)</li>
-        <li>انتقال امن (HTTPS, VPN, verschlüsselte Verbindungen)</li>
-        <li>رعایت DSGVO / GDPR در داده شخصی</li>
-        <li>لاگ و کنترل دسترسی در سیستم‌های حساس</li>
-      </ul>
-      <p style="margin-top:0.8rem;color:var(--text-muted)">کتاب IT-Grundschutz برای عمیق‌تر شدن در این بخش مفید است.</p>
-    </div>
-
-    <div class="card">
-      <h3>✏️ تمرین‌های عملی</h3>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۱ – تحلیل منابع</div>
-        <p>مشتری می‌خواهد گزارش فروش از سه منبع داشته باشد: یک دیتابیس MySQL، یک فایل CSV هفتگی و یک API فروشگاه آنلاین. برای هر منبع بنویس: ساختار تقریبی، روش دسترسی، ریسک امنیتی.</p>
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف یادگیری</h3>
+        <div class="goal-box">دانش‌آموزان صلاحیت گردآوری داده از منابع غیرمتمرکز، آماده‌سازی و در اختیار قرار دادن آن‌ها را دارند.</div>
+        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <ul>
+          <li>شناسایی و تحلیل منابع داده (ساختار، دسترسی، چارچوب حقوقی)</li>
+          <li>انتخاب منابع ناهمگون برای سفارش مشتری</li>
+          <li>طراحی مفهوم فراهم‌سازی با رعایت امنیت اطلاعات</li>
+          <li>پیاده‌سازی تیمی و تحویل همراه با مستند کاربری</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۲ – ER و SQL</div>
-        <p>برای یک سیستم تیکت ساده (User, Ticket, Kategorie, Kommentar) ER-Modell بکش و جداول را با کلید خارجی طراحی کن. یک Query با JOIN بنویس که تیکت‌های باز یک کاربر را نشان دهد.</p>
+      <div class="card">
+        <h3>🧩 منابع داده</h3>
+        <ul>
+          <li>پایگاه داده رابطه‌ای (MySQL, PostgreSQL)</li>
+          <li>فایل‌ها (CSV, JSON, XML)</li>
+          <li>API و Webservices</li>
+          <li>سیستم‌های سازمانی و IoT</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۳ – API</div>
-        <p>یک API ساده بساز که لیست تیکت‌ها را به صورت JSON برگرداند. آن را مستند کن و با curl یا Postman تست کن.</p>
+      <div class="card">
+        <h3>🔐 امنیت اطلاعات</h3>
+        <ul>
+          <li>حداقل داده لازم (Datenminimierung)</li>
+          <li>حداقل دسترسی (Least Privilege)</li>
+          <li>انتقال امن (HTTPS / VPN)</li>
+          <li>رعایت حفاظت از داده شخصی (DSGVO)</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۴ – تحویل به مشتری</div>
-        <p>برای همان API یک راهنمای کوتاه کاربری بنویس (به آلمانی یا انگلیسی): چطور صدا زده شود، چه فیلدهایی برمی‌گردد، چه خطایی ممکن است رخ دهد.</p>
+      <div class="card">
+        <h3>✏️ تمرین‌ها</h3>
+        <div class="exercise"><div class="exercise-title">تمرین ۱</div><p>سه منبع (MySQL، CSV، API) را از نظر ساختار، دسترسی و ریسک امنیتی مقایسه کن.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۲</div><p>برای سیستم تیکت ER-Modell بکش و یک Query با JOIN بنویس.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۳</div><p>یک API ساده JSON بساز و مستند کن.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۴</div><p>راهنمای کاربری کوتاه برای همان API بنویس.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 اصطلاحات</h3>
+        <ul>
+          <li><strong>Datenquelle</strong> – منبع داده</li>
+          <li><strong>Informationssicherheit</strong> – امنیت اطلاعات</li>
+          <li><strong>Bereitstellung</strong> – فراهم‌سازی</li>
+          <li><strong>Rechtliche Rahmenbedingungen</strong> – چارچوب حقوقی</li>
+        </ul>
       </div>
     </div>
 
-    <div class="card">
-      <h3>📖 اصطلاحات رسمی آلمانی</h3>
-      <ul>
-        <li><strong>Datenquelle</strong> – منبع داده</li>
-        <li><strong>Dezentral / Heterogen</strong> – غیرمتمرکز / ناهمگون</li>
-        <li><strong>Zugriffsmöglichkeit / -mechanismus</strong> – امکان / سازوکار دسترسی</li>
-        <li><strong>Informationssicherheit</strong> – امنیت اطلاعات</li>
-        <li><strong>Rechtliche Rahmenbedingungen</strong> – چارچوب حقوقی</li>
-        <li><strong>Bereitstellung</strong> – فراهم‌سازی</li>
-        <li><strong>Entwicklungswerkzeug</strong> – ابزار توسعه</li>
-        <li><strong>Dokumentation zur Handhabung</strong> – مستند کاربری</li>
-        <li><strong>Arbeitsteilig / ortsunabhängig</strong> – کار تیمی / دورکاری</li>
-      </ul>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Zielformulierung</h3>
+        <div class="goal-box">Die Schülerinnen und Schüler besitzen die Kompetenz, Daten aus dezentralen Quellen zusammenzuführen, aufzubereiten und zur weiteren Nutzung bereitzustellen.</div>
+        <h3>📚 Was du lernst</h3>
+        <ul>
+          <li>Datenquellen ermitteln und analysieren (Struktur, Zugriff, Recht)</li>
+          <li>Heterogene Quellen für den Kundenauftrag auswählen</li>
+          <li>Bereitstellungskonzept unter Informationssicherheit entwickeln</li>
+          <li>Arbeitsteilig implementieren und mit Dokumentation übergeben</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧩 Datenquellen</h3>
+        <ul>
+          <li>Relationale Datenbanken</li>
+          <li>Dateien (CSV, JSON, XML)</li>
+          <li>APIs und Webservices</li>
+          <li>Fachsysteme und IoT</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔐 Informationssicherheit</h3>
+        <ul>
+          <li>Datenminimierung</li>
+          <li>Least Privilege</li>
+          <li>Sichere Übertragung</li>
+          <li>DSGVO beachten</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">Übung 1</div><p>Vergleiche drei Quellen (MySQL, CSV, API) nach Struktur, Zugriff und Sicherheitsrisiko.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 2</div><p>Erstelle ein ER-Modell für ein Ticketsystem und eine JOIN-Abfrage.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 3</div><p>Baue eine einfache JSON-API und dokumentiere sie.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 4</div><p>Schreibe eine kurze Benutzeranleitung für die API.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Wichtige Begriffe</h3>
+        <ul>
+          <li><strong>Datenquelle</strong></li>
+          <li><strong>Informationssicherheit</strong></li>
+          <li><strong>Bereitstellung</strong></li>
+          <li><strong>Rechtliche Rahmenbedingungen</strong></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card" style="border-color:rgba(34,211,238,0.25)">
-      <h3>📄 منبع</h3>
-      <p style="color:var(--text-muted);margin:0">Lehrplanrichtlinien Bayern – Jahrgangsstufe 11, Anwendungsentwicklung und Programmierung, Lernfeld «Daten systemübergreifend bereitstellen» (96 Std.), Mai 2020</p>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Learning Goal</h3>
+        <div class="goal-box">Students can merge data from decentralized sources, prepare it and make it available for further use.</div>
+        <h3>📚 What you learn</h3>
+        <ul>
+          <li>Identify and analyse data sources (structure, access, legal framework)</li>
+          <li>Select heterogeneous sources for a customer order</li>
+          <li>Design a provision concept with information security in mind</li>
+          <li>Implement collaboratively and hand over with user documentation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧩 Data sources</h3>
+        <ul>
+          <li>Relational databases</li>
+          <li>Files (CSV, JSON, XML)</li>
+          <li>APIs and web services</li>
+          <li>Business systems and IoT</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔐 Information security</h3>
+        <ul>
+          <li>Data minimisation</li>
+          <li>Least privilege</li>
+          <li>Secure transfer</li>
+          <li>Respect privacy rules (GDPR)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">Exercise 1</div><p>Compare three sources (MySQL, CSV, API) by structure, access and security risk.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 2</div><p>Design an ER model for a ticket system and write a JOIN query.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 3</div><p>Build a simple JSON API and document it.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 4</div><p>Write a short user guide for that API.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Key Terms</h3>
+        <ul>
+          <li><strong>Data source</strong></li>
+          <li><strong>Information security</strong></li>
+          <li><strong>Data provision</strong></li>
+          <li><strong>Legal framework</strong></li>
+        </ul>
+      </div>
     </div>
+
+    <div class="card"><p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Daten systemübergreifend bereitstellen (96 Std.), Mai 2020</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
   <script src="script.js"></script>
