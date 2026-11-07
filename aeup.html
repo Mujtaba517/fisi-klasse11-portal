@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AEuP | Klasse 11</title>
+  <title>AEuP | IHK Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -28,8 +28,8 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
-      <a href="flashcards.html">Flash</a>
-      <a href="quiz.html">Quiz</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
   <div class="container page-head">
@@ -38,64 +38,110 @@
     <p class="sub">Daten systemübergreifend bereitstellen · 96 Std.</p>
   </div>
   <main class="container">
+
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف</h3>
-        <div class="goal">داده را از منابع پراکنده جمع، آماده و در اختیار بگذار.</div>
+        <h3>🎯 هدف Lehrplan</h3>
+        <div class="goal">داده را از منابع غیرمتمرکز جمع کن، آماده کن و برای استفاده بعدی در اختیار بگذار.</div>
+        <p>تحلیل منبع (ساختار، دسترسی، حقوق)، انتخاب منابع ناهمگون، طراحی با امنیت اطلاعات، پیاده‌سازی تیمی، تحویل با مستند کاربری.</p>
+      </div>
+      <div class="card">
+        <h3>🧩 انواع Datenquellen</h3>
         <ul>
-          <li>منابع داده: DB، CSV/JSON، API</li>
-          <li>تحلیل ساختار و دسترسی و چارچوب حقوقی</li>
-          <li>SQL، ER-Modell، JOIN</li>
-          <li>REST API و JSON</li>
-          <li>Informationssicherheit و DSGVO</li>
-          <li>مستند تحویل به مشتری</li>
+          <li>پایگاه رابطه‌ای (MySQL, PostgreSQL, SQL Server)</li>
+          <li>فایل: CSV, JSON, XML, Excel</li>
+          <li>API: REST (JSON) / گاهی SOAP</li>
+          <li>سیستم سازمانی: ERP, CRM, Ticket</li>
+          <li>IoT / سنسورها</li>
+        </ul>
+        <p>قبل از اتصال بپرس: داده شخصی هست؟ مجوز داری؟ پروتکل دسترسی چیست؟ نرخ به‌روزرسانی چقدر است؟</p>
+      </div>
+      <div class="card">
+        <h3>🗃️ مدل‌سازی و SQL</h3>
+        <ul>
+          <li><strong>ER-Modell</strong> – موجودیت، ویژگی، رابطه</li>
+          <li><strong>Primary Key / Foreign Key</strong></li>
+          <li><strong>SELECT … JOIN … WHERE</strong> برای ترکیب جداول</li>
+          <li>نرمال‌سازی پایه برای کاهش تکرار</li>
+        </ul>
+        <p>مثال ذهنی تیکت: User (id) → Ticket (user_id) → Kommentar (ticket_id)</p>
+      </div>
+      <div class="card">
+        <h3>🌐 REST API و JSON</h3>
+        <ul>
+          <li>متدها: GET خواندن · POST ایجاد · PUT/PATCH به‌روزرسانی · DELETE حذف</li>
+          <li>کد وضعیت: 200 OK · 201 Created · 400 Bad Request · 401/403 · 404 · 500</li>
+          <li>JSON ساختار سبک برای تبادل داده</li>
+          <li>احراز هویت: Token / Basic / API-Key (هرگز در کد عمومی سخت‌کد نکن)</li>
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>سه منبع (MySQL، CSV، API) را مقایسه کن.</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>ER برای تیکت + یک Query با JOIN.</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>API ساده JSON بساز و مستند کن.</p></div>
+        <h3>🔐 Informationssicherheit و DSGVO</h3>
+        <ul>
+          <li>Datenminimierung – فقط داده لازم</li>
+          <li>Least Privilege – حداقل دسترسی</li>
+          <li>رمزنگاری در انتقال (HTTPS)</li>
+          <li>لاگ دسترسی برای سیستم‌های حساس</li>
+          <li>داده شخصی = مسئولیت حقوقی (DSGVO)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📦 تحویل به مشتری</h3>
+        <p>محصول بدون مستند ناقص است: چگونه صدا زده شود، چه فیلدی برمی‌گردد، خطاها، پیش‌نیازها، نسخه. Lehrplan صریحاً Dokumentation zur Handhabung را می‌خواهد (حتی به زبان خارجی).</p>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین‌های امتحانی</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>سه منبع فروش (DB، CSV هفتگی، API فروشگاه) را از نظر ساختار، دسترسی و ریسک امنیتی جدول کن.</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>ER برای User/Ticket/Kategorie/Kommentar + یک JOIN برای تیکت‌های باز یک کاربر.</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>قرارداد API بنویس: GET /tickets → فیلدها و دو کد خطا.</p></div>
+        <div class="exercise"><div class="exercise-title">۴</div><p>چرا CSV روزانه از سرور حسابداری را بدون HTTPS نباید روی اینترنت عمومی بفرستی؟</p></div>
+        <div class="exercise"><div class="exercise-title">۵</div><p>راهنمای یک‌صفحه‌ای مشتری برای همان API (آلمانی یا انگلیسی).</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 واژگان</h3>
+        <p>Datenquelle · dezentral · heterogen · ER-Modell · Primärschlüssel · Fremdschlüssel · REST · JSON · Informationssicherheit · DSGVO · Dokumentation</p>
       </div>
     </div>
+
     <div class="lang-block" data-lang="de">
       <div class="card">
         <h3>🎯 Ziel</h3>
-        <div class="goal">Daten aus dezentralen Quellen zusammenführen und bereitstellen.</div>
-        <ul>
-          <li>Datenquellen analysieren</li>
-          <li>SQL, ER-Modell, JOIN</li>
-          <li>REST API und JSON</li>
-          <li>Informationssicherheit und DSGVO</li>
-          <li>Dokumentation für den Kunden</li>
-        </ul>
+        <div class="goal">Daten aus dezentralen Quellen zusammenführen, aufbereiten und bereitstellen.</div>
+      </div>
+      <div class="card">
+        <h3>Kerninhalte</h3>
+        <p>Datenquellen analysieren · ER/SQL/JOIN · REST/JSON · Informationssicherheit/DSGVO · Übergabedokumentation</p>
       </div>
       <div class="card">
         <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Drei Quellen vergleichen (MySQL, CSV, API).</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>ER-Modell Ticket + JOIN-Query.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Einfache JSON-API bauen und dokumentieren.</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>Drei Quellen tabellarisch vergleichen.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>ER + JOIN offene Tickets je User.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>API-Vertrag GET /tickets.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>Risiko CSV ohne HTTPS.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>Einseitige Kundendoku.</p></div>
       </div>
     </div>
+
     <div class="lang-block" data-lang="en">
       <div class="card">
         <h3>🎯 Goal</h3>
-        <div class="goal">Merge and prepare data from decentralized sources.</div>
-        <ul>
-          <li>Analyse data sources</li>
-          <li>SQL, ER model, JOIN</li>
-          <li>REST API and JSON</li>
-          <li>Information security and GDPR</li>
-          <li>Handover documentation</li>
-        </ul>
+        <div class="goal">Merge, prepare and provide data from decentralized sources.</div>
+      </div>
+      <div class="card">
+        <h3>Core topics</h3>
+        <p>Source analysis · ER/SQL/JOIN · REST/JSON · security/GDPR · handover docs</p>
       </div>
       <div class="card">
         <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Compare three sources (MySQL, CSV, API).</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Ticket ER model + JOIN query.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Build and document a simple JSON API.</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>Compare three sources in a table.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>ER + JOIN for a user’s open tickets.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>API contract for GET /tickets.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>Risk of CSV over plain HTTP.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>One-page customer guide.</p></div>
       </div>
     </div>
+
+    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Lehrplan Bayern · AEuP · Daten systemübergreifend bereitstellen (96 Std.)</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
