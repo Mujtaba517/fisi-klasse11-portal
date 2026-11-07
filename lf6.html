@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LF 6 – Serviceanfragen | FISI Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
+    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
+    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="lf6.html" class="active">LF 6</a>
+      <a href="lf7.html">LF 7</a>
+      <a href="lf8.html">LF 8</a>
+      <a href="lf9.html">LF 9</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / LF 6</div>
+      <h1>🎫 Lernfeld 6: Serviceanfragen bearbeiten</h1>
+      <p class="subtitle" data-i18n="lf6Sub">پردازش حرفه‌ای درخواست‌های پشتیبانی کاربران</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
+      <p data-i18n="lf6What">یاد می‌گیری چطور درخواست‌های پشتیبانی (Ticket) را دریافت، اولویت‌بندی، حل و مستند کنی. این مهارت پایه کار روزانه یک Systemintegrator است.</p>
+
+      <h3 data-i18n="goals">اهداف یادگیری</h3>
+      <ul>
+        <li data-i18n="lf6g1">تیکت را به درستی ثبت و دسته‌بندی کنی</li>
+        <li data-i18n="lf6g2">اولویت (Priority) و فوریت (Urgency) را تشخیص بدهی</li>
+        <li data-i18n="lf6g3">با کاربر به صورت حرفه‌ای ارتباط برقرار کنی</li>
+        <li data-i18n="lf6g4">راه‌حل را مستند و در Knowledge Base ذخیره کنی</li>
+        <li data-i18n="lf6g5">مفاهیم پایه ITIL (Incident / Problem / Change) را بفهمی</li>
+      </ul>
+
+      <h3 data-i18n="process">فرآیند استاندارد پردازش تیکت</h3>
+      <ol style="margin:0.8rem 1.4rem;color:var(--text-muted)">
+        <li data-i18n="lf6p1"><strong>Aufnahme</strong> – دریافت و ثبت کامل اطلاعات</li>
+        <li data-i18n="lf6p2"><strong>Klassifizierung</strong> – دسته‌بندی (Hardware / Software / Netzwerk ...)</li>
+        <li data-i18n="lf6p3"><strong>Priorisierung</strong> – تعیین Priority و Impact</li>
+        <li data-i18n="lf6p4"><strong>Diagnose & Lösung</strong> – عیب‌یابی و حل مشکل</li>
+        <li data-i18n="lf6p5"><strong>Dokumentation</strong> – نوشتن راه‌حل و بستن تیکت</li>
+        <li data-i18n="lf6p6"><strong>Feedback</strong> – اطلاع به کاربر و دریافت تأیید</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="priorityTitle">ماتریس اولویت (Priority Matrix)</h3>
+      <p data-i18n="priorityDesc">اولویت معمولاً از ترکیب Impact (تأثیر) و Urgency (فوریت) به دست می‌آید:</p>
+      <ul>
+        <li><strong>Critical / Sehr hoch</strong> – کل شرکت یا سرویس اصلی از کار افتاده</li>
+        <li><strong>High / Hoch</strong> – یک دپارتمان یا چندین کاربر متأثر شده‌اند</li>
+        <li><strong>Medium / Mittel</strong> – یک کاربر یا عملکرد محدود</li>
+        <li><strong>Low / Niedrig</strong> – درخواست بهبود یا مشکل جزئی</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="exercises">تمرین‌های عملی</h3>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۱</div>
+        <p data-i18n="ex6_1">کاربر می‌گوید: «پرینتر شبکه از دیروز کار نمی‌کند و من باید گزارش ماهانه را چاپ کنم». تیکت را کامل بنویس (عنوان، دسته، اولویت، سؤالاتی که باید بپرسی).</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۲</div>
+        <p data-i18n="ex6_2">تفاوت Incident و Problem را با یک مثال واقعی از محیط کار خودت توضیح بده.</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۳</div>
+        <p data-i18n="ex6_3">یک Knowledge-Base مقاله کوتاه برای مشکل «کاربر نمی‌تواند به VPN وصل شود» بنویس (علائم + راه‌حل گام‌به‌گام).</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="keyTerms">اصطلاحات مهم آلمانی</h3>
+      <ul>
+        <li><strong>Serviceanfrage</strong> – درخواست خدمات</li>
+        <li><strong>Störungsmeldung</strong> – گزارش اختلال</li>
+        <li><strong>Ticket / Vorgang</strong> – تیکت</li>
+        <li><strong>Eskalation</strong> – ارجاع به سطح بالاتر</li>
+        <li><strong>First-Level-Support</strong> – پشتیبانی سطح اول</li>
+        <li><strong>Wiederherstellungszeit (RTO)</strong> – زمان هدف بازیابی</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
