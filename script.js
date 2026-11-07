@@ -1,197 +1,118 @@
 const translations = {
   fa: {
-    heroTitle: "پورتال آموزشی صنف ۱۱",
-    heroSubtitle: "آموزش عمیق، تمرین عملی، فلش‌کارت و کوییز برای Lernfelder سال دوم Ausbildung",
-    btnStart: "شروع یادگیری",
-    btnQuiz: "کوییز سریع",
-    navHome: "خانه",
-    navFlash: "فلش‌کارت",
-    navQuiz: "کوییز",
-    sectionLF: "Lernfelder صنف ۱۱",
-    sectionTools: "ابزارهای یادگیری",
-    card6: "پردازش تیکت، اولویت‌بندی، ارتباط با مشتری و ITIL پایه",
-    card7: "سنسور، ESP32، MQTT، Node-RED و Industrie 4.0",
-    card8: "مدل‌سازی داده، SQL، API، JSON و یکپارچه‌سازی",
-    card9: "طراحی شبکه، DHCP، DNS، VLAN، Routing و امنیت",
-    tagDeep: "توضیح عمیق + تمرین",
-    flashTitle: "فلش‌کارت اصطلاحات",
-    flashDesc: "یادگیری سریع واژگان فنی آلمانی با سیستم فلپ کارت",
-    quizTitle: "کوییز تعاملی",
-    quizDesc: "آزمون چندگزینه‌ای از تمام Lernfelder با امتیازدهی",
-    tagTest: "تست خودت",
-    tipsTitle: "نکات موفقیت",
-    tip1Title: "۱. تمرین عملی",
-    tip1Text: "با VirtualBox، Packet Tracer و Node-RED کار کن. تئوری Alone کافی نیست.",
-    tip2Title: "۲. مستندسازی",
-    tip2Text: "هر کاری را مستند کن. در امتحان IHK و شرکت امتیاز بالایی دارد.",
-    tip3Title: "۳. زبان فنی آلمانی",
-    tip3Text: "اصطلاحات آلمانی را دقیق یاد بگیر. از فلش‌کارت‌ها استفاده کن.",
-    tip4Title: "۴. ارتباط با مشتری",
-    tip4Text: "مشکل را ساده و واضح برای کاربر غیرفنی توضیح بده.",
-    whatIs: "این Lernfeld چیست؟",
-    keyTopics: "موضوعات کلیدی",
-    goals: "اهداف یادگیری",
-    process: "فرآیند استاندارد",
-    exercises: "تمرین‌های عملی",
-    keyTerms: "اصطلاحات مهم آلمانی",
-    priorityTitle: "ماتریس اولویت",
-    priorityDesc: "اولویت معمولاً از ترکیب Impact و Urgency به دست می‌آید:",
-    mqttTitle: "MQTT چیست؟",
-    mqttDesc: "MQTT یک پروتکل سبک Publish/Subscribe برای دستگاه‌های IoT است.",
-    erTitle: "مراحل مدل‌سازی داده",
-    subnetTitle: "Subnetting سریع",
-    subnetDesc: "برای تقسیم شبکه از Subnetmask استفاده می‌کنیم.",
-    subnetTip: "همیشه برای Gateway و سرورها آدرس ثابت رزرو کن.",
-    flashPageTitle: "🃏 فلش‌کارت اصطلاحات آلمانی",
-    flashPageSub: "روی کارت کلیک کن تا معنی را ببینی",
-    clickToFlip: "کلیک برای دیدن معنی",
-    shuffle: "بُر زدن",
-    quizPageTitle: "✅ کوییز تعاملی صنف ۱۱",
-    quizPageSub: "۱۰ سؤال از تمام Lernfelder – خودت را محک بزن",
-    submitQuiz: "ثبت پاسخ‌ها",
-    retryQuiz: "دوباره امتحان کن",
-    footer: "ساخته شده برای دانش‌آموزان Fachinformatiker Systemintegration – Klasse 11",
-    lf6What: "یاد می‌گیری چطور درخواست‌های پشتیبانی (Ticket) را دریافت، اولویت‌بندی، حل و مستند کنی.",
-    lf7What: "یاد می‌گیری چطور سنسورها و دستگاه‌های فیزیکی را با سیستم‌های IT ترکیب کنی.",
-    lf8What: "یاد می‌گیری چطور داده‌ها را بین سیستم‌های مختلف امن و ساخت‌یافته منتقل کنی.",
-    lf9What: "قلب Systemintegration. طراحی، راه‌اندازی و ارائه شبکه و سرویس‌ها."
+    heroTitle: 'پورتال آموزشی صنف ۱۱',
+    heroSubtitle: 'مضامین واقعی مدرسه · تمرین · فلش‌کارت · کوییز · آمادگی IHK',
+    btnStart: 'شروع یادگیری',
+    btnQuiz: 'کوییز',
+    navHome: 'خانه',
+    navFlash: 'فلش‌کارت',
+    navQuiz: 'کوییز',
+    sectionSubjects: 'مضامین صنف ۱۱',
+    sectionTools: 'ابزار یادگیری',
+    cardBGWP: 'پردازش درخواست خدمات، SLA، پشتیبانی و ارتباط با مشتری',
+    cardITTec: 'سیستم‌های سایبر-فیزیکی، سنسور، ESP32، MQTT',
+    cardAEuP: 'داده، SQL، API، JSON و یکپارچه‌سازی سیستم‌ها',
+    cardITSys: 'شبکه، DHCP، DNS، VLAN، سرویس‌ها و امنیت',
+    cardFp: 'کار عملی کارگاهی و پروژه‌های فنی',
+    cardPuG: 'سیاست و جامعه · پایه WiSo برای امتحان',
+    tagOpen: 'باز کردن',
+    flashTitle: 'فلش‌کارت اصطلاحات',
+    flashDesc: 'واژگان فنی آلمانی با کارت‌های تعاملی',
+    quizTitle: 'کوییز تعاملی',
+    quizDesc: 'آزمون چندگزینه‌ای با امتیاز',
+    langLabel: 'زبان',
+    backHome: '← بازگشت به خانه',
+    footer: 'Fachinformatiker Systemintegration · Klasse 11 · 2026'
   },
-
   de: {
-    heroTitle: "Lernportal Klasse 11",
-    heroSubtitle: "Tiefe Erklärungen, praktische Übungen, Karteikarten und Quiz für die Lernfelder des zweiten Ausbildungsjahres",
-    btnStart: "Lernen starten",
-    btnQuiz: "Schnell-Quiz",
-    navHome: "Home",
-    navFlash: "Karteikarten",
-    navQuiz: "Quiz",
-    sectionLF: "Lernfelder Klasse 11",
-    sectionTools: "Lern-Tools",
-    card6: "Tickets bearbeiten, priorisieren, Kundenkommunikation und ITIL-Grundlagen",
-    card7: "Sensoren, ESP32, MQTT, Node-RED und Industrie 4.0",
-    card8: "Datenmodellierung, SQL, API, JSON und Integration",
-    card9: "Netzwerkdesign, DHCP, DNS, VLAN, Routing und Sicherheit",
-    tagDeep: "Tiefe Erklärung + Übungen",
-    flashTitle: "Fachbegriff-Karteikarten",
-    flashDesc: "Deutsche Fachbegriffe schnell lernen mit Flip-Karten",
-    quizTitle: "Interaktives Quiz",
-    quizDesc: "Multiple-Choice-Test zu allen Lernfeldern mit Punktzahl",
-    tagTest: "Teste dich",
-    tipsTitle: "Erfolgs-Tipps",
-    tip1Title: "1. Praktisch üben",
-    tip1Text: "Arbeite mit VirtualBox, Packet Tracer und Node-RED. Theorie allein reicht nicht.",
-    tip2Title: "2. Dokumentieren",
-    tip2Text: "Dokumentiere alles. Das bringt Punkte in der IHK-Prüfung und im Betrieb.",
-    tip3Title: "3. Fachsprache Deutsch",
-    tip3Text: "Lerne die deutschen Fachbegriffe genau. Nutze die Karteikarten.",
-    tip4Title: "4. Kundenkommunikation",
-    tip4Text: "Erkläre Probleme einfach und klar für nicht-technische Benutzer.",
-    whatIs: "Worum geht es?",
-    keyTopics: "Wichtige Themen",
-    goals: "Lernziele",
-    process: "Standardprozess",
-    exercises: "Praktische Übungen",
-    keyTerms: "Wichtige deutsche Begriffe",
-    priorityTitle: "Prioritätsmatrix",
-    priorityDesc: "Die Priorität ergibt sich meist aus Impact und Urgency:",
-    mqttTitle: "Was ist MQTT?",
-    mqttDesc: "MQTT ist ein leichtes Publish/Subscribe-Protokoll für IoT-Geräte.",
-    erTitle: "Schritte der Datenmodellierung",
-    subnetTitle: "Subnetting kurz erklärt",
-    subnetDesc: "Zur Aufteilung eines Netzes nutzen wir die Subnetzmaske.",
-    subnetTip: "Reserviere immer feste Adressen für Gateway und Server.",
-    flashPageTitle: "🃏 Deutsche Fachbegriff-Karteikarten",
-    flashPageSub: "Klicke auf die Karte, um die Bedeutung zu sehen",
-    clickToFlip: "Klicken zum Umdrehen",
-    shuffle: "Mischen",
-    quizPageTitle: "✅ Interaktives Quiz Klasse 11",
-    quizPageSub: "10 Fragen zu allen Lernfeldern – teste dich selbst",
-    submitQuiz: "Antworten abgeben",
-    retryQuiz: "Nochmal versuchen",
-    footer: "Erstellt für Auszubildende Fachinformatiker Systemintegration – Klasse 11",
-    lf6What: "Du lernst, Support-Anfragen (Tickets) aufzunehmen, zu priorisieren, zu lösen und zu dokumentieren.",
-    lf7What: "Du lernst, Sensoren und physische Geräte mit IT-Systemen zu verbinden.",
-    lf8What: "Du lernst, Daten sicher und strukturiert zwischen Systemen zu übertragen.",
-    lf9What: "Das Herz der Systemintegration: Netzwerke planen, aufbauen und Dienste bereitstellen."
+    heroTitle: 'Lernportal Klasse 11',
+    heroSubtitle: 'Echte Schulfächer · Übungen · Karteikarten · Quiz · IHK-Vorbereitung',
+    btnStart: 'Lernen starten',
+    btnQuiz: 'Quiz',
+    navHome: 'Home',
+    navFlash: 'Karteikarten',
+    navQuiz: 'Quiz',
+    sectionSubjects: 'Fächer Klasse 11',
+    sectionTools: 'Lern-Tools',
+    cardBGWP: 'Serviceanfragen, SLA, Support und Kundenkommunikation',
+    cardITTec: 'Cyber-physische Systeme, Sensoren, ESP32, MQTT',
+    cardAEuP: 'Daten, SQL, API, JSON und Systemintegration',
+    cardITSys: 'Netzwerke, DHCP, DNS, VLAN, Dienste und Sicherheit',
+    cardFp: 'Praktische Werkstatt- und Projektarbeit',
+    cardPuG: 'Politik und Gesellschaft · Basis für WiSo',
+    tagOpen: 'Öffnen',
+    flashTitle: 'Fachbegriff-Karteikarten',
+    flashDesc: 'Deutsche Fachbegriffe interaktiv lernen',
+    quizTitle: 'Interaktives Quiz',
+    quizDesc: 'Multiple-Choice mit Punktzahl',
+    langLabel: 'Sprache',
+    backHome: '← Zurück zur Startseite',
+    footer: 'Fachinformatiker Systemintegration · Klasse 11 · 2026'
   },
-
   en: {
-    heroTitle: "Class 11 Learning Portal",
-    heroSubtitle: "Deep explanations, practical exercises, flashcards and quizzes for the second-year learning fields",
-    btnStart: "Start Learning",
-    btnQuiz: "Quick Quiz",
-    navHome: "Home",
-    navFlash: "Flashcards",
-    navQuiz: "Quiz",
-    sectionLF: "Class 11 Learning Fields",
-    sectionTools: "Learning Tools",
-    card6: "Ticket handling, prioritization, customer communication and basic ITIL",
-    card7: "Sensors, ESP32, MQTT, Node-RED and Industry 4.0",
-    card8: "Data modelling, SQL, API, JSON and integration",
-    card9: "Network design, DHCP, DNS, VLAN, Routing and security",
-    tagDeep: "Deep explanation + exercises",
-    flashTitle: "Terminology Flashcards",
-    flashDesc: "Quickly learn German technical terms with flip cards",
-    quizTitle: "Interactive Quiz",
-    quizDesc: "Multiple-choice test covering all learning fields with scoring",
-    tagTest: "Test yourself",
-    tipsTitle: "Success Tips",
-    tip1Title: "1. Practice hands-on",
-    tip1Text: "Work with VirtualBox, Packet Tracer and Node-RED. Theory alone is not enough.",
-    tip2Title: "2. Document everything",
-    tip2Text: "Document every step. It scores points in the IHK exam and at work.",
-    tip3Title: "3. Technical German",
-    tip3Text: "Learn the German terms precisely. Use the flashcards.",
-    tip4Title: "4. Customer communication",
-    tip4Text: "Explain problems simply and clearly to non-technical users.",
-    whatIs: "What is this about?",
-    keyTopics: "Key Topics",
-    goals: "Learning Goals",
-    process: "Standard Process",
-    exercises: "Practical Exercises",
-    keyTerms: "Important German Terms",
-    priorityTitle: "Priority Matrix",
-    priorityDesc: "Priority usually comes from combining Impact and Urgency:",
-    mqttTitle: "What is MQTT?",
-    mqttDesc: "MQTT is a lightweight Publish/Subscribe protocol for IoT devices.",
-    erTitle: "Data Modelling Steps",
-    subnetTitle: "Subnetting Quick Guide",
-    subnetDesc: "We use subnet masks to divide a network into smaller ones.",
-    subnetTip: "Always reserve fixed addresses for gateway and servers.",
-    flashPageTitle: "🃏 German Terminology Flashcards",
-    flashPageSub: "Click the card to see the meaning",
-    clickToFlip: "Click to flip",
-    shuffle: "Shuffle",
-    quizPageTitle: "✅ Interactive Class 11 Quiz",
-    quizPageSub: "10 questions from all learning fields – test yourself",
-    submitQuiz: "Submit Answers",
-    retryQuiz: "Try Again",
-    footer: "Created for apprentices in Fachinformatiker Systemintegration – Class 11",
-    lf6What: "You learn how to receive, prioritize, solve and document support requests (tickets).",
-    lf7What: "You learn how to connect sensors and physical devices with IT systems.",
-    lf8What: "You learn how to transfer data securely and structured between systems.",
-    lf9What: "The heart of System Integration: design, set up and provide networks and services."
+    heroTitle: 'Class 11 Learning Portal',
+    heroSubtitle: 'Real school subjects · exercises · flashcards · quiz · IHK prep',
+    btnStart: 'Start learning',
+    btnQuiz: 'Quiz',
+    navHome: 'Home',
+    navFlash: 'Flashcards',
+    navQuiz: 'Quiz',
+    sectionSubjects: 'Class 11 subjects',
+    sectionTools: 'Learning tools',
+    cardBGWP: 'Service requests, SLA, support and customer communication',
+    cardITTec: 'Cyber-physical systems, sensors, ESP32, MQTT',
+    cardAEuP: 'Data, SQL, API, JSON and system integration',
+    cardITSys: 'Networks, DHCP, DNS, VLAN, services and security',
+    cardFp: 'Hands-on workshop and project work',
+    cardPuG: 'Politics & society · base for WiSo exam',
+    tagOpen: 'Open',
+    flashTitle: 'Terminology flashcards',
+    flashDesc: 'Learn German technical terms interactively',
+    quizTitle: 'Interactive quiz',
+    quizDesc: 'Multiple-choice with scoring',
+    langLabel: 'Language',
+    backHome: '← Back to home',
+    footer: 'Fachinformatiker Systemintegration · Class 11 · 2026'
   }
 };
 
 function setLang(lang) {
   const t = translations[lang];
   if (!t) return;
-
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.textContent = t[key];
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  localStorage.setItem('fisi-lang', lang);
+  try {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] != null) el.textContent = t[key];
+    });
+    document.querySelectorAll('.lang-panel button').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    const label = document.getElementById('langLabel');
+    if (label) label.textContent = t.langLabel || 'Language';
+    localStorage.setItem('fisi-lang', lang);
+  } catch (e) {
+    console.warn('lang switch error', e);
+  }
+  closeLangPanel();
 }
+
+function toggleLangPanel(e) {
+  if (e) e.stopPropagation();
+  const panel = document.getElementById('langPanel');
+  if (panel) panel.classList.toggle('open');
+}
+
+function closeLangPanel() {
+  const panel = document.getElementById('langPanel');
+  if (panel) panel.classList.remove('open');
+}
+
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.lang-menu');
+  if (menu && !menu.contains(e.target)) closeLangPanel();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('fisi-lang') || 'fa';
