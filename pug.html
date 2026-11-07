@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PuG | Klasse 11</title>
+  <title>PuG / WiSo | IHK Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -28,73 +28,120 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html" class="active">PuG</a>
-      <a href="flashcards.html">Flash</a>
-      <a href="quiz.html">Quiz</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1>Politik und Gesellschaft (PuG)</h1>
-    <p class="sub">پایه برای Wirtschafts- und Sozialkunde در امتحان IHK</p>
+    <p class="sub">پایه WiSo · در AP Teil 2 حدود ۱۰٪ نمره · ۶۰ دقیقه کتبی</p>
   </div>
   <main class="container">
+
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 چرا مهم است؟</h3>
-        <div class="goal">در امتحان پایانی IHK بخش WiSo حدود ۱۰٪ نمره دارد. PuG پایهٔ همین بخش است.</div>
+        <h3>🎯 ارتباط با امتحان IHK</h3>
+        <div class="goal">بخش Wirtschafts- und Sozialkunde در پایان Ausbildung حدود ۱۰٪ از نمره کل است (۶۰ دقیقه، کتبی).</div>
+        <p>PuG در مدرسه پایه‌ای برای فهم نظام سیاسی، حقوق کار، بیمه اجتماعی و نقش شهروندی می‌سازد؛ همان‌هایی که در سؤالات WiSo می‌آید.</p>
+      </div>
+      <div class="card">
+        <h3>🏛️ نظام سیاسی آلمان (خلاصه امتحانی)</h3>
         <ul>
-          <li>نظام سیاسی آلمان (Grundgesetz، فدرالیسم)</li>
-          <li>حقوق و وظایف شهروندی</li>
-          <li>بازار کار، قرارداد کار، Ausbildung</li>
-          <li>بیمه‌های اجتماعی پایه</li>
-          <li>حفاظت از داده به‌عنوان موضوع اجتماعی</li>
+          <li><strong>Grundgesetz</strong> – قانون اساسی؛ حقوق پایه و ساختار دولت</li>
+          <li><strong>Föderalismus</strong> – Bund و Länder تقسیم کار دارند (آموزش اغلب با Länder)</li>
+          <li><strong>Gewaltenteilung</strong> – قوه مقننه، مجریه، قضاییه</li>
+          <li><strong>Bundestag / Bundesrat / Bundesregierung / Bundespräsident</strong> – نقش‌های متفاوت</li>
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>تفاوت Bund و Länder را با یک مثال توضیح بده.</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>سه حق مهم از Grundgesetz که به کار IT مربوط می‌شود نام ببر.</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>چرا Datenschutz هم موضوع فنی است هم اجتماعی؟</p></div>
+        <h3>👷 کار، Ausbildung، قرارداد</h3>
+        <ul>
+          <li>Ausbildungsvertrag حقوق و وظایف طرفین را مشخص می‌کند</li>
+          <li>Berichtsheft / Ausbildungsnachweis الزامی است</li>
+          <li>Jugendschutz و قوانین کار برای جوانان محدودیت ساعت دارد</li>
+          <li>Tarifvertrag در بعضی صنایع Conditioها را تعیین می‌کند</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛡️ بیمه‌های اجتماعی پایه</h3>
+        <ul>
+          <li>بیمه بیماری (Krankenversicherung)</li>
+          <li>بازنشستگی (Rentenversicherung)</li>
+          <li>بیکاری (Arbeitslosenversicherung)</li>
+          <li>مراقبت (Pflegeversicherung)</li>
+          <li>حادثه شغلی (Unfallversicherung) – معمولاً از سوی کارفرما</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔐 Datenschutz به‌عنوان موضوع اجتماعی</h3>
+        <p>حفاظت از داده فقط فنی نیست؛ حق شخصیت و اعتماد اجتماعی است. DSGVO اصولی مثلMinimierung، شفافیت و هدف مشخص دارد. برای FISI: داده مشتری را فقط برای هدف مجاز و با امنیت مناسب پردازش کن.</p>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین WiSo</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>تفاوت وظیفه Bund و Länder را با مثال مدرسه/Ausbildung توضیح بده.</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>سه حق Grundgesetz که در کار IT معنا دارد نام ببر (مثلاً حریم خصوصی).</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>چرا Unfallversicherung برای کارآموز مهم است و معمولاً چه کسی هزینه می‌دهد؟</p></div>
+        <div class="exercise"><div class="exercise-title">۴</div><p>یک سناریو: کارفرما می‌خواهد ایمیل خصوصی کارمند را بدون دلیل بخواند. از نظر Datenschutz چه اشکالی دارد؟</p></div>
+        <div class="exercise"><div class="exercise-title">۵</div><p>هدف Berichtsheft چیست و اگر ناقص باشد چه پیامدی می‌تواند داشته باشد؟</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 واژگان</h3>
+        <p>Grundgesetz · Föderalismus · Gewaltenteilung · Ausbildungsvertrag · Tarifvertrag · Sozialversicherung · DSGVO · Berichtsheft · WiSo</p>
       </div>
     </div>
+
     <div class="lang-block" data-lang="de">
       <div class="card">
-        <h3>🎯 Warum wichtig?</h3>
-        <div class="goal">WiSo in der IHK-Abschlussprüfung zählt ca. 10 %. PuG legt die Basis.</div>
+        <h3>🎯 IHK-Bezug</h3>
+        <div class="goal">WiSo in AP Teil 2 ca. 10 %, 60 Minuten schriftlich.</div>
+        <p>PuG liefert Grundlagen zu Staat, Arbeitswelt, Sozialversicherung und Datenschutz als gesellschaftliches Thema.</p>
+      </div>
+      <div class="card">
+        <h3>Kernwissen</h3>
         <ul>
-          <li>Politisches System (Grundgesetz, Föderalismus)</li>
-          <li>Bürgerrechte und -pflichten</li>
-          <li>Arbeitswelt, Ausbildungsvertrag</li>
-          <li>Sozialversicherungen</li>
-          <li>Datenschutz als gesellschaftliches Thema</li>
+          <li>Grundgesetz, Föderalismus, Gewaltenteilung</li>
+          <li>Ausbildungsvertrag, Berichtsheft, Jugendarbeitsschutz</li>
+          <li>fünf Sozialversicherungszweige</li>
+          <li>Datenschutz / DSGVO-Prinzipien</li>
         </ul>
       </div>
       <div class="card">
         <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Unterschied Bund / Länder mit Beispiel erklären.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Drei Grundrechte mit IT-Bezug nennen.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Warum ist Datenschutz technisch und gesellschaftlich?</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>Bund vs. Länder am Beispiel Bildung.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Drei Grundrechte mit IT-Bezug.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Unfallversicherung in der Ausbildung.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>Private E-Mails lesen – Datenschutzkonflikt.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>Zweck und Folgen des Berichtshefts.</p></div>
       </div>
     </div>
+
     <div class="lang-block" data-lang="en">
       <div class="card">
-        <h3>🎯 Why it matters</h3>
-        <div class="goal">WiSo is about 10% of the final IHK exam. PuG builds that base.</div>
+        <h3>🎯 IHK link</h3>
+        <div class="goal">WiSo in final exam ≈ 10%, 60 minutes written.</div>
+        <p>PuG builds basics on the political system, working life, social insurance and data protection as a social issue.</p>
+      </div>
+      <div class="card">
+        <h3>Core knowledge</h3>
         <ul>
-          <li>German political system (Basic Law, federalism)</li>
-          <li>Civic rights and duties</li>
-          <li>Work life and apprenticeship contract</li>
-          <li>Social insurance basics</li>
-          <li>Data protection as a social issue</li>
+          <li>Basic Law, federalism, separation of powers</li>
+          <li>Apprenticeship contract, training record, youth labour rules</li>
+          <li>Main social insurance branches</li>
+          <li>GDPR-style principles</li>
         </ul>
       </div>
       <div class="card">
         <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Explain Bund vs Länder with an example.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Name three basic rights relevant to IT work.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Why is data protection both technical and social?</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>Federal vs state role using education as example.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Three basic rights relevant to IT work.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Accident insurance during apprenticeship.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>Employer reading private email – privacy conflict.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>Purpose and risks of an incomplete training record.</p></div>
       </div>
     </div>
+
+    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">PuG · Vorbereitung Wirtschafts- und Sozialkunde (IHK AP Teil 2, ca. 10 %)</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
