@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AEuP | IHK Klasse 11</title>
+  <title>AEuP کامل | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
 </head>
 <body>
   <header class="topbar">
@@ -34,116 +35,108 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>AEuP – Anwendungsentwicklung und Programmierung</h1>
-    <p class="sub">Daten systemübergreifend bereitstellen · 96 Std.</p>
+    <h1>AEuP – داده و یکپارچه‌سازی</h1>
+    <p class="sub">منبع داده · SQL · API · امنیت · با مثال + کوییز</p>
   </div>
   <main class="container">
-
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف Lehrplan</h3>
-        <div class="goal">داده را از منابع غیرمتمرکز جمع کن، آماده کن و برای استفاده بعدی در اختیار بگذار.</div>
-        <p>تحلیل منبع (ساختار، دسترسی، حقوق)، انتخاب منابع ناهمگون، طراحی با امنیت اطلاعات، پیاده‌سازی تیمی، تحویل با مستند کاربری.</p>
+        <h3>این درس چیست؟</h3>
+        <div class="goal">داده از جاهای مختلف می‌آید. تو باید بفهمی از کجاست، چطور بخوانی، ترکیب کنی و امن در اختیار بگذاری.</div>
+        <p><strong>مثال:</strong> فروش در MySQL است، موجودی انبار در فایل CSV، سفارش‌های آنلاین از API فروشگاه. مدیر می‌خواهد یک گزارش واحد.</p>
       </div>
       <div class="card">
-        <h3>🧩 انواع Datenquellen</h3>
+        <h3>۱) انواع منبع داده با مثال</h3>
         <ul>
-          <li>پایگاه رابطه‌ای (MySQL, PostgreSQL, SQL Server)</li>
-          <li>فایل: CSV, JSON, XML, Excel</li>
-          <li>API: REST (JSON) / گاهی SOAP</li>
-          <li>سیستم سازمانی: ERP, CRM, Ticket</li>
-          <li>IoT / سنسورها</li>
+          <li><strong>پایگاه داده:</strong> جدول مشتریان در MySQL</li>
+          <li><strong>فایل:</strong> export روزانه Excel/CSV از حسابداری</li>
+          <li><strong>API:</strong> <code>GET https://shop.example/api/orders</code> با JSON</li>
         </ul>
-        <p>قبل از اتصال بپرس: داده شخصی هست؟ مجوز داری؟ پروتکل دسترسی چیست؟ نرخ به‌روزرسانی چقدر است؟</p>
+        <p>قبل از اتصال بپرس: داده شخصی هست؟ مجوز داری؟ هر چند وقت یک‌بار عوض می‌شود؟</p>
       </div>
       <div class="card">
-        <h3>🗃️ مدل‌سازی و SQL</h3>
+        <h3>۲) ER و SQL خیلی ساده</h3>
+        <p><strong>مثال تیکت:</strong></p>
         <ul>
-          <li><strong>ER-Modell</strong> – موجودیت، ویژگی، رابطه</li>
-          <li><strong>Primary Key / Foreign Key</strong></li>
-          <li><strong>SELECT … JOIN … WHERE</strong> برای ترکیب جداول</li>
-          <li>نرمال‌سازی پایه برای کاهش تکرار</li>
+          <li>جدول User: id, name</li>
+          <li>جدول Ticket: id, user_id, title, status</li>
         </ul>
-        <p>مثال ذهنی تیکت: User (id) → Ticket (user_id) → Kommentar (ticket_id)</p>
+        <p>برای دیدن تیکت‌های باز علی:</p>
+        <p><code>SELECT t.title FROM Ticket t JOIN User u ON t.user_id = u.id WHERE u.name = 'Ali' AND t.status = 'open';</code></p>
+        <p><strong>JOIN</strong> یعنی دو جدول را با کلید مشترک به هم بچسبان.</p>
       </div>
       <div class="card">
-        <h3>🌐 REST API و JSON</h3>
+        <h3>۳) REST API با مثال</h3>
         <ul>
-          <li>متدها: GET خواندن · POST ایجاد · PUT/PATCH به‌روزرسانی · DELETE حذف</li>
-          <li>کد وضعیت: 200 OK · 201 Created · 400 Bad Request · 401/403 · 404 · 500</li>
-          <li>JSON ساختار سبک برای تبادل داده</li>
-          <li>احراز هویت: Token / Basic / API-Key (هرگز در کد عمومی سخت‌کد نکن)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🔐 Informationssicherheit و DSGVO</h3>
-        <ul>
-          <li>Datenminimierung – فقط داده لازم</li>
-          <li>Least Privilege – حداقل دسترسی</li>
-          <li>رمزنگاری در انتقال (HTTPS)</li>
-          <li>لاگ دسترسی برای سیستم‌های حساس</li>
-          <li>داده شخصی = مسئولیت حقوقی (DSGVO)</li>
+          <li><code>GET /tickets</code> → لیست بخوان</li>
+          <li><code>POST /tickets</code> → تیکت جدید بساز</li>
+          <li>پاسخ معمولاً <strong>JSON</strong> است: <code>{"id":5,"title":"VPN down"}</code></li>
+          <li>کد 200 = اوکی · 404 = پیدا نشد · 401 = اجازه نداری</li>
         </ul>
       </div>
       <div class="card">
-        <h3>📦 تحویل به مشتری</h3>
-        <p>محصول بدون مستند ناقص است: چگونه صدا زده شود، چه فیلدی برمی‌گردد، خطاها، پیش‌نیازها، نسخه. Lehrplan صریحاً Dokumentation zur Handhabung را می‌خواهد (حتی به زبان خارجی).</p>
+        <h3>۴) امنیت داده با مثال</h3>
+        <ul>
+          <li>CSV شامل نام و IBAN را با HTTP خام روی اینترنت نفرست → <strong>HTTPS</strong></li>
+          <li>کاربر پشتیبانی فقط تیکت ببیند نه حقوق همکاران → <strong>Least Privilege</strong></li>
+          <li>داده شخصی = قوانین DSGVO</li>
+        </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین‌های امتحانی</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>سه منبع فروش (DB، CSV هفتگی، API فروشگاه) را از نظر ساختار، دسترسی و ریسک امنیتی جدول کن.</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>ER برای User/Ticket/Kategorie/Kommentar + یک JOIN برای تیکت‌های باز یک کاربر.</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>قرارداد API بنویس: GET /tickets → فیلدها و دو کد خطا.</p></div>
-        <div class="exercise"><div class="exercise-title">۴</div><p>چرا CSV روزانه از سرور حسابداری را بدون HTTPS نباید روی اینترنت عمومی بفرستی؟</p></div>
-        <div class="exercise"><div class="exercise-title">۵</div><p>راهنمای یک‌صفحه‌ای مشتری برای همان API (آلمانی یا انگلیسی).</p></div>
+        <h3>۵) تحویل به مشتری</h3>
+        <p><strong>مثال مستند یک‌خطی:</strong> «برای لیست تیکت‌های باز: GET /api/tickets?status=open با Header Authorization: Bearer TOKEN. پاسخ JSON آرایه است.»</p>
       </div>
       <div class="card">
-        <h3>📖 واژگان</h3>
-        <p>Datenquelle · dezentral · heterogen · ER-Modell · Primärschlüssel · Fremdschlüssel · REST · JSON · Informationssicherheit · DSGVO · Dokumentation</p>
+        <h3>✅ کوییز AEuP</h3>
+        <div id="quiz-aeup"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">ثبت کوییز</button></div>
+        <div class="quiz-score" id="score-aeup" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
-
     <div class="lang-block" data-lang="de">
-      <div class="card">
-        <h3>🎯 Ziel</h3>
-        <div class="goal">Daten aus dezentralen Quellen zusammenführen, aufbereiten und bereitstellen.</div>
-      </div>
-      <div class="card">
-        <h3>Kerninhalte</h3>
-        <p>Datenquellen analysieren · ER/SQL/JOIN · REST/JSON · Informationssicherheit/DSGVO · Übergabedokumentation</p>
-      </div>
-      <div class="card">
-        <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Drei Quellen tabellarisch vergleichen.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>ER + JOIN offene Tickets je User.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>API-Vertrag GET /tickets.</p></div>
-        <div class="exercise"><div class="exercise-title">4</div><p>Risiko CSV ohne HTTPS.</p></div>
-        <div class="exercise"><div class="exercise-title">5</div><p>Einseitige Kundendoku.</p></div>
-      </div>
+      <div class="card"><h3>Kern</h3><div class="goal">Datenquellen verstehen, SQL/JOIN, REST/JSON, Sicherheit, Dokumentation – mit Beispielen.</div></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-de"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Abgeben</button></div>
+        <div class="quiz-score" id="score-aeup-de" style="display:none;margin-top:1rem"></div></div>
     </div>
-
     <div class="lang-block" data-lang="en">
-      <div class="card">
-        <h3>🎯 Goal</h3>
-        <div class="goal">Merge, prepare and provide data from decentralized sources.</div>
-      </div>
-      <div class="card">
-        <h3>Core topics</h3>
-        <p>Source analysis · ER/SQL/JOIN · REST/JSON · security/GDPR · handover docs</p>
-      </div>
-      <div class="card">
-        <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Compare three sources in a table.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>ER + JOIN for a user’s open tickets.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>API contract for GET /tickets.</p></div>
-        <div class="exercise"><div class="exercise-title">4</div><p>Risk of CSV over plain HTTP.</p></div>
-        <div class="exercise"><div class="exercise-title">5</div><p>One-page customer guide.</p></div>
-      </div>
+      <div class="card"><h3>Core</h3><div class="goal">Data sources, SQL/JOIN, REST/JSON, security, docs – with examples.</div></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-en"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Submit</button></div>
+        <div class="quiz-score" id="score-aeup-en" style="display:none;margin-top:1rem"></div></div>
     </div>
-
-    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Lehrplan Bayern · AEuP · Daten systemübergreifend bereitstellen (96 Std.)</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
+  <script>
+    const quizData={aeup:{fa:[
+      {q:'JSON بیشتر کجا دیده می‌شود؟',opts:['فقط چاپگر','پاسخ API مدرن','کابل شبکه'],c:1},
+      {q:'JOIN در SQL؟',opts:['جدا کردن جداول','چسباندن جداول با کلید مشترک','حذف دیتابیس'],c:1},
+      {q:'GET معمولاً یعنی؟',opts:['حذف','خواندن/گرفتن داده','فرمت هارد'],c:1},
+      {q:'داده شخصی را بدون رمز روی HTTP؟',opts:['درست است','اشتباه و خطرناک','فقط برای عکس'],c:1},
+      {q:'ER مدل چیست؟',opts:['نوع کابل','مدل موجودیت-رابطه برای داده','نام روتر'],c:1}
+    ],de:[
+      {q:'JSON oft bei?',opts:['nur Drucker','moderne APIs','Netzkabel'],c:1},
+      {q:'JOIN bedeutet?',opts:['Tabellen trennen','Tabellen verknüpfen','DB löschen'],c:1},
+      {q:'GET heißt meist?',opts:['löschen','lesen','formatieren'],c:1},
+      {q:'Personen daten per HTTP klartext?',opts:['ok','riskant','nur Fotos'],c:1},
+      {q:'ER-Modell?',opts:['Kabeltyp','Entity-Relationship','Routername'],c:1}
+    ],en:[
+      {q:'JSON is common in?',opts:['printers only','modern APIs','network cables'],c:1},
+      {q:'JOIN means?',opts:['split tables','link tables by key','delete DB'],c:1},
+      {q:'GET usually means?',opts:['delete','read data','format disk'],c:1},
+      {q:'Personal data over plain HTTP?',opts:['fine','risky/wrong','photos only'],c:1},
+      {q:'ER model is?',opts:['cable type','entity-relationship model','router name'],c:1}
+    ]}};
+    const answers={};let done={};
+    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
+    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
+    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
+    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
+    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
+    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
+    document.addEventListener('DOMContentLoaded',()=>renderMini('aeup'));
+    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.aeup){answers.aeup={};renderMini('aeup')}};
+  </script>
 </body>
 </html>
