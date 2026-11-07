@@ -3,168 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FISI Klasse 11 Portal | پورتال صنف ۱۱ سیستم‌اینتگریشن</title>
+  <title>FISI Klasse 11 Portal | پورتال صنف ۱۱</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Language Switcher -->
   <div class="lang-switcher">
     <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
     <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
     <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
   </div>
 
-  <!-- Header -->
   <header class="hero">
     <div class="container">
-      <div class="badge">Fachinformatiker Systemintegration</div>
+      <div class="badge">⚡ Fachinformatiker Systemintegration</div>
       <h1 data-i18n="heroTitle">پورتال آموزشی صنف ۱۱</h1>
-      <p class="subtitle" data-i18n="heroSubtitle">آموزش کامل و مفهومی Lernfelder سال دوم Ausbildung IT با تمرکز روی Systemintegration</p>
+      <p class="subtitle" data-i18n="heroSubtitle">آموزش عمیق، تمرین عملی، فلش‌کارت و کوییز برای Lernfelder سال دوم Ausbildung</p>
+      <div class="hero-actions">
+        <a href="#lernfelder" class="btn btn-primary" data-i18n="btnStart">شروع یادگیری</a>
+        <a href="quiz.html" class="btn btn-ghost" data-i18n="btnQuiz">کوییز سریع</a>
+      </div>
     </div>
   </header>
 
-  <!-- Navigation -->
   <nav class="main-nav">
     <div class="container nav-inner">
-      <a href="#overview" data-i18n="navOverview">معرفی</a>
-      <a href="#lf6" data-i18n="navLF6">Serviceanfragen</a>
-      <a href="#lf7" data-i18n="navLF7">Cyber-physische Systeme</a>
-      <a href="#lf8" data-i18n="navLF8">Daten bereitstellen</a>
-      <a href="#lf9" data-i18n="navLF9">Netzwerke & Dienste</a>
-      <a href="#tips" data-i18n="navTips">نکات امتحانی</a>
+      <a href="index.html" class="active" data-i18n="navHome">خانه</a>
+      <a href="lf6.html">LF 6</a>
+      <a href="lf7.html">LF 7</a>
+      <a href="lf8.html">LF 8</a>
+      <a href="lf9.html">LF 9</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </div>
   </nav>
 
   <main class="container">
-
-    <!-- Overview -->
-    <section id="overview" class="section">
-      <h2 data-i18n="overviewTitle">معرفی کلی صنف ۱۱</h2>
-      <div class="card">
-        <p data-i18n="overviewText1">در Ausbildung آلمان، سال دوم (که در بسیاری از مدارس Berufsschule به عنوان Jahrgangsstufe 11 شناخته می‌شود) پایه‌های پیشرفته‌تری از Systemintegration را پوشش می‌دهد.</p>
-        <p data-i18n="overviewText2">تمرکز اصلی روی این چهار Lernfeld است:</p>
-        <ul class="topic-list">
-          <li><strong>LF 6</strong> – Serviceanfragen bearbeiten</li>
-          <li><strong>LF 7</strong> – Cyber-physische Systeme ergänzen</li>
-          <li><strong>LF 8</strong> – Daten systemübergreifend bereitstellen</li>
-          <li><strong>LF 9</strong> – Netzwerke und Dienste bereitstellen</li>
-        </ul>
-        <p data-i18n="overviewText3">این پورتال هر موضوع را به زبان ساده فارسی، آلمانی رسمی و انگلیسی توضیح می‌دهد تا هم برای مدرسه و هم برای کار عملی در شرکت آماده باشی.</p>
+    <section id="lernfelder" class="section">
+      <h2 class="section-title"><span data-i18n="sectionLF">Lernfelder صنف ۱۱</span></h2>
+      <div class="cards-grid">
+        <a href="lf6.html" class="feature-card">
+          <div class="icon">🎫</div>
+          <h3>LF 6 – Serviceanfragen</h3>
+          <p data-i18n="card6">پردازش تیکت، اولویت‌بندی، ارتباط با مشتری و ITIL پایه</p>
+          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        </a>
+        <a href="lf7.html" class="feature-card">
+          <div class="icon">🤖</div>
+          <h3>LF 7 – Cyber-physische Systeme</h3>
+          <p data-i18n="card7">سنسور، ESP32، MQTT، Node-RED و Industrie 4.0</p>
+          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        </a>
+        <a href="lf8.html" class="feature-card">
+          <div class="icon">🗄️</div>
+          <h3>LF 8 – Daten bereitstellen</h3>
+          <p data-i18n="card8">مدل‌سازی داده، SQL، API، JSON و یکپارچه‌سازی</p>
+          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        </a>
+        <a href="lf9.html" class="feature-card">
+          <div class="icon">🌐</div>
+          <h3>LF 9 – Netzwerke & Dienste</h3>
+          <p data-i18n="card9">طراحی شبکه، DHCP، DNS، VLAN، Routing و امنیت</p>
+          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        </a>
       </div>
     </section>
 
-    <!-- LF 6 -->
-    <section id="lf6" class="section">
-      <h2 data-i18n="lf6Title">Lernfeld 6: Serviceanfragen bearbeiten</h2>
-      <div class="card">
-        <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
-        <p data-i18n="lf6What">یاد می‌گیری چطور درخواست‌های پشتیبانی کاربران (Ticket) را دریافت، اولویت‌بندی، حل و مستند کنی. این مهارت پایه کار روزانه یک Systemintegrator است.</p>
-
-        <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
-        <ul>
-          <li data-i18n="lf6t1">ساخت و مدیریت Ticket-System</li>
-          <li data-i18n="lf6t2">اولویت‌بندی (Priority) و Escalation</li>
-          <li data-i18n="lf6t3">ارتباط حرفه‌ای با مشتری (Kundenkommunikation)</li>
-          <li data-i18n="lf6t4">مستندسازی راه‌حل‌ها (Knowledge Base)</li>
-          <li data-i18n="lf6t5">آشنایی با ITIL پایه‌ای (Incident, Problem, Change)</li>
-        </ul>
-
-        <h3 data-i18n="practical">مثال عملی</h3>
-        <p data-i18n="lf6Practical">کاربر می‌گوید: «پرینتر شبکه کار نمی‌کند». تو باید: ۱) اطلاعات کامل بگیری ۲) مشکل را دسته‌بندی کنی ۳) راه‌حل را پیدا و تست کنی ۴) به کاربر توضیح بدهی و تیکت را ببندی.</p>
+    <section class="section">
+      <h2 class="section-title"><span data-i18n="sectionTools">ابزارهای یادگیری</span></h2>
+      <div class="cards-grid">
+        <a href="flashcards.html" class="feature-card">
+          <div class="icon">🃏</div>
+          <h3 data-i18n="flashTitle">فلش‌کارت اصطلاحات</h3>
+          <p data-i18n="flashDesc">یادگیری سریع واژگان فنی آلمانی با سیستم فلپ کارت</p>
+          <span class="tag">DE ⟷ FA / EN</span>
+        </a>
+        <a href="quiz.html" class="feature-card">
+          <div class="icon">✅</div>
+          <h3 data-i18n="quizTitle">کوییز تعاملی</h3>
+          <p data-i18n="quizDesc">آزمون چندگزینه‌ای از تمام Lernfelder با امتیازدهی</p>
+          <span class="tag" data-i18n="tagTest">تست خودت</span>
+        </a>
       </div>
     </section>
 
-    <!-- LF 7 -->
-    <section id="lf7" class="section">
-      <h2 data-i18n="lf7Title">Lernfeld 7: Cyber-physische Systeme ergänzen</h2>
-      <div class="card">
-        <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
-        <p data-i18n="lf7What">یاد می‌گیری چطور دنیای فیزیکی (سنسور، موتور، دستگاه) را با سیستم‌های IT ترکیب کنی. این پایه Industrie 4.0 و IoT است.</p>
-
-        <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
-        <ul>
-          <li data-i18n="lf7t1">سنسورها و عملگرها (Sensoren & Aktoren)</li>
-          <li data-i18n="lf7t2">میکروکنترلر (مثل ESP32 / Arduino)</li>
-          <li data-i18n="lf7t3">پروتکل‌های IoT (MQTT, HTTP)</li>
-          <li data-i18n="lf7t4">Node-RED و اتوماسیون جریان داده</li>
-          <li data-i18n="lf7t5">ماشین مجازی و لینوکس برای تست</li>
-          <li data-i18n="lf7t6">مفاهیم پایه الکتروتکنیک</li>
-        </ul>
-
-        <h3 data-i18n="practical">مثال عملی</h3>
-        <p data-i18n="lf7Practical">یک سنسور دما را به ESP32 وصل می‌کنی، داده‌ها را از طریق MQTT به یک داشبورد می‌فرستی و اگر دما از حد مجاز بالاتر رفت، هشدار می‌فرستی.</p>
-      </div>
-    </section>
-
-    <!-- LF 8 -->
-    <section id="lf8" class="section">
-      <h2 data-i18n="lf8Title">Lernfeld 8: Daten systemübergreifend bereitstellen</h2>
-      <div class="card">
-        <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
-        <p data-i18n="lf8What">یاد می‌گیری چطور داده‌ها را بین سیستم‌های مختلف (پایگاه داده، API، فایل، سرویس) به صورت امن و ساخت‌یافته منتقل و در دسترس قرار بدهی.</p>
-
-        <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
-        <ul>
-          <li data-i18n="lf8t1">مدل‌سازی داده (ER-Modell)</li>
-          <li data-i18n="lf8t2">پایگاه داده رابطه‌ای (SQL)</li>
-          <li data-i18n="lf8t3">API و Webservices</li>
-          <li data-i18n="lf8t4">فرمت‌های داده (JSON, XML, CSV)</li>
-          <li data-i18n="lf8t5">یکپارچه‌سازی سیستم‌ها (Systemintegration of data)</li>
-        </ul>
-
-        <h3 data-i18n="practical">مثال عملی</h3>
-        <p data-i18n="lf8Practical">از یک پایگاه داده MySQL داده مشتری را می‌خوانی، آن را به JSON تبدیل می‌کنی و از طریق یک API ساده در اختیار یک برنامه دیگر قرار می‌دهی.</p>
-      </div>
-    </section>
-
-    <!-- LF 9 -->
-    <section id="lf9" class="section">
-      <h2 data-i18n="lf9Title">Lernfeld 9: Netzwerke und Dienste bereitstellen</h2>
-      <div class="card">
-        <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
-        <p data-i18n="lf9What">قلب Systemintegration. یاد می‌گیری شبکه را طراحی، راه‌اندازی، پیکربندی و سرویس‌های مهم را ارائه کنی.</p>
-
-        <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
-        <ul>
-          <li data-i18n="lf9t1">طراحی شبکه (Topologie, Subnetting)</li>
-          <li data-i18n="lf9t2">DHCP و DNS</li>
-          <li data-i18n="lf9t3">Routing (Static & Dynamic)</li>
-          <li data-i18n="lf9t4">VLAN و Switch Configuration</li>
-          <li data-i18n="lf9t5">سرویس‌های سرور (File, Print, Web, Mail)</li>
-          <li data-i18n="lf9t6">امنیت پایه شبکه (Firewall, ACL)</li>
-        </ul>
-
-        <h3 data-i18n="practical">مثال عملی</h3>
-        <p data-i18n="lf9Practical">یک شبکه کوچک شرکتی طراحی می‌کنی: DHCP برای اختصاص IP، DNS برای نام‌گذاری، VLAN برای جداسازی بخش‌ها و یک فایل‌سرور لینوکس برای اشتراک‌گذاری فایل.</p>
-      </div>
-    </section>
-
-    <!-- Tips -->
-    <section id="tips" class="section">
-      <h2 data-i18n="tipsTitle">نکات مهم برای موفقیت در صنف ۱۱</h2>
-      <div class="card tips-grid">
+    <section class="section">
+      <h2 class="section-title"><span data-i18n="tipsTitle">نکات موفقیت</span></h2>
+      <div class="tips-grid">
         <div class="tip">
           <h4 data-i18n="tip1Title">۱. تمرین عملی</h4>
-          <p data-i18n="tip1Text">فقط تئوری کافی نیست. با VirtualBox / Proxmox شبکه بساز، با Packet Tracer کار کن و Node-RED را روی لینوکس نصب کن.</p>
+          <p data-i18n="tip1Text">با VirtualBox، Packet Tracer و Node-RED کار کن. تئوری Alone کافی نیست.</p>
         </div>
         <div class="tip">
           <h4 data-i18n="tip2Title">۲. مستندسازی</h4>
-          <p data-i18n="tip2Text">هر کاری که انجام می‌دهی را مستند کن. در امتحان و در شرکت، مستندسازی خوب امتیاز بالایی دارد.</p>
+          <p data-i18n="tip2Text">هر کاری را مستند کن. در امتحان IHK و شرکت امتیاز بالایی دارد.</p>
         </div>
         <div class="tip">
-          <h4 data-i18n="tip3Title">۳. زبان آلمانی فنی</h4>
-          <p data-i18n="tip3Text">اصطلاحات آلمانی را دقیق یاد بگیر. در امتحان IHK و در کار روزمره به آن‌ها نیاز داری.</p>
+          <h4 data-i18n="tip3Title">۳. زبان فنی آلمانی</h4>
+          <p data-i18n="tip3Text">اصطلاحات آلمانی را دقیق یاد بگیر. از فلش‌کارت‌ها استفاده کن.</p>
         </div>
         <div class="tip">
           <h4 data-i18n="tip4Title">۴. ارتباط با مشتری</h4>
-          <p data-i18n="tip4Text">یاد بگیر مشکل را ساده و واضح برای کاربر غیرفنی توضیح بدهی. این مهارت خیلی مهم است.</p>
+          <p data-i18n="tip4Text">مشکل را ساده و واضح برای کاربر غیرفنی توضیح بده.</p>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
