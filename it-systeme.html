@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT-Systeme کامل | Klasse 11</title>
+  <title>IT-Systeme | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
@@ -35,134 +35,56 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>IT-Systeme (FU-IT) – کامل</h1>
-    <p class="sub">شبکه و سرویس‌ها با مثال ساده + کوییز پایانی</p>
+    <h1>IT-Systeme (FU-IT)</h1>
+    <p class="sub">IP · VLAN · DHCP · DNS · FA/DE/EN same topics</p>
   </div>
   <main class="container">
+
     <div class="lang-block" data-lang="fa">
-      <div class="card">
-        <h3>این درس چیست؟</h3>
-        <div class="goal">یاد می‌گیری شبکه را طراحی و راه بیندازی: IP، VLAN، DHCP، DNS، امنیت.</div>
-        <p><strong>مثال:</strong> شرکت ۳۰ نفره سه بخش دارد. تو طرح می‌کشی، VLAN می‌سازی، DHCP می‌دهی، تست می‌کنی و مستند می‌نویسی.</p>
-      </div>
-      <div class="card">
-        <h3>۱) OSI خیلی ساده</h3>
-        <p>لایه‌ها مثل طبقات ساختمان‌اند. وقتی اینترنت قطع است از پایین به بالا چک کن:</p>
-        <ul>
-          <li>کابل وصل است؟ (L1)</li>
-          <li>لینک روی سوئیچ سبز است؟ (L2)</li>
-          <li>IP و Gateway درست است؟ (L3)</li>
-          <li>پورت برنامه باز است؟ (L4–7)</li>
-        </ul>
-        <p><strong>مثال:</strong> Ping به Gateway جواب می‌دهد ولی سایت باز نمی‌شود → مشکل احتمالاً DNS است نه کابل.</p>
-      </div>
-      <div class="card">
-        <h3>۲) IP و Gateway با مثال</h3>
-        <p>هر دستگاه در شبکه یک آدرس می‌خواهد.</p>
-        <ul>
-          <li>PC: <code>192.168.10.50</code></li>
-          <li>Mask: <code>255.255.255.0</code> یعنی شبکه <code>192.168.10.x</code></li>
-          <li>Gateway: <code>192.168.10.1</code> (درِ خروجی به شبکه‌های دیگر / اینترنت)</li>
-        </ul>
-        <p>بدون Gateway فقط با دستگاه‌های همان شبکه حرف می‌زنی.</p>
-      </div>
-      <div class="card">
-        <h3>۳) Subnetting با مثال عددی</h3>
-        <p>شبکه بزرگ را تکه می‌کنی.</p>
-        <p><strong>مثال:</strong> <code>192.168.50.0/24</code> را به دو نیم کن → دو شبکه <code>/25</code>:</p>
-        <ul>
-          <li>اول: <code>192.168.50.0</code> تا <code>.127</code> (Hosts: .1–.126)</li>
-          <li>دوم: <code>192.168.50.128</code> تا <code>.255</code> (Hosts: .129–.254)</li>
-        </ul>
-        <p><code>/26</code> ≈ ۶۲ host قابل استفاده · <code>/24</code> ≈ ۲۵۴ host</p>
-      </div>
-      <div class="card">
-        <h3>۴) VLAN با مثال</h3>
-        <p>روی یک سوئیچ فیزیکی، شبکه‌های جدا می‌سازی.</p>
-        <ul>
-          <li>VLAN 10 = اداری · VLAN 20 = فنی · VLAN 30 = مهمان</li>
-          <li>پورت PC = Access یک VLAN</li>
-          <li>پورت به روتر = Trunk (چند VLAN)</li>
-        </ul>
-        <p><strong>مثال:</strong> مهمان نباید فایل سرور اداری را ببیند → VLAN جدا + قانون فایروال.</p>
-      </div>
-      <div class="card">
-        <h3>۵) DHCP با مثال</h3>
-        <p>به‌جای تایپ دستی IP، سرور خودکار می‌دهد (DORA: Discover→Offer→Request→Ack).</p>
-        <p><strong>مثال Pool:</strong> شبکه 192.168.10.0/24 · Gateway .1 · Range .100–.200 · DNS 8.8.8.8</p>
-        <p>آدرس پرینتر و سرور را از Pool خارج کن تا تداخل نشود.</p>
-      </div>
-      <div class="card">
-        <h3>۶) DNS با مثال</h3>
-        <p>نام را به IP ترجمه می‌کند.</p>
-        <p><strong>مثال:</strong> <code>files.firma.local</code> → <code>192.168.10.10</code></p>
-        <p>اگر IP را ping می‌کنی ولی نام کار نمی‌کند → مشکل DNS.</p>
-      </div>
-      <div class="card">
-        <h3>۷) امنیت ساده</h3>
-        <ul>
-          <li>فقط پورت لازم روی فایروال باز</li>
-          <li>رمز قوی + حداقل دسترسی</li>
-          <li>VLAN مهمان جدا</li>
-          <li>Backup و آپدیت</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>✅ کوییز IT-Systeme</h3>
-        <div id="quiz-its"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">ثبت کوییز</button></div>
-        <div class="quiz-score" id="score-its" style="display:none;margin-top:1rem"></div>
-      </div>
+      <div class="card"><h3>این درس چیست؟</h3><div class="goal">شبکه را طراحی و راه بیندازی: IP، VLAN، DHCP، DNS، امنیت.</div><p><strong>مثال:</strong> شرکت ۳۰ نفره، سه بخش → طرح، VLAN، DHCP، تست، مستند.</p></div>
+      <div class="card"><h3>۱) OSI ساده</h3><ul><li>کابل؟ (L1)</li><li>لینک سوئیچ؟ (L2)</li><li>IP و Gateway؟ (L3)</li><li>برنامه/پورت؟ (L4–7)</li></ul><p><strong>مثال:</strong> Ping به Gateway اوکی، سایت باز نمی‌شود → اغلب DNS.</p></div>
+      <div class="card"><h3>۲) IP و Gateway</h3><ul><li>PC: <code>192.168.10.50</code></li><li>Mask: <code>255.255.255.0</code></li><li>Gateway: <code>192.168.10.1</code></li></ul><p>بدون Gateway فقط همان شبکه محلی.</p></div>
+      <div class="card"><h3>۳) Subnetting</h3><p><code>192.168.50.0/24</code> → دو <code>/25</code>: <code>.0–.127</code> و <code>.128–.255</code>.</p><p><code>/26</code> ≈ ۶۲ host · <code>/24</code> ≈ ۲۵۴ host</p></div>
+      <div class="card"><h3>۴) VLAN</h3><ul><li>VLAN 10 اداری · 20 فنی · 30 مهمان</li><li>Access = یک VLAN برای PC</li><li>Trunk = چند VLAN به روتر</li></ul><p><strong>مثال:</strong> مهمان جدا از فایل‌سرور اداری.</p></div>
+      <div class="card"><h3>۵) DHCP</h3><p>DORA: Discover→Offer→Request→Ack. Pool مثلاً <code>.100–.200</code>، Gateway <code>.1</code>، DNS <code>8.8.8.8</code>. سرور/پرینتر را exclude کن.</p></div>
+      <div class="card"><h3>۶) DNS</h3><p><code>files.firma.local</code> → <code>192.168.10.10</code>. اگر IP پینگ می‌شود ولی نام نه → DNS.</p></div>
+      <div class="card"><h3>۷) امنیت</h3><ul><li>فقط پورت لازم</li><li>حداقل دسترسی</li><li>VLAN مهمان جدا</li><li>Backup و آپدیت</li></ul></div>
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-its"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">ثبت</button></div><div class="quiz-score" id="score-its" style="display:none;margin-top:1rem"></div></div>
     </div>
 
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Kern</h3><div class="goal">Netze planen und Dienste bereitstellen: IP, VLAN, DHCP, DNS, Sicherheit – mit Beispielen.</div>
-        <ul>
-          <li>OSI zum Troubleshooting</li>
-          <li>IP + Gateway + Subnetting (/24,/25,/26)</li>
-          <li>VLAN Access/Trunk</li>
-          <li>DHCP DORA + Pool</li>
-          <li>DNS Name→IP</li>
-        </ul>
-      </div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-de"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Abgeben</button></div>
-        <div class="quiz-score" id="score-its-de" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>Worum geht es?</h3><div class="goal">Netze planen und bereitstellen: IP, VLAN, DHCP, DNS, Sicherheit.</div><p><strong>Beispiel:</strong> 30 Personen, 3 Abteilungen → Plan, VLAN, DHCP, Test, Doku.</p></div>
+      <div class="card"><h3>1) OSI einfach</h3><ul><li>Kabel? (L1)</li><li>Switch-Link? (L2)</li><li>IP und Gateway? (L3)</li><li>Anwendung/Port? (L4–7)</li></ul><p><strong>Beispiel:</strong> Ping zum Gateway ok, Website nicht → oft DNS.</p></div>
+      <div class="card"><h3>2) IP und Gateway</h3><ul><li>PC: <code>192.168.10.50</code></li><li>Maske: <code>255.255.255.0</code></li><li>Gateway: <code>192.168.10.1</code></li></ul><p>Ohne Gateway nur lokales Netz.</p></div>
+      <div class="card"><h3>3) Subnetting</h3><p><code>192.168.50.0/24</code> → zwei <code>/25</code>: <code>.0–.127</code> und <code>.128–.255</code>.</p><p><code>/26</code> ≈ 62 Hosts · <code>/24</code> ≈ 254 Hosts</p></div>
+      <div class="card"><h3>4) VLAN</h3><ul><li>VLAN 10 Büro · 20 Technik · 30 Gäste</li><li>Access = ein VLAN für PC</li><li>Trunk = mehrere VLANs zum Router</li></ul><p><strong>Beispiel:</strong> Gäste getrennt vom Büro-Fileserver.</p></div>
+      <div class="card"><h3>5) DHCP</h3><p>DORA: Discover→Offer→Request→Ack. Pool z. B. <code>.100–.200</code>, Gateway <code>.1</code>, DNS <code>8.8.8.8</code>. Server/Drucker ausschließen.</p></div>
+      <div class="card"><h3>6) DNS</h3><p><code>files.firma.local</code> → <code>192.168.10.10</code>. IP pingt, Name nicht → DNS.</p></div>
+      <div class="card"><h3>7) Sicherheit</h3><ul><li>Nur nötige Ports</li><li>Least Privilege</li><li>Gäste-VLAN getrennt</li><li>Backup und Updates</li></ul></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Abgeben</button></div><div class="quiz-score" id="score-its-de" style="display:none;margin-top:1rem"></div></div>
     </div>
+
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>Core</h3><div class="goal">Plan networks and services: IP, VLAN, DHCP, DNS, security – with examples.</div></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-en"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Submit</button></div>
-        <div class="quiz-score" id="score-its-en" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>What is this about?</h3><div class="goal">Design and run networks: IP, VLAN, DHCP, DNS, security.</div><p><strong>Example:</strong> 30 staff, 3 departments → plan, VLAN, DHCP, test, document.</p></div>
+      <div class="card"><h3>1) OSI simplified</h3><ul><li>Cable? (L1)</li><li>Switch link? (L2)</li><li>IP and gateway? (L3)</li><li>App/port? (L4–7)</li></ul><p><strong>Example:</strong> Gateway ping works, website does not → often DNS.</p></div>
+      <div class="card"><h3>2) IP and gateway</h3><ul><li>PC: <code>192.168.10.50</code></li><li>Mask: <code>255.255.255.0</code></li><li>Gateway: <code>192.168.10.1</code></li></ul><p>Without a gateway you only reach the local network.</p></div>
+      <div class="card"><h3>3) Subnetting</h3><p><code>192.168.50.0/24</code> → two <code>/25</code>s: <code>.0–.127</code> and <code>.128–.255</code>.</p><p><code>/26</code> ≈ 62 hosts · <code>/24</code> ≈ 254 hosts</p></div>
+      <div class="card"><h3>4) VLAN</h3><ul><li>VLAN 10 office · 20 tech · 30 guest</li><li>Access = one VLAN for a PC</li><li>Trunk = many VLANs toward the router</li></ul><p><strong>Example:</strong> Guests isolated from the office file server.</p></div>
+      <div class="card"><h3>5) DHCP</h3><p>DORA: Discover→Offer→Request→Ack. Pool e.g. <code>.100–.200</code>, gateway <code>.1</code>, DNS <code>8.8.8.8</code>. Exclude servers/printers.</p></div>
+      <div class="card"><h3>6) DNS</h3><p><code>files.firma.local</code> → <code>192.168.10.10</code>. IP pings but name fails → DNS.</p></div>
+      <div class="card"><h3>7) Security</h3><ul><li>Only required ports</li><li>Least privilege</li><li>Separate guest VLAN</li><li>Backups and updates</li></ul></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Submit</button></div><div class="quiz-score" id="score-its-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={its:{fa:[
-      {q:'Gateway معمولاً چیست؟',opts:['نام وای‌فای','آدرس خروجی شبکه (مثلاً .1)','فقط پرینتر'],c:1},
-      {q:'/24 تقریباً چند host؟',opts:['14','62','254'],c:2},
-      {q:'پورت PC روی سوئیچ معمولاً؟',opts:['Trunk','Access یک VLAN','فقط فیبر'],c:1},
-      {q:'DHCP چه می‌دهد؟',opts:['IP خودکار','فقط فیلم','رمز ویندوز'],c:0},
-      {q:'نام کار می‌کند IP نه؟ احتمال؟',opts:['فقط کابل','مشکل DNS بعید است','مشکل DNS محتمل'],c:2}
-    ],de:[
-      {q:'Gateway ist meist?',opts:['WLAN-Name','Ausgangsadresse (.1)','nur Drucker'],c:1},
-      {q:'Hosts in /24 ca.?',opts:['14','62','254'],c:2},
-      {q:'PC-Port am Switch?',opts:['Trunk','Access','nur Glas'],c:1},
-      {q:'DHCP liefert?',opts:['IP auto','Videos','Windows-Passwort'],c:0},
-      {q:'Name ok, IP fail – oft?',opts:['nur Kabel','nie DNS','DNS-Problem'],c:2}
-    ],en:[
-      {q:'Gateway is usually?',opts:['Wi-Fi name','network exit address (.1)','only printer'],c:1},
-      {q:'Hosts in /24 approx?',opts:['14','62','254'],c:2},
-      {q:'PC switch port is?',opts:['Trunk','Access one VLAN','fibre only'],c:1},
-      {q:'DHCP provides?',opts:['automatic IP','movies','Windows password'],c:0},
-      {q:'Name works, IP fails – often?',opts:['cable only','never DNS','DNS issue'],c:2}
-    ]}};
-    const answers={}; let done={};
+    const quizData={its:{fa:[{q:'Gateway معمولاً؟',opts:['نام وای‌فای','آدرس خروجی (.1)','فقط پرینتر'],c:1},{q:'/24 تقریباً چند host؟',opts:['14','62','254'],c:2},{q:'پورت PC؟',opts:['Trunk','Access','فقط فیبر'],c:1},{q:'DHCP؟',opts:['IP خودکار','فقط فیلم','رمز ویندوز'],c:0},{q:'نام نه IP بله – اغلب؟',opts:['فقط کابل','DNS'],c:1}],de:[{q:'Gateway meist?',opts:['WLAN-Name','Ausgang (.1)','nur Drucker'],c:1},{q:'Hosts /24 ca.?',opts:['14','62','254'],c:2},{q:'PC-Port?',opts:['Trunk','Access','nur Glas'],c:1},{q:'DHCP?',opts:['IP auto','Videos','Windows-PW'],c:0},{q:'Name nein, IP ja – oft?',opts:['nur Kabel','DNS'],c:1}],en:[{q:'Gateway usually?',opts:['Wi-Fi name','exit address (.1)','printer only'],c:1},{q:'Hosts in /24?',opts:['14','62','254'],c:2},{q:'PC port?',opts:['Trunk','Access','fibre only'],c:1},{q:'DHCP?',opts:['auto IP','movies','Windows password'],c:0},{q:'Name fails, IP works – often?',opts:['cable only','DNS'],c:1}]}};
+    const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
     function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
-    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card);if(answers[k]&&answers[k][i]!==undefined){const b=card.querySelectorAll('.quiz-option')[answers[k][i]];if(b){b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}}})}
+    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
     function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
     function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
     document.addEventListener('DOMContentLoaded',()=>renderMini('its'));
