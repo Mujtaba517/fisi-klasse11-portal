@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT-Systeme (FU-IT) | Klasse 11</title>
+  <title>IT-Systeme کامل | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
 </head>
 <body>
   <header class="topbar">
@@ -32,321 +33,140 @@
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
-
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>IT-Systeme (FU-IT)</h1>
-    <p class="sub">Netzwerke und Dienste bereitstellen · 96 Std. · Lehrplan Bayern · Kern Systemintegration</p>
+    <h1>IT-Systeme (FU-IT) – کامل</h1>
+    <p class="sub">شبکه و سرویس‌ها با مثال ساده + کوییز پایانی</p>
   </div>
-
   <main class="container">
-
-    <!-- ===================== FA ===================== -->
     <div class="lang-block" data-lang="fa">
-
       <div class="card">
-        <h3>🎯 هدف رسمی (Lehrplan)</h3>
-        <div class="goal">دانش‌آموزان صلاحیت برنامه‌ریزی، پیکربندی و گسترش شبکه‌ها و سرویس‌ها را دارند.</div>
-        <p>طبق Lehrplan باید بتوانی: نیاز مشتری را بگیری، قطعات و سرویس‌ها را با توجه به امنیت انتخاب کنی، طرح بسازی، نصب و پیکربندی کنی، تست و اندازه‌گیری انجام دهی، مستند کنی و از نظر Datensicherheit و Datenschutz ارزیابی کنی.</p>
+        <h3>این درس چیست؟</h3>
+        <div class="goal">یاد می‌گیری شبکه را طراحی و راه بیندازی: IP، VLAN، DHCP، DNS، امنیت.</div>
+        <p><strong>مثال:</strong> شرکت ۳۰ نفره سه بخش دارد. تو طرح می‌کشی، VLAN می‌سازی، DHCP می‌دهی، تست می‌کنی و مستند می‌نویسی.</p>
       </div>
-
       <div class="card">
-        <h3>📐 مدل OSI و TCP/IP</h3>
-        <p>برای عیب‌یابی و طراحی، لایه‌ها را بشناس:</p>
+        <h3>۱) OSI خیلی ساده</h3>
+        <p>لایه‌ها مثل طبقات ساختمان‌اند. وقتی اینترنت قطع است از پایین به بالا چک کن:</p>
         <ul>
-          <li><strong>L1 Physical</strong> – کابل، فیبر، سیگنال، رابط</li>
-          <li><strong>L2 Data Link</strong> – MAC، Switch، VLAN (802.1Q)</li>
-          <li><strong>L3 Network</strong> – IP، Router، Subnetting</li>
-          <li><strong>L4 Transport</strong> – TCP (قابل اعتماد) / UDP (سریع)</li>
-          <li><strong>L5–7</strong> – Session / Presentation / Application (HTTP, DNS, DHCP, SMB...)</li>
+          <li>کابل وصل است؟ (L1)</li>
+          <li>لینک روی سوئیچ سبز است؟ (L2)</li>
+          <li>IP و Gateway درست است؟ (L3)</li>
+          <li>پورت برنامه باز است؟ (L4–7)</li>
         </ul>
-        <p>مدل TCP/IP ساده‌تر است: Link → Internet → Transport → Application.</p>
+        <p><strong>مثال:</strong> Ping به Gateway جواب می‌دهد ولی سایت باز نمی‌شود → مشکل احتمالاً DNS است نه کابل.</p>
       </div>
-
       <div class="card">
-        <h3>🔢 IP-Planung و Subnetting</h3>
-        <p>قبل از نصب، طرح آدرس بنویس. مثال شرکت کوچک:</p>
+        <h3>۲) IP و Gateway با مثال</h3>
+        <p>هر دستگاه در شبکه یک آدرس می‌خواهد.</p>
         <ul>
-          <li>شبکه پایه: <code>192.168.10.0/24</code></li>
-          <li>Gateway: <code>.1</code> | سرورها: <code>.10–.19</code> | DHCP Pool: <code>.100–.200</code></li>
-          <li>آدرس‌های ثابت برای چاپگر و زیرساخت رزرو کن</li>
+          <li>PC: <code>192.168.10.50</code></li>
+          <li>Mask: <code>255.255.255.0</code> یعنی شبکه <code>192.168.10.x</code></li>
+          <li>Gateway: <code>192.168.10.1</code> (درِ خروجی به شبکه‌های دیگر / اینترنت)</li>
         </ul>
-        <p><strong>Subnetting:</strong> با کم کردن host bit، شبکه را به چند زیرشبکه تقسیم می‌کنی. مثال: <code>/24</code> → دو <code>/25</code> (هر کدام ۱۲۶ host قابل استفاده).</p>
-        <p><strong>خصوصی (RFC1918):</strong> 10.0.0.0/8 · 172.16.0.0/12 · 192.168.0.0/16</p>
+        <p>بدون Gateway فقط با دستگاه‌های همان شبکه حرف می‌زنی.</p>
       </div>
-
       <div class="card">
-        <h3>🏷️ VLAN</h3>
-        <p>جداسازی منطقی در یک سوئیچ فیزیکی:</p>
+        <h3>۳) Subnetting با مثال عددی</h3>
+        <p>شبکه بزرگ را تکه می‌کنی.</p>
+        <p><strong>مثال:</strong> <code>192.168.50.0/24</code> را به دو نیم کن → دو شبکه <code>/25</code>:</p>
         <ul>
-          <li>VLAN 10 = اداری | VLAN 20 = فنی | VLAN 30 = مهمان</li>
-          <li><strong>Access Port</strong> – یک VLAN برای کلاینت</li>
-          <li><strong>Trunk Port</strong> – چند VLAN بین سوئیچ/روتر (Tag 802.1Q)</li>
-          <li>ارتباط بین VLAN نیاز به <strong>Router / L3 Switch</strong> دارد (Inter-VLAN Routing)</li>
+          <li>اول: <code>192.168.50.0</code> تا <code>.127</code> (Hosts: .1–.126)</li>
+          <li>دوم: <code>192.168.50.128</code> تا <code>.255</code> (Hosts: .129–.254)</li>
         </ul>
-        <p>فایده: امنیت بیشتر، broadcast کمتر، مدیریت ساده‌تر.</p>
+        <p><code>/26</code> ≈ ۶۲ host قابل استفاده · <code>/24</code> ≈ ۲۵۴ host</p>
       </div>
-
       <div class="card">
-        <h3>📡 DHCP</h3>
-        <p>اختصاص خودکار IP. فرآیند DORA:</p>
+        <h3>۴) VLAN با مثال</h3>
+        <p>روی یک سوئیچ فیزیکی، شبکه‌های جدا می‌سازی.</p>
         <ul>
-          <li><strong>Discover</strong> – کلاینت جستجو می‌کند</li>
-          <li><strong>Offer</strong> – سرور پیشنهاد می‌دهد</li>
-          <li><strong>Request</strong> – کلاینت درخواست می‌کند</li>
-          <li><strong>Acknowledge</strong> – سرور تأیید می‌کند</li>
+          <li>VLAN 10 = اداری · VLAN 20 = فنی · VLAN 30 = مهمان</li>
+          <li>پورت PC = Access یک VLAN</li>
+          <li>پورت به روتر = Trunk (چند VLAN)</li>
         </ul>
-        <p>در اسکوپ تعریف کن: Range، Subnetmask، Gateway، DNS، Lease-Time. برای سرورها از Reservation یا IP ثابت استفاده کن.</p>
+        <p><strong>مثال:</strong> مهمان نباید فایل سرور اداری را ببیند → VLAN جدا + قانون فایروال.</p>
       </div>
-
       <div class="card">
-        <h3>🧭 DNS</h3>
-        <p>تبدیل نام به IP:</p>
-        <ul>
-          <li><strong>A / AAAA</strong> – نام → IPv4 / IPv6</li>
-          <li><strong>CNAME</strong> – نام مستعار</li>
-          <li><strong>MX</strong> – سرور ایمیل</li>
-          <li><strong>PTR</strong> – Reverse (IP → نام)</li>
-        </ul>
-        <p>عیب‌یابی: <code>nslookup</code> / <code>dig</code> · کش محلی را هم در نظر بگیر.</p>
+        <h3>۵) DHCP با مثال</h3>
+        <p>به‌جای تایپ دستی IP، سرور خودکار می‌دهد (DORA: Discover→Offer→Request→Ack).</p>
+        <p><strong>مثال Pool:</strong> شبکه 192.168.10.0/24 · Gateway .1 · Range .100–.200 · DNS 8.8.8.8</p>
+        <p>آدرس پرینتر و سرور را از Pool خارج کن تا تداخل نشود.</p>
       </div>
-
       <div class="card">
-        <h3>🖥️ سرویس‌های رایج</h3>
+        <h3>۶) DNS با مثال</h3>
+        <p>نام را به IP ترجمه می‌کند.</p>
+        <p><strong>مثال:</strong> <code>files.firma.local</code> → <code>192.168.10.10</code></p>
+        <p>اگر IP را ping می‌کنی ولی نام کار نمی‌کند → مشکل DNS.</p>
+      </div>
+      <div class="card">
+        <h3>۷) امنیت ساده</h3>
         <ul>
-          <li><strong>File Server</strong> – SMB/CIFS (ویندوز) یا NFS (لینوکس)</li>
-          <li><strong>Print Server</strong></li>
-          <li><strong>Web Server</strong> – HTTP/HTTPS</li>
-          <li><strong>Directory</strong> – Active Directory / LDAP (کاربر و گروه)</li>
-          <li><strong>VPN</strong> – دسترسی امن از بیرون</li>
+          <li>فقط پورت لازم روی فایروال باز</li>
+          <li>رمز قوی + حداقل دسترسی</li>
+          <li>VLAN مهمان جدا</li>
+          <li>Backup و آپدیت</li>
         </ul>
       </div>
-
       <div class="card">
-        <h3>🔐 امنیت شبکه</h3>
-        <ul>
-          <li>جداسازی با VLAN و در صورت نیاز DMZ</li>
-          <li>Firewall: فقط پورت‌های لازم باز</li>
-          <li>اصل Least Privilege برای کاربر و سرویس</li>
-          <li>رمز قوی + در صورت امکان MFA</li>
-          <li>به‌روزرسانی و Backup منظم</li>
-          <li>رعایت Datenschutz (داده شخصی)</li>
-        </ul>
-        <p>منبع عمیق‌تر: IT-Grundschutz-Kompendium (BSI) که در ریپو داری.</p>
-      </div>
-
-      <div class="card">
-        <h3>📋 فرآیند کار (از نیاز تا تحویل)</h3>
-        <ol>
-          <li>جمع‌آوری نیاز مشتری (تعداد کاربر، بخش‌ها، سرویس‌ها، امنیت)</li>
-          <li>تحقیق قطعات و مقایسه طرح‌ها (فنی / اقتصادی / پایدار)</li>
-          <li>طراحی: توپولوژی، IP، VLAN، سرویس‌ها</li>
-          <li>نصب و پیکربندی</li>
-          <li>آزمون کارکرد و اندازه‌گیری</li>
-          <li>مستندسازی (نقشه، جدول IP، تنظیمات، تست‌ها)</li>
-          <li>ارزیابی نهایی و بازنگری</li>
-        </ol>
-      </div>
-
-      <div class="card">
-        <h3>✏️ تمرین‌های عمیق</h3>
-        <div class="exercise">
-          <div class="exercise-title">تمرین ۱ – نیازسنجی</div>
-          <p>شرکت ۴۰ نفره: اداری ۲۰، فنی ۱۵، مهمان ۵. اینترنت مشترک، فایل سرور داخلی، وای‌فای مهمان جدا. لیست سؤالاتت از مشتری را بنویس.</p>
-        </div>
-        <div class="exercise">
-          <div class="exercise-title">تمرین ۲ – طرح IP و VLAN</div>
-          <p>سه VLAN طراحی کن. برای هر کدام شبکه، Gateway، DHCP Range و آدرس سرور فایل را مشخص کن.</p>
-        </div>
-        <div class="exercise">
-          <div class="exercise-title">تمرین ۳ – Subnetting</div>
-          <p>شبکه 192.168.50.0/24 را به ۴ زیرشبکه مساوی تقسیم کن. برای هر کدام: Network, Broadcast, اولین و آخرین Host.</p>
-        </div>
-        <div class="exercise">
-          <div class="exercise-title">تمرین ۴ – پیاده‌سازی</div>
-          <p>در Packet Tracer یا با VM: سوئیچ با ۳ VLAN، Inter-VLAN Routing، DHCP برای هر VLAN، یک کلاینت در هر VLAN که IP بگیرد و به کلاینت دیگر ping بزند.</p>
-        </div>
-        <div class="exercise">
-          <div class="exercise-title">تمرین ۵ – DNS و فایل</div>
-          <p>یک نام داخلی (مثلاً files.firma.local) به IP سرور وصل کن. Share بساز و از کلاینت با نام (نه فقط IP) وصل شو.</p>
-        </div>
-        <div class="exercise">
-          <div class="exercise-title">تمرین ۶ – مستند تحویل</div>
-          <p>یک صفحه مستند بنویس: نقشه ساده، جدول IP، VLANها، سرویس‌ها، نکات امنیتی، نتیجه تست.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>📖 اصطلاحات امتحانی</h3>
-        <ul>
-          <li><strong>Subnetmaske / Präfix</strong> – ماسک زیرشبکه</li>
-          <li><strong>Standardgateway</strong> – دروازه پیش‌فرض</li>
-          <li><strong>VLAN / Trunk / Access</strong></li>
-          <li><strong>Routing / Inter-VLAN-Routing</strong></li>
-          <li><strong>DHCP-Scope / Lease</strong></li>
-          <li><strong>DNS-Zone / Record</strong></li>
-          <li><strong>Firewall / Paketfilter</strong></li>
-          <li><strong>Datensicherheit / Datenschutz</strong></li>
-        </ul>
+        <h3>✅ کوییز IT-Systeme</h3>
+        <div id="quiz-its"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">ثبت کوییز</button></div>
+        <div class="quiz-score" id="score-its" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
 
-    <!-- ===================== DE ===================== -->
     <div class="lang-block" data-lang="de">
-
-      <div class="card">
-        <h3>🎯 Zielformulierung (Lehrplan)</h3>
-        <div class="goal">Netzwerke und Dienste planen, konfigurieren und erweitern.</div>
-        <p>Du ermittelst Kundenanforderungen, recherchierst Komponenten auch unter Sicherheitsaspekten, planst Infrastruktur, installierst und konfigurierst, prüfst und misst, dokumentierst und beurteilst Datensicherheit sowie Datenschutz.</p>
-      </div>
-
-      <div class="card">
-        <h3>📐 OSI- und TCP/IP-Modell</h3>
+      <div class="card"><h3>Kern</h3><div class="goal">Netze planen und Dienste bereitstellen: IP, VLAN, DHCP, DNS, Sicherheit – mit Beispielen.</div>
         <ul>
-          <li><strong>L1</strong> Physical – Kabel, Signale</li>
-          <li><strong>L2</strong> Data Link – MAC, Switch, VLAN</li>
-          <li><strong>L3</strong> Network – IP, Router, Subnetting</li>
-          <li><strong>L4</strong> Transport – TCP / UDP</li>
-          <li><strong>L5–7</strong> Anwendung (HTTP, DNS, DHCP, SMB …)</li>
+          <li>OSI zum Troubleshooting</li>
+          <li>IP + Gateway + Subnetting (/24,/25,/26)</li>
+          <li>VLAN Access/Trunk</li>
+          <li>DHCP DORA + Pool</li>
+          <li>DNS Name→IP</li>
         </ul>
       </div>
-
-      <div class="card">
-        <h3>🔢 IP-Planung & Subnetting</h3>
-        <ul>
-          <li>Beispielnetz: 192.168.10.0/24</li>
-          <li>Gateway .1 · Server .10–.19 · DHCP .100–.200</li>
-          <li>Private Netze: 10/8, 172.16/12, 192.168/16</li>
-        </ul>
-        <p>Subnetting teilt ein Netz in kleinere Netze (z. B. /24 → zwei /25).</p>
-      </div>
-
-      <div class="card">
-        <h3>🏷️ VLAN</h3>
-        <ul>
-          <li>logische Trennung (z. B. Verwaltung, Technik, Gäste)</li>
-          <li>Access-Port = ein VLAN · Trunk = mehrere VLANs (802.1Q)</li>
-          <li>Inter-VLAN-Routing über Router oder L3-Switch</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>📡 DHCP (DORA)</h3>
-        <p>Discover → Offer → Request → Acknowledge. Scope mit Range, Maske, Gateway, DNS, Lease konfigurieren. Server fest adressieren oder reservieren.</p>
-      </div>
-
-      <div class="card">
-        <h3>🧭 DNS</h3>
-        <ul>
-          <li>A / AAAA, CNAME, MX, PTR</li>
-          <li>Tools: nslookup, dig</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>🖥️ Dienste</h3>
-        <p>File (SMB/NFS), Print, Web (HTTP/S), Directory (AD/LDAP), VPN.</p>
-      </div>
-
-      <div class="card">
-        <h3>🔐 Sicherheit</h3>
-        <ul>
-          <li>VLAN-Trennung, optional DMZ</li>
-          <li>Firewall nur nötige Ports</li>
-          <li>Least Privilege, Updates, Backup</li>
-          <li>Datenschutz beachten</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1 Bedarf</div><p>40 Personen, 3 Bereiche, Gäste-WLAN getrennt – Fragenkatalog erstellen.</p></div>
-        <div class="exercise"><div class="exercise-title">2 IP/VLAN</div><p>Drei VLANs mit Netzen, Gateways, DHCP-Ranges und Fileserver-IP.</p></div>
-        <div class="exercise"><div class="exercise-title">3 Subnetting</div><p>192.168.50.0/24 in vier gleiche Subnetze teilen (Netz, Broadcast, Hosts).</p></div>
-        <div class="exercise"><div class="exercise-title">4 Labor</div><p>Packet Tracer/VM: 3 VLANs, Routing, DHCP, Ping zwischen Clients.</p></div>
-        <div class="exercise"><div class="exercise-title">5 DNS+Share</div><p>Internen Namen auf Fileserver mappen und per Name verbinden.</p></div>
-        <div class="exercise"><div class="exercise-title">6 Doku</div><p>Übergabedokument: Plan, IP-Tabelle, VLANs, Dienste, Sicherheit, Tests.</p></div>
-      </div>
-
-      <div class="card">
-        <h3>📖 Prüfungsbegriffe</h3>
-        <p>Subnetmaske, Standardgateway, VLAN, Trunk, Routing, DHCP-Scope, DNS-Record, Firewall, Datensicherheit, Datenschutz.</p>
-      </div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-de"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Abgeben</button></div>
+        <div class="quiz-score" id="score-its-de" style="display:none;margin-top:1rem"></div></div>
     </div>
-
-    <!-- ===================== EN ===================== -->
     <div class="lang-block" data-lang="en">
-
-      <div class="card">
-        <h3>🎯 Official goal (curriculum)</h3>
-        <div class="goal">Plan, configure and extend networks and services.</div>
-        <p>Gather requirements, research components (including security), design, install, test, measure, document and evaluate data security and privacy.</p>
-      </div>
-
-      <div class="card">
-        <h3>📐 OSI & TCP/IP</h3>
-        <ul>
-          <li><strong>L1</strong> Physical · <strong>L2</strong> MAC/Switch/VLAN · <strong>L3</strong> IP/Router</li>
-          <li><strong>L4</strong> TCP/UDP · <strong>L5–7</strong> Applications (HTTP, DNS, DHCP, SMB…)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>🔢 IP planning & subnetting</h3>
-        <ul>
-          <li>Example: 192.168.10.0/24 · Gateway .1 · Servers .10–.19 · DHCP .100–.200</li>
-          <li>Private ranges: 10/8, 172.16/12, 192.168/16</li>
-          <li>Subnetting splits a network (e.g. /24 → two /25s)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>🏷️ VLANs</h3>
-        <p>Logical separation: access = one VLAN, trunk = many (802.1Q). Inter-VLAN traffic needs a router or L3 switch.</p>
-      </div>
-
-      <div class="card">
-        <h3>📡 DHCP (DORA)</h3>
-        <p>Discover → Offer → Request → Acknowledge. Configure scope, mask, gateway, DNS, lease. Reserve or fix server addresses.</p>
-      </div>
-
-      <div class="card">
-        <h3>🧭 DNS</h3>
-        <p>A/AAAA, CNAME, MX, PTR. Troubleshoot with nslookup/dig.</p>
-      </div>
-
-      <div class="card">
-        <h3>🖥️ Services</h3>
-        <p>File (SMB/NFS), print, web, directory (AD/LDAP), VPN.</p>
-      </div>
-
-      <div class="card">
-        <h3>🔐 Security</h3>
-        <p>VLAN/DMZ separation, firewall least ports, least privilege, updates, backups, privacy rules.</p>
-      </div>
-
-      <div class="card">
-        <h3>✏️ Deep exercises</h3>
-        <div class="exercise"><div class="exercise-title">1 Requirements</div><p>40 staff, 3 departments, isolated guest Wi-Fi – write your question list.</p></div>
-        <div class="exercise"><div class="exercise-title">2 IP/VLAN</div><p>Three VLANs with networks, gateways, DHCP ranges, file-server IP.</p></div>
-        <div class="exercise"><div class="exercise-title">3 Subnetting</div><p>Split 192.168.50.0/24 into four equal subnets.</p></div>
-        <div class="exercise"><div class="exercise-title">4 Lab</div><p>Packet Tracer/VM: 3 VLANs, routing, DHCP, cross-VLAN ping.</p></div>
-        <div class="exercise"><div class="exercise-title">5 DNS+share</div><p>Map an internal name to the file server and connect by name.</p></div>
-        <div class="exercise"><div class="exercise-title">6 Handover doc</div><p>Map, IP table, VLANs, services, security notes, test results.</p></div>
-      </div>
-
-      <div class="card">
-        <h3>📖 Exam terms</h3>
-        <p>Subnet mask, default gateway, VLAN, trunk, routing, DHCP scope, DNS record, firewall, data security, privacy.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <p style="margin:0;color:var(--soft);font-size:.85rem">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, IT-Systeme, Lernfeld «Netzwerke und Dienste bereitstellen» (96 Std.) · IHK Systemintegration Schwerpunkt Netzwerke</p>
+      <div class="card"><h3>Core</h3><div class="goal">Plan networks and services: IP, VLAN, DHCP, DNS, security – with examples.</div></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-en"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Submit</button></div>
+        <div class="quiz-score" id="score-its-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
-
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
+  <script>
+    const quizData={its:{fa:[
+      {q:'Gateway معمولاً چیست؟',opts:['نام وای‌فای','آدرس خروجی شبکه (مثلاً .1)','فقط پرینتر'],c:1},
+      {q:'/24 تقریباً چند host؟',opts:['14','62','254'],c:2},
+      {q:'پورت PC روی سوئیچ معمولاً؟',opts:['Trunk','Access یک VLAN','فقط فیبر'],c:1},
+      {q:'DHCP چه می‌دهد؟',opts:['IP خودکار','فقط فیلم','رمز ویندوز'],c:0},
+      {q:'نام کار می‌کند IP نه؟ احتمال؟',opts:['فقط کابل','مشکل DNS بعید است','مشکل DNS محتمل'],c:2}
+    ],de:[
+      {q:'Gateway ist meist?',opts:['WLAN-Name','Ausgangsadresse (.1)','nur Drucker'],c:1},
+      {q:'Hosts in /24 ca.?',opts:['14','62','254'],c:2},
+      {q:'PC-Port am Switch?',opts:['Trunk','Access','nur Glas'],c:1},
+      {q:'DHCP liefert?',opts:['IP auto','Videos','Windows-Passwort'],c:0},
+      {q:'Name ok, IP fail – oft?',opts:['nur Kabel','nie DNS','DNS-Problem'],c:2}
+    ],en:[
+      {q:'Gateway is usually?',opts:['Wi-Fi name','network exit address (.1)','only printer'],c:1},
+      {q:'Hosts in /24 approx?',opts:['14','62','254'],c:2},
+      {q:'PC switch port is?',opts:['Trunk','Access one VLAN','fibre only'],c:1},
+      {q:'DHCP provides?',opts:['automatic IP','movies','Windows password'],c:0},
+      {q:'Name works, IP fails – often?',opts:['cable only','never DNS','DNS issue'],c:2}
+    ]}};
+    const answers={}; let done={};
+    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
+    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
+    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
+    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card);if(answers[k]&&answers[k][i]!==undefined){const b=card.querySelectorAll('.quiz-option')[answers[k][i]];if(b){b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}}})}
+    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
+    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
+    document.addEventListener('DOMContentLoaded',()=>renderMini('its'));
+    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.its){answers.its={};renderMini('its')}};
+  </script>
 </body>
 </html>
