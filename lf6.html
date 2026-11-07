@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LF 6 – Serviceanfragen bearbeiten | FISI Klasse 11</title>
+  <title>LF 6 – Serviceanfragen | FISI Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="lang-switcher">
@@ -29,195 +29,271 @@
   <header class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / LF 6</div>
-      <h1>🎫 Lernfeld 6: Serviceanfragen bearbeiten</h1>
-      <p class="subtitle">36 Unterrichtsstunden · Betriebs- und Gesamtwirtschaftliche Prozesse</p>
+      <h1>🎫 Serviceanfragen bearbeiten</h1>
+      <p class="subtitle">36 Std. · Betriebs- und Gesamtwirtschaftliche Prozesse</p>
     </div>
   </header>
 
   <main class="container">
 
-    <!-- Zielformulierung -->
-    <div class="card">
-      <h3>🎯 Zielformulierung (هدف رسمی Lehrplan)</h3>
-      <p style="color:var(--accent);font-weight:600;margin-bottom:1rem">
-        Die Schülerinnen und Schüler verfügen über die Kompetenz, Serviceanfragen einzuordnen,
-        Fehlerursachen zu ermitteln und zu beheben.
-      </p>
-      <p><strong>فارسی:</strong> دانش‌آموزان صلاحیت دسته‌بندی درخواست‌های خدمات، پیدا کردن علت خطا و رفع آن را دارند.</p>
-      <p><strong>English:</strong> Students are able to classify service requests, identify error causes and resolve them.</p>
-    </div>
-
-    <!-- Was du lernst -->
-    <div class="card">
-      <h3>📚 چه چیزهایی یاد می‌گیری؟ (بر اساس Lehrplan بایرن)</h3>
-      <ul>
-        <li><strong>Entgegennahme</strong> – دریافت Serviceanfrage از طریق تماس مستقیم یا غیرمستقیم با مشتری</li>
-        <li><strong>Analyse</strong> – تحلیل درخواست و بررسی مبنای قراردادی (<strong>Service-Level-Agreement / SLA</strong>)</li>
-        <li><strong>Reaktionszeit</strong> – تعیین زمان واکنش و ثبت وضعیت در Service-Management-System</li>
-        <li><strong>Systematisches Fragen</strong> – پرسش سیستماتیک برای دسته‌بندی بر اساس Support-Level و استانداردهای فنی</li>
-        <li><strong>Lösung im Support-Level</strong> – پیدا کردن راه‌حل در محدوده سطح پشتیبانی خودت</li>
-        <li><strong>Dokumentation</strong> – ثبت وضعیت پردازش و راه‌حل</li>
-        <li><strong>Kommunikation</strong> – ارتباط مناسب با طرف‌های درگیر (حتی به زبان خارجی)</li>
-        <li><strong>Kommunikationsmodelle & Deeskalation</strong> – مدل‌های ارتباطی و استراتژی‌های آرام‌سازی</li>
-        <li><strong>Reflexion & Qualität</strong> – بازنگری فرآیند و پیشنهاد برای بهبود کیفیت</li>
-      </ul>
-    </div>
-
-    <!-- Prozess -->
-    <div class="card">
-      <h3>🔄 فرآیند استاندارد پردازش Serviceanfrage</h3>
-      <ol style="margin:0.8rem 1.4rem;color:var(--text-muted);line-height:1.9">
-        <li><strong>1. Aufnahme</strong> – دریافت درخواست (تلفن، ایمیل، پورتال، حضوری) و ثبت کامل اطلاعات</li>
-        <li><strong>2. SLA prüfen</strong> – بررسی قرارداد خدمات: زمان واکنش، زمان حل، سطح خدمات توافق‌شده</li>
-        <li><strong>3. Klassifizierung</strong> – دسته‌بندی: Hardware / Software / Netzwerk / Zugang / Sonstiges</li>
-        <li><strong>4. Support-Level bestimmen</strong> – آیا در سطح ۱ قابل حل است یا باید Escalation شود؟</li>
-        <li><strong>5. Priorisierung</strong> – تعیین اولویت بر اساس Impact + Urgency</li>
-        <li><strong>6. Diagnose & Lösung</strong> – عیب‌یابی سیستماتیک و اجرای راه‌حل</li>
-        <li><strong>7. Dokumentation</strong> – نوشتن راه‌حل در تیکت و در صورت نیاز در Knowledge Base</li>
-        <li><strong>8. Abschluss & Feedback</strong> – اطلاع به کاربر، تأیید حل مشکل، بستن تیکت</li>
-        <li><strong>9. Reflexion</strong> – بررسی فرآیند و پیشنهاد بهبود کیفیت</li>
-      </ol>
-    </div>
-
-    <!-- SLA -->
-    <div class="card">
-      <h3>📋 Service-Level-Agreement (SLA)</h3>
-      <p>SLA توافق بین ارائه‌دهنده خدمات و مشتری است که مشخص می‌کند:</p>
-      <ul>
-        <li><strong>Reaktionszeit</strong> – حداکثر زمان برای اولین پاسخ</li>
-        <li><strong>Lösungszeit / Wiederherstellungszeit</strong> – حداکثر زمان برای حل مشکل</li>
-        <li><strong>Verfügbarkeit</strong> – درصد در دسترس بودن سرویس (مثلاً ۹۹٫۹٪)</li>
-        <li><strong>Support-Zeiten</strong> – ساعات پشتیبانی (مثلاً Mo–Fr 8–17 Uhr)</li>
-      </ul>
-      <div class="exercise">
-        <div class="exercise-title">💡 نکته امتحانی</div>
-        <p>در امتحان و کار عملی همیشه اول SLA را چک کن. اگر زمان واکنش گذشته باشد، باید سریع‌تر عمل کنی یا Escalation کنی.</p>
-      </div>
-    </div>
-
-    <!-- Support Levels -->
-    <div class="card">
-      <h3>🎚️ Support-Levels</h3>
-      <ul>
-        <li><strong>1st Level (First-Level-Support)</strong> – اولین تماس. مشکلات ساده، ثبت تیکت، راهنمایی کاربر، راه‌حل‌های استاندارد</li>
-        <li><strong>2nd Level</strong> – متخصصان. مشکلات پیچیده‌تر که نیاز به دانش عمیق‌تر دارند</li>
-        <li><strong>3rd Level</strong> – توسعه‌دهندگان / سازنده / Vendor. باگ‌های نرم‌افزاری یا مشکلات سخت‌افزاری خاص</li>
-      </ul>
-      <p style="margin-top:1rem;color:var(--text-muted)">اگر مشکل خارج از Support-Level تو باشد → <strong>Eskalation</strong> (ارجاع به سطح بالاتر) با مستندات کامل.</p>
-    </div>
-
-    <!-- Priority -->
-    <div class="card">
-      <h3>⚡ Priorisierung (ماتریس اولویت)</h3>
-      <p>اولویت = ترکیب <strong>Impact</strong> (تأثیر روی کسب‌وکار) + <strong>Urgency</strong> (فوریت زمانی)</p>
-      <ul>
-        <li><strong>Kritisch / Sehr hoch</strong> – سرویس اصلی کل شرکت از کار افتاده (مثلاً سرور اصلی، اینترنت کل ساختمان)</li>
-        <li><strong>Hoch</strong> – یک دپارتمان یا چندین کاربر مهم متأثر شده‌اند</li>
-        <li><strong>Mittel</strong> – یک کاربر یا عملکرد محدود؛ کار جایگزین وجود دارد</li>
-        <li><strong>Niedrig</strong> – درخواست بهبود، سؤال عمومی، مشکل جزئی بدون فشار زمانی</li>
-      </ul>
-    </div>
-
-    <!-- Kommunikation -->
-    <div class="card">
-      <h3>🗣️ Kommunikation & Deeskalation</h3>
-      <p>Lehrplan تأکید می‌کند که باید <strong>situationsgerecht</strong> ارتباط برقرار کنی و استراتژی‌های آرام‌سازی بلد باشی:</p>
-      <ul>
-        <li>آرام و مؤدب بمان؛ حتی اگر کاربر عصبانی است</li>
-        <li>فعال گوش بده و خلاصه کن تا مطمئن شوی درست فهمیده‌ای</li>
-        <li>از اصطلاحات خیلی فنی برای کاربر غیرفنی پرهیز کن</li>
-        <li>زمان‌بندی واقع‌بینانه بده (نه قول غیرممکن)</li>
-        <li>در صورت نیاز به زبان انگلیسی هم بتوانی ارتباط بگیری</li>
-      </ul>
-    </div>
-
-    <!-- ITIL kurz -->
-    <div class="card">
-      <h3>📘 مفاهیم مرتبط ITIL (پایه)</h3>
-      <ul>
-        <li><strong>Incident</strong> – اختلال ناگهانی در سرویس (مثلاً پرینتر کار نمی‌کند)</li>
-        <li><strong>Problem</strong> – علت ریشه‌ای یک یا چند Incident (مثلاً درایور خراب روی سرور چاپ)</li>
-        <li><strong>Service Request</strong> – درخواست استاندارد خدمات (مثلاً دسترسی جدید، نصب نرم‌افزار)</li>
-        <li><strong>Change</strong> – تغییر برنامه‌ریزی‌شده در سیستم</li>
-      </ul>
-      <p style="margin-top:0.8rem;color:var(--text-muted)">هدف Incident: سریع سرویس را برگردان. هدف Problem: علت را پیدا و برای همیشه حل کن.</p>
-    </div>
-
-    <!-- Übungen -->
-    <div class="card">
-      <h3>✏️ تمرین‌های عملی (نزدیک به امتحان و کار)</h3>
-
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۱ – Aufnahme & Klassifizierung</div>
-        <p>کاربر می‌گوید: «از دیروز نمی‌توانم به SharePoint وصل شوم و امروز باید فایل پروژه را تحویل بدهم.»</p>
-        <p style="margin-top:0.5rem">بنویس:</p>
+    <!-- FA -->
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف یادگیری</h3>
+        <div class="goal-box">دانش‌آموزان صلاحیت دسته‌بندی درخواست‌های خدمات، پیدا کردن علت خطا و رفع آن را دارند.</div>
+        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
         <ul>
-          <li>چه سؤالاتی می‌پرسی؟</li>
-          <li>دسته (Kategorie) چیست؟</li>
-          <li>اولویت تقریبی چقدر است و چرا؟</li>
-          <li>آیا SLA را باید چک کنی؟</li>
+          <li>دریافت Serviceanfrage (تماس مستقیم یا غیرمستقیم با مشتری)</li>
+          <li>تحلیل درخواست و بررسی قرارداد خدمات (SLA)</li>
+          <li>تعیین زمان واکنش و ثبت وضعیت در سیستم تیکت</li>
+          <li>پرسش سیستماتیک و دسته‌بندی بر اساس Support-Level</li>
+          <li>حل مشکل در محدوده سطح پشتیبانی خودت</li>
+          <li>مستندسازی و ارتباط حرفه‌ای (حتی به زبان خارجی)</li>
+          <li>استراتژی آرام‌سازی (Deeskalation) و بازنگری کیفیت</li>
         </ul>
       </div>
-
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۲ – Support-Level & Eskalation</div>
-        <p>یک کاربر می‌گوید نرم‌افزار حسابداری بعد از آپدیت کرش می‌کند و پیام خطای عجیب می‌دهد. تو First-Level هستی و بعد از ۳۰ دقیقه تست استاندارد به نتیجه نرسیدی.</p>
-        <p style="margin-top:0.5rem">چه کار می‌کنی؟ چه اطلاعاتی را برای سطح ۲ آماده می‌کنی؟</p>
+      <div class="card">
+        <h3>🔄 فرآیند استاندارد</h3>
+        <ol>
+          <li><strong>Aufnahme</strong> – دریافت و ثبت کامل اطلاعات</li>
+          <li><strong>SLA prüfen</strong> – بررسی زمان واکنش و سطح خدمات</li>
+          <li><strong>Klassifizierung</strong> – دسته‌بندی (سخت‌افزار / نرم‌افزار / شبکه ...)</li>
+          <li><strong>Support-Level</strong> – آیا سطح ۱ کافی است یا Escalation؟</li>
+          <li><strong>Priorisierung</strong> – اولویت بر اساس Impact + Urgency</li>
+          <li><strong>Diagnose & Lösung</strong> – عیب‌یابی و حل</li>
+          <li><strong>Dokumentation</strong> – نوشتن راه‌حل و بستن تیکت</li>
+          <li><strong>Feedback</strong> – اطلاع به کاربر و تأیید</li>
+          <li><strong>Reflexion</strong> – پیشنهاد بهبود کیفیت</li>
+        </ol>
       </div>
-
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۳ – SLA verstehen</div>
-        <p>در SLA نوشته شده:</p>
+      <div class="card">
+        <h3>📋 SLA و Support-Level</h3>
+        <p><strong>SLA</strong> توافق سطح خدمات است: زمان واکنش، زمان حل، ساعات پشتیبانی.</p>
         <ul>
-          <li>Reaktionszeit Prio Hoch: ۳۰ دقیقه</li>
-          <li>Lösungszeit Prio Hoch: ۴ ساعت</li>
+          <li><strong>1st Level</strong> – اولین تماس، مشکلات ساده، ثبت تیکت</li>
+          <li><strong>2nd Level</strong> – متخصصان، مشکلات پیچیده‌تر</li>
+          <li><strong>3rd Level</strong> – سازنده / توسعه‌دهنده</li>
         </ul>
-        <p>تیکت ساعت ۱۰:۱۵ با اولویت Hoch ثبت شده. الان ساعت ۱۱:۰۰ است و هنوز کسی به کاربر پاسخ نداده. چه مشکلی پیش آمده و چه باید کرد؟</p>
+        <p>اگر خارج از سطح تو بود → <strong>Eskalation</strong> با مستندات کامل.</p>
       </div>
-
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۴ – Dokumentation & Knowledge Base</div>
-        <p>مشکل «کاربر نمی‌تواند به VPN وصل شود» را حل کردی (علت: گواهی منقضی شده بود). یک متن کوتاه Knowledge-Base بنویس شامل:</p>
+      <div class="card">
+        <h3>⚡ اولویت‌بندی</h3>
         <ul>
-          <li>علائم (Symptome)</li>
-          <li>علت محتمل</li>
-          <li>راه‌حل گام‌به‌گام</li>
+          <li><strong>بسیار بالا</strong> – سرویس اصلی کل شرکت قطع است</li>
+          <li><strong>بالا</strong> – یک دپارتمان یا چند کاربر مهم</li>
+          <li><strong>متوسط</strong> – یک کاربر؛ کار جایگزین وجود دارد</li>
+          <li><strong>پایین</strong> – درخواست بهبود یا مشکل جزئی</li>
         </ul>
       </div>
-
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۵ – Deeskalation</div>
-        <p>کاربر عصبانی تلفن زده و می‌گوید: «سه روزه مشکل دارم و هیچ‌کس کاری نمی‌کند!» چطور پاسخ می‌دهی تا وضعیت آرام شود و اطلاعات لازم را بگیری؟</p>
+      <div class="card">
+        <h3>✏️ تمرین‌ها</h3>
+        <div class="exercise">
+          <div class="exercise-title">تمرین ۱</div>
+          <p>کاربر: «از دیروز به SharePoint وصل نمی‌شوم و امروز باید فایل پروژه را تحویل بدهم.» چه سؤالاتی می‌پرسی؟ دسته و اولویت چیست؟</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">تمرین ۲</div>
+          <p>نرم‌افزار حسابداری بعد از آپدیت کرش می‌کند. تو First-Level هستی و بعد از ۳۰ دقیقه به نتیجه نرسیدی. برای سطح ۲ چه اطلاعاتی آماده می‌کنی؟</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">تمرین ۳</div>
+          <p>SLA می‌گوید زمان واکنش اولویت بالا ۳۰ دقیقه است. تیکت ۱۰:۱۵ ثبت شده و الان ۱۱:۰۰ هنوز پاسخی داده نشده. چه باید کرد؟</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">تمرین ۴</div>
+          <p>برای «وصل نشدن به VPN» یک متن Knowledge Base بنویس: علائم، علت، راه‌حل گام‌به‌گام.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">تمرین ۵</div>
+          <p>کاربر عصبانی: «سه روزه مشکل دارم!» چطور پاسخ می‌دهی تا آرام شود و اطلاعات بگیری؟</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>📖 اصطلاحات آلمانی</h3>
+        <ul>
+          <li><strong>Serviceanfrage</strong> – درخواست خدمات</li>
+          <li><strong>Service-Level-Agreement (SLA)</strong> – توافق سطح خدمات</li>
+          <li><strong>Reaktionszeit</strong> – زمان واکنش</li>
+          <li><strong>Eskalation</strong> – ارجاع به سطح بالاتر</li>
+          <li><strong>Deeskalation</strong> – آرام‌سازی</li>
+          <li><strong>Incident / Problem</strong> – اختلال / علت ریشه‌ای</li>
+        </ul>
       </div>
     </div>
 
-    <!-- Fachbegriffe -->
+    <!-- DE -->
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Zielformulierung</h3>
+        <div class="goal-box">Die Schülerinnen und Schüler verfügen über die Kompetenz, Serviceanfragen einzuordnen, Fehlerursachen zu ermitteln und zu beheben.</div>
+        <h3>📚 Was du lernst</h3>
+        <ul>
+          <li>Serviceanfragen entgegennehmen (direkter und indirekter Kundenkontakt)</li>
+          <li>Anfragen analysieren und vertragliche Grundlage (SLA) prüfen</li>
+          <li>Reaktionszeit ermitteln und Status im Service-Management-System dokumentieren</li>
+          <li>Systematisches Fragen und Einordnung nach Support-Level</li>
+          <li>Lösungen im Rahmen des eigenen Support-Levels erarbeiten</li>
+          <li>Dokumentation und situationsgerechte Kommunikation (auch fremdsprachig)</li>
+          <li>Deeskalationsstrategien und Qualitätsreflexion</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔄 Standardprozess</h3>
+        <ol>
+          <li><strong>Aufnahme</strong> – Anfrage erfassen</li>
+          <li><strong>SLA prüfen</strong> – Reaktions- und Lösungszeiten</li>
+          <li><strong>Klassifizierung</strong> – Hardware / Software / Netzwerk …</li>
+          <li><strong>Support-Level</strong> – 1st Level oder Eskalation?</li>
+          <li><strong>Priorisierung</strong> – Impact + Urgency</li>
+          <li><strong>Diagnose & Lösung</strong></li>
+          <li><strong>Dokumentation</strong> – Ticket schließen</li>
+          <li><strong>Feedback</strong> – Nutzer informieren</li>
+          <li><strong>Reflexion</strong> – Qualität verbessern</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>📋 SLA & Support-Level</h3>
+        <p>Ein <strong>SLA</strong> regelt Reaktionszeit, Lösungszeit und Support-Zeiten.</p>
+        <ul>
+          <li><strong>1st Level</strong> – Erstkontakt, Standardlösungen</li>
+          <li><strong>2nd Level</strong> – Spezialisten</li>
+          <li><strong>3rd Level</strong> – Hersteller / Entwicklung</li>
+        </ul>
+        <p>Außerhalb deines Levels → <strong>Eskalation</strong> mit vollständiger Dokumentation.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Priorisierung</h3>
+        <ul>
+          <li><strong>Sehr hoch</strong> – Kernservice ausgefallen</li>
+          <li><strong>Hoch</strong> – Abteilung oder mehrere wichtige Nutzer</li>
+          <li><strong>Mittel</strong> – einzelner Nutzer, Workaround möglich</li>
+          <li><strong>Niedrig</strong> – Verbesserungswunsch oder kleines Problem</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise">
+          <div class="exercise-title">Übung 1</div>
+          <p>Nutzer: «Seit gestern komme ich nicht mehr auf SharePoint und muss heute die Projektdatei abgeben.» Welche Fragen stellst du? Kategorie und Priorität?</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Übung 2</div>
+          <p>Buchhaltungssoftware crasht nach Update. Du bist 1st Level und nach 30 Minuten ohne Lösung. Welche Infos bereitest du für die Eskalation vor?</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Übung 3</div>
+          <p>SLA: Reaktionszeit Prio Hoch = 30 Min. Ticket um 10:15, jetzt 11:00 – noch keine Antwort. Was ist zu tun?</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Übung 4</div>
+          <p>Schreibe einen Knowledge-Base-Eintrag zu «VPN-Verbindung fehlgeschlagen» (Symptome, Ursache, Lösungsschritte).</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Übung 5</div>
+          <p>Wütender Anrufer: «Seit drei Tagen habe ich das Problem!» Wie deeskaliert du und holst trotzdem die nötigen Infos?</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>📖 Wichtige Begriffe</h3>
+        <ul>
+          <li><strong>Serviceanfrage</strong></li>
+          <li><strong>Service-Level-Agreement (SLA)</strong></li>
+          <li><strong>Reaktionszeit / Lösungszeit</strong></li>
+          <li><strong>Eskalation / Deeskalation</strong></li>
+          <li><strong>Incident / Problem</strong></li>
+          <li><strong>Support-Level</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EN -->
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Learning Goal</h3>
+        <div class="goal-box">Students can classify service requests, identify error causes and resolve them.</div>
+        <h3>📚 What you learn</h3>
+        <ul>
+          <li>Receive service requests (direct and indirect customer contact)</li>
+          <li>Analyse requests and check contractual basis (SLA)</li>
+          <li>Determine response time and document status in the ticket system</li>
+          <li>Ask systematically and classify by support level</li>
+          <li>Solve issues within your support level</li>
+          <li>Document and communicate professionally (including in a foreign language)</li>
+          <li>De-escalation strategies and quality reflection</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔄 Standard Process</h3>
+        <ol>
+          <li><strong>Capture</strong> – record the request fully</li>
+          <li><strong>Check SLA</strong> – response and resolution times</li>
+          <li><strong>Classify</strong> – hardware / software / network …</li>
+          <li><strong>Support level</strong> – 1st level or escalate?</li>
+          <li><strong>Prioritise</strong> – impact + urgency</li>
+          <li><strong>Diagnose & solve</strong></li>
+          <li><strong>Document</strong> – close the ticket</li>
+          <li><strong>Feedback</strong> – inform the user</li>
+          <li><strong>Reflect</strong> – improve quality</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>📋 SLA & Support Levels</h3>
+        <p>An <strong>SLA</strong> defines response time, resolution time and support hours.</p>
+        <ul>
+          <li><strong>1st Level</strong> – first contact, standard fixes</li>
+          <li><strong>2nd Level</strong> – specialists</li>
+          <li><strong>3rd Level</strong> – vendor / development</li>
+        </ul>
+        <p>Outside your level → <strong>escalate</strong> with complete documentation.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Prioritisation</h3>
+        <ul>
+          <li><strong>Critical</strong> – core company service down</li>
+          <li><strong>High</strong> – a department or several key users</li>
+          <li><strong>Medium</strong> – one user; workaround exists</li>
+          <li><strong>Low</strong> – improvement request or minor issue</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise">
+          <div class="exercise-title">Exercise 1</div>
+          <p>User: “I haven’t been able to access SharePoint since yesterday and must submit the project file today.” What questions do you ask? Category and priority?</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Exercise 2</div>
+          <p>Accounting software crashes after an update. You are 1st level and after 30 minutes still stuck. What info do you prepare for escalation?</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Exercise 3</div>
+          <p>SLA: high-priority response time = 30 min. Ticket logged at 10:15, it is now 11:00 with no reply. What should you do?</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Exercise 4</div>
+          <p>Write a short knowledge-base article for “VPN connection failed” (symptoms, cause, step-by-step fix).</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-title">Exercise 5</div>
+          <p>Angry caller: “I’ve had this problem for three days!” How do you de-escalate and still collect the facts you need?</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>📖 Key Terms</h3>
+        <ul>
+          <li><strong>Service request</strong></li>
+          <li><strong>Service Level Agreement (SLA)</strong></li>
+          <li><strong>Response time / resolution time</strong></li>
+          <li><strong>Escalation / de-escalation</strong></li>
+          <li><strong>Incident / Problem</strong></li>
+          <li><strong>Support level</strong></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="card">
-      <h3>📖 اصطلاحات رسمی آلمانی (برای امتحان)</h3>
-      <ul>
-        <li><strong>Serviceanfrage</strong> – درخواست خدمات</li>
-        <li><strong>Störungsmeldung / Incident</strong> – گزارش اختلال</li>
-        <li><strong>Service-Level-Agreement (SLA)</strong> – توافق سطح خدمات</li>
-        <li><strong>Reaktionszeit</strong> – زمان واکنش</li>
-        <li><strong>Lösungszeit / Wiederherstellungszeit</strong> – زمان حل / بازیابی</li>
-        <li><strong>Support-Level / Eskalation</strong> – سطح پشتیبانی / ارجاع</li>
-        <li><strong>Service-Management-System</strong> – سیستم مدیریت خدمات (تیکتینگ)</li>
-        <li><strong>Deeskalationsstrategie</strong> – استراتژی آرام‌سازی</li>
-        <li><strong>Kommunikationsmodell</strong> – مدل ارتباطی</li>
-        <li><strong>Qualitätssteigerung</strong> – ارتقای کیفیت</li>
-      </ul>
+      <p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Serviceanfragen bearbeiten (36 Std.), Mai 2020</p>
     </div>
-
-    <!-- Quelle -->
-    <div class="card" style="border-color:rgba(34,211,238,0.25)">
-      <h3>📄 منبع</h3>
-      <p style="color:var(--text-muted);margin:0">
-        Lehrplanrichtlinien für die Berufsschule – Fachinformatiker/Fachinformatikerin,
-        Jahrgangsstufe 11, Betriebs- und Gesamtwirtschaftliche Prozesse,
-        Lernfeld «Serviceanfragen bearbeiten» (36 Std.) – Bayerisches Staatsministerium für Unterricht und Kultus, Mai 2020
-      </p>
-    </div>
-
   </main>
 
   <footer>
