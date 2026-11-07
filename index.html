@@ -5,22 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FISI Klasse 11 Portal</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <div class="top-actions">
-        <div class="lang-menu">
-          <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)">
-            <span id="langLabel">زبان</span> ▾
-          </button>
-          <div class="lang-panel" id="langPanel">
-            <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-            <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
-            <button type="button" data-lang="en" onclick="setLang('en')">English</button>
-          </div>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
         </div>
       </div>
     </div>
@@ -31,22 +27,22 @@
         <a href="it-technik.html">IT-Technik</a>
         <a href="aeup.html">AEuP</a>
         <a href="it-systeme.html">IT-Systeme</a>
-        <a href="fachpraxis.html">Fp-Plus</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
         <a href="pug.html">PuG</a>
-        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
-        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+        <a href="explainers.html">توضیح‌گر</a>
+        <a href="flashcards.html">فلش‌کارت</a>
+        <a href="quiz.html">کوییز</a>
       </nav>
     </div>
   </header>
 
   <section class="hero container">
-    <div class="badge">Fachinformatiker Systemintegration</div>
+    <div class="badge">🚀 Fachinformatiker Systemintegration</div>
     <h1 data-i18n="heroTitle">پورتال آموزشی صنف ۱۱</h1>
-    <p data-i18n="heroSubtitle">مضامین واقعی مدرسه · توضیح‌گر کوتاه · تمرین · فلش‌کارت · کوییز · آمادگی IHK</p>
+    <p data-i18n="heroSubtitle">یادگیری حرفه‌ای فنی شبکه، سیستم‌های سایبر-فیزیکی، داده و پشتیبانی IT — با توضیحات واضح، مثال‌های واقعی و تمرین تعاملی</p>
     <div class="hero-actions">
       <a href="#subjects" class="btn btn-primary" data-i18n="btnStart">شروع یادگیری</a>
-      <a href="explainers.html" class="btn btn-soft" data-i18n="btnExplain">توضیح‌گر ۱ دقیقه‌ای</a>
+      <a href="it-systeme.html" class="btn btn-soft">شبکه و IT-Systeme</a>
     </div>
   </section>
 
@@ -54,69 +50,72 @@
     <section id="subjects" class="section">
       <h2 class="section-title" data-i18n="sectionSubjects">مضامین صنف ۱۱</h2>
       <div class="grid">
-        <a class="card-link" href="bgwp.html">
-          <div class="ico">🎫</div>
-          <h3>BGWP</h3>
-          <p data-i18n="cardBGWP">پردازش درخواست خدمات، SLA، پشتیبانی و ارتباط با مشتری</p>
-          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+        <a class="card-link" href="it-systeme.html">
+          <div class="ico">🌐</div>
+          <h3>IT-Systeme (FU-IT)</h3>
+          <p>شبکه، VLAN، DHCP، DNS، Subnetting و امنیت</p>
+          <div class="meta">مطالعه کن</div>
         </a>
         <a class="card-link" href="it-technik.html">
           <div class="ico">🤖</div>
           <h3>IT-Technik</h3>
-          <p data-i18n="cardITTec">سیستم‌های سایبر-فیزیکی، سنسور، ESP32، MQTT</p>
-          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+          <p>سیستم‌های سایبر-فیزیکی، ESP32، MQTT و IoT</p>
+          <div class="meta">مطالعه کن</div>
         </a>
         <a class="card-link" href="aeup.html">
           <div class="ico">🗄️</div>
           <h3>AEuP</h3>
-          <p data-i18n="cardAEuP">داده، SQL، API، JSON و یکپارچه‌سازی سیستم‌ها</p>
-          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+          <p>داده، SQL، REST API، JSON و یکپارچه‌سازی</p>
+          <div class="meta">مطالعه کن</div>
         </a>
-        <a class="card-link" href="it-systeme.html">
-          <div class="ico">🌐</div>
-          <h3>IT-Systeme (FU-IT)</h3>
-          <p data-i18n="cardITSys">شبکه، DHCP، DNS، VLAN، سرویس‌ها و امنیت</p>
-          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+        <a class="card-link" href="bgwp.html">
+          <div class="ico">🎫</div>
+          <h3>BGWP</h3>
+          <p>پردازش درخواست خدمات، SLA و ITIL</p>
+          <div class="meta">مطالعه کن</div>
         </a>
         <a class="card-link" href="fachpraxis.html">
           <div class="ico">🛠️</div>
-          <h3>Fachpraxis IT Plus</h3>
-          <p data-i18n="cardFp">کار عملی کارگاهی و پروژه‌های فنی</p>
-          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+          <h3>Fachpraxis</h3>
+          <p>کار عملی شبکه، سوئیچ، روتر و DHCP</p>
+          <div class="meta">مطالعه کن</div>
         </a>
         <a class="card-link" href="pug.html">
           <div class="ico">🏛️</div>
           <h3>Politik und Gesellschaft</h3>
-          <p data-i18n="cardPuG">سیاست و جامعه · پایه WiSo برای امتحان</p>
-          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+          <p>سیاست، جامعه و WiSo برای امتحان</p>
+          <div class="meta">مطالعه کن</div>
         </a>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title" data-i18n="sectionTools">ابزار یادگیری</h2>
+      <h2 class="section-title">ابزارهای یادگیری</h2>
       <div class="grid">
         <a class="card-link" href="explainers.html">
           <div class="ico">▶️</div>
-          <h3 data-i18n="explainTitle">توضیح‌گر کوتاه</h3>
-          <p data-i18n="explainDesc">درس‌های ۱ دقیقه‌ای با مثال ساده (SLA، VLAN، DHCP)</p>
+          <h3>توضیح‌گر کوتاه</h3>
+          <p>درس‌های ۱ دقیقه‌ای با مثال ساده</p>
         </a>
         <a class="card-link" href="flashcards.html">
           <div class="ico">🃏</div>
-          <h3 data-i18n="flashTitle">فلش‌کارت اصطلاحات</h3>
-          <p data-i18n="flashDesc">واژگان فنی آلمانی با کارت‌های تعاملی</p>
+          <h3>فلش‌کارت</h3>
+          <p>واژگان فنی آلمانی با کارت‌های تعاملی</p>
         </a>
         <a class="card-link" href="quiz.html">
           <div class="ico">✅</div>
-          <h3 data-i18n="quizTitle">کوییز تعاملی</h3>
-          <p data-i18n="quizDesc">آزمون چندگزینه‌ای با امتیاز</p>
+          <h3>کوییز تعاملی</h3>
+          <p>آزمون چندگزینه‌ای با امتیاز</p>
         </a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container"><p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p></div>
+    <div class="container">
+      <p>Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p style="margin-top:.5rem;font-size:.85rem">Mujtaba Najafi</p>
+    </div>
   </footer>
   <script src="script.js"></script>
 </body>
