@@ -3,109 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>فلش‌کارت اصطلاحات | FISI Klasse 11</title>
+  <title>فلش‌کارت | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .fc-wrap { max-width: 420px; margin: 1.5rem auto; }
+    .fc-scene {
+      perspective: 1200px;
+      height: 240px;
+      cursor: pointer;
+    }
+    .fc-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .55s cubic-bezier(.2,.8,.2,1);
+    }
+    .fc-card.is-flipped { transform: rotateY(180deg); }
+    .fc-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--card);
+    }
+    .fc-front .term {
+      font-size: 1.55rem;
+      font-weight: 750;
+      color: var(--blue);
+      letter-spacing: -.02em;
+    }
+    .fc-front .hint {
+      margin-top: .65rem;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .fc-back {
+      transform: rotateY(180deg);
+      background: #eef5ff;
+    }
+    .fc-back .meaning {
+      font-size: 1.15rem;
+      font-weight: 650;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .fc-back .meaning small {
+      display: block;
+      margin-top: .45rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: .95rem;
+    }
+    .fc-controls {
+      display: flex;
+      gap: .55rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .fc-progress {
+      text-align: center;
+      margin-top: .85rem;
+      color: var(--soft);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-
-  <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="lf6.html">LF 6</a>
-      <a href="lf7.html">LF 7</a>
-      <a href="lf8.html">LF 8</a>
-      <a href="lf9.html">LF 9</a>
-      <a href="flashcards.html" class="active" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / Flashcards</div>
-      <h1 data-i18n="flashPageTitle">🃏 فلش‌کارت اصطلاحات آلمانی</h1>
-      <p class="subtitle" data-i18n="flashPageSub">روی کارت کلیک کن تا معنی را ببینی</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="flashcard-container">
-      <div class="flashcard" id="flashcard" onclick="flipCard()">
-        <div class="flashcard-face flashcard-front">
-          <div class="flashcard-term" id="cardTerm">Serviceanfrage</div>
-          <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem" data-i18n="clickToFlip">کلیک برای دیدن معنی</p>
-        </div>
-        <div class="flashcard-face flashcard-back">
-          <div class="flashcard-meaning" id="cardMeaning">درخواست خدمات / Service Request</div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
         </div>
       </div>
     </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
+      <a href="flashcards.html" class="active" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </nav></div>
+  </header>
 
-    <div class="flashcard-controls">
-      <button class="btn btn-ghost" onclick="prevCard()">← قبلی</button>
-      <button class="btn btn-primary" onclick="nextCard()">بعدی →</button>
-      <button class="btn btn-ghost" onclick="shuffleCards()" data-i18n="shuffle">بُر زدن</button>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1 data-i18n="flashPageTitle">فلش‌کارت اصطلاحات آلمانی</h1>
+    <p class="sub" data-i18n="flashPageSub">روی کارت بزن تا معنی را ببینی</p>
+  </div>
+
+  <main class="container">
+    <div class="fc-wrap">
+      <div class="fc-scene" onclick="flipCard()" role="button" tabindex="0" aria-label="Flip card">
+        <div class="fc-card" id="flashcard">
+          <div class="fc-face fc-front">
+            <div class="term" id="cardTerm">Serviceanfrage</div>
+            <div class="hint" id="cardHint">کلیک برای دیدن معنی</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="meaning" id="cardMeaning">درخواست خدمات</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fc-controls">
+        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); prevCard()">← قبلی</button>
+        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); nextCard()">بعدی →</button>
+        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); shuffleCards()" data-i18n="shuffle">بُر زدن</button>
+      </div>
+      <div class="fc-progress" id="progress">1 / 24</div>
     </div>
-    <div class="flashcard-progress" id="progress">1 / 24</div>
   </main>
 
-  <footer>
-    <div class="container">
-      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
-    </div>
-  </footer>
-
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
     const cards = [
-      { de: "Serviceanfrage", fa: "درخواست خدمات", en: "Service Request" },
-      { de: "Störungsmeldung", fa: "گزارش اختلال", en: "Incident Report" },
-      { de: "Eskalation", fa: "ارجاع به سطح بالاتر", en: "Escalation" },
-      { de: "First-Level-Support", fa: "پشتیبانی سطح اول", en: "First Level Support" },
-      { de: "Incident", fa: "حادثه / اختلال", en: "Incident" },
-      { de: "Problem", fa: "مشکل ریشه‌ای", en: "Problem" },
-      { de: "Cyber-physisches System", fa: "سیستم سایبر-فیزیکی", en: "Cyber-Physical System" },
-      { de: "Sensor", fa: "سنسور", en: "Sensor" },
-      { de: "Aktor", fa: "عملگر", en: "Actuator" },
-      { de: "Mikrocontroller", fa: "میکروکنترلر", en: "Microcontroller" },
-      { de: "MQTT-Broker", fa: "کارگزار MQTT", en: "MQTT Broker" },
-      { de: "Topic", fa: "موضوع / مسیر پیام", en: "Topic" },
-      { de: "Datenmodellierung", fa: "مدل‌سازی داده", en: "Data Modelling" },
-      { de: "Entität", fa: "موجودیت", en: "Entity" },
-      { de: "Beziehung", fa: "رابطه", en: "Relationship" },
-      { de: "Schnittstelle", fa: "رابط (API)", en: "Interface / API" },
-      { de: "Normalisierung", fa: "نرمال‌سازی", en: "Normalization" },
-      { de: "Netzwerktopologie", fa: "توپولوژی شبکه", en: "Network Topology" },
-      { de: "Teilnetz / Subnetz", fa: "سابنت", en: "Subnet" },
-      { de: "Routing", fa: "مسیریابی", en: "Routing" },
-      { de: "VLAN", fa: "شبکه مجازی محلی", en: "Virtual LAN" },
-      { de: "Firewall", fa: "فایروال", en: "Firewall" },
-      { de: "Zugriffskontrolle", fa: "کنترل دسترسی", en: "Access Control" },
-      { de: "Dienst / Service", fa: "سرویس", en: "Service" }
+      { de: 'Serviceanfrage', fa: 'درخواست خدمات', en: 'Service request' },
+      { de: 'Störungsmeldung', fa: 'گزارش اختلال', en: 'Incident report' },
+      { de: 'Eskalation', fa: 'ارجاع به سطح بالاتر', en: 'Escalation' },
+      { de: 'Deeskalation', fa: 'آرام‌سازی', en: 'De-escalation' },
+      { de: 'First-Level-Support', fa: 'پشتیبانی سطح اول', en: 'First-level support' },
+      { de: 'Incident', fa: 'اختلال فعلی سرویس', en: 'Incident' },
+      { de: 'Problem', fa: 'علت ریشه‌ای', en: 'Problem (root cause)' },
+      { de: 'SLA', fa: 'توافق سطح خدمات', en: 'Service level agreement' },
+      { de: 'Cyber-physisches System', fa: 'سیستم سایبر-فیزیکی', en: 'Cyber-physical system' },
+      { de: 'Sensor', fa: 'سنسور', en: 'Sensor' },
+      { de: 'Aktor', fa: 'عملگر', en: 'Actuator' },
+      { de: 'Mikrocontroller', fa: 'میکروکنترلر', en: 'Microcontroller' },
+      { de: 'MQTT-Broker', fa: 'واسط پیام MQTT', en: 'MQTT broker' },
+      { de: 'Topic', fa: 'موضوع پیام', en: 'Topic' },
+      { de: 'QoS', fa: 'کیفیت تحویل پیام', en: 'Quality of Service' },
+      { de: 'Datenmodellierung', fa: 'مدل‌سازی داده', en: 'Data modelling' },
+      { de: 'Entität', fa: 'موجودیت', en: 'Entity' },
+      { de: 'Primärschlüssel', fa: 'کلید اصلی', en: 'Primary key' },
+      { de: 'Schnittstelle / API', fa: 'رابط برنامه‌نویسی', en: 'Interface / API' },
+      { de: 'JSON', fa: 'فرمت داده سبک', en: 'Lightweight data format' },
+      { de: 'Teilnetz / Subnetz', fa: 'زیرشبکه', en: 'Subnet' },
+      { de: 'VLAN', fa: 'شبکه مجازی محلی', en: 'Virtual LAN' },
+      { de: 'Standardgateway', fa: 'دروازه پیش‌فرض', en: 'Default gateway' },
+      { de: 'Firewall', fa: 'فایروال', en: 'Firewall' }
     ];
 
     let current = 0;
     let flipped = false;
 
+    const hints = {
+      fa: 'کلیک برای دیدن معنی',
+      de: 'Klicken zum Umdrehen',
+      en: 'Click to flip'
+    };
+
+    function lang() {
+      return localStorage.getItem('fisi-lang') || 'fa';
+    }
+
     function renderCard() {
       const c = cards[current];
+      const l = lang();
       document.getElementById('cardTerm').textContent = c.de;
-      const lang = localStorage.getItem('fisi-lang') || 'fa';
-      document.getElementById('cardMeaning').textContent = lang === 'en' ? c.en : (lang === 'de' ? c.en : c.fa + '  |  ' + c.en);
+      document.getElementById('cardHint').textContent = hints[l] || hints.fa;
+
+      if (l === 'de') {
+        document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.fa + '</small>';
+      } else if (l === 'en') {
+        document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.fa + '</small>';
+      } else {
+        document.getElementById('cardMeaning').innerHTML = c.fa + '<small>' + c.en + '</small>';
+      }
+
       document.getElementById('progress').textContent = (current + 1) + ' / ' + cards.length;
-      document.getElementById('flashcard').classList.remove('flipped');
+      document.getElementById('flashcard').classList.remove('is-flipped');
       flipped = false;
     }
 
     function flipCard() {
       flipped = !flipped;
-      document.getElementById('flashcard').classList.toggle('flipped', flipped);
+      document.getElementById('flashcard').classList.toggle('is-flipped', flipped);
     }
 
     function nextCard() {
@@ -128,6 +223,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', renderCard);
+
+    const _setLang = window.setLang;
+    window.setLang = function (l) {
+      _setLang(l);
+      renderCard();
+    };
   </script>
 </body>
 </html>
