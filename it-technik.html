@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT-Technik | Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html" class="active">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
+      <a href="flashcards.html">Flash</a>
+      <a href="quiz.html">Quiz</a>
+    </nav></div>
+  </header>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1>IT-Technik (IT-Tec)</h1>
+    <p class="sub">Cyber-physische Systeme ergänzen · 72 Std.</p>
+  </div>
+  <main class="container">
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف</h3>
+        <div class="goal">اتصال دنیای فیزیکی و IT به یک سیستم سایبر-فیزیکی (CPS).</div>
+        <ul>
+          <li>Sensor / Aktor / Mikrocontroller (ESP32)</li>
+          <li>جریان داده، انرژی و اطلاعات</li>
+          <li>MQTT، Broker، Topic، QoS</li>
+          <li>Node-RED برای نمایش و آلارم</li>
+          <li>Betriebssicherheit و Datensicherheit</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>Smart Home ساده را توصیف کن: جریان اطلاعات و انرژی.</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>سنسور دما + آلارم را از سفارش تا راه‌اندازی برنامه‌ریزی کن.</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>ESP32 → MQTT → Node-RED با آلارم دما.</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Ziel</h3>
+        <div class="goal">Physische Welt und IT-Systeme zu einem CPS verbinden.</div>
+        <ul>
+          <li>Sensor / Aktor / Mikrocontroller</li>
+          <li>Daten-, Energie- und Informationsfluss</li>
+          <li>MQTT, Broker, Topic, QoS</li>
+          <li>Node-RED Visualisierung und Alarm</li>
+          <li>Betriebs- und Datensicherheit</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Einfaches Smart Home beschreiben.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Temperatursensor mit Alarm planen und in Betrieb nehmen.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>ESP32 → MQTT → Node-RED mit Temperaturalarm.</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Goal</h3>
+        <div class="goal">Connect the physical world and IT into a cyber-physical system.</div>
+        <ul>
+          <li>Sensor / actuator / microcontroller</li>
+          <li>Data, energy and information flow</li>
+          <li>MQTT, broker, topics, QoS</li>
+          <li>Node-RED dashboards and alerts</li>
+          <li>Operational and data safety</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Describe a simple smart-home flow.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Plan a temperature sensor with alarm end-to-end.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>ESP32 → MQTT → Node-RED with temperature alert.</p></div>
+      </div>
+    </div>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
