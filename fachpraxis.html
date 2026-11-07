@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fachpraxis | Klasse 11</title>
+  <title>Fachpraxis | IHK Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -28,71 +28,102 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html" class="active">Fp-Plus</a>
       <a href="pug.html">PuG</a>
-      <a href="flashcards.html">Flash</a>
-      <a href="quiz.html">Quiz</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>Fachpraxis IT Plusprogramm (Fp-Plus)</h1>
-    <p class="sub">کار عملی · کارگاه · پروژه</p>
+    <h1>Fachpraxis IT Plusprogramm</h1>
+    <p class="sub">کار عملی · مستندسازی · آمادگی برای پروژه و کار روزمره FISI</p>
   </div>
   <main class="container">
+
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 تمرکز</h3>
-        <div class="goal">مهارت عملی: نصب، پیکربندی، عیب‌یابی و مستندسازی در محیط واقعی یا آزمایشگاه.</div>
+        <h3>🎯 چرا Fachpraxis برای IHK مهم است؟</h3>
+        <div class="goal">امتحان و شغل FISI عملی است: نصب، پیکربندی، تست، عیب‌یابی و مستند. نظریه بدون دست، کافی نیست.</div>
+        <p>در AP Teil 2 بعداً پروژه عملی بزرگ داری. عادت مستندسازی و کار تمیز از همین حالا امتیاز است.</p>
+      </div>
+      <div class="card">
+        <h3>🧰 مهارت‌های ضروری آزمایشگاه</h3>
         <ul>
-          <li>راه‌اندازی کلاینت و سرور (Windows / Linux)</li>
-          <li>شبکه آزمایشگاهی: سوئیچ، روتر، VLAN</li>
-          <li>VirtualBox / VMware: ساخت VM و شبکه مجازی</li>
-          <li>Packet Tracer برای سناریوهای شبکه</li>
-          <li>پروژه کوچک end-to-end + گزارش</li>
+          <li>نصب ویندوز / لینوکس روی سخت‌افزار یا VM</li>
+          <li>شبکه پایه: IP ثابت، Gateway، DNS، Ping، Traceroute</li>
+          <li>VirtualBox/VMware: Host-Only / NAT / Bridged</li>
+          <li>Packet Tracer: VLAN، Router-on-a-Stick، DHCP</li>
+          <li>کاربر و دسترسی: Local / AD مقدماتی / Linux users & chmod پایه</li>
+          <li>Share فایل: SMB یا NFS</li>
+          <li>Backup ساده و بازیابی آزمایشی</li>
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ ایده‌های پروژه</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>آزمایشگاه خانگی: ۲ VM لینوکس + DHCP/DNS.</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>Share فایل با Samba و تست از ویندوز.</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>مستند کامل: نقشه، تنظیمات، تست، مشکلات و راه‌حل.</p></div>
+        <h3>📝 استاندارد مستند پروژه (برای نمره)</h3>
+        <ol>
+          <li>عنوان، هدف، محدوده (Scope)</li>
+          <li>نیاز مشتری / فرض‌ها</li>
+          <li>طرح فنی (توپولوژی، IP، سرویس‌ها)</li>
+          <li>مراحل اجرا</li>
+          <li>تست‌ها و نتایج</li>
+          <li>مشکلات و راه‌حل‌ها</li>
+          <li>ارزیابی و پیشنهاد بهبود</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>🚀 پروژه‌های پیشنهادی صنف ۱۱</h3>
+        <div class="exercise"><div class="exercise-title">A – آزمایشگاه شبکه</div><p>۳ VLAN + DHCP + Inter-VLAN + مستند جدول IP.</p></div>
+        <div class="exercise"><div class="exercise-title">B – فایل سرور</div><p>لینوکس Samba + گروه کاربری + اتصال از ویندوز + Backup.</p></div>
+        <div class="exercise"><div class="exercise-title">C – CPS کوچک</div><p>ESP32 دما → MQTT → Node-RED آلارم + پروتکل تست.</p></div>
+        <div class="exercise"><div class="exercise-title">D – میز کار IT</div><p>یک VM کلاینت استاندارد: آپدیت، آنتی‌ویروس مفهومی، کاربر محدود، مستند تحویل به «مشتری».</p></div>
+      </div>
+      <div class="card">
+        <h3>✏️ چک‌لیست کیفیت کار</h3>
+        <ul>
+          <li>آیا قبل از تغییر Backup گرفتی؟</li>
+          <li>آیا تغییر را تست کردی؟</li>
+          <li>آیا در تیکت/گزارش قابل فهم نوشتی؟</li>
+          <li>آیا رمز و داده حساس را امن نگه داشتی؟</li>
+        </ul>
       </div>
     </div>
+
     <div class="lang-block" data-lang="de">
       <div class="card">
-        <h3>🎯 Fokus</h3>
-        <div class="goal">Praktische Skills: Installation, Konfiguration, Troubleshooting, Dokumentation.</div>
-        <ul>
-          <li>Client- und Server-Setup</li>
-          <li>Labornetz: Switch, Router, VLAN</li>
-          <li>Virtualisierung und Packet Tracer</li>
-          <li>Kleines End-to-End-Projekt mit Bericht</li>
-        </ul>
+        <h3>🎯 Ziel</h3>
+        <div class="goal">Praktisch installieren, konfigurieren, testen, stören und dokumentieren – wie im Beruf und später in der Projektarbeit.</div>
+      </div>
+      <div class="card">
+        <h3>Labor-Skills</h3>
+        <p>OS-Installation · IP-Basis · Virtualisierung · Packet Tracer · Freigaben · Backup · saubere Dokumentation</p>
       </div>
       <div class="card">
         <h3>✏️ Projektideen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Heimlab: 2 Linux-VMs + DHCP/DNS.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Samba-Share und Windows-Client-Test.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Vollständige Dokumentation liefern.</p></div>
+        <div class="exercise"><div class="exercise-title">A</div><p>3 VLANs + DHCP + Routing + IP-Tabelle</p></div>
+        <div class="exercise"><div class="exercise-title">B</div><p>Samba + Gruppen + Windows-Client + Backup</p></div>
+        <div class="exercise"><div class="exercise-title">C</div><p>ESP32 → MQTT → Node-RED Alarm</p></div>
+        <div class="exercise"><div class="exercise-title">D</div><p>Standard-Client-VM inkl. Übergabedoku</p></div>
       </div>
     </div>
+
     <div class="lang-block" data-lang="en">
       <div class="card">
-        <h3>🎯 Focus</h3>
-        <div class="goal">Hands-on skills: install, configure, troubleshoot, document.</div>
-        <ul>
-          <li>Client and server setup</li>
-          <li>Lab network: switch, router, VLAN</li>
-          <li>Virtualization and Packet Tracer</li>
-          <li>Small end-to-end project with report</li>
-        </ul>
+        <h3>🎯 Goal</h3>
+        <div class="goal">Install, configure, test, troubleshoot and document – as in the job and later project exam work.</div>
+      </div>
+      <div class="card">
+        <h3>Lab skills</h3>
+        <p>OS install · basic IP · virtualization · Packet Tracer · shares · backup · clean documentation</p>
       </div>
       <div class="card">
         <h3>✏️ Project ideas</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Home lab: 2 Linux VMs + DHCP/DNS.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Samba share tested from Windows.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Full documentation package.</p></div>
+        <div class="exercise"><div class="exercise-title">A</div><p>3 VLANs + DHCP + routing + IP table</p></div>
+        <div class="exercise"><div class="exercise-title">B</div><p>Samba + groups + Windows client + backup</p></div>
+        <div class="exercise"><div class="exercise-title">C</div><p>ESP32 → MQTT → Node-RED alarm</p></div>
+        <div class="exercise"><div class="exercise-title">D</div><p>Standard client VM with handover doc</p></div>
       </div>
     </div>
+
+    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Fachpraxis · Vorbereitung auf betriebliche Praxis und spätere IHK-Projektarbeit</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
