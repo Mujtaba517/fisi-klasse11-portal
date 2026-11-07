@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT-Systeme | Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html" class="active">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
+      <a href="flashcards.html">Flash</a>
+      <a href="quiz.html">Quiz</a>
+    </nav></div>
+  </header>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1>IT-Systeme (FU-IT)</h1>
+    <p class="sub">Netzwerke und Dienste bereitstellen · 96 Std. · Kern der Systemintegration</p>
+  </div>
+  <main class="container">
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف</h3>
+        <div class="goal">شبکه و سرویس‌ها را برنامه‌ریزی، پیکربندی و گسترش بده.</div>
+        <ul>
+          <li>نیاز مشتری و طرح شبکه</li>
+          <li>IP-Planung، Subnetting، VLAN، Routing</li>
+          <li>DHCP، DNS، File/Web Server</li>
+          <li>Firewall، ACL، امنیت و Datenschutz</li>
+          <li>آزمون، اندازه‌گیری و مستندسازی</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>شرکت ۳۰ نفره با ۳ بخش: چه سؤالاتی می‌پرسی؟</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>طرح IP + VLAN + DHCP/DNS.</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>در Packet Tracer یا VM پیاده و تست کن.</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Ziel</h3>
+        <div class="goal">Netzwerke und Dienste planen, konfigurieren und erweitern.</div>
+        <ul>
+          <li>Anforderungen und Netzwerkplan</li>
+          <li>IP-Planung, Subnetting, VLAN, Routing</li>
+          <li>DHCP, DNS, Serverdienste</li>
+          <li>Firewall, Sicherheit, Datenschutz</li>
+          <li>Tests, Messung, Dokumentation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Fragenkatalog für 30 Mitarbeiter / 3 Abteilungen.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>IP-Plan + VLAN + DHCP/DNS.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Umsetzung in Packet Tracer oder VM.</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Goal</h3>
+        <div class="goal">Plan, configure and extend networks and services.</div>
+        <ul>
+          <li>Requirements and network design</li>
+          <li>IP planning, subnetting, VLAN, routing</li>
+          <li>DHCP, DNS, server services</li>
+          <li>Firewall, security, privacy</li>
+          <li>Testing, measurement, documentation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Question list for 30 staff / 3 departments.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>IP plan + VLAN + DHCP/DNS.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Build it in Packet Tracer or a VM.</p></div>
+      </div>
+    </div>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
