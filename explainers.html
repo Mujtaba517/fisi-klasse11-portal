@@ -3,57 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>توضیح‌گرهای کوتاه | Klasse 11</title>
+  <title>توضیح‌گرها | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .ex-list{display:grid;gap:.85rem;margin-bottom:1.5rem}
+    .filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}
+    .filter-row button{
+      border:1px solid var(--border);background:var(--card);border-radius:980px;
+      padding:.4rem .85rem;font-size:.8rem;font-weight:650;cursor:pointer;font-family:inherit;color:var(--muted)
+    }
+    .filter-row button.on{background:var(--blue-soft);color:var(--blue);border-color:transparent}
+    .ex-list{display:grid;gap:.7rem;margin-bottom:1.4rem}
     .ex-pick{
-      display:flex;align-items:center;gap:.9rem;width:100%;
+      display:flex;align-items:center;gap:.85rem;width:100%;
       background:var(--card);border:1.5px solid var(--border);border-radius:16px;
-      padding:1rem 1.1rem;cursor:pointer;text-align:start;font-family:inherit;
+      padding:.9rem 1rem;cursor:pointer;text-align:start;font-family:inherit;
       box-shadow:var(--shadow);transition:border-color .15s,transform .15s;
     }
     .ex-pick:hover,.ex-pick.active{border-color:var(--blue);transform:translateY(-1px)}
     .ex-pick .ico{
-      width:44px;height:44px;border-radius:12px;background:var(--blue-soft);
-      display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+      width:42px;height:42px;border-radius:12px;background:var(--blue-soft);
+      display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;
     }
-    .ex-pick strong{display:block;font-size:.98rem;color:var(--text)}
-    .ex-pick span{font-size:.82rem;color:var(--muted)}
-
-    .player{
-      background:var(--card);border:1px solid var(--border);border-radius:20px;
-      box-shadow:var(--shadow);overflow:hidden;display:none;
-    }
+    .ex-pick strong{display:block;font-size:.95rem;color:var(--text)}
+    .ex-pick span{font-size:.8rem;color:var(--muted)}
+    .ex-pick .tag{font-size:.68rem;font-weight:700;color:var(--blue);margin-top:.15rem}
+    .player{background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;display:none}
     .player.on{display:block}
-    .player-top{
-      background:linear-gradient(145deg,#007aff 0%,#5856d6 100%);
-      color:#fff;padding:1.35rem 1.25rem 1.1rem;
-    }
-    .player-top h2{font-size:1.2rem;font-weight:750;margin-bottom:.25rem}
-    .player-top p{opacity:.9;font-size:.88rem}
-    .player-body{padding:1.35rem 1.25rem 1.2rem;min-height:200px}
-    .step-title{font-size:1.08rem;font-weight:750;margin-bottom:.55rem;letter-spacing:-.01em}
-    .step-text{color:var(--muted);font-size:.97rem;line-height:1.6;margin-bottom:.85rem}
-    .step-example{
-      background:#f2f2f7;border-radius:14px;padding:1rem 1.05rem;
-      border-right:3px solid var(--blue);
-    }
-    html[dir=ltr] .step-example{border-right:none;border-left:3px solid var(--blue)}
-    .step-example .lab{font-size:.72rem;font-weight:700;color:var(--blue);margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.04em}
-    .step-example p{margin:0;color:var(--text);font-size:.92rem}
-
-    .player-bar{
-      display:flex;align-items:center;gap:.65rem;padding:.9rem 1.15rem 1.15rem;
-      border-top:1px solid var(--border);flex-wrap:wrap;
-    }
-    .dots{display:flex;gap:.35rem;flex:1;justify-content:center}
-    .dot{
-      width:8px;height:8px;border-radius:50%;background:#d2d2d7;border:none;padding:0;cursor:pointer;
-    }
+    .player-top{background:linear-gradient(145deg,#007aff 0%,#5856d6 100%);color:#fff;padding:1.25rem 1.2rem 1rem}
+    .player-top h2{font-size:1.15rem;font-weight:750;margin-bottom:.2rem}
+    .player-top p{opacity:.9;font-size:.86rem}
+    .player-body{padding:1.25rem 1.2rem 1.1rem;min-height:190px}
+    .step-title{font-size:1.05rem;font-weight:750;margin-bottom:.5rem}
+    .step-text{color:var(--muted);font-size:.95rem;line-height:1.6;margin-bottom:.8rem}
+    .step-example{background:#f2f2f7;border-radius:14px;padding:.95rem 1rem;border-inline-start:3px solid var(--blue)}
+    .step-example .lab{font-size:.7rem;font-weight:700;color:var(--blue);margin-bottom:.3rem;letter-spacing:.03em}
+    .step-example p{margin:0;color:var(--text);font-size:.9rem}
+    .player-bar{display:flex;align-items:center;gap:.55rem;padding:.85rem 1.1rem 1.1rem;border-top:1px solid var(--border);flex-wrap:wrap}
+    .dots{display:flex;gap:.32rem;flex:1;justify-content:center;flex-wrap:wrap}
+    .dot{width:8px;height:8px;border-radius:50%;background:#d2d2d7;border:none;padding:0;cursor:pointer}
     .dot.on{background:var(--blue);transform:scale(1.15)}
-    .player-bar .btn{padding:.55rem 1rem;font-size:.88rem}
+    .player-bar .btn{padding:.5rem .95rem;font-size:.86rem}
   </style>
 </head>
 <body>
@@ -77,19 +67,20 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
+      <a href="explainers.html" class="active" data-i18n="navExplain">توضیح‌گر</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
-      <a href="explainers.html" class="active">توضیح‌گر</a>
     </nav></div>
   </header>
 
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1 id="pageTitle">توضیح‌گرهای کوتاه</h1>
-    <p class="sub" id="pageSub">حدود یک دقیقه · خیلی ساده · با مثال</p>
+    <p class="sub" id="pageSub">همه مضامین · حدود یک دقیقه · با مثال · سه زبان</p>
   </div>
 
   <main class="container">
+    <div class="filter-row" id="filters"></div>
     <div class="ex-list" id="topicList"></div>
     <div class="player" id="player">
       <div class="player-top">
@@ -99,7 +90,7 @@
       <div class="player-body">
         <div class="step-title" id="stepTitle"></div>
         <div class="step-text" id="stepText"></div>
-        <div class="step-example" id="stepExample">
+        <div class="step-example">
           <div class="lab" id="exampleLab">مثال</div>
           <p id="exampleText"></p>
         </div>
@@ -114,95 +105,37 @@
 
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
+  <script src="explainers-data.js"></script>
   <script>
     const ui = {
-      fa: { title:'توضیح‌گرهای کوتاه', sub:'حدود یک دقیقه · خیلی ساده · با مثال', example:'مثال', next:'بعدی', prev:'قبلی', done:'تمام', step:'گام' },
-      de: { title:'Kurzerklärer', sub:'Etwa 1 Minute · sehr einfach · mit Beispiel', example:'Beispiel', next:'Weiter', prev:'Zurück', done:'Fertig', step:'Schritt' },
-      en: { title:'Short explainers', sub:'About 1 minute · very simple · with example', example:'Example', next:'Next', prev:'Back', done:'Done', step:'Step' }
+      fa:{title:'توضیح‌گرهای کوتاه',sub:'همه مضامین · حدود یک دقیقه · با مثال',example:'مثال',next:'بعدی',prev:'قبلی',done:'تمام',step:'گام',all:'همه'},
+      de:{title:'Kurzerklärer',sub:'Alle Fächer · ca. 1 Minute · mit Beispiel',example:'Beispiel',next:'Weiter',prev:'Zurück',done:'Fertig',step:'Schritt',all:'Alle'},
+      en:{title:'Short explainers',sub:'All subjects · about 1 minute · with example',example:'Example',next:'Next',prev:'Back',done:'Done',step:'Step',all:'All'}
+    };
+    const catLabels = {
+      fa:{all:'همه',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fp-Plus',pug:'PuG'},
+      de:{all:'Alle',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fp-Plus',pug:'PuG'},
+      en:{all:'All',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fp-Plus',pug:'PuG'}
     };
 
-    const topics = {
-      sla: {
-        ico: '⏱️',
-        title: { fa:'SLA چیست؟', de:'Was ist ein SLA?', en:'What is an SLA?' },
-        blurb: { fa:'قول زمان خدمت به مشتری', de:'Zeitversprechen an den Kunden', en:'Time promise to the customer' },
-        steps: {
-          fa: [
-            { t:'SLA یعنی چه؟', x:'SLA = توافق سطح خدمات. شرکت قول می‌دهد در چه زمانی جواب بدهد و مشکل را حل کند.', e:'مثل گارانتی زمان: «تا ۳۰ دقیقه بهت جواب می‌دهیم.»' },
-            { t:'دو زمان مهم', x:'Reaktionszeit = اولین پاسخ. Lösungszeit = تا حل شدن مشکل.', e:'اولویت بالا: پاسخ در ۳۰ دقیقه، حل در ۴ ساعت.' },
-            { t:'چرا برای تو مهم است؟', x:'اگر دیر جواب بدهی، SLA نقض می‌شود و مشتری حق شکایت دارد.', e:'تیکت ۱۰:۰۰ ثبت شد؛ تا ۱۰:۳۰ باید کسی پاسخ داده باشد.' },
-            { t:'کار تو در عمل', x:'اولویت را درست بگذار، زمان را رعایت کن، همه را در تیکت بنویس.', e:'ساعت و اقدام را در تیکت ثبت کن تا اثبات داشته باشی.' }
-          ],
-          de: [
-            { t:'Was bedeutet SLA?', x:'SLA = Service Level Agreement. Das Unternehmen verspricht Antwort- und Lösungszeiten.', e:'Wie eine Zeitgarantie: „Wir antworten in 30 Minuten.“' },
-            { t:'Zwei wichtige Zeiten', x:'Reaktionszeit = erste Antwort. Lösungszeit = bis zur Behebung.', e:'Hohe Prio: Antwort in 30 Min., Lösung in 4 Std.' },
-            { t:'Warum wichtig für dich?', x:'Zu späte Antwort = SLA-Verstoß. Der Kunde kann sich beschweren.', e:'Ticket 10:00 – bis 10:30 muss jemand reagieren.' },
-            { t:'Dein Job', x:'Prio richtig setzen, Zeiten einhalten, im Ticket dokumentieren.', e:'Uhrzeit und Aktion notieren – als Nachweis.' }
-          ],
-          en: [
-            { t:'What does SLA mean?', x:'SLA = Service Level Agreement. The company promises response and resolution times.', e:'Like a time guarantee: “We reply within 30 minutes.”' },
-            { t:'Two key times', x:'Response time = first reply. Resolution time = until fixed.', e:'High priority: reply in 30 min, fix in 4 hours.' },
-            { t:'Why it matters for you', x:'Late reply = SLA breach. The customer can complain.', e:'Ticket at 10:00 – someone must respond by 10:30.' },
-            { t:'Your job', x:'Set priority correctly, meet times, document in the ticket.', e:'Write the time and action in the ticket as proof.' }
-          ]
-        }
-      },
-      vlan: {
-        ico: '🔀',
-        title: { fa:'VLAN چیست؟', de:'Was ist ein VLAN?', en:'What is a VLAN?' },
-        blurb: { fa:'جدا کردن شبکه روی یک سوئیچ', de:'Netze auf einem Switch trennen', en:'Separate networks on one switch' },
-        steps: {
-          fa: [
-            { t:'ایده ساده', x:'یک سوئیچ فیزیکی می‌تواند چند شبکه منطقی داشته باشد. به هر کدام VLAN می‌گوییم.', e:'VLAN 10 اداری · VLAN 20 فنی · VLAN 30 مهمان' },
-            { t:'Access و Trunk', x:'پورت PC معمولاً Access است (یک VLAN). پورت به روتر اغلب Trunk است (چند VLAN).', e:'PC اداری روی پورت Access VLAN 10' },
-            { t:'چرا جدا می‌کنیم؟', x:'امنیت و نظم. مهمان نباید فایل‌سرور اداری را ببیند.', e:'مهمان فقط اینترنت؛ اداری به سرور داخلی.' },
-            { t:'ارتباط بین VLANها', x:'خود VLANها جدا هستند. برای حرف زدن بین آن‌ها به Routing نیاز داری.', e:'Router-on-a-Stick یا سوئیچ لایه ۳' }
-          ],
-          de: [
-            { t:'Einfache Idee', x:'Ein physischer Switch kann mehrere logische Netze haben – VLANs.', e:'VLAN 10 Büro · VLAN 20 Technik · VLAN 30 Gäste' },
-            { t:'Access und Trunk', x:'PC-Port meist Access (ein VLAN). Zum Router oft Trunk (mehrere VLANs).', e:'Büro-PC an Access-Port VLAN 10' },
-            { t:'Warum trennen?', x:'Sicherheit und Ordnung. Gäste sollen den Büro-Fileserver nicht sehen.', e:'Gäste nur Internet; Büro zum internen Server.' },
-            { t:'Zwischen VLANs sprechen', x:'VLANs sind getrennt. Dafür brauchst du Routing.', e:'Router-on-a-Stick oder Layer-3-Switch' }
-          ],
-          en: [
-            { t:'Simple idea', x:'One physical switch can hold several logical networks – VLANs.', e:'VLAN 10 office · VLAN 20 tech · VLAN 30 guest' },
-            { t:'Access and trunk', x:'A PC port is usually access (one VLAN). Toward the router often trunk (many VLANs).', e:'Office PC on access port VLAN 10' },
-            { t:'Why separate?', x:'Security and order. Guests should not see the office file server.', e:'Guests: internet only; office: internal server.' },
-            { t:'Talk between VLANs', x:'VLANs are isolated. You need routing to connect them.', e:'Router-on-a-stick or a layer-3 switch' }
-          ]
-        }
-      },
-      dhcp: {
-        ico: '📡',
-        title: { fa:'DHCP چیست؟', de:'Was ist DHCP?', en:'What is DHCP?' },
-        blurb: { fa:'IP را خودکار می‌دهد', de:'Vergibt IP-Adressen automatisch', en:'Assigns IP addresses automatically' },
-        steps: {
-          fa: [
-            { t:'مشکل بدون DHCP', x:'اگر هر PC را دستی تنظیم کنی، وقت‌گیر و پرخطاست.', e:'۳۰ نفر = ۳۰ بار تایپ IP و Gateway' },
-            { t:'راه‌حل DHCP', x:'سرور DHCP به کلاینت IP، Mask، Gateway و DNS می‌دهد.', e:'PC روشن می‌شود و خودش 192.168.10.105 می‌گیرد.' },
-            { t:'DORA خیلی کوتاه', x:'Discover → Offer → Request → Ack. چهار قدم گرفتن IP.', e:'مثل: درخواست → پیشنهاد → قبول → تأیید' },
-            { t:'نکته عملی', x:'آدرس سرور و پرینتر را از Pool خارج کن تا تداخل نشود.', e:'excluded-address برای Gateway و پرینتر' }
-          ],
-          de: [
-            { t:'Problem ohne DHCP', x:'Alles manuell setzen kostet Zeit und erzeugt Fehler.', e:'30 Personen = 30× IP und Gateway tippen' },
-            { t:'Lösung DHCP', x:'Der DHCP-Server gibt IP, Maske, Gateway und DNS.', e:'PC startet und bekommt z. B. 192.168.10.105' },
-            { t:'DORA kurz', x:'Discover → Offer → Request → Ack – vier Schritte zur IP.', e:'Fragen → Angebot → Annehmen → Bestätigen' },
-            { t:'Praxistipp', x:'Server- und Drucker-IPs aus dem Pool nehmen (exclude).', e:'excluded-address für Gateway und Drucker' }
-          ],
-          en: [
-            { t:'Problem without DHCP', x:'Setting every PC by hand is slow and error-prone.', e:'30 people = typing IP and gateway 30 times' },
-            { t:'DHCP solution', x:'The DHCP server gives IP, mask, gateway and DNS.', e:'PC boots and gets e.g. 192.168.10.105' },
-            { t:'DORA in short', x:'Discover → Offer → Request → Ack – four steps to an IP.', e:'Ask → offer → accept → confirm' },
-            { t:'Practical tip', x:'Exclude server and printer addresses from the pool.', e:'excluded-address for gateway and printer' }
-          ]
-        }
-      }
-    };
-
-    let activeId = null;
-    let step = 0;
+    let activeId = null, step = 0, filter = 'all';
 
     function lang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
+
+    function renderFilters(){
+      const l = lang();
+      const box = document.getElementById('filters');
+      const cats = ['all','bgwp','ittec','aeup','itsys','fp','pug'];
+      box.innerHTML = '';
+      cats.forEach(c=>{
+        const b = document.createElement('button');
+        b.type='button';
+        b.className = filter===c ? 'on' : '';
+        b.textContent = catLabels[l][c];
+        b.onclick = ()=>{ filter=c; activeId=null; document.getElementById('player').classList.remove('on'); renderList(); renderFilters(); };
+        box.appendChild(b);
+      });
+    }
 
     function renderList(){
       const l = lang();
@@ -211,68 +144,52 @@
       document.getElementById('pageSub').textContent = u.sub;
       const list = document.getElementById('topicList');
       list.innerHTML = '';
-      Object.keys(topics).forEach(id => {
-        const t = topics[id];
+      Object.keys(EXPLAINERS).forEach(id=>{
+        const t = EXPLAINERS[id];
+        if (filter!=='all' && t.cat!==filter) return;
         const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'ex-pick' + (activeId===id?' active':'');
-        btn.onclick = () => openTopic(id);
-        btn.innerHTML = `<div class="ico">${t.ico}</div><div><strong>${t.title[l]}</strong><span>${t.blurb[l]}</span></div>`;
+        btn.type='button';
+        btn.className='ex-pick'+(activeId===id?' active':'');
+        btn.onclick=()=>openTopic(id);
+        btn.innerHTML = `<div class="ico">${t.ico}</div><div><strong>${t.title[l]}</strong><span>${t.blurb[l]}</span><div class="tag">${catLabels[l][t.cat]||t.cat}</div></div>`;
         list.appendChild(btn);
       });
     }
 
     function openTopic(id){
-      activeId = id;
-      step = 0;
+      activeId=id; step=0;
       document.getElementById('player').classList.add('on');
-      renderList();
-      renderStep();
-      document.getElementById('player').scrollIntoView({behavior:'smooth', block:'start'});
+      renderList(); renderStep();
+      document.getElementById('player').scrollIntoView({behavior:'smooth',block:'start'});
     }
 
     function renderStep(){
-      if (!activeId) return;
-      const l = lang();
-      const u = ui[l];
-      const t = topics[activeId];
-      const steps = t.steps[l];
-      const s = steps[step];
-      document.getElementById('playerTitle').textContent = t.title[l];
-      document.getElementById('playerMeta').textContent = u.step + ' ' + (step+1) + ' / ' + steps.length;
-      document.getElementById('stepTitle').textContent = s.t;
-      document.getElementById('stepText').textContent = s.x;
-      document.getElementById('exampleLab').textContent = u.example;
-      document.getElementById('exampleText').textContent = s.e;
-
-      const dots = document.getElementById('dots');
-      dots.innerHTML = '';
-      steps.forEach((_,i)=>{
-        const d = document.createElement('button');
-        d.type='button'; d.className='dot'+(i===step?' on':'');
-        d.onclick = ()=>{ step=i; renderStep(); };
-        dots.appendChild(d);
-      });
-
-      document.getElementById('btnPrev').disabled = step===0;
-      document.getElementById('btnPrev').textContent = '← ' + u.prev;
-      document.getElementById('btnNext').textContent = (step===steps.length-1 ? u.done : u.next) + ' →';
+      if(!activeId) return;
+      const l=lang(), u=ui[l], t=EXPLAINERS[activeId], steps=t.steps[l], s=steps[step];
+      document.getElementById('playerTitle').textContent=t.title[l];
+      document.getElementById('playerMeta').textContent=u.step+' '+(step+1)+' / '+steps.length;
+      document.getElementById('stepTitle').textContent=s.t;
+      document.getElementById('stepText').textContent=s.x;
+      document.getElementById('exampleLab').textContent=u.example;
+      document.getElementById('exampleText').textContent=s.e;
+      const dots=document.getElementById('dots'); dots.innerHTML='';
+      steps.forEach((_,i)=>{const d=document.createElement('button');d.type='button';d.className='dot'+(i===step?' on':'');d.onclick=()=>{step=i;renderStep()};dots.appendChild(d)});
+      document.getElementById('btnPrev').disabled=step===0;
+      document.getElementById('btnPrev').textContent='← '+u.prev;
+      document.getElementById('btnNext').textContent=(step===steps.length-1?u.done:u.next)+' →';
     }
 
     function nextStep(){
-      if (!activeId) return;
-      const steps = topics[activeId].steps[lang()];
-      if (step < steps.length-1){ step++; renderStep(); }
-      else { document.getElementById('player').classList.remove('on'); activeId=null; renderList(); }
+      if(!activeId)return;
+      const steps=EXPLAINERS[activeId].steps[lang()];
+      if(step<steps.length-1){step++;renderStep()}
+      else{document.getElementById('player').classList.remove('on');activeId=null;renderList()}
     }
-    function prevStep(){
-      if (!activeId || step===0) return;
-      step--; renderStep();
-    }
+    function prevStep(){if(!activeId||step===0)return;step--;renderStep()}
 
-    document.addEventListener('DOMContentLoaded', renderList);
-    const _setLang = window.setLang;
-    window.setLang = function(l){ _setLang(l); renderList(); if(activeId) renderStep(); };
+    document.addEventListener('DOMContentLoaded',()=>{renderFilters();renderList()});
+    const _setLang=window.setLang;
+    window.setLang=function(l){_setLang(l);renderFilters();renderList();if(activeId)renderStep()};
   </script>
 </body>
 </html>
