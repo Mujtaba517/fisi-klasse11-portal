@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LF 7 – Cyber-physische Systeme | FISI Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="lang-switcher">
@@ -27,108 +27,142 @@
   <header class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / LF 7</div>
-      <h1>🤖 Lernfeld 7: Cyber-physische Systeme ergänzen</h1>
-      <p class="subtitle">72 Unterrichtsstunden · IT-Technik</p>
+      <h1>🤖 Cyber-physische Systeme ergänzen</h1>
+      <p class="subtitle">72 Std. · IT-Technik</p>
     </div>
   </header>
   <main class="container">
-    <div class="card">
-      <h3>🎯 Zielformulierung (هدف رسمی Lehrplan)</h3>
-      <p style="color:var(--accent);font-weight:600">Die Schülerinnen und Schüler verfügen über die Kompetenz, die physische Welt und IT-Systeme funktional zu einem cyber-physischen System zusammenzuführen.</p>
-      <p><strong>فارسی:</strong> دانش‌آموزان صلاحیت اتصال کارکردی دنیای فیزیکی و سیستم‌های IT به یک سیستم سایبر-فیزیکی را دارند.</p>
-      <p><strong>English:</strong> Students can functionally integrate the physical world and IT systems into a cyber-physical system.</p>
-    </div>
 
-    <div class="card">
-      <h3>📚 چه چیزهایی یاد می‌گیری؟ (طبق Lehrplan)</h3>
-      <ul>
-        <li>تحلیل یک CPS موجود برای سفارش مشتری (افزودن و راه‌اندازی قطعه جدید)</li>
-        <li>بررسی <strong>Datenfluss</strong> در مرز بین دنیای فیزیکی و IT</li>
-        <li>درک ارتباط در شبکه موجود</li>
-        <li>نمای کلی از جریان‌های <strong>انرژی، ماده و اطلاعات</strong> همه دستگاه‌ها</li>
-        <li>برنامه‌ریزی پیاده‌سازی خواسته مشتری</li>
-        <li>تعیین معیار انتخاب: تغذیه انرژی، سخت‌افزار، نرم‌افزار (کتابخانه‌ها، پروتکل‌ها)</li>
-        <li>استفاده و تطبیق مستندات فنی (technische Kommunikation)</li>
-        <li>اتصال کارکردی قطعات به CPS</li>
-        <li>آزمون سیستماتیک عملکرد، اندازه‌گیری مقادیر فیزیکی، اعتبارسنجی مصرف انرژی</li>
-        <li>ثبت نتایج (Protokoll)</li>
-        <li>بازنگری فرآیند از نظر بهینه‌سازی، <strong>Betriebssicherheit</strong> و <strong>Datensicherheit</strong></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🔗 Cyber-physisches System چیست؟</h3>
-      <p>سیستمی که در آن اجزای فیزیکی (سنسور، موتور، دستگاه) با اجزای دیجیتال (نرم‌افزار، شبکه، کنترلر) به هم وصل شده‌اند و روی هم اثر می‌گذارند.</p>
-      <ul>
-        <li><strong>Sensor</strong> – اندازه‌گیری دنیای واقعی (دما، نور، فاصله، فشار...)</li>
-        <li><strong>Aktor</strong> – تأثیر روی دنیای واقعی (موتور، رله، شیر، نمایشگر...)</li>
-        <li><strong>Controller / Mikrocontroller</strong> – پردازش (ESP32, Arduino, SPS...)</li>
-        <li><strong>Netzwerk / Protokoll</strong> – انتقال داده (MQTT, HTTP, Modbus...)</li>
-        <li><strong>IT-System</strong> – سرور، داشبورد، پایگاه داده، ابر</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>📡 MQTT و جریان داده</h3>
-      <p>در بسیاری از پروژه‌های CPS از MQTT استفاده می‌شود:</p>
-      <ul>
-        <li><strong>Broker</strong> – واسط مرکزی (مثلاً Mosquitto)</li>
-        <li><strong>Publisher</strong> – دستگاهی که داده می‌فرستد (سنسور روی ESP32)</li>
-        <li><strong>Subscriber</strong> – دریافت‌کننده (Node-RED، داشبورد، سرور)</li>
-        <li><strong>Topic</strong> – مسیر منطقی پیام (مثلاً <code>fabrik/halle1/temp</code>)</li>
-        <li><strong>QoS 0/1/2</strong> – سطح تضمین تحویل</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>⚡ انرژی، ایمنی و امنیت</h3>
-      <ul>
-        <li>انتخاب صحیح تغذیه (Spannungsversorgung) بر اساس نیاز قطعات</li>
-        <li>اندازه‌گیری و ثبت مقادیر فیزیکی (Strom, Spannung, Temperatur...)</li>
-        <li><strong>Betriebssicherheit</strong> – ایمنی کارکرد (مثلاً قطع اضطراری، محدوده مجاز)</li>
-        <li><strong>Datensicherheit</strong> – امنیت داده در مسیر سنسور تا سرور</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>✏️ تمرین‌های عملی</h3>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۱ – تحلیل CPS</div>
-        <p>یک سیستم Smart Home ساده (لامپ + سنسور حرکت + کنترلر) را توصیف کن: جریان اطلاعات، انرژی و نقش هر قطعه چیست؟</p>
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف یادگیری</h3>
+        <div class="goal-box">دانش‌آموزان صلاحیت اتصال کارکردی دنیای فیزیکی و سیستم‌های IT به یک سیستم سایبر-فیزیکی را دارند.</div>
+        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <ul>
+          <li>تحلیل یک CPS برای افزودن قطعه جدید طبق سفارش مشتری</li>
+          <li>بررسی جریان داده بین دنیای فیزیکی و IT</li>
+          <li>درک جریان انرژی، ماده و اطلاعات</li>
+          <li>انتخاب تغذیه، سخت‌افزار و نرم‌افزار (پروتکل‌ها، کتابخانه‌ها)</li>
+          <li>اتصال قطعات، آزمون عملکرد و اندازه‌گیری مقادیر فیزیکی</li>
+          <li>توجه به ایمنی کارکرد و امنیت داده</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۲ – افزودن قطعه</div>
-        <p>مشتری می‌خواهد یک سنسور دما به سیستم موجود اضافه شود و اگر دما از حد مجاز بالاتر رفت هشدار داده شود. مراحل برنامه‌ریزی تا راه‌اندازی را بنویس.</p>
+      <div class="card">
+        <h3>🔗 اجزای CPS</h3>
+        <ul>
+          <li><strong>Sensor</strong> – اندازه‌گیری (دما، حرکت، نور...)</li>
+          <li><strong>Aktor</strong> – عمل روی محیط (موتور، رله...)</li>
+          <li><strong>Mikrocontroller</strong> – پردازش (ESP32، Arduino...)</li>
+          <li><strong>Netzwerk / MQTT</strong> – انتقال داده</li>
+          <li><strong>IT-System</strong> – داشبورد، سرور، پایگاه داده</li>
+        </ul>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۳ – MQTT عملی</div>
-        <p>با ESP32 + DHT22 دما را بخوان و هر ۱۰ ثانیه روی یک Topic به Broker بفرست. در Node-RED آن را نمایش بده و برای دمای بالا Alarm تعریف کن.</p>
+      <div class="card">
+        <h3>✏️ تمرین‌ها</h3>
+        <div class="exercise"><div class="exercise-title">تمرین ۱</div><p>یک Smart Home ساده (سنسور حرکت + لامپ) را توصیف کن: جریان اطلاعات و انرژی چگونه است؟</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۲</div><p>مشتری می‌خواهد سنسور دما اضافه شود و در دمای بالا هشدار بگیرد. مراحل کار را بنویس.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۳</div><p>با ESP32 + MQTT دما را بفرست و در Node-RED نمایش + آلارم بساز.</p></div>
+        <div class="exercise"><div class="exercise-title">تمرین ۴</div><p>یک پروتکل کوتاه بنویس: قطعات، تغذیه، اندازه‌گیری‌ها، نکات ایمنی و امنیت.</p></div>
       </div>
-      <div class="exercise">
-        <div class="exercise-title">تمرین ۴ – مستندسازی و ایمنی</div>
-        <p>برای پروژه بالا یک پروتکل کوتاه بنویس: قطعات، تغذیه، اندازه‌گیری‌ها، نکات Betriebssicherheit و Datensicherheit.</p>
+      <div class="card">
+        <h3>📖 اصطلاحات</h3>
+        <ul>
+          <li><strong>Cyber-physisches System (CPS)</strong></li>
+          <li><strong>Sensor / Aktor</strong></li>
+          <li><strong>Datenfluss</strong> – جریان داده</li>
+          <li><strong>Inbetriebnahme</strong> – راه‌اندازی</li>
+          <li><strong>Betriebssicherheit / Datensicherheit</strong></li>
+        </ul>
       </div>
     </div>
 
-    <div class="card">
-      <h3>📖 اصطلاحات رسمی آلمانی</h3>
-      <ul>
-        <li><strong>Cyber-physisches System (CPS)</strong> – سیستم سایبر-فیزیکی</li>
-        <li><strong>Sensor / Aktor</strong> – سنسور / عملگر</li>
-        <li><strong>Datenfluss</strong> – جریان داده</li>
-        <li><strong>Energie- / Stoff- / Informationsfluss</strong> – جریان انرژی / ماده / اطلاعات</li>
-        <li><strong>Inbetriebnahme</strong> – راه‌اندازی</li>
-        <li><strong>Betriebssicherheit</strong> – ایمنی کارکرد</li>
-        <li><strong>Datensicherheit</strong> – امنیت داده</li>
-        <li><strong>Physikalische Betriebswerte</strong> – مقادیر فیزیکی کارکرد</li>
-        <li><strong>Technische Kommunikation</strong> – مستندات فنی</li>
-      </ul>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Zielformulierung</h3>
+        <div class="goal-box">Die Schülerinnen und Schüler verfügen über die Kompetenz, die physische Welt und IT-Systeme funktional zu einem cyber-physischen System zusammenzuführen.</div>
+        <h3>📚 Was du lernst</h3>
+        <ul>
+          <li>CPS analysieren und Komponenten nach Kundenauftrag ergänzen</li>
+          <li>Datenfluss an der Schnittstelle physische Welt ↔ IT verstehen</li>
+          <li>Energie-, Stoff- und Informationsflüsse überblicken</li>
+          <li>Energieversorgung, Hardware und Software (Protokolle, Bibliotheken) auswählen</li>
+          <li>Komponenten funktional integrieren, prüfen und messen</li>
+          <li>Betriebssicherheit und Datensicherheit beachten</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔗 Bestandteile eines CPS</h3>
+        <ul>
+          <li><strong>Sensor</strong> – misst die Umwelt</li>
+          <li><strong>Aktor</strong> – wirkt auf die Umwelt</li>
+          <li><strong>Mikrocontroller</strong> – verarbeitet Daten</li>
+          <li><strong>Netzwerk / MQTT</strong> – transportiert Daten</li>
+          <li><strong>IT-System</strong> – Dashboard, Server, Datenbank</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">Übung 1</div><p>Beschreibe ein einfaches Smart-Home-System (Bewegungssensor + Lampe): Informations- und Energiefluss.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 2</div><p>Kunde will einen Temperatursensor mit Alarm bei Grenzwertüberschreitung. Plane die Schritte bis zur Inbetriebnahme.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 3</div><p>Sende Temperaturdaten per MQTT von einem ESP32 und visualisiere sie in Node-RED mit Alarm.</p></div>
+        <div class="exercise"><div class="exercise-title">Übung 4</div><p>Erstelle ein kurzes Protokoll: Komponenten, Versorgung, Messwerte, Sicherheitsaspekte.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Wichtige Begriffe</h3>
+        <ul>
+          <li><strong>Cyber-physisches System (CPS)</strong></li>
+          <li><strong>Sensor / Aktor</strong></li>
+          <li><strong>Datenfluss</strong></li>
+          <li><strong>Inbetriebnahme</strong></li>
+          <li><strong>Betriebssicherheit / Datensicherheit</strong></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card" style="border-color:rgba(34,211,238,0.25)">
-      <h3>📄 منبع</h3>
-      <p style="color:var(--text-muted);margin:0">Lehrplanrichtlinien Bayern – Jahrgangsstufe 11, IT-Technik, Lernfeld «Cyber-physische Systeme ergänzen» (72 Std.), Mai 2020</p>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Learning Goal</h3>
+        <div class="goal-box">Students can functionally integrate the physical world and IT systems into a cyber-physical system.</div>
+        <h3>📚 What you learn</h3>
+        <ul>
+          <li>Analyse a CPS and add components for a customer order</li>
+          <li>Understand data flow between the physical world and IT</li>
+          <li>Map energy, material and information flows</li>
+          <li>Select power supply, hardware and software (protocols, libraries)</li>
+          <li>Integrate components, test function and measure physical values</li>
+          <li>Consider operational safety and data security</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔗 CPS building blocks</h3>
+        <ul>
+          <li><strong>Sensor</strong> – measures the environment</li>
+          <li><strong>Actuator</strong> – acts on the environment</li>
+          <li><strong>Microcontroller</strong> – processes data</li>
+          <li><strong>Network / MQTT</strong> – transports data</li>
+          <li><strong>IT system</strong> – dashboard, server, database</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">Exercise 1</div><p>Describe a simple smart-home setup (motion sensor + lamp): information and energy flow.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 2</div><p>Customer wants a temperature sensor with an alert above a limit. Plan the steps to commissioning.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 3</div><p>Send temperature data via MQTT from an ESP32 and show it in Node-RED with an alarm.</p></div>
+        <div class="exercise"><div class="exercise-title">Exercise 4</div><p>Write a short report: components, power, measurements, safety notes.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Key Terms</h3>
+        <ul>
+          <li><strong>Cyber-physical system (CPS)</strong></li>
+          <li><strong>Sensor / actuator</strong></li>
+          <li><strong>Data flow</strong></li>
+          <li><strong>Commissioning</strong></li>
+          <li><strong>Operational safety / data security</strong></li>
+        </ul>
+      </div>
     </div>
+
+    <div class="card"><p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Cyber-physische Systeme ergänzen (72 Std.), Mai 2020</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
   <script src="script.js"></script>
