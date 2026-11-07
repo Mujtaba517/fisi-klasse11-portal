@@ -6,7 +6,16 @@
   <title>IT-Systeme (FU-IT) | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}.toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin-bottom:1.5rem}.toc a{display:block;padding:.4rem 0;color:var(--blue);text-decoration:none;font-weight:600}.toc a:hover{text-decoration:underline}</style>
+  <style>
+    code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}
+    .topic-list{display:grid;gap:.8rem;margin-top:1rem}
+    .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
+    .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
+    .topic-item h3{font-size:1.05rem;margin:0}
+    .topic-content{display:none}
+    .topic-content.active{display:block}
+    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -33,189 +42,125 @@
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
+
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1>IT-Systeme (FU-IT)</h1>
-    <p class="sub">Netzwerke planen und bereitstellen · IP · VLAN · DHCP · DNS · Sicherheit</p>
+    <p class="sub" data-i18n="itsSubtitle">شبکه‌ها را طراحی و پیاده‌سازی کنید</p>
   </div>
+
   <main class="container">
-
-    <div class="toc">
-      <strong>موضوعات:</strong>
-      <a href="#osi">۱) مدل OSI</a>
-      <a href="#ip">۲) آدرس‌دهی IP و Gateway</a>
-      <a href="#subnet">۳) Subnetting</a>
-      <a href="#vlan">۴) VLAN</a>
-      <a href="#dhcp">۵) DHCP</a>
-      <a href="#dns">۶) DNS</a>
-      <a href="#routing">۷) Routing پایه</a>
-      <a href="#nat">۸) NAT</a>
-      <a href="#ipv6">۹) IPv6</a>
-      <a href="#topo">۱۰) توپولوژی شبکه</a>
-      <a href="#troubleshoot">۱۱) عیب‌یابی</a>
-      <a href="#security">۱۲) امنیت پایه</a>
+    <!-- Topic List View -->
+    <div id="topicListView">
+      <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
+      <div class="topic-list" id="topicList"></div>
     </div>
 
-    <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>این درس چیست؟</h3><div class="goal">شبکه‌های کامپیوتری را طراحی، پیاده‌سازی و مدیریت کنید.</div><p><strong>مثال واقعی:</strong> شرکتی با ۳۰ کارمند، ۳ بخش (اداری، فنی، مهمان). باید VLAN، DHCP، DNS و امنیت داشته باشد.</p></div>
-
-      <div class="card" id="osi"><h3>۱) مدل OSI (ساده‌شده)</h3>
-        <ul>
-          <li><strong>L1 فیزیکی:</strong> کابل، سوئیچ، نور</li>
-          <li><strong>L2 لینک دیتا:</strong> MAC، Switch، VLAN</li>
-          <li><strong>L3 شبکه:</strong> IP، Gateway، Router</li>
-          <li><strong>L4–7:</strong> TCP/UDP، پورت، برنامه‌ها</li>
-        </ul>
-        <p><strong>مثال:</strong> Ping به Gateway کار می‌کند ولی سایت باز نمی‌شود → اغلب مشکل در DNS یا Firewall است.</p>
-      </div>
-
-      <div class="card" id="ip"><h3>۲) آدرس‌دهی IP و Gateway</h3>
-        <ul>
-          <li>IP کامپیوتر: <code>192.168.10.50</code></li>
-          <li>Subnet Mask: <code>255.255.255.0</code> (/24)</li>
-          <li>Gateway: <code>192.168.10.1</code> (معمولاً روتر)</li>
-        </ul>
-        <p>بدون Gateway فقط همان شبکه محلی قابل دسترس است.</p>
-      </div>
-
-      <div class="card" id="subnet"><h3>۳) Subnetting</h3>
-        <p><code>192.168.50.0/24</code> را به دو شبکه /25 تقسیم کنید:</p>
-        <ul>
-          <li>شبکه ۱: <code>192.168.50.0 – 192.168.50.127</code></li>
-          <li>شبکه ۲: <code>192.168.50.128 – 192.168.50.255</code></li>
-        </ul>
-        <p>/24 ≈ 254 Host &nbsp;|&nbsp; /26 ≈ 62 Host &nbsp;|&nbsp; /27 ≈ 30 Host</p>
-      </div>
-
-      <div class="card" id="vlan"><h3>۴) VLAN (Virtual LAN)</h3>
-        <ul>
-          <li>VLAN 10 = اداری</li>
-          <li>VLAN 20 = فنی</li>
-          <li>VLAN 30 = مهمان (Guest)</li>
-        </ul>
-        <p><strong>Access Port:</strong> یک VLAN برای کامپیوتر<br>
-        <strong>Trunk Port:</strong> چند VLAN بین سوئیچ و روتر</p>
-        <p><strong>مثال:</strong> مهمان نمی‌تواند به File Server اداری دسترسی داشته باشد.</p>
-      </div>
-
-      <div class="card" id="dhcp"><h3>۵) DHCP</h3>
-        <p>فرآیند <strong>DORA</strong>:</p>
-        <ol>
-          <li><strong>Discover</strong> – کلاینت دنبال سرور می‌گردد</li>
-          <li><strong>Offer</strong> – سرور IP پیشنهاد می‌کند</li>
-          <li><strong>Request</strong> – کلاینت قبول می‌کند</li>
-          <li><strong>Ack</strong> – سرور تأیید می‌کند</li>
-        </ol>
-        <p>مثال Pool: <code>192.168.10.100 – 192.168.10.200</code><br>
-        Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> یا سرور داخلی</p>
-      </div>
-
-      <div class="card" id="dns"><h3>۶) DNS</h3>
-        <p>تبدیل نام به IP:</p>
-        <p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p>
-        <p><strong>مشکل معمول:</strong> IP پینگ می‌شود ولی نام باز نمی‌شود → مشکل DNS.</p>
-      </div>
-
-      <div class="card" id="routing"><h3>۷) Routing پایه</h3>
-        <p>روتر تصمیم می‌گیرد پکت به کجا برود.</p>
-        <ul>
-          <li><strong>Static Route</strong> – مسیر دستی تعریف می‌شود</li>
-          <li><strong>Default Gateway</strong> – مسیر پیش‌فرض برای خروج به اینترنت</li>
-        </ul>
-        <p><strong>مثال:</strong> اگر کامپیوتر در VLAN 10 باشد و بخواهد به VLAN 20 برسد، روتر باید مسیر داشته باشد.</p>
-      </div>
-
-      <div class="card" id="nat"><h3>۸) NAT (Network Address Translation)</h3>
-        <p>تبدیل آدرس خصوصی به آدرس عمومی برای خروج به اینترنت.</p>
-        <p><strong>مثال:</strong> کامپیوتر با <code>192.168.10.50</code> به اینترنت می‌رود. روتر آدرس را به <code>203.0.113.5</code> تبدیل می‌کند.</p>
-      </div>
-
-      <div class="card" id="ipv6"><h3>۹) IPv6</h3>
-        <p>نسخه جدید IP با آدرس طولانی‌تر (۱۲۸ بیت).</p>
-        <p>مثال: <code>2001:0db8:85a3::8a2e:0370:7334</code></p>
-        <p>در بسیاری شرکت‌ها هنوز IPv4 استفاده می‌شود، اما IPv6 آینده است.</p>
-      </div>
-
-      <div class="card" id="topo"><h3>۱۰) توپولوژی شبکه</h3>
-        <ul>
-          <li><strong>Star</strong> – همه به یک سوئیچ مرکزی</li>
-          <li><strong>Bus</strong> – همه روی یک کابل</li>
-          <li><strong>Mesh</strong> – هر دستگاه به چند دستگاه دیگر</li>
-        </ul>
-        <p>شرکت‌ها معمولاً از <strong>Star</strong> استفاده می‌کنند.</p>
-      </div>
-
-      <div class="card" id="troubleshoot"><h3>۱۱) عیب‌یابی شبکه</h3>
-        <ol>
-          <li>کابل و لینک فیزیکی را چک کن (L1)</li>
-          <li><code>ipconfig</code> / <code>ip addr</code> – IP داری؟</li>
-          <li>Ping به Gateway</li>
-          <li>Ping به ۸.۸.۸.۸</li>
-          <li>DNS را تست کن (<code>nslookup</code>)</li>
-        </ol>
-        <p><strong>مثال:</strong> اگر Gateway پینگ می‌شود ولی اینترنت نه → مشکل در DNS یا Firewall.</p>
-      </div>
-
-      <div class="card" id="security"><h3>۱۲) امنیت پایه</h3>
-        <ul>
-          <li>فقط پورت‌های لازم باز باشد</li>
-          <li>Least Privilege (حداقل دسترسی)</li>
-          <li>VLAN مهمان جدا</li>
-          <li>Backup و Update منظم</li>
-          <li>Firewall بین VLAN‌ها</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>✅ کوییز</h3><div id="quiz-its"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">ثبت پاسخ</button></div><div class="quiz-score" id="score-its" style="display:none;margin-top:1rem"></div></div>
-    </div>
-
-    <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Worum geht es?</h3><div class="goal">Computernetzwerke planen, einrichten und verwalten.</div><p><strong>Beispiel:</strong> Firma mit 30 Mitarbeitern, 3 Abteilungen. Benötigt VLANs, DHCP, DNS und Sicherheit.</p></div>
-      <div class="card"><h3>1) OSI-Modell (vereinfacht)</h3><ul><li><strong>L1 Physical:</strong> Kabel, Switch, Licht</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, Ports, Anwendungen</li></ul><p><strong>Beispiel:</strong> Ping zum Gateway funktioniert, Website nicht → meist DNS oder Firewall.</p></div>
-      <div class="card"><h3>2) IP-Adressierung und Gateway</h3><ul><li>PC-IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code> (meist Router)</li></ul><p>Ohne Gateway nur das lokale Netz erreichbar.</p></div>
-      <div class="card"><h3>3) Subnetting</h3><p><code>192.168.50.0/24</code> in zwei /25-Netze aufteilen:</p><ul><li>Netz 1: <code>192.168.50.0 – 192.168.50.127</code></li><li>Netz 2: <code>192.168.50.128 – 192.168.50.255</code></li></ul><p>/24 ≈ 254 Hosts &nbsp;|&nbsp; /26 ≈ 62 Hosts &nbsp;|&nbsp; /27 ≈ 30 Hosts</p></div>
-      <div class="card"><h3>4) VLAN</h3><ul><li>VLAN 10 = Büro</li><li>VLAN 20 = Technik</li><li>VLAN 30 = Gäste</li></ul><p><strong>Access-Port:</strong> ein VLAN für den PC<br><strong>Trunk-Port:</strong> mehrere VLANs zwischen Switch und Router</p><p><strong>Beispiel:</strong> Gäste dürfen nicht auf den Büro-Fileserver zugreifen.</p></div>
-      <div class="card"><h3>5) DHCP</h3><p>Prozess <strong>DORA</strong>:</p><ol><li><strong>Discover</strong></li><li><strong>Offer</strong></li><li><strong>Request</strong></li><li><strong>Acknowledge</strong></li></ol><p>Beispiel Pool: <code>192.168.10.100 – 192.168.10.200</code><br>Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> oder interner Server</p></div>
-      <div class="card"><h3>6) DNS</h3><p>Name zu IP auflösen:</p><p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p><p><strong>Typisches Problem:</strong> IP pingt, Name funktioniert nicht → DNS-Problem.</p></div>
-      <div class="card"><h3>7) Routing</h3><p>Router entscheidet, wohin Pakete gehen. Static Route oder Default Gateway.</p></div>
-      <div class="card"><h3>8) NAT</h3><p>Übersetzt private IPs in eine öffentliche IP für den Internetzugang.</p></div>
-      <div class="card"><h3>9) IPv6</h3><p>Neue IP-Version mit längeren Adressen (128 Bit).</p></div>
-      <div class="card"><h3>10) Topologien</h3><p>Star, Bus, Mesh. Unternehmen nutzen meist Stern-Topologie.</p></div>
-      <div class="card"><h3>11) Fehlersuche</h3><ol><li>Kabel prüfen</li><li>IP prüfen</li><li>Gateway pingen</li><li>DNS testen</li></ol></div>
-      <div class="card"><h3>12) Sicherheit</h3><ul><li>Nur notwendige Ports öffnen</li><li>Least Privilege</li><li>Gäste-VLAN getrennt</li><li>Regelmäßiges Backup und Updates</li><li>Firewall zwischen VLANs</li></ul></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Abgeben</button></div><div class="quiz-score" id="score-its-de" style="display:none;margin-top:1rem"></div></div>
-    </div>
-
-    <div class="lang-block" data-lang="en">
-      <div class="card"><h3>What is this about?</h3><div class="goal">Plan, set up and manage computer networks.</div><p><strong>Example:</strong> Company with 30 employees, 3 departments. Needs VLANs, DHCP, DNS and security.</p></div>
-      <div class="card"><h3>1) OSI Model (simplified)</h3><ul><li><strong>L1 Physical:</strong> Cable, switch, light</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, ports, applications</li></ul><p><strong>Example:</strong> Gateway ping works, website does not → usually DNS or firewall.</p></div>
-      <div class="card"><h3>2) IP Addressing and Gateway</h3><ul><li>PC IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code> (usually router)</li></ul><p>Without a gateway you can only reach the local network.</p></div>
-      <div class="card"><h3>3) Subnetting</h3><p>Split <code>192.168.50.0/24</code> into two /25 networks:</p><ul><li>Network 1: <code>192.168.50.0 – 192.168.50.127</code></li><li>Network 2: <code>192.168.50.128 – 192.168.50.255</code></li></ul><p>/24 ≈ 254 hosts &nbsp;|&nbsp; /26 ≈ 62 hosts &nbsp;|&nbsp; /27 ≈ 30 hosts</p></div>
-      <div class="card"><h3>4) VLAN</h3><ul><li>VLAN 10 = Office</li><li>VLAN 20 = Technical</li><li>VLAN 30 = Guest</li></ul><p><strong>Access Port:</strong> one VLAN for the PC<br><strong>Trunk Port:</strong> multiple VLANs between switch and router</p><p><strong>Example:</strong> Guests must not access the office file server.</p></div>
-      <div class="card"><h3>5) DHCP</h3><p><strong>DORA</strong> process:</p><ol><li><strong>Discover</strong></li><li><strong>Offer</strong></li><li><strong>Request</strong></li><li><strong>Acknowledge</strong></li></ol><p>Example pool: <code>192.168.10.100 – 192.168.10.200</code><br>Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> or internal server</p></div>
-      <div class="card"><h3>6) DNS</h3><p>Resolve name to IP:</p><p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p><p><strong>Common problem:</strong> IP pings but name does not work → DNS issue.</p></div>
-      <div class="card"><h3>7) Basic Routing</h3><p>The router decides where packets go. Static route or default gateway.</p></div>
-      <div class="card"><h3>8) NAT</h3><p>Translates private IPs to a public IP for internet access.</p></div>
-      <div class="card"><h3>9) IPv6</h3><p>Newer IP version with longer addresses (128 bit).</p></div>
-      <div class="card"><h3>10) Network Topologies</h3><p>Star, Bus, Mesh. Companies usually use star topology.</p></div>
-      <div class="card"><h3>11) Troubleshooting</h3><ol><li>Check cable</li><li>Check IP</li><li>Ping gateway</li><li>Test DNS</li></ol></div>
-      <div class="card"><h3>12) Security Basics</h3><ul><li>Open only necessary ports</li><li>Least privilege</li><li>Separate guest VLAN</li><li>Regular backups and updates</li><li>Firewall between VLANs</li></ul></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Submit</button></div><div class="quiz-score" id="score-its-en" style="display:none;margin-top:1rem"></div></div>
+    <!-- Single Topic View -->
+    <div id="topicContentView" style="display:none">
+      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
+      <div id="singleTopicContent"></div>
     </div>
   </main>
+
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+
   <script src="script.js"></script>
   <script>
-    const quizData={its:{fa:[{q:'Gateway معمولاً چیست؟',opts:['نام وای‌فای','آدرس خروجی (.1)','فقط پرینتر'],c:1},{q:'/24 تقریباً چند host دارد؟',opts:['14','62','254'],c:2},{q:'پورت PC به سوئیچ چه نوعی است؟',opts:['Trunk','Access','فقط فیبر'],c:1},{q:'DHCP چه کاری می‌کند؟',opts:['IP خودکار','فقط فیلم','رمز ویندوز'],c:0},{q:'نام کار نمی‌کند ولی IP پینگ می‌شود – اغلب؟',opts:['فقط کابل','DNS'],c:1}],de:[{q:'Was ist meistens der Gateway?',opts:['WLAN-Name','Ausgangs-Adresse (.1)','nur Drucker'],c:1},{q:'Wie viele Hosts hat /24 ungefähr?',opts:['14','62','254'],c:2},{q:'Was für ein Port ist der PC-Port?',opts:['Trunk','Access','nur Glasfaser'],c:1},{q:'Was macht DHCP?',opts:['IP automatisch','nur Videos','Windows-Passwort'],c:0},{q:'Name geht nicht, IP pingt – oft?',opts:['nur Kabel','DNS'],c:1}],en:[{q:'What is usually the gateway?',opts:['Wi-Fi name','exit address (.1)','printer only'],c:1},{q:'How many hosts in /24?',opts:['14','62','254'],c:2},{q:'What type is a PC port?',opts:['Trunk','Access','fibre only'],c:1},{q:'What does DHCP do?',opts:['auto IP','movies','Windows password'],c:0},{q:'Name fails, IP works – often?',opts:['cable only','DNS'],c:1}]}};
-    const answers={};let done={};
-    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
-    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
-    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
-    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
-    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
-    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
-    document.addEventListener('DOMContentLoaded',()=>renderMini('its'));
-    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.its){answers.its={};renderMini('its')}};
+    const topics = {
+      fa: [
+        { id: 'osi', title: 'مدل OSI', content: '<div class="card"><h3>مدل OSI (ساده‌شده)</h3><ul><li><strong>L1 فیزیکی:</strong> کابل، سوئیچ، نور</li><li><strong>L2 لینک دیتا:</strong> MAC، Switch، VLAN</li><li><strong>L3 شبکه:</strong> IP، Gateway، Router</li><li><strong>L4–7:</strong> TCP/UDP، پورت، برنامه‌ها</li></ul><p><strong>مثال:</strong> Ping به Gateway کار می‌کند ولی سایت باز نمی‌شود → اغلب مشکل در DNS یا Firewall است.</p></div>' },
+        { id: 'ip', title: 'آدرس‌دهی IP و Gateway', content: '<div class="card"><h3>آدرس‌دهی IP و Gateway</h3><ul><li>IP کامپیوتر: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code> (معمولاً روتر)</li></ul><p>بدون Gateway فقط همان شبکه محلی قابل دسترس است.</p></div>' },
+        { id: 'subnet', title: 'Subnetting', content: '<div class="card"><h3>Subnetting</h3><p><code>192.168.50.0/24</code> را به دو شبکه /25 تقسیم کنید:</p><ul><li>شبکه ۱: <code>192.168.50.0 – 192.168.50.127</code></li><li>شبکه ۲: <code>192.168.50.128 – 192.168.50.255</code></li></ul><p>/24 ≈ 254 Host &nbsp;|&nbsp; /26 ≈ 62 Host &nbsp;|&nbsp; /27 ≈ 30 Host</p></div>' },
+        { id: 'vlan', title: 'VLAN', content: '<div class="card"><h3>VLAN (Virtual LAN)</h3><ul><li>VLAN 10 = اداری</li><li>VLAN 20 = فنی</li><li>VLAN 30 = مهمان</li></ul><p><strong>Access Port:</strong> یک VLAN برای کامپیوتر<br><strong>Trunk Port:</strong> چند VLAN بین سوئیچ و روتر</p><p><strong>مثال:</strong> مهمان نمی‌تواند به File Server اداری دسترسی داشته باشد.</p></div>' },
+        { id: 'dhcp', title: 'DHCP', content: '<div class="card"><h3>DHCP</h3><p>فرآیند <strong>DORA</strong>:</p><ol><li><strong>Discover</strong> – کلاینت دنبال سرور می‌گردد</li><li><strong>Offer</strong> – سرور IP پیشنهاد می‌کند</li><li><strong>Request</strong> – کلاینت قبول می‌کند</li><li><strong>Ack</strong> – سرور تأیید می‌کند</li></ol><p>مثال Pool: <code>192.168.10.100 – 192.168.10.200</code></p></div>' },
+        { id: 'dns', title: 'DNS', content: '<div class="card"><h3>DNS</h3><p>تبدیل نام به IP:</p><p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p><p><strong>مشکل معمول:</strong> IP پینگ می‌شود ولی نام باز نمی‌شود → مشکل DNS.</p></div>' },
+        { id: 'routing', title: 'Routing پایه', content: '<div class="card"><h3>Routing پایه</h3><p>روتر تصمیم می‌گیرد پکت به کجا برود.</p><ul><li><strong>Static Route</strong> – مسیر دستی</li><li><strong>Default Gateway</strong> – مسیر پیش‌فرض</li></ul><p><strong>مثال:</strong> اگر کامپیوتر در VLAN 10 باشد و بخواهد به VLAN 20 برسد، روتر باید مسیر داشته باشد.</p></div>' },
+        { id: 'nat', title: 'NAT', content: '<div class="card"><h3>NAT</h3><p>تبدیل آدرس خصوصی به آدرس عمومی برای خروج به اینترنت.</p><p><strong>مثال:</strong> کامپیوتر با <code>192.168.10.50</code> به اینترنت می‌رود. روتر آدرس را به <code>203.0.113.5</code> تبدیل می‌کند.</p></div>' },
+        { id: 'ipv6', title: 'IPv6', content: '<div class="card"><h3>IPv6</h3><p>نسخه جدید IP با آدرس طولانی‌تر (۱۲۸ بیت).</p><p>مثال: <code>2001:0db8:85a3::8a2e:0370:7334</code></p></div>' },
+        { id: 'topo', title: 'توپولوژی شبکه', content: '<div class="card"><h3>توپولوژی شبکه</h3><ul><li><strong>Star</strong> – همه به یک سوئیچ مرکزی</li><li><strong>Bus</strong> – همه روی یک کابل</li><li><strong>Mesh</strong> – هر دستگاه به چند دستگاه دیگر</li></ul><p>شرکت‌ها معمولاً از Star استفاده می‌کنند.</p></div>' },
+        { id: 'troubleshoot', title: 'عیب‌یابی', content: '<div class="card"><h3>عیب‌یابی شبکه</h3><ol><li>کابل و لینک فیزیکی را چک کن</li><li><code>ipconfig</code> / <code>ip addr</code> – IP داری؟</li><li>Ping به Gateway</li><li>Ping به ۸.۸.۸.۸</li><li>DNS را تست کن</li></ol><p><strong>مثال:</strong> اگر Gateway پینگ می‌شود ولی اینترنت نه → مشکل در DNS یا Firewall.</p></div>' },
+        { id: 'security', title: 'امنیت پایه', content: '<div class="card"><h3>امنیت پایه</h3><ul><li>فقط پورت‌های لازم باز باشد</li><li>Least Privilege</li><li>VLAN مهمان جدا</li><li>Backup و Update منظم</li><li>Firewall بین VLAN‌ها</li></ul></div>' }
+      ],
+      de: [
+        { id: 'osi', title: 'OSI-Modell', content: '<div class="card"><h3>OSI-Modell (vereinfacht)</h3><ul><li><strong>L1 Physical:</strong> Kabel, Switch, Licht</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, Ports, Anwendungen</li></ul><p><strong>Beispiel:</strong> Ping zum Gateway funktioniert, Website nicht → meist DNS oder Firewall.</p></div>' },
+        { id: 'ip', title: 'IP-Adressierung und Gateway', content: '<div class="card"><h3>IP-Adressierung und Gateway</h3><ul><li>PC-IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code></li></ul><p>Ohne Gateway nur das lokale Netz erreichbar.</p></div>' },
+        { id: 'subnet', title: 'Subnetting', content: '<div class="card"><h3>Subnetting</h3><p><code>192.168.50.0/24</code> in zwei /25-Netze aufteilen:</p><ul><li>Netz 1: <code>192.168.50.0 – 192.168.50.127</code></li><li>Netz 2: <code>192.168.50.128 – 192.168.50.255</code></li></ul></div>' },
+        { id: 'vlan', title: 'VLAN', content: '<div class="card"><h3>VLAN</h3><ul><li>VLAN 10 = Büro</li><li>VLAN 20 = Technik</li><li>VLAN 30 = Gäste</li></ul><p><strong>Access-Port</strong> und <strong>Trunk-Port</strong>.</p></div>' },
+        { id: 'dhcp', title: 'DHCP', content: '<div class="card"><h3>DHCP</h3><p>Prozess <strong>DORA</strong>: Discover → Offer → Request → Acknowledge</p></div>' },
+        { id: 'dns', title: 'DNS', content: '<div class="card"><h3>DNS</h3><p>Name zu IP auflösen: <code>fileserver.firma.local</code> → <code>192.168.10.10</code></p></div>' },
+        { id: 'routing', title: 'Routing', content: '<div class="card"><h3>Routing</h3><p>Router entscheidet, wohin Pakete gehen.</p></div>' },
+        { id: 'nat', title: 'NAT', content: '<div class="card"><h3>NAT</h3><p>Übersetzt private IPs in eine öffentliche IP.</p></div>' },
+        { id: 'ipv6', title: 'IPv6', content: '<div class="card"><h3>IPv6</h3><p>Neue IP-Version mit längeren Adressen.</p></div>' },
+        { id: 'topo', title: 'Topologien', content: '<div class="card"><h3>Topologien</h3><p>Star, Bus, Mesh. Unternehmen nutzen meist Stern.</p></div>' },
+        { id: 'troubleshoot', title: 'Fehlersuche', content: '<div class="card"><h3>Fehlersuche</h3><ol><li>Kabel prüfen</li><li>IP prüfen</li><li>Gateway pingen</li><li>DNS testen</li></ol></div>' },
+        { id: 'security', title: 'Sicherheit', content: '<div class="card"><h3>Sicherheit</h3><ul><li>Nur notwendige Ports öffnen</li><li>Least Privilege</li><li>Gäste-VLAN getrennt</li></ul></div>' }
+      ],
+      en: [
+        { id: 'osi', title: 'OSI Model', content: '<div class="card"><h3>OSI Model (simplified)</h3><ul><li><strong>L1 Physical:</strong> Cable, switch, light</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, ports, applications</li></ul><p><strong>Example:</strong> Gateway ping works, website does not → usually DNS or firewall.</p></div>' },
+        { id: 'ip', title: 'IP Addressing and Gateway', content: '<div class="card"><h3>IP Addressing and Gateway</h3><ul><li>PC IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code></li></ul><p>Without a gateway you can only reach the local network.</p></div>' },
+        { id: 'subnet', title: 'Subnetting', content: '<div class="card"><h3>Subnetting</h3><p>Split <code>192.168.50.0/24</code> into two /25 networks.</p></div>' },
+        { id: 'vlan', title: 'VLAN', content: '<div class="card"><h3>VLAN</h3><ul><li>VLAN 10 = Office</li><li>VLAN 20 = Technical</li><li>VLAN 30 = Guest</li></ul><p><strong>Access Port</strong> and <strong>Trunk Port</strong>.</p></div>' },
+        { id: 'dhcp', title: 'DHCP', content: '<div class="card"><h3>DHCP</h3><p><strong>DORA</strong> process: Discover → Offer → Request → Acknowledge</p></div>' },
+        { id: 'dns', title: 'DNS', content: '<div class="card"><h3>DNS</h3><p>Resolve name to IP: <code>fileserver.firma.local</code> → <code>192.168.10.10</code></p></div>' },
+        { id: 'routing', title: 'Basic Routing', content: '<div class="card"><h3>Basic Routing</h3><p>The router decides where packets go.</p></div>' },
+        { id: 'nat', title: 'NAT', content: '<div class="card"><h3>NAT</h3><p>Translates private IPs to a public IP for internet access.</p></div>' },
+        { id: 'ipv6', title: 'IPv6', content: '<div class="card"><h3>IPv6</h3><p>Newer IP version with longer addresses.</p></div>' },
+        { id: 'topo', title: 'Network Topologies', content: '<div class="card"><h3>Network Topologies</h3><p>Star, Bus, Mesh. Companies usually use star topology.</p></div>' },
+        { id: 'troubleshoot', title: 'Troubleshooting', content: '<div class="card"><h3>Troubleshooting</h3><ol><li>Check cable</li><li>Check IP</li><li>Ping gateway</li><li>Test DNS</li></ol></div>' },
+        { id: 'security', title: 'Security Basics', content: '<div class="card"><h3>Security Basics</h3><ul><li>Open only necessary ports</li><li>Least privilege</li><li>Separate guest VLAN</li></ul></div>' }
+      ]
+    };
+
+    function currentLang() {
+      return localStorage.getItem('fisi-lang') || 'fa';
+    }
+
+    function renderTopicList() {
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const container = document.getElementById('topicList');
+      container.innerHTML = '';
+      list.forEach(t => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'topic-item';
+        a.innerHTML = `<h3>${t.title}</h3><span>→</span>`;
+        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
+        container.appendChild(a);
+      });
+    }
+
+    function showTopic(id) {
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const topic = list.find(t => t.id === id);
+      if (!topic) return;
+      document.getElementById('singleTopicContent').innerHTML = topic.content;
+      document.getElementById('topicListView').style.display = 'none';
+      document.getElementById('topicContentView').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function showList(e) {
+      if (e) e.preventDefault();
+      document.getElementById('topicContentView').style.display = 'none';
+      document.getElementById('topicListView').style.display = 'block';
+      renderTopicList();
+    }
+
+    // Override setLang to also re-render the list
+    const originalSetLang = window.setLang;
+    window.setLang = function(lang) {
+      originalSetLang(lang);
+      renderTopicList();
+      // If currently viewing a topic, stay on list for safety
+      showList();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTopicList();
+    });
   </script>
 </body>
 </html>
