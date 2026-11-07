@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PuG کامل | Klasse 11</title>
+  <title>PuG | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -34,86 +34,36 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>PuG – سیاست فعلی + WiSo</h1>
-    <p class="sub">آلمان پاییز ۲۰۲۶ · مثال ساده · کوییز پایانی</p>
+    <h1>PuG</h1>
+    <p class="sub">Politik 2026 · WiSo · FA/DE/EN same topics</p>
   </div>
   <main class="container">
     <div class="lang-block" data-lang="fa">
-      <div class="card">
-        <h3>الان آلمان را چه کسی اداره می‌کند؟</h3>
-        <div class="goal">صدراعظم: Friedrich Merz (CDU) · ائتلاف: CDU/CSU + SPD</div>
-        <p><strong>مثال ساده:</strong> مثل دو تیم که با هم دولت را می‌چرخانند. Union و SPD باید روی قانون‌ها توافق کنند وگرنه قانون جلو نمی‌رود.</p>
-      </div>
-      <div class="card">
-        <h3>موضوعات داغ ۲۰۲۶ با مثال</h3>
-        <ul>
-          <li><strong>پول و زندگی:</strong> دولت مالیات سوخت را مدتی کم کرد تا بنزین برای مردم ارزان‌تر شود.</li>
-          <li><strong>زیرساخت:</strong> بودجه بزرگ برای جاده، ریل، اینترنت و اقلیم (Sondervermögen).</li>
-          <li><strong>اوکراین و دفاع:</strong> آلمان کمک می‌کند و ارتش را قوی‌تر می‌خواهد.</li>
-          <li><strong>دیجیتال / KI:</strong> Digitalgipfel؛ بحث رقابت با شرکت‌های بزرگ آمریکایی.</li>
-          <li><strong>جوانان:</strong> محدودیت سنی برای شبکه‌های اجتماعی در بحث است.</li>
-          <li><strong>مراقبت و بازنشستگی:</strong> جمعیت پیر می‌شود → هزینه سیستم اجتماعی بالا می‌رود.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>ساختار دولت خیلی ساده</h3>
-        <ul>
-          <li><strong>Bundestag</strong> قانون می‌نویسد/تصویب می‌کند</li>
-          <li><strong>Bundesregierung</strong> اجرا می‌کند</li>
-          <li><strong>Länder</strong> خیلی کارها مثل مدرسه را خودشان مدیریت می‌کنند</li>
-        </ul>
-        <p><strong>مثال:</strong> Ausbildung قوانین فدرال دارد، ولی مدرسه شغلی (Berufsschule) را ایالت سازمان می‌دهد.</p>
-      </div>
-      <div class="card">
-        <h3>برای تو به‌عنوان کارآموز</h3>
-        <ul>
-          <li>قرارداد Ausbildung و Berichtsheft جدی است</li>
-          <li>بیمه اجتماعی از حقوق کم می‌شود (بیماری، بازنشستگی…)</li>
-          <li>در امتحان نهایی IHK بخش WiSo حدود ۱۰٪ نمره دارد</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>✅ کوییز PuG</h3>
-        <div id="quiz-pug"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">ثبت کوییز</button></div>
-        <div class="quiz-score" id="score-pug" style="display:none;margin-top:1rem"></div>
-      </div>
+      <div class="card"><h3>دولت فعلی</h3><div class="goal">صدراعظم Friedrich Merz (CDU) · ائتلاف CDU/CSU + SPD</div><p><strong>مثال:</strong> دو تیم با هم دولت را می‌چرخانند و باید روی قانون توافق کنند.</p></div>
+      <div class="card"><h3>موضوعات داغ ۲۰۲۶</h3><ul><li>هزینه زندگی و مالیات سوخت</li><li>زیرساخت و سرمایه‌گذاری</li><li>اوکراین و دفاع</li><li>دیجیتال / KI</li><li>محدودیت سنی شبکه‌های اجتماعی</li><li>مراقبت و بازنشستگی</li></ul></div>
+      <div class="card"><h3>ساختار ساده</h3><ul><li>Bundestag قانون می‌گذارد</li><li>Bundesregierung اجرا می‌کند</li><li>Länder مثلاً مدرسه را مدیریت می‌کنند</li></ul><p><strong>مثال:</strong> Ausbildung قوانین فدرال دارد؛ Berufsschule اغلب با ایالت است.</p></div>
+      <div class="card"><h3>برای کارآموز</h3><ul><li>Berichtsheft مهم است</li><li>بیمه اجتماعی از حقوق کم می‌شود</li><li>WiSo حدود ۱۰٪ نمره نهایی</li></ul></div>
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-pug"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">ثبت</button></div><div class="quiz-score" id="score-pug" style="display:none;margin-top:1rem"></div></div>
     </div>
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Aktuell</h3><div class="goal">Kanzler Merz · Koalition CDU/CSU + SPD · Themen: Wirtschaft, Ukraine, Digital/KI, Soziales.</div></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-pug-de"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">Abgeben</button></div>
-        <div class="quiz-score" id="score-pug-de" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>Aktuelle Regierung</h3><div class="goal">Kanzler Friedrich Merz (CDU) · Koalition CDU/CSU + SPD</div><p><strong>Beispiel:</strong> Zwei Partner regieren gemeinsam und müssen Gesetze aushandeln.</p></div>
+      <div class="card"><h3>Themen 2026</h3><ul><li>Lebenshaltungskosten und Energiesteuer</li><li>Infrastruktur und Investitionen</li><li>Ukraine und Verteidigung</li><li>Digital / KI</li><li>Altersgrenze Social Media</li><li>Pflege und Rente</li></ul></div>
+      <div class="card"><h3>Struktur einfach</h3><ul><li>Bundestag macht Gesetze</li><li>Bundesregierung führt aus</li><li>Länder z. B. Schule</li></ul><p><strong>Beispiel:</strong> Ausbildung hat Bundesregeln; Berufsschule oft Landessache.</p></div>
+      <div class="card"><h3>Für Auszubildende</h3><ul><li>Berichtsheft ist wichtig</li><li>Sozialversicherung vom Gehalt</li><li>WiSo ca. 10 % der Abschlussprüfung</li></ul></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-pug-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">Abgeben</button></div><div class="quiz-score" id="score-pug-de" style="display:none;margin-top:1rem"></div></div>
     </div>
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>Current</h3><div class="goal">Chancellor Merz · CDU/CSU + SPD coalition · topics: economy, Ukraine, digital/AI, social policy.</div></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-pug-en"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">Submit</button></div>
-        <div class="quiz-score" id="score-pug-en" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>Current government</h3><div class="goal">Chancellor Friedrich Merz (CDU) · coalition CDU/CSU + SPD</div><p><strong>Example:</strong> Two partners govern together and must agree on laws.</p></div>
+      <div class="card"><h3>Hot topics 2026</h3><ul><li>Cost of living and fuel tax relief</li><li>Infrastructure and investment</li><li>Ukraine and defence</li><li>Digital / AI</li><li>Social-media age limits</li><li>Care and pensions</li></ul></div>
+      <div class="card"><h3>Simple structure</h3><ul><li>Bundestag makes laws</li><li>Federal government executes</li><li>States manage e.g. schools</li></ul><p><strong>Example:</strong> Apprenticeship has federal rules; vocational school is often a state matter.</p></div>
+      <div class="card"><h3>For apprentices</h3><ul><li>Training record matters</li><li>Social insurance is deducted from pay</li><li>WiSo is about 10% of the final exam</li></ul></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-pug-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">Submit</button></div><div class="quiz-score" id="score-pug-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={pug:{fa:[
-      {q:'صدراعظم فعلی (۲۰۲۶)؟',opts:['فقط SPD بدون شریک','Friedrich Merz (CDU)','فقط شهردار برلین'],c:1},
-      {q:'ائتلاف فعلی؟',opts:['فقط سبزها','CDU/CSU + SPD','فقط یک نفر'],c:1},
-      {q:'Bundestag بیشتر چه می‌کند؟',opts:['فقط ورزش','قانون‌گذاری','تعمیر روتر'],c:1},
-      {q:'Berichtsheft؟',opts:['بی‌اهمیت','مهم برای Ausbildung و اغلب آزمون','فقط نقاشی'],c:1},
-      {q:'WiSo در امتحان نهایی تقریباً؟',opts:['۰٪','حدود ۱۰٪','۱۰۰٪ فقط WiSo'],c:1}
-    ],de:[
-      {q:'Aktueller Kanzler 2026?',opts:['nur SPD','Friedrich Merz (CDU)','nur Bürgermeister'],c:1},
-      {q:'Koalition?',opts:['nur Grüne','CDU/CSU + SPD','eine Person'],c:1},
-      {q:'Bundestag vor allem?',opts:['Sport','Gesetzgebung','Router reparieren'],c:1},
-      {q:'Berichtsheft?',opts:['egal','wichtig für Ausbildung/Prüfung','nur Malen'],c:1},
-      {q:'WiSo Anteil ca.?',opts:['0%','ca. 10%','100% nur WiSo'],c:1}
-    ],en:[
-      {q:'Current chancellor 2026?',opts:['SPD alone','Friedrich Merz (CDU)','only Berlin mayor'],c:1},
-      {q:'Current coalition?',opts:['Greens only','CDU/CSU + SPD','one person'],c:1},
-      {q:'Bundestag mainly?',opts:['sports','legislation','router repair'],c:1},
-      {q:'Training record (Berichtsheft)?',opts:['irrelevant','important for training/exam','drawing only'],c:1},
-      {q:'WiSo share roughly?',opts:['0%','about 10%','100% WiSo only'],c:1}
-    ]}};
+    const quizData={pug:{fa:[{q:'صدراعظم ۲۰۲۶؟',opts:['فقط SPD','Friedrich Merz (CDU)','فقط شهردار'],c:1},{q:'ائتلاف؟',opts:['فقط سبز','CDU/CSU + SPD','یک نفر'],c:1},{q:'Bundestag؟',opts:['ورزش','قانون‌گذاری','تعمیر روتر'],c:1},{q:'Berichtsheft؟',opts:['بی‌اهمیت','مهم','فقط نقاشی'],c:1},{q:'WiSo تقریباً؟',opts:['0%','حدود 10%','100%'],c:1}],de:[{q:'Kanzler 2026?',opts:['nur SPD','Friedrich Merz (CDU)','nur Bürgermeister'],c:1},{q:'Koalition?',opts:['nur Grüne','CDU/CSU + SPD','eine Person'],c:1},{q:'Bundestag?',opts:['Sport','Gesetzgebung','Router'],c:1},{q:'Berichtsheft?',opts:['egal','wichtig','nur Malen'],c:1},{q:'WiSo ca.?',opts:['0%','ca. 10%','100%'],c:1}],en:[{q:'Chancellor 2026?',opts:['SPD only','Friedrich Merz (CDU)','mayor only'],c:1},{q:'Coalition?',opts:['Greens only','CDU/CSU + SPD','one person'],c:1},{q:'Bundestag?',opts:['sports','legislation','router repair'],c:1},{q:'Training record?',opts:['irrelevant','important','drawing only'],c:1},{q:'WiSo about?',opts:['0%','about 10%','100%'],c:1}]}};
     const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
