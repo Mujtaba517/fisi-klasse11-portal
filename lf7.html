@@ -13,7 +13,6 @@
     <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
     <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
   </div>
-
   <nav class="main-nav">
     <div class="container nav-inner">
       <a href="index.html" data-i18n="navHome">خانه</a>
@@ -25,78 +24,113 @@
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </div>
   </nav>
-
   <header class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / LF 7</div>
       <h1>🤖 Lernfeld 7: Cyber-physische Systeme ergänzen</h1>
-      <p class="subtitle" data-i18n="lf7Sub">اتصال دنیای فیزیکی به سیستم‌های IT (IoT & Industrie 4.0)</p>
+      <p class="subtitle">72 Unterrichtsstunden · IT-Technik</p>
     </div>
   </header>
-
   <main class="container">
     <div class="card">
-      <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
-      <p data-i18n="lf7What">یاد می‌گیری چطور سنسورها، عملگرها و دستگاه‌های فیزیکی را با سیستم‌های IT ترکیب کنی. این پایه Industrie 4.0 و اینترنت اشیا (IoT) است.</p>
+      <h3>🎯 Zielformulierung (هدف رسمی Lehrplan)</h3>
+      <p style="color:var(--accent);font-weight:600">Die Schülerinnen und Schüler verfügen über die Kompetenz, die physische Welt und IT-Systeme funktional zu einem cyber-physischen System zusammenzuführen.</p>
+      <p><strong>فارسی:</strong> دانش‌آموزان صلاحیت اتصال کارکردی دنیای فیزیکی و سیستم‌های IT به یک سیستم سایبر-فیزیکی را دارند.</p>
+      <p><strong>English:</strong> Students can functionally integrate the physical world and IT systems into a cyber-physical system.</p>
+    </div>
 
-      <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
+    <div class="card">
+      <h3>📚 چه چیزهایی یاد می‌گیری؟ (طبق Lehrplan)</h3>
       <ul>
-        <li data-i18n="lf7t1">سنسورها و عملگرها (Sensoren & Aktoren)</li>
-        <li data-i18n="lf7t2">میکروکنترلر (ESP32 / Arduino)</li>
-        <li data-i18n="lf7t3">پروتکل‌های IoT (MQTT, HTTP/REST)</li>
-        <li data-i18n="lf7t4">Node-RED برای اتوماسیون جریان داده</li>
-        <li data-i18n="lf7t5">ماشین مجازی و لینوکس برای تست</li>
-        <li data-i18n="lf7t6">مفاهیم پایه الکتروتکنیک و ایمنی</li>
+        <li>تحلیل یک CPS موجود برای سفارش مشتری (افزودن و راه‌اندازی قطعه جدید)</li>
+        <li>بررسی <strong>Datenfluss</strong> در مرز بین دنیای فیزیکی و IT</li>
+        <li>درک ارتباط در شبکه موجود</li>
+        <li>نمای کلی از جریان‌های <strong>انرژی، ماده و اطلاعات</strong> همه دستگاه‌ها</li>
+        <li>برنامه‌ریزی پیاده‌سازی خواسته مشتری</li>
+        <li>تعیین معیار انتخاب: تغذیه انرژی، سخت‌افزار، نرم‌افزار (کتابخانه‌ها، پروتکل‌ها)</li>
+        <li>استفاده و تطبیق مستندات فنی (technische Kommunikation)</li>
+        <li>اتصال کارکردی قطعات به CPS</li>
+        <li>آزمون سیستماتیک عملکرد، اندازه‌گیری مقادیر فیزیکی، اعتبارسنجی مصرف انرژی</li>
+        <li>ثبت نتایج (Protokoll)</li>
+        <li>بازنگری فرآیند از نظر بهینه‌سازی، <strong>Betriebssicherheit</strong> و <strong>Datensicherheit</strong></li>
       </ul>
     </div>
 
     <div class="card">
-      <h3 data-i18n="mqttTitle">MQTT چیست و چرا مهم است؟</h3>
-      <p data-i18n="mqttDesc">MQTT یک پروتکل سبک پیام‌رسانی Publish/Subscribe است که برای دستگاه‌های IoT با پهنای باند کم طراحی شده. Broker در وسط قرار دارد و Clientها پیام را روی Topic منتشر یا دریافت می‌کنند.</p>
+      <h3>🔗 Cyber-physisches System چیست؟</h3>
+      <p>سیستمی که در آن اجزای فیزیکی (سنسور، موتور، دستگاه) با اجزای دیجیتال (نرم‌افزار، شبکه، کنترلر) به هم وصل شده‌اند و روی هم اثر می‌گذارند.</p>
       <ul>
-        <li><strong>Broker</strong> – سرور مرکزی (مثلاً Mosquitto)</li>
-        <li><strong>Topic</strong> – مسیر پیام (مثل sensors/temp/room1)</li>
-        <li><strong>QoS</strong> – سطح تضمین تحویل (0, 1, 2)</li>
+        <li><strong>Sensor</strong> – اندازه‌گیری دنیای واقعی (دما، نور، فاصله، فشار...)</li>
+        <li><strong>Aktor</strong> – تأثیر روی دنیای واقعی (موتور، رله، شیر، نمایشگر...)</li>
+        <li><strong>Controller / Mikrocontroller</strong> – پردازش (ESP32, Arduino, SPS...)</li>
+        <li><strong>Netzwerk / Protokoll</strong> – انتقال داده (MQTT, HTTP, Modbus...)</li>
+        <li><strong>IT-System</strong> – سرور، داشبورد، پایگاه داده، ابر</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3 data-i18n="exercises">تمرین‌های عملی</h3>
+      <h3>📡 MQTT و جریان داده</h3>
+      <p>در بسیاری از پروژه‌های CPS از MQTT استفاده می‌شود:</p>
+      <ul>
+        <li><strong>Broker</strong> – واسط مرکزی (مثلاً Mosquitto)</li>
+        <li><strong>Publisher</strong> – دستگاهی که داده می‌فرستد (سنسور روی ESP32)</li>
+        <li><strong>Subscriber</strong> – دریافت‌کننده (Node-RED، داشبورد، سرور)</li>
+        <li><strong>Topic</strong> – مسیر منطقی پیام (مثلاً <code>fabrik/halle1/temp</code>)</li>
+        <li><strong>QoS 0/1/2</strong> – سطح تضمین تحویل</li>
+      </ul>
+    </div>
 
+    <div class="card">
+      <h3>⚡ انرژی، ایمنی و امنیت</h3>
+      <ul>
+        <li>انتخاب صحیح تغذیه (Spannungsversorgung) بر اساس نیاز قطعات</li>
+        <li>اندازه‌گیری و ثبت مقادیر فیزیکی (Strom, Spannung, Temperatur...)</li>
+        <li><strong>Betriebssicherheit</strong> – ایمنی کارکرد (مثلاً قطع اضطراری، محدوده مجاز)</li>
+        <li><strong>Datensicherheit</strong> – امنیت داده در مسیر سنسور تا سرور</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>✏️ تمرین‌های عملی</h3>
       <div class="exercise">
-        <div class="exercise-title">✏️ تمرین ۱ – سنسور دما</div>
-        <p data-i18n="ex7_1">با ESP32 و یک DHT22، دما را بخوان و هر ۱۰ ثانیه از طریق MQTT به یک Broker بفرست. اگر دما بالای ۳۰ درجه شد، یک پیام هشدار جداگانه ارسال کن.</p>
+        <div class="exercise-title">تمرین ۱ – تحلیل CPS</div>
+        <p>یک سیستم Smart Home ساده (لامپ + سنسور حرکت + کنترلر) را توصیف کن: جریان اطلاعات، انرژی و نقش هر قطعه چیست؟</p>
       </div>
-
       <div class="exercise">
-        <div class="exercise-title">✏️ تمرین ۲ – Node-RED</div>
-        <p data-i18n="ex7_2">در Node-RED یک Flow بساز که پیام MQTT را دریافت کند، در یک Dashboard نمایش دهد و در صورت عبور از حد مجاز، یک ایمیل یا نوتیفیکیشن بفرستد.</p>
+        <div class="exercise-title">تمرین ۲ – افزودن قطعه</div>
+        <p>مشتری می‌خواهد یک سنسور دما به سیستم موجود اضافه شود و اگر دما از حد مجاز بالاتر رفت هشدار داده شود. مراحل برنامه‌ریزی تا راه‌اندازی را بنویس.</p>
       </div>
-
       <div class="exercise">
-        <div class="exercise-title">✏️ تمرین ۳ – مستندسازی</div>
-        <p data-i18n="ex7_3">یک دیاگرام ساده از سیستم Cyber-physisch خودت بکش (سنسور → میکروکنترلر → شبکه → Broker → Dashboard) و آن را توضیح بده.</p>
+        <div class="exercise-title">تمرین ۳ – MQTT عملی</div>
+        <p>با ESP32 + DHT22 دما را بخوان و هر ۱۰ ثانیه روی یک Topic به Broker بفرست. در Node-RED آن را نمایش بده و برای دمای بالا Alarm تعریف کن.</p>
+      </div>
+      <div class="exercise">
+        <div class="exercise-title">تمرین ۴ – مستندسازی و ایمنی</div>
+        <p>برای پروژه بالا یک پروتکل کوتاه بنویس: قطعات، تغذیه، اندازه‌گیری‌ها، نکات Betriebssicherheit و Datensicherheit.</p>
       </div>
     </div>
 
     <div class="card">
-      <h3 data-i18n="keyTerms">اصطلاحات مهم آلمانی</h3>
+      <h3>📖 اصطلاحات رسمی آلمانی</h3>
       <ul>
         <li><strong>Cyber-physisches System (CPS)</strong> – سیستم سایبر-فیزیکی</li>
         <li><strong>Sensor / Aktor</strong> – سنسور / عملگر</li>
-        <li><strong>Mikrocontroller</strong> – میکروکنترلر</li>
-        <li><strong>Nachricht / Topic</strong> – پیام / موضوع</li>
-        <li><strong>Broker</strong> – کارگزار MQTT</li>
-        <li><strong>Industrie 4.0</strong> – انقلاب صنعتی چهارم</li>
+        <li><strong>Datenfluss</strong> – جریان داده</li>
+        <li><strong>Energie- / Stoff- / Informationsfluss</strong> – جریان انرژی / ماده / اطلاعات</li>
+        <li><strong>Inbetriebnahme</strong> – راه‌اندازی</li>
+        <li><strong>Betriebssicherheit</strong> – ایمنی کارکرد</li>
+        <li><strong>Datensicherheit</strong> – امنیت داده</li>
+        <li><strong>Physikalische Betriebswerte</strong> – مقادیر فیزیکی کارکرد</li>
+        <li><strong>Technische Kommunikation</strong> – مستندات فنی</li>
       </ul>
     </div>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    <div class="card" style="border-color:rgba(34,211,238,0.25)">
+      <h3>📄 منبع</h3>
+      <p style="color:var(--text-muted);margin:0">Lehrplanrichtlinien Bayern – Jahrgangsstufe 11, IT-Technik, Lernfeld «Cyber-physische Systeme ergänzen» (72 Std.), Mai 2020</p>
     </div>
-  </footer>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
