@@ -1,0 +1,263 @@
+:root {
+  --bg: #0f1419;
+  --bg-card: #1a2332;
+  --text: #e8eef5;
+  --text-muted: #9fb0c3;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --accent: #22d3ee;
+  --border: #2d3a4f;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+html[lang="de"] body,
+html[lang="en"] body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Language Switcher */
+.lang-switcher {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  display: flex;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+}
+
+.lang-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Hero */
+.hero {
+  padding: 5.5rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, #132033 0%, var(--bg) 100%);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.25;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+.main-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(15, 20, 25, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 50;
+  padding: 0.7rem 0;
+}
+
+.nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  justify-content: center;
+}
+
+.main-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+/* Sections */
+.section {
+  padding: 3.2rem 0 1rem;
+}
+
+.section h2 {
+  font-size: 1.55rem;
+  margin-bottom: 1.3rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 1.4rem 0 0.6rem;
+  color: #93c5fd;
+}
+
+.card h3:first-child {
+  margin-top: 0;
+}
+
+.card p {
+  color: var(--text-muted);
+  margin-bottom: 0.7rem;
+}
+
+.card ul {
+  margin: 0.6rem 0 1rem 1.3rem;
+  color: var(--text-muted);
+}
+
+.card li {
+  margin-bottom: 0.35rem;
+}
+
+.topic-list {
+  list-style: none;
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+}
+
+.topic-list li {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* Tips Grid */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.tip {
+  background: rgba(34, 211, 238, 0.05);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.tip h4 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.tip p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+footer .small {
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  opacity: 0.7;
+}
+
+/* RTL / LTR adjustments */
+html[dir="rtl"] .lang-switcher {
+  left: auto;
+  right: 1rem;
+}
+
+html[dir="ltr"] .card ul {
+  margin-left: 1.3rem;
+  margin-right: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 4.5rem;
+  }
+  .lang-switcher {
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+  html[dir="rtl"] .lang-switcher {
+    right: 0.6rem;
+  }
+  .card {
+    padding: 1.3rem;
+  }
+}
