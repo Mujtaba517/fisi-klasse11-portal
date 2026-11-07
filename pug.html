@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PuG | Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html" class="active">PuG</a>
+      <a href="flashcards.html">Flash</a>
+      <a href="quiz.html">Quiz</a>
+    </nav></div>
+  </header>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1>Politik und Gesellschaft (PuG)</h1>
+    <p class="sub">پایه برای Wirtschafts- und Sozialkunde در امتحان IHK</p>
+  </div>
+  <main class="container">
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 چرا مهم است؟</h3>
+        <div class="goal">در امتحان پایانی IHK بخش WiSo حدود ۱۰٪ نمره دارد. PuG پایهٔ همین بخش است.</div>
+        <ul>
+          <li>نظام سیاسی آلمان (Grundgesetz، فدرالیسم)</li>
+          <li>حقوق و وظایف شهروندی</li>
+          <li>بازار کار، قرارداد کار، Ausbildung</li>
+          <li>بیمه‌های اجتماعی پایه</li>
+          <li>حفاظت از داده به‌عنوان موضوع اجتماعی</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>تفاوت Bund و Länder را با یک مثال توضیح بده.</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>سه حق مهم از Grundgesetz که به کار IT مربوط می‌شود نام ببر.</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>چرا Datenschutz هم موضوع فنی است هم اجتماعی؟</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Warum wichtig?</h3>
+        <div class="goal">WiSo in der IHK-Abschlussprüfung zählt ca. 10 %. PuG legt die Basis.</div>
+        <ul>
+          <li>Politisches System (Grundgesetz, Föderalismus)</li>
+          <li>Bürgerrechte und -pflichten</li>
+          <li>Arbeitswelt, Ausbildungsvertrag</li>
+          <li>Sozialversicherungen</li>
+          <li>Datenschutz als gesellschaftliches Thema</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Unterschied Bund / Länder mit Beispiel erklären.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Drei Grundrechte mit IT-Bezug nennen.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Warum ist Datenschutz technisch und gesellschaftlich?</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Why it matters</h3>
+        <div class="goal">WiSo is about 10% of the final IHK exam. PuG builds that base.</div>
+        <ul>
+          <li>German political system (Basic Law, federalism)</li>
+          <li>Civic rights and duties</li>
+          <li>Work life and apprenticeship contract</li>
+          <li>Social insurance basics</li>
+          <li>Data protection as a social issue</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Explain Bund vs Länder with an example.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Name three basic rights relevant to IT work.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Why is data protection both technical and social?</p></div>
+      </div>
+    </div>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
