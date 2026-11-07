@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LF 7 – Cyber-physische Systeme | FISI Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
+    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
+    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="lf6.html">LF 6</a>
+      <a href="lf7.html" class="active">LF 7</a>
+      <a href="lf8.html">LF 8</a>
+      <a href="lf9.html">LF 9</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / LF 7</div>
+      <h1>🤖 Lernfeld 7: Cyber-physische Systeme ergänzen</h1>
+      <p class="subtitle" data-i18n="lf7Sub">اتصال دنیای فیزیکی به سیستم‌های IT (IoT & Industrie 4.0)</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
+      <p data-i18n="lf7What">یاد می‌گیری چطور سنسورها، عملگرها و دستگاه‌های فیزیکی را با سیستم‌های IT ترکیب کنی. این پایه Industrie 4.0 و اینترنت اشیا (IoT) است.</p>
+
+      <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
+      <ul>
+        <li data-i18n="lf7t1">سنسورها و عملگرها (Sensoren & Aktoren)</li>
+        <li data-i18n="lf7t2">میکروکنترلر (ESP32 / Arduino)</li>
+        <li data-i18n="lf7t3">پروتکل‌های IoT (MQTT, HTTP/REST)</li>
+        <li data-i18n="lf7t4">Node-RED برای اتوماسیون جریان داده</li>
+        <li data-i18n="lf7t5">ماشین مجازی و لینوکس برای تست</li>
+        <li data-i18n="lf7t6">مفاهیم پایه الکتروتکنیک و ایمنی</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="mqttTitle">MQTT چیست و چرا مهم است؟</h3>
+      <p data-i18n="mqttDesc">MQTT یک پروتکل سبک پیام‌رسانی Publish/Subscribe است که برای دستگاه‌های IoT با پهنای باند کم طراحی شده. Broker در وسط قرار دارد و Clientها پیام را روی Topic منتشر یا دریافت می‌کنند.</p>
+      <ul>
+        <li><strong>Broker</strong> – سرور مرکزی (مثلاً Mosquitto)</li>
+        <li><strong>Topic</strong> – مسیر پیام (مثل sensors/temp/room1)</li>
+        <li><strong>QoS</strong> – سطح تضمین تحویل (0, 1, 2)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="exercises">تمرین‌های عملی</h3>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۱ – سنسور دما</div>
+        <p data-i18n="ex7_1">با ESP32 و یک DHT22، دما را بخوان و هر ۱۰ ثانیه از طریق MQTT به یک Broker بفرست. اگر دما بالای ۳۰ درجه شد، یک پیام هشدار جداگانه ارسال کن.</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۲ – Node-RED</div>
+        <p data-i18n="ex7_2">در Node-RED یک Flow بساز که پیام MQTT را دریافت کند، در یک Dashboard نمایش دهد و در صورت عبور از حد مجاز، یک ایمیل یا نوتیفیکیشن بفرستد.</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۳ – مستندسازی</div>
+        <p data-i18n="ex7_3">یک دیاگرام ساده از سیستم Cyber-physisch خودت بکش (سنسور → میکروکنترلر → شبکه → Broker → Dashboard) و آن را توضیح بده.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="keyTerms">اصطلاحات مهم آلمانی</h3>
+      <ul>
+        <li><strong>Cyber-physisches System (CPS)</strong> – سیستم سایبر-فیزیکی</li>
+        <li><strong>Sensor / Aktor</strong> – سنسور / عملگر</li>
+        <li><strong>Mikrocontroller</strong> – میکروکنترلر</li>
+        <li><strong>Nachricht / Topic</strong> – پیام / موضوع</li>
+        <li><strong>Broker</strong> – کارگزار MQTT</li>
+        <li><strong>Industrie 4.0</strong> – انقلاب صنعتی چهارم</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
