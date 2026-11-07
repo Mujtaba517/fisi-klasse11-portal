@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BGWP کامل | Klasse 11</title>
+  <title>BGWP | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -34,237 +34,63 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>BGWP – کامل برای امتحان</h1>
-    <p class="sub">Serviceanfragen · SLA · ITIL پایه · با مثال و کوییز پایانی</p>
+    <h1>BGWP</h1>
+    <p class="sub">Serviceanfragen · SLA · ITIL · FA / DE / EN gleich</p>
   </div>
   <main class="container">
 
+    <!-- FA -->
     <div class="lang-block" data-lang="fa">
-      <div class="card">
-        <h3>این درس درباره چیست؟</h3>
-        <div class="goal">یاد می‌گیری وقتی کاربر مشکل دارد، چطور درست تیکت بگیری، اولویت بدهی، حل کنی یا به سطح بالاتر بفرستی و همه را مستند کنی.</div>
-        <p><strong>مثال واقعی:</strong> خانم احمدی زنگ می‌زند: «پرینتر طبقه ۲ کار نمی‌کند و باید فاکتور چاپ کنم.» تو باید سؤال بپرسی، تیکت باز کنی، اولویت بگذاری و یا خودت حل کنی یا Escalate کنی.</p>
-      </div>
-
-      <div class="card">
-        <h3>۱) Serviceanfrage چیست؟</h3>
-        <p>هر درخواستی که کاربر از IT می‌خواهد: خرابی، نصب برنامه، دسترسی، سؤال.</p>
-        <p><strong>مثال:</strong></p>
-        <ul>
-          <li>«رمز عبور را فراموش کردم» → Serviceanfrage</li>
-          <li>«اینترنت کل شرکت قطع است» → هم Serviceanfrage است هم اغلب <em>Incident</em> با اولویت بالا</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>۲) فرآیند استاندارد (گام‌به‌گام)</h3>
-        <ol>
-          <li><strong>Aufnahme</strong> – نام کاربر، شماره داخلی، چه چیزی خراب است، از کی؟</li>
-          <li><strong>SLA</strong> – چقدر وقت برای جواب داری؟</li>
-          <li><strong>دسته‌بندی</strong> – سخت‌افزار / نرم‌افزار / شبکه / دسترسی</li>
-          <li><strong>اولویت</strong> – چقدر بد است و چقدر فوری؟</li>
-          <li><strong>حل یا Eskalation</strong></li>
-          <li><strong>مستند و بستن تیکت</strong></li>
-        </ol>
-        <p><strong>مثال:</strong> کاربر نمی‌تواند به SharePoint برود. سؤال: از خانه است یا دفتر؟ VPN وصل است؟ مرورگر چیست؟ پیام خطا چیست؟ → اگر VPN مشکل است و تو First Level هستی، راهنمایی می‌کنی؛ اگر سرور خراب است → Escalate.</p>
-      </div>
-
-      <div class="card">
-        <h3>۳) SLA به زبان ساده</h3>
-        <p>SLA = قول کتبی شرکت به مشتری درباره زمان خدمت.</p>
-        <ul>
-          <li><strong>Reaktionszeit</strong> = حداکثر زمان اولین پاسخ (مثلاً ۳۰ دقیقه)</li>
-          <li><strong>Lösungszeit</strong> = حداکثر زمان حل (مثلاً ۴ ساعت)</li>
-        </ul>
-        <p><strong>مثال:</strong> SLA می‌گوید اولویت بالا ۳۰ دقیقه واکنش. تیکت ۱۰:۰۰ ثبت شد. ساعت ۱۰:۳۵ هنوز کسی جواب نداده → SLA نقض شده؛ باید فوری رسیدگی و گزارش کنی.</p>
-      </div>
-
-      <div class="card">
-        <h3>۴) Support-Level</h3>
-        <ul>
-          <li><strong>1st Level</strong> – خط اول: ثبت، راهنمای ساده، ریست رمز</li>
-          <li><strong>2nd Level</strong> – متخصص‌تر: سرور، شبکه پیچیده</li>
-          <li><strong>3rd Level</strong> – سازنده نرم‌افزار / سخت‌افزار</li>
-        </ul>
-        <p><strong>مثال:</strong> Outlook باز نمی‌شود. ۱) Outlook را Repair می‌کنی (1st). ۲) نشد → پروفایل خراب، به 2nd می‌فرستی با لاگ. ۳) باگ نرم‌افزار مایکروسافت → 3rd.</p>
-      </div>
-
-      <div class="card">
-        <h3>۵) Incident در مقابل Problem</h3>
-        <ul>
-          <li><strong>Incident</strong> = الان سرویس خراب است → سریع برگردان</li>
-          <li><strong>Problem</strong> = چرا چند بار خراب شد؟ علت ریشه‌ای</li>
-        </ul>
-        <p><strong>مثال:</strong> پرینتر امروز ۳ بار Hang کرد. هر بار Restart = حل Incident. بررسی می‌کنی درایور قدیمی است = کار روی Problem.</p>
-      </div>
-
-      <div class="card">
-        <h3>۶) اولویت با مثال</h3>
-        <ul>
-          <li>کل ایمیل شرکت قطع → <strong>Kritisch</strong></li>
-          <li>یک بخش نمی‌تواند فاکتور بزند → <strong>Hoch</strong></li>
-          <li>یک نفر ماوس جدید می‌خواهد → <strong>Niedrig</strong></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>۷) Deeskalation (آرام کردن کاربر)</h3>
-        <p>کاربر عصبانی است. تو نباید عصبانی شوی.</p>
-        <p><strong>مثال جمله:</strong> «متوجه می‌شوم چقدر اذیت‌کننده است. الان با هم قدم‌به‌قدم چک می‌کنیم تا دوباره کار کند.» بعد سؤال فنی بپرس.</p>
-      </div>
-
-      <div class="card">
-        <h3>✅ کوییز BGWP – خودت را تست کن</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">قبل از ثبت می‌توانی جواب را عوض کنی.</p>
-        <div id="quiz-bgwp"></div>
-        <div style="text-align:center;margin-top:1rem">
-          <button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">ثبت کوییز BGWP</button>
-        </div>
-        <div class="quiz-score" id="score-bgwp" style="display:none;margin-top:1rem"></div>
-      </div>
+      <div class="card"><h3>این درس درباره چیست؟</h3><div class="goal">تیکت درست بگیری، اولویت بدهی، حل کنی یا Escalate کنی و مستند کنی.</div><p><strong>مثال:</strong> «پرینتر طبقه ۲ کار نمی‌کند و باید فاکتور چاپ کنم.» → سؤال، تیکت، اولویت، حل یا Escalate.</p></div>
+      <div class="card"><h3>۱) Serviceanfrage</h3><p>هر درخواست IT از کاربر: خرابی، نصب، دسترسی، سؤال.</p><ul><li>«رمز را فراموش کردم» → Serviceanfrage</li><li>«اینترنت کل شرکت قطع» → Serviceanfrage + اغلب Incident با اولویت بالا</li></ul></div>
+      <div class="card"><h3>۲) فرآیند استاندارد</h3><ol><li>Aufnahme – کاربر، مشکل، از کی؟</li><li>SLA – چقدر وقت داری؟</li><li>دسته‌بندی – سخت‌افزار/نرم‌افزار/شبکه/دسترسی</li><li>اولویت – شدت و فوریت</li><li>حل یا Eskalation</li><li>مستند و بستن</li></ol><p><strong>مثال SharePoint:</strong> خانه یا دفتر؟ VPN؟ مرورگر؟ خطا؟ → VPN را 1st Level راهنمایی می‌کند؛ سرور خراب → Escalate.</p></div>
+      <div class="card"><h3>۳) SLA</h3><p>قول کتبی زمان خدمت.</p><ul><li>Reaktionszeit = اولین پاسخ (مثلاً ۳۰ دقیقه)</li><li>Lösungszeit = زمان حل (مثلاً ۴ ساعت)</li></ul><p><strong>مثال:</strong> تیکت ۱۰:۰۰، واکنش تا ۱۰:۳۰؛ ساعت ۱۰:۳۵ بدون پاسخ = نقض SLA.</p></div>
+      <div class="card"><h3>۴) Support-Level</h3><ul><li>1st – ثبت، راهنمای ساده، ریست رمز</li><li>2nd – سرور/شبکه پیچیده‌تر</li><li>3rd – سازنده</li></ul><p><strong>مثال Outlook:</strong> Repair (1st) → پروفایل به 2nd → باگ مایکروسافت به 3rd.</p></div>
+      <div class="card"><h3>۵) Incident در مقابل Problem</h3><ul><li>Incident = الان خراب → سریع برگردان</li><li>Problem = علت ریشه‌ای تکرار</li></ul><p><strong>مثال:</strong> Restart پرینتر = Incident؛ درایور قدیمی = Problem.</p></div>
+      <div class="card"><h3>۶) اولویت</h3><ul><li>ایمیل کل شرکت قطع → Kritisch</li><li>یک بخش فاکتور نمی‌زند → Hoch</li><li>ماوس جدید → Niedrig</li></ul></div>
+      <div class="card"><h3>۷) Deeskalation</h3><p>آرام بمان. <strong>مثال:</strong> «متوجه می‌شوم. قدم‌به‌قدم چک می‌کنیم.» بعد سؤال فنی.</p></div>
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-bgwp"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">ثبت</button></div><div class="quiz-score" id="score-bgwp" style="display:none;margin-top:1rem"></div></div>
     </div>
 
+    <!-- DE -->
     <div class="lang-block" data-lang="de">
-      <div class="card">
-        <h3>Worum geht es?</h3>
-        <div class="goal">Tickets aufnehmen, priorisieren, lösen oder eskalieren und dokumentieren.</div>
-        <p><strong>Beispiel:</strong> Nutzerin: Drucker 2. OG defekt, Rechnung muss gedruckt werden → Fragen, Ticket, Prio, lösen oder eskalieren.</p>
-      </div>
-      <div class="card">
-        <h3>Kernpunkte</h3>
-        <ul>
-          <li>Prozess: Aufnahme → SLA → Klasse → Prio → Lösung/Eskalation → Doku</li>
-          <li>SLA = Reaktions- und Lösungszeit</li>
-          <li>1st / 2nd / 3rd Level</li>
-          <li>Incident = Störung jetzt · Problem = Ursache</li>
-          <li>Ruhig bleiben (Deeskalation)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>✅ Quiz BGWP</h3>
-        <div id="quiz-bgwp-de"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Quiz abgeben</button></div>
-        <div class="quiz-score" id="score-bgwp-de" style="display:none;margin-top:1rem"></div>
-      </div>
+      <div class="card"><h3>Worum geht es?</h3><div class="goal">Tickets aufnehmen, priorisieren, lösen oder eskalieren und dokumentieren.</div><p><strong>Beispiel:</strong> «Drucker 2. OG defekt, Rechnung muss gedruckt werden.» → Fragen, Ticket, Prio, lösen oder eskalieren.</p></div>
+      <div class="card"><h3>1) Serviceanfrage</h3><p>Jede IT-Anfrage: Störung, Installation, Zugriff, Frage.</p><ul><li>«Passwort vergessen» → Serviceanfrage</li><li>«Internet firmweit down» → Serviceanfrage + oft Incident mit hoher Prio</li></ul></div>
+      <div class="card"><h3>2) Standardprozess</h3><ol><li>Aufnahme – Wer, was, seit wann?</li><li>SLA – Wie viel Zeit?</li><li>Klassifizierung – Hardware/Software/Netz/Zugriff</li><li>Priorisierung – Impact und Dringlichkeit</li><li>Lösung oder Eskalation</li><li>Dokumentation und Schließen</li></ol><p><strong>Beispiel SharePoint:</strong> Home oder Büro? VPN? Browser? Fehlermeldung? → VPN = 1st Level; Server = Eskalation.</p></div>
+      <div class="card"><h3>3) SLA</h3><p>Schriftliche Zusage zu Servicezeiten.</p><ul><li>Reaktionszeit = erste Antwort (z. B. 30 Min.)</li><li>Lösungszeit = Zeit bis Lösung (z. B. 4 Std.)</li></ul><p><strong>Beispiel:</strong> Ticket 10:00, Reaktion bis 10:30; um 10:35 keine Antwort = SLA-Verstoß.</p></div>
+      <div class="card"><h3>4) Support-Level</h3><ul><li>1st – Aufnahme, Standardhilfe, Passwort-Reset</li><li>2nd – Server/komplexes Netz</li><li>3rd – Hersteller</li></ul><p><strong>Beispiel Outlook:</strong> Repair (1st) → Profil an 2nd → Microsoft-Bug an 3rd.</p></div>
+      <div class="card"><h3>5) Incident vs. Problem</h3><ul><li>Incident = jetzt gestört → schnell wiederherstellen</li><li>Problem = Grundursache bei Wiederholung</li></ul><p><strong>Beispiel:</strong> Drucker neu starten = Incident; alter Treiber = Problem.</p></div>
+      <div class="card"><h3>6) Priorität</h3><ul><li>E-Mail firmweit down → Kritisch</li><li>Abteilung kann nicht fakturieren → Hoch</li><li>Neue Maus → Niedrig</li></ul></div>
+      <div class="card"><h3>7) Deeskalation</h3><p>Ruhig bleiben. <strong>Beispiel:</strong> «Ich verstehe den Ärger. Wir prüfen Schritt für Schritt.» Dann technische Fragen.</p></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-bgwp-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Abgeben</button></div><div class="quiz-score" id="score-bgwp-de" style="display:none;margin-top:1rem"></div></div>
     </div>
 
+    <!-- EN -->
     <div class="lang-block" data-lang="en">
-      <div class="card">
-        <h3>What is this about?</h3>
-        <div class="goal">Take tickets, prioritise, fix or escalate, and document.</div>
-        <p><strong>Example:</strong> Printer on floor 2 is down and invoices must be printed → ask, log, prioritise, solve or escalate.</p>
-      </div>
-      <div class="card">
-        <h3>Key points</h3>
-        <ul>
-          <li>Process: capture → SLA → classify → priority → solve/escalate → document</li>
-          <li>SLA = response and resolution times</li>
-          <li>Support levels 1 / 2 / 3</li>
-          <li>Incident = outage now · Problem = root cause</li>
-          <li>Stay calm (de-escalation)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>✅ BGWP quiz</h3>
-        <div id="quiz-bgwp-en"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Submit quiz</button></div>
-        <div class="quiz-score" id="score-bgwp-en" style="display:none;margin-top:1rem"></div>
-      </div>
+      <div class="card"><h3>What is this about?</h3><div class="goal">Capture tickets, prioritise, fix or escalate, and document.</div><p><strong>Example:</strong> “Printer on floor 2 is down and I must print invoices.” → questions, ticket, priority, solve or escalate.</p></div>
+      <div class="card"><h3>1) Service request</h3><p>Any IT request: outage, install, access, question.</p><ul><li>“I forgot my password” → service request</li><li>“Company internet is down” → service request + often a high-priority incident</li></ul></div>
+      <div class="card"><h3>2) Standard process</h3><ol><li>Capture – who, what, since when?</li><li>SLA – how much time?</li><li>Classify – hardware/software/network/access</li><li>Prioritise – impact and urgency</li><li>Solve or escalate</li><li>Document and close</li></ol><p><strong>SharePoint example:</strong> Home or office? VPN? Browser? Error text? → VPN guidance at 1st level; server issue → escalate.</p></div>
+      <div class="card"><h3>3) SLA</h3><p>Written promise about service times.</p><ul><li>Response time = first reply (e.g. 30 min)</li><li>Resolution time = time to fix (e.g. 4 h)</li></ul><p><strong>Example:</strong> Ticket at 10:00, response due by 10:30; at 10:35 still no reply = SLA breach.</p></div>
+      <div class="card"><h3>4) Support levels</h3><ul><li>1st – log, simple help, password reset</li><li>2nd – servers / complex network</li><li>3rd – vendor</li></ul><p><strong>Outlook example:</strong> Repair (1st) → profile to 2nd → Microsoft bug to 3rd.</p></div>
+      <div class="card"><h3>5) Incident vs problem</h3><ul><li>Incident = broken now → restore quickly</li><li>Problem = root cause of repeats</li></ul><p><strong>Example:</strong> Restart printer = incident; old driver = problem.</p></div>
+      <div class="card"><h3>6) Priority</h3><ul><li>Company-wide email down → Critical</li><li>One department cannot invoice → High</li><li>New mouse → Low</li></ul></div>
+      <div class="card"><h3>7) De-escalation</h3><p>Stay calm. <strong>Example:</strong> “I understand the frustration. Let’s check step by step.” Then ask technical questions.</p></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-bgwp-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Submit</button></div><div class="quiz-score" id="score-bgwp-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData = {
-      bgwp: {
-        fa: [
-          { q: 'اولین کار منطقی بعد از تماس کاربر؟', opts: ['بستن تیکت','ثبت کامل اطلاعات','خرید سخت‌افزار جدید'], c: 1 },
-          { q: 'SLA بیشتر چه چیزی را مشخص می‌کند؟', opts: ['رنگ کابل','زمان واکنش و حل','قیمت مانیتور'], c: 1 },
-          { q: 'Incident یعنی؟', opts: ['علت ریشه‌ای بلندمدت','اختلال فعلی سرویس','فقط درخواست لپ‌تاپ'], c: 1 },
-          { q: 'اگر خارج از دانش 1st Level بودی؟', opts: ['تیکت را پاک کن','با مستند Escalate کن','ساکت بمان'], c: 1 },
-          { q: 'کل ایمیل شرکت قطع است. اولویت؟', opts: ['Niedrig','Kritisch/Hoch','فقط فردا'], c: 1 }
-        ],
-        de: [
-          { q: 'Erster sinnvoller Schritt?', opts: ['Ticket schließen','Vollständig aufnehmen','Hardware kaufen'], c: 1 },
-          { q: 'SLA regelt vor allem?', opts: ['Kabelfarbe','Reaktions-/Lösungszeit','Monitorpreis'], c: 1 },
-          { q: 'Incident bedeutet?', opts: ['Langfristige Ursache','Aktuelle Störung','Nur Laptop-Wunsch'], c: 1 },
-          { q: 'Außerhalb 1st Level?', opts: ['Löschen','Mit Doku eskalieren','Schweigen'], c: 1 },
-          { q: 'E-Mail firmweit down – Prio?', opts: ['Niedrig','Kritisch/Hoch','Morgen'], c: 1 }
-        ],
-        en: [
-          { q: 'First logical step?', opts: ['Close ticket','Capture full info','Buy hardware'], c: 1 },
-          { q: 'SLA mainly defines?', opts: ['Cable colour','Response/resolution time','Monitor price'], c: 1 },
-          { q: 'Incident means?', opts: ['Long-term root cause','Current service disruption','Only a laptop request'], c: 1 },
-          { q: 'Outside 1st level skill?', opts: ['Delete ticket','Escalate with notes','Stay silent'], c: 1 },
-          { q: 'Company-wide email down – priority?', opts: ['Low','Critical/High','Tomorrow'], c: 1 }
-        ]
-      }
-    };
-    const answers = {};
-    let done = {};
-    function lang(){ return localStorage.getItem('fisi-lang')||'fa'; }
-    function boxId(key){
-      const l = lang();
-      if (l==='de') return 'quiz-'+key+'-de';
-      if (l==='en') return 'quiz-'+key+'-en';
-      return 'quiz-'+key;
-    }
-    function scoreId(key){
-      const l = lang();
-      if (l==='de') return 'score-'+key+'-de';
-      if (l==='en') return 'score-'+key+'-en';
-      return 'score-'+key;
-    }
-    function renderMini(key){
-      const l = lang();
-      const host = document.getElementById(boxId(key));
-      if (!host || !quizData[key]) return;
-      const qs = quizData[key][l] || quizData[key].fa;
-      host.innerHTML = '';
-      qs.forEach((item,i)=>{
-        const card = document.createElement('div');
-        card.className = 'quiz-card';
-        card.id = key+'-q'+i;
-        let opts='';
-        item.opts.forEach((o,j)=>{
-          opts += `<button type="button" class="quiz-option" onclick="pick('${key}',${i},${j})">${o}</button>`;
-        });
-        card.innerHTML = `<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${opts}</div>`;
-        host.appendChild(card);
-        if (answers[key] && answers[key][i]!==undefined){
-          const b = card.querySelectorAll('.quiz-option')[answers[key][i]];
-          if (b){ b.style.borderColor='var(--blue)'; b.style.background='var(--blue-soft)'; }
-        }
-      });
-    }
-    function pick(key,i,j){
-      if (done[key]) return;
-      if (!answers[key]) answers[key]={};
-      answers[key][i]=j;
-      const card = document.getElementById(key+'-q'+i);
-      card.querySelectorAll('.quiz-option').forEach(b=>{ b.style.borderColor='transparent'; b.style.background=''; });
-      const b = card.querySelectorAll('.quiz-option')[j];
-      b.style.borderColor='var(--blue)'; b.style.background='var(--blue-soft)';
-    }
-    function gradeQuiz(key){
-      if (done[key]) return;
-      done[key]=true;
-      const l = lang();
-      const qs = quizData[key][l] || quizData[key].fa;
-      let score=0;
-      qs.forEach((item,i)=>{
-        const opts = document.querySelectorAll('#'+key+'-q'+i+' .quiz-option');
-        opts.forEach(o=>o.classList.add('disabled'));
-        const a = answers[key] && answers[key][i];
-        if (a===item.c){ score++; opts[item.c].classList.add('correct'); }
-        else { opts[item.c].classList.add('correct'); if (a!==undefined) opts[a].classList.add('wrong'); }
-      });
-      const box = document.getElementById(scoreId(key));
-      if (box){ box.style.display='block'; box.innerHTML='<strong>'+score+' / '+qs.length+'</strong><br>'+Math.round(score/qs.length*100)+'%'; }
-    }
-    document.addEventListener('DOMContentLoaded', ()=>renderMini('bgwp'));
-    const _sl = window.setLang;
-    window.setLang = function(l){ _sl(l); if(!done.bgwp){ answers.bgwp={}; renderMini('bgwp'); } };
+    const quizData={bgwp:{fa:[{q:'اولین کار منطقی؟',opts:['بستن تیکت','ثبت کامل اطلاعات','خرید سخت‌افزار'],c:1},{q:'SLA مشخص می‌کند؟',opts:['رنگ کابل','زمان واکنش و حل','قیمت مانیتور'],c:1},{q:'Incident یعنی؟',opts:['علت بلندمدت','اختلال فعلی','فقط لپ‌تاپ'],c:1},{q:'خارج از 1st Level؟',opts:['پاک کردن','Escalate با مستند','سکوت'],c:1},{q:'ایمیل کل شرکت قطع؟',opts:['Niedrig','Kritisch/Hoch','فردا'],c:1}],de:[{q:'Erster Schritt?',opts:['Ticket schließen','Vollständig aufnehmen','Hardware kaufen'],c:1},{q:'SLA regelt?',opts:['Kabelfarbe','Reaktions-/Lösungszeit','Monitorpreis'],c:1},{q:'Incident?',opts:['Langfristursache','Aktuelle Störung','Nur Laptop'],c:1},{q:'Außerhalb 1st Level?',opts:['Löschen','Mit Doku eskalieren','Schweigen'],c:1},{q:'E-Mail firmweit down?',opts:['Niedrig','Kritisch/Hoch','Morgen'],c:1}],en:[{q:'First step?',opts:['Close ticket','Full capture','Buy hardware'],c:1},{q:'SLA defines?',opts:['Cable colour','Response/resolution time','Monitor price'],c:1},{q:'Incident?',opts:['Long-term cause','Current disruption','Laptop only'],c:1},{q:'Outside 1st level?',opts:['Delete','Escalate with notes','Stay silent'],c:1},{q:'Company email down?',opts:['Low','Critical/High','Tomorrow'],c:1}]}};
+    const answers={};let done={};
+    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
+    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
+    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
+    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
+    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
+    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
+    document.addEventListener('DOMContentLoaded',()=>renderMini('bgwp'));
+    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.bgwp){answers.bgwp={};renderMini('bgwp')}};
   </script>
 </body>
 </html>
