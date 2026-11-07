@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AEuP کامل | Klasse 11</title>
+  <title>AEuP | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
@@ -35,99 +35,42 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>AEuP – داده و یکپارچه‌سازی</h1>
-    <p class="sub">منبع داده · SQL · API · امنیت · با مثال + کوییز</p>
+    <h1>AEuP</h1>
+    <p class="sub">Data · SQL · API · FA/DE/EN same topics</p>
   </div>
   <main class="container">
     <div class="lang-block" data-lang="fa">
-      <div class="card">
-        <h3>این درس چیست؟</h3>
-        <div class="goal">داده از جاهای مختلف می‌آید. تو باید بفهمی از کجاست، چطور بخوانی، ترکیب کنی و امن در اختیار بگذاری.</div>
-        <p><strong>مثال:</strong> فروش در MySQL است، موجودی انبار در فایل CSV، سفارش‌های آنلاین از API فروشگاه. مدیر می‌خواهد یک گزارش واحد.</p>
-      </div>
-      <div class="card">
-        <h3>۱) انواع منبع داده با مثال</h3>
-        <ul>
-          <li><strong>پایگاه داده:</strong> جدول مشتریان در MySQL</li>
-          <li><strong>فایل:</strong> export روزانه Excel/CSV از حسابداری</li>
-          <li><strong>API:</strong> <code>GET https://shop.example/api/orders</code> با JSON</li>
-        </ul>
-        <p>قبل از اتصال بپرس: داده شخصی هست؟ مجوز داری؟ هر چند وقت یک‌بار عوض می‌شود؟</p>
-      </div>
-      <div class="card">
-        <h3>۲) ER و SQL خیلی ساده</h3>
-        <p><strong>مثال تیکت:</strong></p>
-        <ul>
-          <li>جدول User: id, name</li>
-          <li>جدول Ticket: id, user_id, title, status</li>
-        </ul>
-        <p>برای دیدن تیکت‌های باز علی:</p>
-        <p><code>SELECT t.title FROM Ticket t JOIN User u ON t.user_id = u.id WHERE u.name = 'Ali' AND t.status = 'open';</code></p>
-        <p><strong>JOIN</strong> یعنی دو جدول را با کلید مشترک به هم بچسبان.</p>
-      </div>
-      <div class="card">
-        <h3>۳) REST API با مثال</h3>
-        <ul>
-          <li><code>GET /tickets</code> → لیست بخوان</li>
-          <li><code>POST /tickets</code> → تیکت جدید بساز</li>
-          <li>پاسخ معمولاً <strong>JSON</strong> است: <code>{"id":5,"title":"VPN down"}</code></li>
-          <li>کد 200 = اوکی · 404 = پیدا نشد · 401 = اجازه نداری</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>۴) امنیت داده با مثال</h3>
-        <ul>
-          <li>CSV شامل نام و IBAN را با HTTP خام روی اینترنت نفرست → <strong>HTTPS</strong></li>
-          <li>کاربر پشتیبانی فقط تیکت ببیند نه حقوق همکاران → <strong>Least Privilege</strong></li>
-          <li>داده شخصی = قوانین DSGVO</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>۵) تحویل به مشتری</h3>
-        <p><strong>مثال مستند یک‌خطی:</strong> «برای لیست تیکت‌های باز: GET /api/tickets?status=open با Header Authorization: Bearer TOKEN. پاسخ JSON آرایه است.»</p>
-      </div>
-      <div class="card">
-        <h3>✅ کوییز AEuP</h3>
-        <div id="quiz-aeup"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">ثبت کوییز</button></div>
-        <div class="quiz-score" id="score-aeup" style="display:none;margin-top:1rem"></div>
-      </div>
+      <div class="card"><h3>این درس چیست؟</h3><div class="goal">داده از جاهای مختلف را بفهمی، بخوانی، ترکیب کنی و امن بدهی.</div><p><strong>مثال:</strong> فروش در MySQL، انبار در CSV، سفارش آنلاین از API → یک گزارش واحد.</p></div>
+      <div class="card"><h3>۱) منابع داده</h3><ul><li>پایگاه: جدول مشتریان MySQL</li><li>فایل: CSV حسابداری</li><li>API: JSON از فروشگاه</li></ul><p>بپرس: داده شخصی؟ مجوز؟ تازگی داده؟</p></div>
+      <div class="card"><h3>۲) ER و SQL</h3><p>User(id,name) · Ticket(id,user_id,title,status)</p><p><code>SELECT t.title FROM Ticket t JOIN User u ON t.user_id=u.id WHERE u.name='Ali' AND t.status='open';</code></p><p>JOIN = چسباندن جداول با کلید مشترک.</p></div>
+      <div class="card"><h3>۳) REST و JSON</h3><ul><li>GET = خواندن · POST = ایجاد</li><li><code>{"id":5,"title":"VPN down"}</code></li><li>200 اوکی · 404 پیدا نشد · 401 بدون اجازه</li></ul></div>
+      <div class="card"><h3>۴) امنیت</h3><ul><li>HTTPS نه HTTP خام برای داده حساس</li><li>Least Privilege</li><li>DSGVO برای داده شخصی</li></ul></div>
+      <div class="card"><h3>۵) مستند تحویل</h3><p>مثال: «GET /api/tickets?status=open با Bearer TOKEN → JSON آرایه»</p></div>
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-aeup"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">ثبت</button></div><div class="quiz-score" id="score-aeup" style="display:none;margin-top:1rem"></div></div>
     </div>
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Kern</h3><div class="goal">Datenquellen verstehen, SQL/JOIN, REST/JSON, Sicherheit, Dokumentation – mit Beispielen.</div></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-de"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Abgeben</button></div>
-        <div class="quiz-score" id="score-aeup-de" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>Worum geht es?</h3><div class="goal">Daten aus verschiedenen Quellen verstehen, lesen, kombinieren und sicher bereitstellen.</div><p><strong>Beispiel:</strong> Verkauf in MySQL, Lager als CSV, Shop-API → ein Bericht.</p></div>
+      <div class="card"><h3>1) Datenquellen</h3><ul><li>Datenbank: Kunden-Tabelle MySQL</li><li>Datei: CSV Buchhaltung</li><li>API: JSON vom Shop</li></ul><p>Fragen: Personen daten? Recht? Aktualität?</p></div>
+      <div class="card"><h3>2) ER und SQL</h3><p>User(id,name) · Ticket(id,user_id,title,status)</p><p><code>SELECT t.title FROM Ticket t JOIN User u ON t.user_id=u.id WHERE u.name='Ali' AND t.status='open';</code></p><p>JOIN = Tabellen über Schlüssel verbinden.</p></div>
+      <div class="card"><h3>3) REST und JSON</h3><ul><li>GET = lesen · POST = anlegen</li><li><code>{"id":5,"title":"VPN down"}</code></li><li>200 ok · 404 nicht gefunden · 401 keine Berechtigung</li></ul></div>
+      <div class="card"><h3>4) Sicherheit</h3><ul><li>HTTPS statt Klartext-HTTP</li><li>Least Privilege</li><li>DSGVO bei Personendaten</li></ul></div>
+      <div class="card"><h3>5) Übergabedoku</h3><p>Beispiel: «GET /api/tickets?status=open mit Bearer TOKEN → JSON-Array»</p></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Abgeben</button></div><div class="quiz-score" id="score-aeup-de" style="display:none;margin-top:1rem"></div></div>
     </div>
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>Core</h3><div class="goal">Data sources, SQL/JOIN, REST/JSON, security, docs – with examples.</div></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-en"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Submit</button></div>
-        <div class="quiz-score" id="score-aeup-en" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>What is this about?</h3><div class="goal">Understand, read, combine and safely provide data from different sources.</div><p><strong>Example:</strong> Sales in MySQL, warehouse CSV, shop API → one report.</p></div>
+      <div class="card"><h3>1) Data sources</h3><ul><li>Database: MySQL customer table</li><li>File: accounting CSV</li><li>API: shop JSON</li></ul><p>Ask: personal data? permission? freshness?</p></div>
+      <div class="card"><h3>2) ER and SQL</h3><p>User(id,name) · Ticket(id,user_id,title,status)</p><p><code>SELECT t.title FROM Ticket t JOIN User u ON t.user_id=u.id WHERE u.name='Ali' AND t.status='open';</code></p><p>JOIN = link tables by a shared key.</p></div>
+      <div class="card"><h3>3) REST and JSON</h3><ul><li>GET = read · POST = create</li><li><code>{"id":5,"title":"VPN down"}</code></li><li>200 ok · 404 not found · 401 unauthorized</li></ul></div>
+      <div class="card"><h3>4) Security</h3><ul><li>HTTPS not plain HTTP for sensitive data</li><li>Least privilege</li><li>GDPR for personal data</li></ul></div>
+      <div class="card"><h3>5) Handover docs</h3><p>Example: “GET /api/tickets?status=open with Bearer TOKEN → JSON array”</p></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Submit</button></div><div class="quiz-score" id="score-aeup-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={aeup:{fa:[
-      {q:'JSON بیشتر کجا دیده می‌شود؟',opts:['فقط چاپگر','پاسخ API مدرن','کابل شبکه'],c:1},
-      {q:'JOIN در SQL؟',opts:['جدا کردن جداول','چسباندن جداول با کلید مشترک','حذف دیتابیس'],c:1},
-      {q:'GET معمولاً یعنی؟',opts:['حذف','خواندن/گرفتن داده','فرمت هارد'],c:1},
-      {q:'داده شخصی را بدون رمز روی HTTP؟',opts:['درست است','اشتباه و خطرناک','فقط برای عکس'],c:1},
-      {q:'ER مدل چیست؟',opts:['نوع کابل','مدل موجودیت-رابطه برای داده','نام روتر'],c:1}
-    ],de:[
-      {q:'JSON oft bei?',opts:['nur Drucker','moderne APIs','Netzkabel'],c:1},
-      {q:'JOIN bedeutet?',opts:['Tabellen trennen','Tabellen verknüpfen','DB löschen'],c:1},
-      {q:'GET heißt meist?',opts:['löschen','lesen','formatieren'],c:1},
-      {q:'Personen daten per HTTP klartext?',opts:['ok','riskant','nur Fotos'],c:1},
-      {q:'ER-Modell?',opts:['Kabeltyp','Entity-Relationship','Routername'],c:1}
-    ],en:[
-      {q:'JSON is common in?',opts:['printers only','modern APIs','network cables'],c:1},
-      {q:'JOIN means?',opts:['split tables','link tables by key','delete DB'],c:1},
-      {q:'GET usually means?',opts:['delete','read data','format disk'],c:1},
-      {q:'Personal data over plain HTTP?',opts:['fine','risky/wrong','photos only'],c:1},
-      {q:'ER model is?',opts:['cable type','entity-relationship model','router name'],c:1}
-    ]}};
+    const quizData={aeup:{fa:[{q:'JSON اغلب کجا؟',opts:['فقط پرینتر','API مدرن','کابل'],c:1},{q:'JOIN؟',opts:['جدا کردن','چسباندن با کلید','حذف DB'],c:1},{q:'GET؟',opts:['حذف','خواندن','فرمت'],c:1},{q:'داده شخصی با HTTP خام؟',opts:['درست','خطرناک','فقط عکس'],c:1},{q:'ER؟',opts:['کابل','مدل موجودیت-رابطه','نام روتر'],c:1}],de:[{q:'JSON oft bei?',opts:['nur Drucker','moderne APIs','Kabel'],c:1},{q:'JOIN?',opts:['trennen','verknüpfen','DB löschen'],c:1},{q:'GET?',opts:['löschen','lesen','formatieren'],c:1},{q:'Personendaten HTTP klartext?',opts:['ok','riskant','nur Fotos'],c:1},{q:'ER?',opts:['Kabel','Entity-Relationship','Routername'],c:1}],en:[{q:'JSON common in?',opts:['printers','modern APIs','cables'],c:1},{q:'JOIN?',opts:['split','link by key','delete DB'],c:1},{q:'GET?',opts:['delete','read','format'],c:1},{q:'Personal data plain HTTP?',opts:['fine','risky','photos only'],c:1},{q:'ER?',opts:['cable','entity-relationship','router name'],c:1}]}};
     const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
