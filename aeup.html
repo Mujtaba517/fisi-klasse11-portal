@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEuP | Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html" class="active">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
+      <a href="flashcards.html">Flash</a>
+      <a href="quiz.html">Quiz</a>
+    </nav></div>
+  </header>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1>AEuP – Anwendungsentwicklung und Programmierung</h1>
+    <p class="sub">Daten systemübergreifend bereitstellen · 96 Std.</p>
+  </div>
+  <main class="container">
+    <div class="lang-block" data-lang="fa">
+      <div class="card">
+        <h3>🎯 هدف</h3>
+        <div class="goal">داده را از منابع پراکنده جمع، آماده و در اختیار بگذار.</div>
+        <ul>
+          <li>منابع داده: DB، CSV/JSON، API</li>
+          <li>تحلیل ساختار و دسترسی و چارچوب حقوقی</li>
+          <li>SQL، ER-Modell، JOIN</li>
+          <li>REST API و JSON</li>
+          <li>Informationssicherheit و DSGVO</li>
+          <li>مستند تحویل به مشتری</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>سه منبع (MySQL، CSV، API) را مقایسه کن.</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>ER برای تیکت + یک Query با JOIN.</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>API ساده JSON بساز و مستند کن.</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="de">
+      <div class="card">
+        <h3>🎯 Ziel</h3>
+        <div class="goal">Daten aus dezentralen Quellen zusammenführen und bereitstellen.</div>
+        <ul>
+          <li>Datenquellen analysieren</li>
+          <li>SQL, ER-Modell, JOIN</li>
+          <li>REST API und JSON</li>
+          <li>Informationssicherheit und DSGVO</li>
+          <li>Dokumentation für den Kunden</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Übungen</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Drei Quellen vergleichen (MySQL, CSV, API).</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>ER-Modell Ticket + JOIN-Query.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Einfache JSON-API bauen und dokumentieren.</p></div>
+      </div>
+    </div>
+    <div class="lang-block" data-lang="en">
+      <div class="card">
+        <h3>🎯 Goal</h3>
+        <div class="goal">Merge and prepare data from decentralized sources.</div>
+        <ul>
+          <li>Analyse data sources</li>
+          <li>SQL, ER model, JOIN</li>
+          <li>REST API and JSON</li>
+          <li>Information security and GDPR</li>
+          <li>Handover documentation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ Exercises</h3>
+        <div class="exercise"><div class="exercise-title">1</div><p>Compare three sources (MySQL, CSV, API).</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Ticket ER model + JOIN query.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Build and document a simple JSON API.</p></div>
+      </div>
+    </div>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
