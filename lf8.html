@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LF 8 – Daten bereitstellen | FISI Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
+    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
+    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="lf6.html">LF 6</a>
+      <a href="lf7.html">LF 7</a>
+      <a href="lf8.html" class="active">LF 8</a>
+      <a href="lf9.html">LF 9</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / LF 8</div>
+      <h1>🗄️ Lernfeld 8: Daten systemübergreifend bereitstellen</h1>
+      <p class="subtitle" data-i18n="lf8Sub">انتقال و فراهم‌سازی امن داده‌ها بین سیستم‌ها</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
+      <p data-i18n="lf8What">یاد می‌گیری چطور داده‌ها را بین سیستم‌های مختلف (پایگاه داده، API، فایل، سرویس) به صورت امن و ساخت‌یافته منتقل و در دسترس قرار بدهی.</p>
+
+      <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
+      <ul>
+        <li data-i18n="lf8t1">مدل‌سازی داده با ER-Modell</li>
+        <li data-i18n="lf8t2">پایگاه داده رابطه‌ای و SQL</li>
+        <li data-i18n="lf8t3">API و Webservices (REST)</li>
+        <li data-i18n="lf8t4">فرمت‌های داده: JSON, XML, CSV</li>
+        <li data-i18n="lf8t5">یکپارچه‌سازی و تبادل داده بین سیستم‌ها</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="erTitle">مراحل مدل‌سازی داده</h3>
+      <ol style="margin:0.8rem 1.4rem;color:var(--text-muted)">
+        <li data-i18n="er1"><strong>Konzeptuell</strong> – ER-Diagramm (Entity, Attribute, Beziehung)</li>
+        <li data-i18n="er2"><strong>Logisch</strong> – تبدیل به جداول رابطه‌ای + Normalization</li>
+        <li data-i18n="er3"><strong>Physisch</strong> – پیاده‌سازی در MySQL / PostgreSQL</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="exercises">تمرین‌های عملی</h3>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۱ – ER-Modell</div>
+        <p data-i18n="ex8_1">برای یک سیستم تیکت ساده (User, Ticket, Category, Comment) یک ER-Diagramm بکش و روابط را مشخص کن (1:n یا n:m).</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۲ – SQL</div>
+        <p data-i18n="ex8_2">جداول را بساز و یک Query بنویس که تمام تیکت‌های باز یک کاربر خاص را همراه با نام دسته‌بندی نشان دهد (JOIN).</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۳ – API</div>
+        <p data-i18n="ex8_3">یک API ساده (با Python Flask یا Node.js) بنویس که لیست تیکت‌ها را به صورت JSON برگرداند. آن را با curl یا Postman تست کن.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="keyTerms">اصطلاحات مهم آلمانی</h3>
+      <ul>
+        <li><strong>Datenmodellierung</strong> – مدل‌سازی داده</li>
+        <li><strong>Entität / Attribut</strong> – موجودیت / ویژگی</li>
+        <li><strong>Beziehung</strong> – رابطه</li>
+        <li><strong>Schnittstelle (API)</strong> – رابط برنامه‌نویسی</li>
+        <li><strong>Datenbereitstellung</strong> – فراهم‌سازی داده</li>
+        <li><strong>Normalisierung</strong> – نرمال‌سازی</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
