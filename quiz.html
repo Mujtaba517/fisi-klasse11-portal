@@ -3,262 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>کوییز | FISI Klasse 11</title>
+  <title>کوییز IHK | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-
-  <nav class="main-nav">
-    <div class="container nav-inner">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
       <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="lf6.html">LF 6</a>
-      <a href="lf7.html">LF 7</a>
-      <a href="lf8.html">LF 8</a>
-      <a href="lf9.html">LF 9</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" class="active" data-i18n="navQuiz">کوییز</a>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / Quiz</div>
-      <h1 data-i18n="quizPageTitle">✅ کوییز تعاملی صنف ۱۱</h1>
-      <p class="subtitle" data-i18n="quizPageSub">۱۰ سؤال از تمام Lernfelder – خودت را محک بزن</p>
-    </div>
+    </nav></div>
   </header>
 
-  <main class="container" id="quizArea">
-    <!-- Questions will be injected by JS -->
-  </main>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1 data-i18n="quizPageTitle">کوییز آمادگی IHK – صنف ۱۱</h1>
+    <p class="sub">۱۲ سؤال از BGWP، IT-Technik، AEuP، IT-Systeme و WiSo</p>
+  </div>
 
-  <div class="container" style="text-align:center;margin:2rem 0">
+  <main class="container" id="quizArea"></main>
+
+  <div class="container" style="text-align:center;margin:1.5rem 0 2rem">
     <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()" data-i18n="submitQuiz">ثبت پاسخ‌ها</button>
-    <button class="btn btn-ghost" id="retryBtn" style="display:none" onclick="location.reload()" data-i18n="retryQuiz">دوباره امتحان کن</button>
+    <button class="btn btn-soft" id="retryBtn" style="display:none" onclick="location.reload()" data-i18n="retryQuiz">دوباره</button>
   </div>
+  <div class="container"><div class="quiz-score" id="scoreBox" style="display:none"></div></div>
 
-  <div class="container">
-    <div class="quiz-score" id="scoreBox" style="display:none"></div>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
-    </div>
-  </footer>
-
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
     const questions = [
-      {
-        q: {
-          fa: "اولین مرحله در پردازش یک Serviceanfrage چیست؟",
-          de: "Was ist der erste Schritt bei der Bearbeitung einer Serviceanfrage?",
-          en: "What is the first step when handling a service request?"
-        },
-        options: {
-          fa: ["بستن تیکت", "ثبت و دریافت اطلاعات کامل", "ارسال به سطح ۲", "نوشتن Knowledge Base"],
-          de: ["Ticket schließen", "Aufnahme und vollständige Informationserfassung", "An 2nd Level eskalieren", "Knowledge Base schreiben"],
-          en: ["Close the ticket", "Record and gather complete information", "Escalate to 2nd level", "Write Knowledge Base"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "MQTT برای چه چیزی طراحی شده؟",
-          de: "Wofür wurde MQTT entwickelt?",
-          en: "What was MQTT designed for?"
-        },
-        options: {
-          fa: ["پایگاه داده بزرگ", "دستگاه‌های IoT با پهنای باند کم", "ویدیو استریم", "ایمیل"],
-          de: ["Große Datenbanken", "IoT-Geräte mit geringer Bandbreite", "Video-Streaming", "E-Mail"],
-          en: ["Large databases", "IoT devices with low bandwidth", "Video streaming", "Email"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "در مدل‌سازی داده، ER مخفف چیست؟",
-          de: "Wofür steht ER in der Datenmodellierung?",
-          en: "What does ER stand for in data modelling?"
-        },
-        options: {
-          fa: ["External Relation", "Entity-Relationship", "Error Recovery", "Encrypted Route"],
-          de: ["External Relation", "Entity-Relationship", "Error Recovery", "Encrypted Route"],
-          en: ["External Relation", "Entity-Relationship", "Error Recovery", "Encrypted Route"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "کدام پروتکل برای اختصاص خودکار IP استفاده می‌شود؟",
-          de: "Welches Protokoll wird für die automatische IP-Vergabe genutzt?",
-          en: "Which protocol is used for automatic IP assignment?"
-        },
-        options: {
-          fa: ["DNS", "DHCP", "FTP", "HTTP"],
-          de: ["DNS", "DHCP", "FTP", "HTTP"],
-          en: ["DNS", "DHCP", "FTP", "HTTP"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "تفاوت اصلی Incident و Problem در ITIL چیست؟",
-          de: "Was ist der Hauptunterschied zwischen Incident und Problem in ITIL?",
-          en: "What is the main difference between Incident and Problem in ITIL?"
-        },
-        options: {
-          fa: ["هیچ تفاوتی نیست", "Incident اختلال موقت است، Problem علت ریشه‌ای", "Problem همیشه فوری‌تر است", "Incident فقط سخت‌افزاری است"],
-          de: ["Es gibt keinen Unterschied", "Incident ist eine Störung, Problem die Ursache", "Problem ist immer dringender", "Incident betrifft nur Hardware"],
-          en: ["There is no difference", "Incident is a disruption, Problem is the root cause", "Problem is always more urgent", "Incident is only hardware"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "QoS در MQTT چه چیزی را کنترل می‌کند؟",
-          de: "Was steuert QoS bei MQTT?",
-          en: "What does QoS control in MQTT?"
-        },
-        options: {
-          fa: ["سرعت اینترنت", "سطح تضمین تحویل پیام", "اندازه فایل", "رمزنگاری"],
-          de: ["Internetgeschwindigkeit", "Zustellungsgarantie der Nachricht", "Dateigröße", "Verschlüsselung"],
-          en: ["Internet speed", "Message delivery guarantee level", "File size", "Encryption"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "هدف اصلی VLAN چیست؟",
-          de: "Was ist der Hauptzweck eines VLANs?",
-          en: "What is the main purpose of a VLAN?"
-        },
-        options: {
-          fa: ["افزایش سرعت اینترنت", "جداسازی منطقی شبکه‌ها روی یک سوئیچ فیزیکی", "جایگزینی روتر", "رمزنگاری ترافیک"],
-          de: ["Internetgeschwindigkeit erhöhen", "Logische Trennung von Netzen auf einem physischen Switch", "Router ersetzen", "Verkehr verschlüsseln"],
-          en: ["Increase internet speed", "Logical separation of networks on one physical switch", "Replace a router", "Encrypt traffic"]
-        },
-        correct: 1
-      },
-      {
-        q: {
-          fa: "کدام فرمت داده برای APIهای مدرن رایج‌ترین است؟",
-          de: "Welches Datenformat ist bei modernen APIs am gebräuchlichsten?",
-          en: "Which data format is most common in modern APIs?"
-        },
-        options: {
-          fa: ["XML", "CSV", "JSON", "Binary"],
-          de: ["XML", "CSV", "JSON", "Binary"],
-          en: ["XML", "CSV", "JSON", "Binary"]
-        },
-        correct: 2
-      },
-      {
-        q: {
-          fa: "در یک شبکه /26 چند آدرس usable تقریباً وجود دارد؟",
-          de: "Wie viele nutzbare Adressen hat ein /26-Netz ungefähr?",
-          en: "Approximately how many usable addresses does a /26 network have?"
-        },
-        options: {
-          fa: ["۱۴", "۳۰", "۶۲", "۱۲۶"],
-          de: ["14", "30", "62", "126"],
-          en: ["14", "30", "62", "126"]
-        },
-        correct: 2
-      },
-      {
-        q: {
-          fa: "Node-RED بیشتر برای چه استفاده می‌شود؟",
-          de: "Wofür wird Node-RED hauptsächlich verwendet?",
-          en: "What is Node-RED mainly used for?"
-        },
-        options: {
-          fa: ["ویرایش ویدیو", "اتوماسیون جریان داده و IoT", "طراحی گرافیک", "مدیریت پایگاه داده"],
-          de: ["Videobearbeitung", "Datenfluss-Automatisierung und IoT", "Grafikdesign", "Datenbankverwaltung"],
-          en: ["Video editing", "Data-flow automation and IoT", "Graphic design", "Database management"]
-        },
-        correct: 1
-      }
+      { q:{fa:"اولین گام منطقی در پردازش Serviceanfrage؟",de:"Erster sinnvoller Schritt bei einer Serviceanfrage?",en:"First logical step for a service request?"},
+        options:{fa:["بستن تیکت","ثبت کامل اطلاعات","ارسال فوری به Vendor","نادیده گرفتن SLA"],de:["Ticket schließen","Vollständige Aufnahme","Sofort an Vendor","SLA ignorieren"],en:["Close ticket","Full capture of information","Immediate vendor call","Ignore SLA"]},
+        correct:1 },
+      { q:{fa:"Incident در ITIL بیشتر یعنی؟",de:"Incident in ITIL bedeutet vor allem?",en:"Incident in ITIL mainly means?"},
+        options:{fa:["علت ریشه‌ای","اختلال در سرویس که باید سریع برگردد","درخواست لپ‌تاپ جدید","تغییر برنامه‌ریزی‌شده"],de:["Grundursache","Störung des Services, die schnell behoben werden soll","Neuer Laptop-Antrag","Geplanter Change"],en:["Root cause","Service disruption to restore quickly","New laptop request","Planned change"]},
+        correct:1 },
+      { q:{fa:"MQTT عمدتاً برای چیست؟",de:"MQTT dient vor allem?",en:"MQTT is mainly for?"},
+        options:{fa:["ویدیو ۴K","پیام سبک IoT","ویرایش عکس","DNS"],de:["4K-Video","leichte IoT-Botschaften","Bildbearbeitung","DNS"],en:["4K video","lightweight IoT messaging","photo editing","DNS"]},
+        correct:1 },
+      { q:{fa:"QoS 1 در MQTT یعنی؟",de:"QoS 1 bei MQTT bedeutet?",en:"MQTT QoS 1 means?"},
+        options:{fa:["حداکثر یک‌بار","حداقل یک‌بار","هرگز ارسال نشود","فقط UDP"],de:["höchstens einmal","mindestens einmal","nie senden","nur UDP"],en:["at most once","at least once","never send","UDP only"]},
+        correct:1 },
+      { q:{fa:"ER در مدل‌سازی داده؟",de:"ER in der Datenmodellierung?",en:"ER in data modelling?"},
+        options:{fa:["Error Route","Entity-Relationship","Email Relay","Edge Router"],de:["Error Route","Entity-Relationship","Email Relay","Edge Router"],en:["Error Route","Entity-Relationship","Email Relay","Edge Router"]},
+        correct:1 },
+      { q:{fa:"فرمت رایج API مدرن؟",de:"Gängiges API-Format heute?",en:"Common modern API format?"},
+        options:{fa:["فقط Binary","JSON","MP3","EXE"],de:["nur Binary","JSON","MP3","EXE"],en:["binary only","JSON","MP3","EXE"]},
+        correct:1 },
+      { q:{fa:"DHCP چه می‌کند؟",de:"Was macht DHCP?",en:"What does DHCP do?"},
+        options:{fa:["نام را به IP ترجمه می‌کند","IP را خودکار می‌دهد","فایروال است","VLAN می‌سازد"],de:["Name zu IP","vergibt IP automatisch","ist Firewall","erstellt VLANs"],en:["maps name to IP","assigns IP automatically","is a firewall","creates VLANs"]},
+        correct:1 },
+      { q:{fa:"هدف اصلی VLAN؟",de:"Hauptzweck VLAN?",en:"Main purpose of VLAN?"},
+        options:{fa:["جداسازی منطقی شبکه","حذف نیاز به سوئیچ","جایگزین DNS","افزایش ولتاژ"],de:["logische Netztrennung","Switch überflüssig machen","DNS ersetzen","Spannung erhöhen"],en:["logical network separation","remove need for switches","replace DNS","increase voltage"]},
+        correct:0 },
+      { q:{fa:"در /26 تقریباً چند Host قابل استفاده؟",de:"Nutzbare Hosts in /26?",en:"Usable hosts in /26?"},
+        options:{fa:["14","30","62","254"],de:["14","30","62","254"],en:["14","30","62","254"]},
+        correct:2 },
+      { q:{fa:"Inter-VLAN Routing برای چیست؟",de:"Wozu Inter-VLAN-Routing?",en:"What is inter-VLAN routing for?"},
+        options:{fa:["ارتباط بین VLANها","حذف IP","فقط وای‌فای","جایگزین کابل"],de:["Kommunikation zwischen VLANs","IP löschen","nur WLAN","Kabel ersetzen"],en:["communication between VLANs","delete IPs","Wi-Fi only","replace cables"]},
+        correct:0 },
+      { q:{fa:"Grundgesetz در آلمان چیست؟",de:"Was ist das Grundgesetz?",en:"What is the Grundgesetz?"},
+        options:{fa:["قرارداد کاری یک شرکت","قانون اساسی","دستور یک روتر","مجوز نرم‌افزار"],de:["Arbeitsvertrag einer Firma","die Verfassung","Router-Befehl","Softwarelizenz"],en:["one company employment contract","the constitution","a router command","a software license"]},
+        correct:1 },
+      { q:{fa:"Berichtsheft در Ausbildung چرا مهم است؟",de:"Warum ist das Berichtsheft wichtig?",en:"Why is the training record (Berichtsheft) important?"},
+        options:{fa:["فقط تزئینی است","اثبات آموزش و اغلب پیش‌نیاز آزمون","جایگزین دیپلم","مالیات"],de:["nur Deko","Nachweis der Ausbildung und oft Prüfungsvoraussetzung","ersetzt Abschluss","Steuer"],en:["decoration only","proof of training and often exam prerequisite","replaces diploma","taxes"]},
+        correct:1 }
     ];
 
     let answered = {};
+    function getLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
 
-    function getLang() {
-      return localStorage.getItem('fisi-lang') || 'fa';
-    }
-
-    function renderQuiz() {
+    function renderQuiz(){
       const lang = getLang();
       const area = document.getElementById('quizArea');
       area.innerHTML = '';
-
       questions.forEach((item, idx) => {
         const card = document.createElement('div');
         card.className = 'quiz-card';
-        card.id = 'q' + idx;
-
-        let optsHtml = '';
+        card.id = 'q'+idx;
+        let opts = '';
         item.options[lang].forEach((opt, oIdx) => {
-          optsHtml += `<div class="quiz-option" data-q="${idx}" data-o="${oIdx}" onclick="selectOption(${idx},${oIdx})">${opt}</div>`;
+          opts += `<button type="button" class="quiz-option" data-q="${idx}" data-o="${oIdx}" onclick="selectOption(${idx},${oIdx})">${opt}</button>`;
         });
-
-        card.innerHTML = `
-          <div class="quiz-question">${idx + 1}. ${item.q[lang]}</div>
-          <div class="quiz-options">${optsHtml}</div>
-        `;
+        card.innerHTML = `<div class="quiz-question">${idx+1}. ${item.q[lang]}</div><div class="quiz-options">${opts}</div>`;
         area.appendChild(card);
       });
     }
 
-    function selectOption(qIdx, oIdx) {
+    function selectOption(qIdx, oIdx){
       if (answered[qIdx] !== undefined) return;
       answered[qIdx] = oIdx;
-
-      const options = document.querySelectorAll(`#q${qIdx} .quiz-option`);
-      options.forEach(o => o.classList.remove('selected'));
-      options[oIdx].style.borderColor = 'var(--primary)';
-      options[oIdx].style.background = 'rgba(59,130,246,0.15)';
+      const options = document.querySelectorAll('#q'+qIdx+' .quiz-option');
+      options.forEach(o => { o.style.borderColor='transparent'; o.style.background=''; o.style.color=''; });
+      options[oIdx].style.borderColor = 'var(--blue)';
+      options[oIdx].style.background = 'var(--blue-soft)';
       options[oIdx].style.color = 'var(--text)';
     }
 
-    function submitQuiz() {
+    function submitQuiz(){
       let score = 0;
       questions.forEach((item, idx) => {
-        const options = document.querySelectorAll(`#q${idx} .quiz-option`);
+        const options = document.querySelectorAll('#q'+idx+' .quiz-option');
         options.forEach(o => o.classList.add('disabled'));
-
         const userAns = answered[idx];
-        if (userAns === item.correct) {
-          score++;
-          options[item.correct].classList.add('correct');
-        } else {
+        if (userAns === item.correct) { score++; options[item.correct].classList.add('correct'); }
+        else {
           options[item.correct].classList.add('correct');
           if (userAns !== undefined) options[userAns].classList.add('wrong');
         }
       });
-
       const box = document.getElementById('scoreBox');
       box.style.display = 'block';
-      const percent = Math.round((score / questions.length) * 100);
-      box.innerHTML = `<strong>${score} / ${questions.length}</strong><br>${percent}%`;
-
+      box.innerHTML = '<strong>'+score+' / '+questions.length+'</strong><br>'+Math.round(score/questions.length*100)+'%';
       document.getElementById('submitBtn').style.display = 'none';
       document.getElementById('retryBtn').style.display = 'inline-flex';
     }
 
     document.addEventListener('DOMContentLoaded', renderQuiz);
-
-    // Re-render when language changes
-    const originalSetLang = window.setLang;
-    window.setLang = function(lang) {
-      originalSetLang(lang);
+    const _setLang = window.setLang;
+    window.setLang = function(lang){
+      _setLang(lang);
       if (Object.keys(answered).length === 0) renderQuiz();
     };
   </script>
