@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BGWP | IHK Klasse 11</title>
+  <title>BGWP کامل | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -34,144 +34,237 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>BGWP – Betriebs- und Gesamtwirtschaftliche Prozesse</h1>
-    <p class="sub">Serviceanfragen bearbeiten · 36 Std. · relevant für IHK AP Teil 1</p>
+    <h1>BGWP – کامل برای امتحان</h1>
+    <p class="sub">Serviceanfragen · SLA · ITIL پایه · با مثال و کوییز پایانی</p>
   </div>
   <main class="container">
 
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف Lehrplan + اهمیت IHK</h3>
-        <div class="goal">دسته‌بندی Serviceanfrage، یافتن علت خطا و رفع آن.</div>
-        <p>در AP Teil 1 موضوع «Einrichten eines IT-gestützten Arbeitsplatzes» است؛ پشتیبانی کاربر، مستندسازی و کیفیت کار بخشی از همان فضای مهارتی است. در کار روزمره Systemintegrator هم تیکت و SLA همیشه هست.</p>
+        <h3>این درس درباره چیست؟</h3>
+        <div class="goal">یاد می‌گیری وقتی کاربر مشکل دارد، چطور درست تیکت بگیری، اولویت بدهی، حل کنی یا به سطح بالاتر بفرستی و همه را مستند کنی.</div>
+        <p><strong>مثال واقعی:</strong> خانم احمدی زنگ می‌زند: «پرینتر طبقه ۲ کار نمی‌کند و باید فاکتور چاپ کنم.» تو باید سؤال بپرسی، تیکت باز کنی، اولویت بگذاری و یا خودت حل کنی یا Escalate کنی.</p>
       </div>
+
       <div class="card">
-        <h3>🔄 فرآیند کامل تیکت</h3>
+        <h3>۱) Serviceanfrage چیست؟</h3>
+        <p>هر درخواستی که کاربر از IT می‌خواهد: خرابی، نصب برنامه، دسترسی، سؤال.</p>
+        <p><strong>مثال:</strong></p>
+        <ul>
+          <li>«رمز عبور را فراموش کردم» → Serviceanfrage</li>
+          <li>«اینترنت کل شرکت قطع است» → هم Serviceanfrage است هم اغلب <em>Incident</em> با اولویت بالا</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>۲) فرآیند استاندارد (گام‌به‌گام)</h3>
         <ol>
-          <li><strong>Aufnahme</strong> – کانال (تلفن/ایمیل/پورتال)، مشخصات کاربر، شرح مشکل، زمان شروع</li>
-          <li><strong>SLA prüfen</strong> – زمان واکنش و حل توافق‌شده</li>
-          <li><strong>Klassifizierung</strong> – Hardware / Software / Netzwerk / Zugang / Sonstiges</li>
-          <li><strong>Priorisierung</strong> – Impact × Urgency</li>
-          <li><strong>Support-Level</strong> – سطح ۱ حل می‌کند یا Eskalation؟</li>
-          <li><strong>Diagnose</strong> – پرسش سیستماتیک، تست، لاگ</li>
-          <li><strong>Lösung & Doku</strong> – اقدام، نتیجه، Knowledge Base</li>
-          <li><strong>Abschluss</strong> – تأیید کاربر، بستن تیکت</li>
-          <li><strong>Reflexion</strong> – بهبود کیفیت</li>
+          <li><strong>Aufnahme</strong> – نام کاربر، شماره داخلی، چه چیزی خراب است، از کی؟</li>
+          <li><strong>SLA</strong> – چقدر وقت برای جواب داری؟</li>
+          <li><strong>دسته‌بندی</strong> – سخت‌افزار / نرم‌افزار / شبکه / دسترسی</li>
+          <li><strong>اولویت</strong> – چقدر بد است و چقدر فوری؟</li>
+          <li><strong>حل یا Eskalation</strong></li>
+          <li><strong>مستند و بستن تیکت</strong></li>
         </ol>
+        <p><strong>مثال:</strong> کاربر نمی‌تواند به SharePoint برود. سؤال: از خانه است یا دفتر؟ VPN وصل است؟ مرورگر چیست؟ پیام خطا چیست؟ → اگر VPN مشکل است و تو First Level هستی، راهنمایی می‌کنی؛ اگر سرور خراب است → Escalate.</p>
       </div>
+
       <div class="card">
-        <h3>📋 SLA</h3>
+        <h3>۳) SLA به زبان ساده</h3>
+        <p>SLA = قول کتبی شرکت به مشتری درباره زمان خدمت.</p>
         <ul>
-          <li><strong>Reaktionszeit</strong> – حداکثر زمان اولین پاسخ</li>
-          <li><strong>Lösungszeit / Wiederherstellungszeit</strong> – حداکثر زمان حل</li>
-          <li><strong>Verfügbarkeit</strong> – مثلاً ۹۹٫۹٪</li>
-          <li><strong>Support-Zeiten</strong> – ساعات پوشش</li>
+          <li><strong>Reaktionszeit</strong> = حداکثر زمان اولین پاسخ (مثلاً ۳۰ دقیقه)</li>
+          <li><strong>Lösungszeit</strong> = حداکثر زمان حل (مثلاً ۴ ساعت)</li>
         </ul>
-        <p>اگر SLA در خطر باشد باید سریع‌تر عمل کنی یا Escalate کنی و مدیر/مشتری را مطلع کنی.</p>
+        <p><strong>مثال:</strong> SLA می‌گوید اولویت بالا ۳۰ دقیقه واکنش. تیکت ۱۰:۰۰ ثبت شد. ساعت ۱۰:۳۵ هنوز کسی جواب نداده → SLA نقض شده؛ باید فوری رسیدگی و گزارش کنی.</p>
       </div>
+
       <div class="card">
-        <h3>🎚️ Support-Level و ITIL پایه</h3>
+        <h3>۴) Support-Level</h3>
         <ul>
-          <li><strong>1st Level</strong> – ثبت، راهنمایی استاندارد، حل مشکلات رایج</li>
-          <li><strong>2nd Level</strong> – تخصص عمیق‌تر</li>
-          <li><strong>3rd Level</strong> – Vendor / Development</li>
-          <li><strong>Incident</strong> – اختلال ناگهانی سرویس (هدف: سریع برگردان)</li>
-          <li><strong>Problem</strong> – علت ریشه‌ای (هدف: جلوگیری از تکرار)</li>
-          <li><strong>Service Request</strong> – درخواست استاندارد (دسترسی، نصب…)</li>
-          <li><strong>Change</strong> – تغییر برنامه‌ریزی‌شده</li>
+          <li><strong>1st Level</strong> – خط اول: ثبت، راهنمای ساده، ریست رمز</li>
+          <li><strong>2nd Level</strong> – متخصص‌تر: سرور، شبکه پیچیده</li>
+          <li><strong>3rd Level</strong> – سازنده نرم‌افزار / سخت‌افزار</li>
         </ul>
+        <p><strong>مثال:</strong> Outlook باز نمی‌شود. ۱) Outlook را Repair می‌کنی (1st). ۲) نشد → پروفایل خراب، به 2nd می‌فرستی با لاگ. ۳) باگ نرم‌افزار مایکروسافت → 3rd.</p>
       </div>
+
       <div class="card">
-        <h3>⚡ اولویت</h3>
+        <h3>۵) Incident در مقابل Problem</h3>
         <ul>
-          <li><strong>Kritisch</strong> – سرویس اصلی کل سازمان قطع</li>
-          <li><strong>Hoch</strong> – بخش مهم یا چند کاربر کلیدی</li>
-          <li><strong>Mittel</strong> – یک کاربر با Workaround</li>
-          <li><strong>Niedrig</strong> – بهبود یا مشکل جزئی</li>
+          <li><strong>Incident</strong> = الان سرویس خراب است → سریع برگردان</li>
+          <li><strong>Problem</strong> = چرا چند بار خراب شد؟ علت ریشه‌ای</li>
         </ul>
+        <p><strong>مثال:</strong> پرینتر امروز ۳ بار Hang کرد. هر بار Restart = حل Incident. بررسی می‌کنی درایور قدیمی است = کار روی Problem.</p>
       </div>
+
       <div class="card">
-        <h3>🗣️ ارتباط و Deeskalation</h3>
+        <h3>۶) اولویت با مثال</h3>
         <ul>
-          <li>آرام بمان، فعال گوش بده، خلاصه کن</li>
-          <li>برای کاربر غیرفنی ساده حرف بزن</li>
-          <li>زمان واقع‌بینانه بده؛ قول غیرممکن نده</li>
-          <li>در صورت نیاز به انگلیسی هم بتوانی ارتباط بگیری</li>
+          <li>کل ایمیل شرکت قطع → <strong>Kritisch</strong></li>
+          <li>یک بخش نمی‌تواند فاکتور بزند → <strong>Hoch</strong></li>
+          <li>یک نفر ماوس جدید می‌خواهد → <strong>Niedrig</strong></li>
         </ul>
       </div>
+
       <div class="card">
-        <h3>✏️ تمرین‌های امتحانی</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>کاربر: از دیروز VPN قطع است و جلسه مهم دارد. سؤالات، دسته، اولویت، گام‌های اول؟</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>SLA واکنش ۳۰ دقیقه برای Prio Hoch. تیکت ۱۰:۱۵، الان ۱۱:۰۵ بدون پاسخ. چه می‌کنی و چه می‌نویسی؟</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>تفاوت Incident و Problem را با مثال پرینتر شبکه توضیح بده.</p></div>
-        <div class="exercise"><div class="exercise-title">۴</div><p>Knowledge-Base برای «رمز عبور قفل شده Active Directory» بنویس.</p></div>
-        <div class="exercise"><div class="exercise-title">۵</div><p>کاربر عصبانی تلفن زده. متن پاسخ Deeskalation + گرفتن اطلاعات فنی.</p></div>
+        <h3>۷) Deeskalation (آرام کردن کاربر)</h3>
+        <p>کاربر عصبانی است. تو نباید عصبانی شوی.</p>
+        <p><strong>مثال جمله:</strong> «متوجه می‌شوم چقدر اذیت‌کننده است. الان با هم قدم‌به‌قدم چک می‌کنیم تا دوباره کار کند.» بعد سؤال فنی بپرس.</p>
       </div>
+
       <div class="card">
-        <h3>📖 واژگان IHK</h3>
-        <p>Serviceanfrage · SLA · Reaktionszeit · Eskalation · Deeskalation · Incident · Problem · Support-Level · Service-Management-System · Qualitätssteigerung</p>
+        <h3>✅ کوییز BGWP – خودت را تست کن</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">قبل از ثبت می‌توانی جواب را عوض کنی.</p>
+        <div id="quiz-bgwp"></div>
+        <div style="text-align:center;margin-top:1rem">
+          <button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">ثبت کوییز BGWP</button>
+        </div>
+        <div class="quiz-score" id="score-bgwp" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
 
     <div class="lang-block" data-lang="de">
       <div class="card">
-        <h3>🎯 Ziel & IHK-Bezug</h3>
-        <div class="goal">Serviceanfragen einordnen, Fehlerursachen ermitteln und beheben.</div>
-        <p>Relevant für den Berufsalltag und die Denkweise der AP Teil 1 (IT-Arbeitsplatz, Support, Dokumentation, Qualität).</p>
+        <h3>Worum geht es?</h3>
+        <div class="goal">Tickets aufnehmen, priorisieren, lösen oder eskalieren und dokumentieren.</div>
+        <p><strong>Beispiel:</strong> Nutzerin: Drucker 2. OG defekt, Rechnung muss gedruckt werden → Fragen, Ticket, Prio, lösen oder eskalieren.</p>
       </div>
       <div class="card">
-        <h3>🔄 Ticketprozess</h3>
-        <ol>
-          <li>Aufnahme → SLA prüfen → Klassifizieren → Priorisieren</li>
-          <li>Support-Level / Eskalation → Diagnose → Lösung & Doku</li>
-          <li>Abschluss mit Nutzerbestätigung → Reflexion</li>
-        </ol>
+        <h3>Kernpunkte</h3>
+        <ul>
+          <li>Prozess: Aufnahme → SLA → Klasse → Prio → Lösung/Eskalation → Doku</li>
+          <li>SLA = Reaktions- und Lösungszeit</li>
+          <li>1st / 2nd / 3rd Level</li>
+          <li>Incident = Störung jetzt · Problem = Ursache</li>
+          <li>Ruhig bleiben (Deeskalation)</li>
+        </ul>
       </div>
       <div class="card">
-        <h3>📋 SLA & Levels</h3>
-        <p>Reaktionszeit, Lösungszeit, Verfügbarkeit, Support-Zeiten. 1st/2nd/3rd Level. Incident vs. Problem vs. Service Request vs. Change.</p>
-      </div>
-      <div class="card">
-        <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>VPN seit gestern down, wichtiges Meeting – Fragen, Prio, erste Schritte?</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>SLA 30 Min. verletzt – Maßnahmen und Dokumentation?</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Incident vs. Problem am Beispiel Netzwerkdrucker.</p></div>
-        <div class="exercise"><div class="exercise-title">4</div><p>KB-Artikel: AD-Konto gesperrt.</p></div>
-        <div class="exercise"><div class="exercise-title">5</div><p>Deeskalation am Telefon + Infos sammeln.</p></div>
-      </div>
-      <div class="card">
-        <h3>📖 Begriffe</h3>
-        <p>Serviceanfrage, SLA, Eskalation, Incident, Problem, Support-Level, Qualitätssteigerung</p>
+        <h3>✅ Quiz BGWP</h3>
+        <div id="quiz-bgwp-de"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Quiz abgeben</button></div>
+        <div class="quiz-score" id="score-bgwp-de" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
 
     <div class="lang-block" data-lang="en">
       <div class="card">
-        <h3>🎯 Goal & IHK relevance</h3>
-        <div class="goal">Classify service requests, find causes and resolve them.</div>
-        <p>Maps to daily FISI work and the mindset of AP Part 1 (workplace, support, documentation, quality).</p>
+        <h3>What is this about?</h3>
+        <div class="goal">Take tickets, prioritise, fix or escalate, and document.</div>
+        <p><strong>Example:</strong> Printer on floor 2 is down and invoices must be printed → ask, log, prioritise, solve or escalate.</p>
       </div>
       <div class="card">
-        <h3>🔄 Ticket process</h3>
-        <p>Capture → check SLA → classify → prioritise → support level/escalate → diagnose → solve & document → close → reflect.</p>
+        <h3>Key points</h3>
+        <ul>
+          <li>Process: capture → SLA → classify → priority → solve/escalate → document</li>
+          <li>SLA = response and resolution times</li>
+          <li>Support levels 1 / 2 / 3</li>
+          <li>Incident = outage now · Problem = root cause</li>
+          <li>Stay calm (de-escalation)</li>
+        </ul>
       </div>
       <div class="card">
-        <h3>📋 SLA & ITIL basics</h3>
-        <p>Response/resolution time, availability. 1st/2nd/3rd level. Incident vs problem vs service request vs change.</p>
-      </div>
-      <div class="card">
-        <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>VPN down since yesterday before a meeting – questions, priority, first steps?</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>30-min SLA broken – actions and what you write down?</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>Incident vs problem using a network printer example.</p></div>
-        <div class="exercise"><div class="exercise-title">4</div><p>KB article: locked AD account.</p></div>
-        <div class="exercise"><div class="exercise-title">5</div><p>Phone de-escalation script + technical fact gathering.</p></div>
+        <h3>✅ BGWP quiz</h3>
+        <div id="quiz-bgwp-en"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Submit quiz</button></div>
+        <div class="quiz-score" id="score-bgwp-en" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
-
-    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Lehrplan Bayern Jgst.11 BGWP · Serviceanfragen bearbeiten · IHK FIAusbV AP-Kontext</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
+  <script>
+    const quizData = {
+      bgwp: {
+        fa: [
+          { q: 'اولین کار منطقی بعد از تماس کاربر؟', opts: ['بستن تیکت','ثبت کامل اطلاعات','خرید سخت‌افزار جدید'], c: 1 },
+          { q: 'SLA بیشتر چه چیزی را مشخص می‌کند؟', opts: ['رنگ کابل','زمان واکنش و حل','قیمت مانیتور'], c: 1 },
+          { q: 'Incident یعنی؟', opts: ['علت ریشه‌ای بلندمدت','اختلال فعلی سرویس','فقط درخواست لپ‌تاپ'], c: 1 },
+          { q: 'اگر خارج از دانش 1st Level بودی؟', opts: ['تیکت را پاک کن','با مستند Escalate کن','ساکت بمان'], c: 1 },
+          { q: 'کل ایمیل شرکت قطع است. اولویت؟', opts: ['Niedrig','Kritisch/Hoch','فقط فردا'], c: 1 }
+        ],
+        de: [
+          { q: 'Erster sinnvoller Schritt?', opts: ['Ticket schließen','Vollständig aufnehmen','Hardware kaufen'], c: 1 },
+          { q: 'SLA regelt vor allem?', opts: ['Kabelfarbe','Reaktions-/Lösungszeit','Monitorpreis'], c: 1 },
+          { q: 'Incident bedeutet?', opts: ['Langfristige Ursache','Aktuelle Störung','Nur Laptop-Wunsch'], c: 1 },
+          { q: 'Außerhalb 1st Level?', opts: ['Löschen','Mit Doku eskalieren','Schweigen'], c: 1 },
+          { q: 'E-Mail firmweit down – Prio?', opts: ['Niedrig','Kritisch/Hoch','Morgen'], c: 1 }
+        ],
+        en: [
+          { q: 'First logical step?', opts: ['Close ticket','Capture full info','Buy hardware'], c: 1 },
+          { q: 'SLA mainly defines?', opts: ['Cable colour','Response/resolution time','Monitor price'], c: 1 },
+          { q: 'Incident means?', opts: ['Long-term root cause','Current service disruption','Only a laptop request'], c: 1 },
+          { q: 'Outside 1st level skill?', opts: ['Delete ticket','Escalate with notes','Stay silent'], c: 1 },
+          { q: 'Company-wide email down – priority?', opts: ['Low','Critical/High','Tomorrow'], c: 1 }
+        ]
+      }
+    };
+    const answers = {};
+    let done = {};
+    function lang(){ return localStorage.getItem('fisi-lang')||'fa'; }
+    function boxId(key){
+      const l = lang();
+      if (l==='de') return 'quiz-'+key+'-de';
+      if (l==='en') return 'quiz-'+key+'-en';
+      return 'quiz-'+key;
+    }
+    function scoreId(key){
+      const l = lang();
+      if (l==='de') return 'score-'+key+'-de';
+      if (l==='en') return 'score-'+key+'-en';
+      return 'score-'+key;
+    }
+    function renderMini(key){
+      const l = lang();
+      const host = document.getElementById(boxId(key));
+      if (!host || !quizData[key]) return;
+      const qs = quizData[key][l] || quizData[key].fa;
+      host.innerHTML = '';
+      qs.forEach((item,i)=>{
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.id = key+'-q'+i;
+        let opts='';
+        item.opts.forEach((o,j)=>{
+          opts += `<button type="button" class="quiz-option" onclick="pick('${key}',${i},${j})">${o}</button>`;
+        });
+        card.innerHTML = `<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${opts}</div>`;
+        host.appendChild(card);
+        if (answers[key] && answers[key][i]!==undefined){
+          const b = card.querySelectorAll('.quiz-option')[answers[key][i]];
+          if (b){ b.style.borderColor='var(--blue)'; b.style.background='var(--blue-soft)'; }
+        }
+      });
+    }
+    function pick(key,i,j){
+      if (done[key]) return;
+      if (!answers[key]) answers[key]={};
+      answers[key][i]=j;
+      const card = document.getElementById(key+'-q'+i);
+      card.querySelectorAll('.quiz-option').forEach(b=>{ b.style.borderColor='transparent'; b.style.background=''; });
+      const b = card.querySelectorAll('.quiz-option')[j];
+      b.style.borderColor='var(--blue)'; b.style.background='var(--blue-soft)';
+    }
+    function gradeQuiz(key){
+      if (done[key]) return;
+      done[key]=true;
+      const l = lang();
+      const qs = quizData[key][l] || quizData[key].fa;
+      let score=0;
+      qs.forEach((item,i)=>{
+        const opts = document.querySelectorAll('#'+key+'-q'+i+' .quiz-option');
+        opts.forEach(o=>o.classList.add('disabled'));
+        const a = answers[key] && answers[key][i];
+        if (a===item.c){ score++; opts[item.c].classList.add('correct'); }
+        else { opts[item.c].classList.add('correct'); if (a!==undefined) opts[a].classList.add('wrong'); }
+      });
+      const box = document.getElementById(scoreId(key));
+      if (box){ box.style.display='block'; box.innerHTML='<strong>'+score+' / '+qs.length+'</strong><br>'+Math.round(score/qs.length*100)+'%'; }
+    }
+    document.addEventListener('DOMContentLoaded', ()=>renderMini('bgwp'));
+    const _sl = window.setLang;
+    window.setLang = function(l){ _sl(l); if(!done.bgwp){ answers.bgwp={}; renderMini('bgwp'); } };
+  </script>
 </body>
 </html>
