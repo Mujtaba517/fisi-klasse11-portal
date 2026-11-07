@@ -35,39 +35,73 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>IT-Technik</h1>
-    <p class="sub">CPS · MQTT · FA/DE/EN same topics</p>
+    <h1>IT-Technik – Cyber-physische Systeme</h1>
+    <p class="sub">CPS · Sensoren · ESP32 · MQTT · IoT</p>
   </div>
   <main class="container">
     <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>این درس چیست؟</h3><div class="goal">دنیای فیزیکی را به IT وصل کن (CPS).</div><p><strong>مثال:</strong> ترموستات هوشمند = سنسور + وای‌فای + اپ.</p></div>
-      <div class="card"><h3>۱) اجزا</h3><ul><li>Sensor: DHT22 دما</li><li>Controller: ESP32</li><li>Netzwerk: WLAN + MQTT</li><li>IT: Node-RED آلارم</li><li>Aktor: رله فن</li></ul></div>
-      <div class="card"><h3>۲) MQTT</h3><ul><li>Publish روی <code>lager/temp</code></li><li>Subscribe در Node-RED</li><li>Broker = واسط (Mosquitto)</li><li>QoS 0 ممکن است گم شود · QoS 1 حداقل یک‌بار</li></ul></div>
-      <div class="card"><h3>۳) مثال سردخانه</h3><ol><li>سنسور اندازه می‌گیرد</li><li>ESP32 با MQTT می‌فرستد</li><li>نمایش و ذخیره</li><li>دما بالا → پیام به مسئول</li></ol></div>
-      <div class="card"><h3>۴) ایمنی</h3><ul><li>Betriebssicherheit: ولتاژ، قطع اضطراری</li><li>Datensicherheit: MQTT بدون رمز روی اینترنت عمومی خطرناک</li></ul></div>
-      <div class="card"><h3>✅ کوییز</h3><div id="quiz-tec"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">ثبت</button></div><div class="quiz-score" id="score-tec" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>این درس چه چیزی است؟</h3><div class="goal">دنیای فیزیکی را به دنیای IT وصل کنید (Cyber-Physical Systems).</div><p><strong>مثال ساده:</strong> ترموستات هوشمند = سنسور دما + وای‌فای + اپ موبایل</p></div>
+
+      <div class="card"><h3>۱) اجزای یک سیستم CPS</h3>
+        <ul>
+          <li><strong>Sensor</strong> – مقدار فیزیکی را می‌خواند (مثل DHT22 برای دما و رطوبت)</li>
+          <li><strong>Controller</strong> – مغز سیستم (مثل ESP32)</li>
+          <li><strong>Netzwerk</strong> – وای‌فای یا اترنت + MQTT</li>
+          <li><strong>IT-System</strong> – نمایش، ذخیره، آلارم (مثل Node-RED)</li>
+          <li><strong>Aktor</strong> – چیزی را حرکت می‌دهد (رله، فن، موتور)</li>
+        </ul>
+      </div>
+
+      <div class="card"><h3>۲) MQTT چیست؟</h3>
+        <p>پروتکل سبک برای ارسال پیام بین دستگاه‌ها.</p>
+        <ul>
+          <li><strong>Publish</strong> – فرستادن پیام روی یک Topic (مثل <code>lager/temp</code>)</li>
+          <li><strong>Subscribe</strong> – دریافت پیام‌های یک Topic</li>
+          <li><strong>Broker</strong> – واسط مرکزی (مثل Mosquitto)</li>
+          <li><strong>QoS 0</strong> – ممکن است پیام گم شود</li>
+          <li><strong>QoS 1</strong> – حداقل یک بار تحویل داده می‌شود</li>
+        </ul>
+      </div>
+
+      <div class="card"><h3>۳) مثال کامل: نظارت بر سردخانه</h3>
+        <ol>
+          <li>سنسور دما را می‌خواند</li>
+          <li>ESP32 اطلاعات را با MQTT می‌فرستد</li>
+          <li>Node-RED دما را نمایش می‌دهد و ذخیره می‌کند</li>
+          <li>اگر دما بالا رفت → پیام به مسئول ارسال می‌شود</li>
+        </ol>
+      </div>
+
+      <div class="card"><h3>۴) ایمنی</h3>
+        <ul>
+          <li><strong>Betriebssicherheit</strong> – ولتاژ مناسب، دکمه قطع اضطراری</li>
+          <li><strong>Datensicherheit</strong> – MQTT بدون رمز روی اینترنت خطرناک است</li>
+        </ul>
+      </div>
+
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-tec"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">ثبت پاسخ</button></div><div class="quiz-score" id="score-tec" style="display:none;margin-top:1rem"></div></div>
     </div>
+
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Worum geht es?</h3><div class="goal">Physische Welt mit IT verbinden (CPS).</div><p><strong>Beispiel:</strong> Smart-Thermostat = Sensor + WLAN + App.</p></div>
-      <div class="card"><h3>1) Komponenten</h3><ul><li>Sensor: DHT22 Temperatur</li><li>Controller: ESP32</li><li>Netzwerk: WLAN + MQTT</li><li>IT: Node-RED Alarm</li><li>Aktor: Relais/Lüfter</li></ul></div>
-      <div class="card"><h3>2) MQTT</h3><ul><li>Publish auf <code>lager/temp</code></li><li>Subscribe in Node-RED</li><li>Broker = Vermittler (Mosquitto)</li><li>QoS 0 kann verloren gehen · QoS 1 mindestens einmal</li></ul></div>
-      <div class="card"><h3>3) Beispiel Kühlraum</h3><ol><li>Sensor misst</li><li>ESP32 sendet per MQTT</li><li>Anzeige und Speicherung</li><li>Temperatur hoch → Nachricht an Verantwortlichen</li></ol></div>
-      <div class="card"><h3>4) Sicherheit</h3><ul><li>Betriebssicherheit: Spannung, Not-Aus</li><li>Datensicherheit: MQTT ohne Schutz im öffentlichen Netz riskant</li></ul></div>
+      <div class="card"><h3>Worum geht es?</h3><div class="goal">Die physische Welt mit der IT verbinden (Cyber-physische Systeme).</div></div>
+      <div class="card"><h3>1) Komponenten eines CPS</h3><p>Sensor → Controller (ESP32) → Netzwerk (MQTT) → IT-System → Aktor</p></div>
+      <div class="card"><h3>2) MQTT</h3><p>Publish / Subscribe über einen Broker. QoS 0 oder QoS 1.</p></div>
+      <div class="card"><h3>3) Beispiel Kühlraum</h3><p>Temperatursensor → ESP32 → MQTT → Alarm bei zu hoher Temperatur</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Abgeben</button></div><div class="quiz-score" id="score-tec-de" style="display:none;margin-top:1rem"></div></div>
     </div>
+
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>What is this about?</h3><div class="goal">Connect the physical world to IT (CPS).</div><p><strong>Example:</strong> Smart thermostat = sensor + Wi-Fi + app.</p></div>
-      <div class="card"><h3>1) Components</h3><ul><li>Sensor: DHT22 temperature</li><li>Controller: ESP32</li><li>Network: WLAN + MQTT</li><li>IT: Node-RED alarm</li><li>Actuator: relay/fan</li></ul></div>
-      <div class="card"><h3>2) MQTT</h3><ul><li>Publish on <code>lager/temp</code></li><li>Subscribe in Node-RED</li><li>Broker = intermediary (Mosquitto)</li><li>QoS 0 may be lost · QoS 1 at least once</li></ul></div>
-      <div class="card"><h3>3) Cold-storage example</h3><ol><li>Sensor measures</li><li>ESP32 sends via MQTT</li><li>Display and store</li><li>High temperature → message to the person in charge</li></ol></div>
-      <div class="card"><h3>4) Safety</h3><ul><li>Operational safety: voltage, emergency stop</li><li>Data safety: plain MQTT on the public internet is risky</li></ul></div>
+      <div class="card"><h3>What is this about?</h3><div class="goal">Connect the physical world to IT (Cyber-Physical Systems).</div></div>
+      <div class="card"><h3>1) Components of a CPS</h3><p>Sensor → Controller (ESP32) → Network (MQTT) → IT system → Actuator</p></div>
+      <div class="card"><h3>2) MQTT</h3><p>Publish / Subscribe via a broker. QoS 0 or QoS 1.</p></div>
+      <div class="card"><h3>3) Cold storage example</h3><p>Temperature sensor → ESP32 → MQTT → alarm if temperature too high</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Submit</button></div><div class="quiz-score" id="score-tec-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={tec:{fa:[{q:'Sensor؟',opts:['فقط برق','اندازه فیزیکی','نصب ویندوز'],c:1},{q:'Broker؟',opts:['پرینتر','واسط پیام','GPU'],c:1},{q:'آلارم مهم QoS؟',opts:['0','حداقل 1','بدون MQTT'],c:1},{q:'Aktor؟',opts:['سنسور دما','رله/موتور','فقط کابل'],c:1},{q:'MQTT خام اینترنت؟',opts:['امن','ریسک','فقط عکس'],c:1}],de:[{q:'Sensor?',opts:['nur Strom','misst physikalisch','Windows'],c:1},{q:'Broker?',opts:['Drucker','Nachrichtenvermittler','GPU'],c:1},{q:'Wichtiger Alarm QoS?',opts:['0','mind. 1','kein MQTT'],c:1},{q:'Aktor?',opts:['Temp-Sensor','Relais/Motor','nur Kabel'],c:1},{q:'MQTT klartext Internet?',opts:['sicher','Risiko','nur Fotos'],c:1}],en:[{q:'Sensor?',opts:['power only','measures physical value','Windows'],c:1},{q:'Broker?',opts:['printer','message intermediary','GPU'],c:1},{q:'Important alarm QoS?',opts:['0','at least 1','no MQTT'],c:1},{q:'Actuator?',opts:['temp sensor','relay/motor','cable only'],c:1},{q:'Plain MQTT on internet?',opts:['safe','risky','photos only'],c:1}]}};
+    const quizData={tec:{fa:[{q:'Sensor چه کاری می‌کند؟',opts:['فقط برق می‌دهد','مقدار فیزیکی را می‌خواند','ویندوز نصب می‌کند'],c:1},{q:'Broker چیست؟',opts:['پرینتر','واسط پیام‌ها','GPU'],c:1},{q:'برای آلارم مهم کدام QoS بهتر است؟',opts:['QoS 0','حداقل QoS 1','بدون MQTT'],c:1},{q:'Aktor چه چیزی است؟',opts:['سنسور دما','رله یا موتور','فقط کابل'],c:1},{q:'MQTT بدون رمز روی اینترنت؟',opts:['امن است','خطرناک است','فقط برای عکس'],c:1}],de:[{q:'Was macht ein Sensor?',opts:['nur Strom','misst physikalische Größe','installiert Windows'],c:1},{q:'Was ist ein Broker?',opts:['Drucker','Nachrichtenvermittler','GPU'],c:1},{q:'Welches QoS für wichtigen Alarm?',opts:['0','mindestens 1','kein MQTT'],c:1},{q:'Was ist ein Aktor?',opts:['Temperatursensor','Relais/Motor','nur Kabel'],c:1},{q:'MQTT im Klartext im Internet?',opts:['sicher','riskant','nur Fotos'],c:1}],en:[{q:'What does a sensor do?',opts:['only power','measures physical value','installs Windows'],c:1},{q:'What is a broker?',opts:['printer','message intermediary','GPU'],c:1},{q:'Which QoS for important alarm?',opts:['0','at least 1','no MQTT'],c:1},{q:'What is an actuator?',opts:['temperature sensor','relay/motor','cable only'],c:1},{q:'Plain MQTT on the internet?',opts:['safe','risky','photos only'],c:1}]}};
     const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
