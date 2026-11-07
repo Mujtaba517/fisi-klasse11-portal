@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فلش‌کارت اصطلاحات | FISI Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
+    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
+    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="lf6.html">LF 6</a>
+      <a href="lf7.html">LF 7</a>
+      <a href="lf8.html">LF 8</a>
+      <a href="lf9.html">LF 9</a>
+      <a href="flashcards.html" class="active" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Flashcards</div>
+      <h1 data-i18n="flashPageTitle">🃏 فلش‌کارت اصطلاحات آلمانی</h1>
+      <p class="subtitle" data-i18n="flashPageSub">روی کارت کلیک کن تا معنی را ببینی</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="flashcard-container">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="flashcard-face flashcard-front">
+          <div class="flashcard-term" id="cardTerm">Serviceanfrage</div>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem" data-i18n="clickToFlip">کلیک برای دیدن معنی</p>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="flashcard-meaning" id="cardMeaning">درخواست خدمات / Service Request</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard-controls">
+      <button class="btn btn-ghost" onclick="prevCard()">← قبلی</button>
+      <button class="btn btn-primary" onclick="nextCard()">بعدی →</button>
+      <button class="btn btn-ghost" onclick="shuffleCards()" data-i18n="shuffle">بُر زدن</button>
+    </div>
+    <div class="flashcard-progress" id="progress">1 / 24</div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const cards = [
+      { de: "Serviceanfrage", fa: "درخواست خدمات", en: "Service Request" },
+      { de: "Störungsmeldung", fa: "گزارش اختلال", en: "Incident Report" },
+      { de: "Eskalation", fa: "ارجاع به سطح بالاتر", en: "Escalation" },
+      { de: "First-Level-Support", fa: "پشتیبانی سطح اول", en: "First Level Support" },
+      { de: "Incident", fa: "حادثه / اختلال", en: "Incident" },
+      { de: "Problem", fa: "مشکل ریشه‌ای", en: "Problem" },
+      { de: "Cyber-physisches System", fa: "سیستم سایبر-فیزیکی", en: "Cyber-Physical System" },
+      { de: "Sensor", fa: "سنسور", en: "Sensor" },
+      { de: "Aktor", fa: "عملگر", en: "Actuator" },
+      { de: "Mikrocontroller", fa: "میکروکنترلر", en: "Microcontroller" },
+      { de: "MQTT-Broker", fa: "کارگزار MQTT", en: "MQTT Broker" },
+      { de: "Topic", fa: "موضوع / مسیر پیام", en: "Topic" },
+      { de: "Datenmodellierung", fa: "مدل‌سازی داده", en: "Data Modelling" },
+      { de: "Entität", fa: "موجودیت", en: "Entity" },
+      { de: "Beziehung", fa: "رابطه", en: "Relationship" },
+      { de: "Schnittstelle", fa: "رابط (API)", en: "Interface / API" },
+      { de: "Normalisierung", fa: "نرمال‌سازی", en: "Normalization" },
+      { de: "Netzwerktopologie", fa: "توپولوژی شبکه", en: "Network Topology" },
+      { de: "Teilnetz / Subnetz", fa: "سابنت", en: "Subnet" },
+      { de: "Routing", fa: "مسیریابی", en: "Routing" },
+      { de: "VLAN", fa: "شبکه مجازی محلی", en: "Virtual LAN" },
+      { de: "Firewall", fa: "فایروال", en: "Firewall" },
+      { de: "Zugriffskontrolle", fa: "کنترل دسترسی", en: "Access Control" },
+      { de: "Dienst / Service", fa: "سرویس", en: "Service" }
+    ];
+
+    let current = 0;
+    let flipped = false;
+
+    function renderCard() {
+      const c = cards[current];
+      document.getElementById('cardTerm').textContent = c.de;
+      const lang = localStorage.getItem('fisi-lang') || 'fa';
+      document.getElementById('cardMeaning').textContent = lang === 'en' ? c.en : (lang === 'de' ? c.en : c.fa + '  |  ' + c.en);
+      document.getElementById('progress').textContent = (current + 1) + ' / ' + cards.length;
+      document.getElementById('flashcard').classList.remove('flipped');
+      flipped = false;
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      document.getElementById('flashcard').classList.toggle('flipped', flipped);
+    }
+
+    function nextCard() {
+      current = (current + 1) % cards.length;
+      renderCard();
+    }
+
+    function prevCard() {
+      current = (current - 1 + cards.length) % cards.length;
+      renderCard();
+    }
+
+    function shuffleCards() {
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+      current = 0;
+      renderCard();
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCard);
+  </script>
+</body>
+</html>
