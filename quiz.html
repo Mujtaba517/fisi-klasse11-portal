@@ -90,6 +90,8 @@
     ];
 
     let answered = {};
+    let submitted = false;
+
     function getLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
 
     function renderQuiz(){
@@ -106,27 +108,46 @@
         });
         card.innerHTML = `<div class="quiz-question">${idx+1}. ${item.q[lang]}</div><div class="quiz-options">${opts}</div>`;
         area.appendChild(card);
+
+        // restore previous selection if any
+        if (answered[idx] !== undefined) {
+          const options = card.querySelectorAll('.quiz-option');
+          const oIdx = answered[idx];
+          if (options[oIdx]) {
+            options[oIdx].style.borderColor = 'var(--blue)';
+            options[oIdx].style.background = 'var(--blue-soft)';
+            options[oIdx].style.color = 'var(--text)';
+          }
+        }
       });
     }
 
     function selectOption(qIdx, oIdx){
-      if (answered[qIdx] !== undefined) return;
+      if (submitted) return; // فقط بعد از ثبت قفل شود
       answered[qIdx] = oIdx;
       const options = document.querySelectorAll('#q'+qIdx+' .quiz-option');
-      options.forEach(o => { o.style.borderColor='transparent'; o.style.background=''; o.style.color=''; });
+      options.forEach(o => {
+        o.style.borderColor = 'transparent';
+        o.style.background = '';
+        o.style.color = '';
+      });
       options[oIdx].style.borderColor = 'var(--blue)';
       options[oIdx].style.background = 'var(--blue-soft)';
       options[oIdx].style.color = 'var(--text)';
     }
 
     function submitQuiz(){
+      if (submitted) return;
+      submitted = true;
       let score = 0;
       questions.forEach((item, idx) => {
         const options = document.querySelectorAll('#q'+idx+' .quiz-option');
         options.forEach(o => o.classList.add('disabled'));
         const userAns = answered[idx];
-        if (userAns === item.correct) { score++; options[item.correct].classList.add('correct'); }
-        else {
+        if (userAns === item.correct) {
+          score++;
+          options[item.correct].classList.add('correct');
+        } else {
           options[item.correct].classList.add('correct');
           if (userAns !== undefined) options[userAns].classList.add('wrong');
         }
@@ -142,7 +163,7 @@
     const _setLang = window.setLang;
     window.setLang = function(lang){
       _setLang(lang);
-      if (Object.keys(answered).length === 0) renderQuiz();
+      if (!submitted) renderQuiz();
     };
   </script>
 </body>
