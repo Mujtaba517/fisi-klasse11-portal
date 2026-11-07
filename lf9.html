@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LF 9 – Netzwerke & Dienste | FISI Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
+    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
+    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="lf6.html">LF 6</a>
+      <a href="lf7.html">LF 7</a>
+      <a href="lf8.html">LF 8</a>
+      <a href="lf9.html" class="active">LF 9</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / LF 9</div>
+      <h1>🌐 Lernfeld 9: Netzwerke und Dienste bereitstellen</h1>
+      <p class="subtitle" data-i18n="lf9Sub">طراحی، راه‌اندازی و ارائه شبکه‌ها و سرویس‌های مهم</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h3 data-i18n="whatIs">این Lernfeld چیست؟</h3>
+      <p data-i18n="lf9What">قلب Systemintegration. یاد می‌گیری شبکه را طراحی، راه‌اندازی، پیکربندی کنی و سرویس‌های حیاتی (DHCP, DNS, File, Web ...) را ارائه دهی.</p>
+
+      <h3 data-i18n="keyTopics">موضوعات کلیدی</h3>
+      <ul>
+        <li data-i18n="lf9t1">طراحی شبکه (Topologie, Subnetting, IP-Planung)</li>
+        <li data-i18n="lf9t2">DHCP و DNS</li>
+        <li data-i18n="lf9t3">Routing (Static & Dynamic)</li>
+        <li data-i18n="lf9t4">VLAN و Switch Configuration</li>
+        <li data-i18n="lf9t5">سرویس‌های سرور (File, Print, Web, Mail)</li>
+        <li data-i18n="lf9t6">امنیت پایه (Firewall, ACL, Port-Security)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="subnetTitle">Subnetting سریع</h3>
+      <p data-i18n="subnetDesc">برای تقسیم یک شبکه بزرگ به شبکه‌های کوچکتر از Subnetmask استفاده می‌کنیم. مثال:</p>
+      <ul>
+        <li><code>192.168.1.0/24</code> → ۲۵۶ آدرس (۲۵۴ usable)</li>
+        <li><code>192.168.1.0/26</code> → ۶۴ آدرس در هر سابنت</li>
+        <li><code>192.168.1.0/28</code> → ۱۶ آدرس در هر سابنت</li>
+      </ul>
+      <p data-i18n="subnetTip">همیشه برای Gateway، Serverها و زیرساخت آدرس‌های ثابت رزرو کن.</p>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="exercises">تمرین‌های عملی</h3>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۱ – طراحی شبکه</div>
+        <p data-i18n="ex9_1">برای یک شرکت کوچک با ۳ دپارتمان (اداری، فنی، مهمان) یک طرح IP + VLAN طراحی کن. DHCP و DNS را هم در نظر بگیر.</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۲ – Packet Tracer / GNS3</div>
+        <p data-i18n="ex9_2">شبکه بالا را در Packet Tracer پیاده‌سازی کن. VLANها را بساز، Inter-VLAN Routing را فعال کن و DHCP را تست کن.</p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">✏️ تمرین ۳ – Linux File Server</div>
+        <p data-i18n="ex9_3">روی یک VM لینوکس (Ubuntu) یک Samba Share بساز و از ویندوز به آن وصل شو. دسترسی‌ها را با گروه کاربری محدود کن.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="keyTerms">اصطلاحات مهم آلمانی</h3>
+      <ul>
+        <li><strong>Netzwerktopologie</strong> – توپولوژی شبکه</li>
+        <li><strong>Teilnetz / Subnetz</strong> – سابنت</li>
+        <li><strong>Vermittlung / Routing</strong> – مسیریابی</li>
+        <li><strong>Virtuelles LAN (VLAN)</strong> – شبکه مجازی محلی</li>
+        <li><strong>Dienst / Service</strong> – سرویس</li>
+        <li><strong>Firewall / Zugriffskontrolle</strong> – فایروال / کنترل دسترسی</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
