@@ -3,122 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FISI Klasse 11 Portal | پورتال صنف ۱۱</title>
+  <title>FISI Klasse 11 Portal</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-
-  <header class="hero">
-    <div class="container">
-      <div class="badge">⚡ Fachinformatiker Systemintegration</div>
-      <h1 data-i18n="heroTitle">پورتال آموزشی صنف ۱۱</h1>
-      <p class="subtitle" data-i18n="heroSubtitle">آموزش عمیق، تمرین عملی، فلش‌کارت و کوییز برای Lernfelder سال دوم Ausbildung</p>
-      <div class="hero-actions">
-        <a href="#lernfelder" class="btn btn-primary" data-i18n="btnStart">شروع یادگیری</a>
-        <a href="quiz.html" class="btn btn-ghost" data-i18n="btnQuiz">کوییز سریع</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="top-actions">
+        <div class="lang-menu">
+          <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)">
+            <span id="langLabel">زبان</span> ▾
+          </button>
+          <div class="lang-panel" id="langPanel">
+            <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+            <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+            <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="container">
+      <nav class="nav-scroll">
+        <a href="index.html" class="active" data-i18n="navHome">خانه</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="fachpraxis.html">Fp-Plus</a>
+        <a href="pug.html">PuG</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
     </div>
   </header>
 
-  <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="active" data-i18n="navHome">خانه</a>
-      <a href="lf6.html">LF 6</a>
-      <a href="lf7.html">LF 7</a>
-      <a href="lf8.html">LF 8</a>
-      <a href="lf9.html">LF 9</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+  <section class="hero container">
+    <div class="badge">Fachinformatiker Systemintegration</div>
+    <h1 data-i18n="heroTitle">پورتال آموزشی صنف ۱۱</h1>
+    <p data-i18n="heroSubtitle">مضامین واقعی مدرسه · تمرین · فلش‌کارت · کوییز · آمادگی IHK</p>
+    <div class="hero-actions">
+      <a href="#subjects" class="btn btn-primary" data-i18n="btnStart">شروع یادگیری</a>
+      <a href="quiz.html" class="btn btn-soft" data-i18n="btnQuiz">کوییز</a>
     </div>
-  </nav>
+  </section>
 
   <main class="container">
-    <section id="lernfelder" class="section">
-      <h2 class="section-title"><span data-i18n="sectionLF">Lernfelder صنف ۱۱</span></h2>
-      <div class="cards-grid">
-        <a href="lf6.html" class="feature-card">
-          <div class="icon">🎫</div>
-          <h3>LF 6 – Serviceanfragen</h3>
-          <p data-i18n="card6">پردازش تیکت، اولویت‌بندی، ارتباط با مشتری و ITIL پایه</p>
-          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+    <section id="subjects" class="section">
+      <h2 class="section-title" data-i18n="sectionSubjects">مضامین صنف ۱۱</h2>
+      <div class="grid">
+        <a class="card-link" href="bgwp.html">
+          <div class="ico">🎫</div>
+          <h3>BGWP</h3>
+          <p data-i18n="cardBGWP">پردازش درخواست خدمات، SLA، پشتیبانی و ارتباط با مشتری</p>
+          <div class="meta" data-i18n="tagOpen">باز کردن</div>
         </a>
-        <a href="lf7.html" class="feature-card">
-          <div class="icon">🤖</div>
-          <h3>LF 7 – Cyber-physische Systeme</h3>
-          <p data-i18n="card7">سنسور، ESP32، MQTT، Node-RED و Industrie 4.0</p>
-          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        <a class="card-link" href="it-technik.html">
+          <div class="ico">🤖</div>
+          <h3>IT-Technik</h3>
+          <p data-i18n="cardITTec">سیستم‌های سایبر-فیزیکی، سنسور، ESP32، MQTT</p>
+          <div class="meta" data-i18n="tagOpen">باز کردن</div>
         </a>
-        <a href="lf8.html" class="feature-card">
-          <div class="icon">🗄️</div>
-          <h3>LF 8 – Daten bereitstellen</h3>
-          <p data-i18n="card8">مدل‌سازی داده، SQL، API، JSON و یکپارچه‌سازی</p>
-          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        <a class="card-link" href="aeup.html">
+          <div class="ico">🗄️</div>
+          <h3>AEuP</h3>
+          <p data-i18n="cardAEuP">داده، SQL، API، JSON و یکپارچه‌سازی سیستم‌ها</p>
+          <div class="meta" data-i18n="tagOpen">باز کردن</div>
         </a>
-        <a href="lf9.html" class="feature-card">
-          <div class="icon">🌐</div>
-          <h3>LF 9 – Netzwerke & Dienste</h3>
-          <p data-i18n="card9">طراحی شبکه، DHCP، DNS، VLAN، Routing و امنیت</p>
-          <span class="tag" data-i18n="tagDeep">توضیح عمیق + تمرین</span>
+        <a class="card-link" href="it-systeme.html">
+          <div class="ico">🌐</div>
+          <h3>IT-Systeme (FU-IT)</h3>
+          <p data-i18n="cardITSys">شبکه، DHCP، DNS، VLAN، سرویس‌ها و امنیت</p>
+          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+        </a>
+        <a class="card-link" href="fachpraxis.html">
+          <div class="ico">🛠️</div>
+          <h3>Fachpraxis IT Plus</h3>
+          <p data-i18n="cardFp">کار عملی کارگاهی و پروژه‌های فنی</p>
+          <div class="meta" data-i18n="tagOpen">باز کردن</div>
+        </a>
+        <a class="card-link" href="pug.html">
+          <div class="ico">🏛️</div>
+          <h3>Politik und Gesellschaft</h3>
+          <p data-i18n="cardPuG">سیاست و جامعه · پایه WiSo برای امتحان</p>
+          <div class="meta" data-i18n="tagOpen">باز کردن</div>
         </a>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title"><span data-i18n="sectionTools">ابزارهای یادگیری</span></h2>
-      <div class="cards-grid">
-        <a href="flashcards.html" class="feature-card">
-          <div class="icon">🃏</div>
+      <h2 class="section-title" data-i18n="sectionTools">ابزار یادگیری</h2>
+      <div class="grid">
+        <a class="card-link" href="flashcards.html">
+          <div class="ico">🃏</div>
           <h3 data-i18n="flashTitle">فلش‌کارت اصطلاحات</h3>
-          <p data-i18n="flashDesc">یادگیری سریع واژگان فنی آلمانی با سیستم فلپ کارت</p>
-          <span class="tag">DE ⟷ FA / EN</span>
+          <p data-i18n="flashDesc">واژگان فنی آلمانی با کارت‌های تعاملی</p>
         </a>
-        <a href="quiz.html" class="feature-card">
-          <div class="icon">✅</div>
+        <a class="card-link" href="quiz.html">
+          <div class="ico">✅</div>
           <h3 data-i18n="quizTitle">کوییز تعاملی</h3>
-          <p data-i18n="quizDesc">آزمون چندگزینه‌ای از تمام Lernfelder با امتیازدهی</p>
-          <span class="tag" data-i18n="tagTest">تست خودت</span>
+          <p data-i18n="quizDesc">آزمون چندگزینه‌ای با امتیاز</p>
         </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title"><span data-i18n="tipsTitle">نکات موفقیت</span></h2>
-      <div class="tips-grid">
-        <div class="tip">
-          <h4 data-i18n="tip1Title">۱. تمرین عملی</h4>
-          <p data-i18n="tip1Text">با VirtualBox، Packet Tracer و Node-RED کار کن. تئوری Alone کافی نیست.</p>
-        </div>
-        <div class="tip">
-          <h4 data-i18n="tip2Title">۲. مستندسازی</h4>
-          <p data-i18n="tip2Text">هر کاری را مستند کن. در امتحان IHK و شرکت امتیاز بالایی دارد.</p>
-        </div>
-        <div class="tip">
-          <h4 data-i18n="tip3Title">۳. زبان فنی آلمانی</h4>
-          <p data-i18n="tip3Text">اصطلاحات آلمانی را دقیق یاد بگیر. از فلش‌کارت‌ها استفاده کن.</p>
-        </div>
-        <div class="tip">
-          <h4 data-i18n="tip4Title">۴. ارتباط با مشتری</h4>
-          <p data-i18n="tip4Text">مشکل را ساده و واضح برای کاربر غیرفنی توضیح بده.</p>
-        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p data-i18n="footer">ساخته شده برای دانش‌آموزان Fachinformatiker Systemintegration – Klasse 11</p>
-      <p class="small">Mujtaba Najafi · 2026</p>
-    </div>
+    <div class="container"><p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p></div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
