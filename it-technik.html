@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT-Technik | IHK Klasse 11</title>
+  <title>IT-Technik کامل | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
 </head>
 <body>
   <header class="topbar">
@@ -34,112 +35,104 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>IT-Technik (IT-Tec)</h1>
-    <p class="sub">Cyber-physische Systeme ergänzen · 72 Std. · Industrie 4.0 / IoT</p>
+    <h1>IT-Technik – CPS کامل</h1>
+    <p class="sub">سنسور · کنترلر · MQTT · ایمنی · با مثال + کوییز</p>
   </div>
   <main class="container">
-
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف Lehrplan</h3>
-        <div class="goal">دنیای فیزیکی و سیستم‌های IT را به یک Cyber-physisches System (CPS) وصل کن.</div>
-        <p>تحلیل سیستم موجود، افزودن قطعه طبق سفارش مشتری، درک جریان داده/انرژی/اطلاعات، انتخاب سخت‌افزار و نرم‌افزار، راه‌اندازی، اندازه‌گیری، ایمنی کارکرد و امنیت داده.</p>
+        <h3>این درس چیست؟</h3>
+        <div class="goal">دنیای فیزیکی (دما، موتور، رله) را به IT وصل می‌کنی تا یک سیستم سایبر-فیزیکی (CPS) بسازی.</div>
+        <p><strong>مثال روزمره:</strong> ترموستات هوشمند خانه = سنسور دما + وای‌فای + اپلیکیشن موبایل.</p>
       </div>
       <div class="card">
-        <h3>🔗 اجزای CPS</h3>
+        <h3>۱) اجزا با مثال</h3>
         <ul>
-          <li><strong>Sensor</strong> – دما، رطوبت، حرکت، فاصله، نور…</li>
-          <li><strong>Aktor</strong> – رله، موتور، شیر، بوق، LED…</li>
-          <li><strong>Controller</strong> – ESP32, Arduino, SPS</li>
-          <li><strong>Netzwerk</strong> – WLAN, Ethernet, MQTT, Modbus…</li>
-          <li><strong>IT-Backend</strong> – Broker, Node-RED, DB, Dashboard</li>
+          <li><strong>Sensor:</strong> DHT22 دما را می‌خواند</li>
+          <li><strong>Controller:</strong> ESP32 مقدار را می‌گیرد</li>
+          <li><strong>Netzwerk:</strong> WLAN + MQTT پیام می‌فرستد</li>
+          <li><strong>IT:</strong> Node-RED نمودار می‌کشد و اگر دما > ۳۰ شد آلارم می‌دهد</li>
+          <li><strong>Aktor:</strong> رله فن را روشن می‌کند</li>
         </ul>
       </div>
       <div class="card">
-        <h3>📡 MQTT عمیق</h3>
+        <h3>۲) MQTT خیلی ساده</h3>
+        <p>مثل تابلوی اعلانات:</p>
         <ul>
-          <li><strong>Broker</strong> (مثلاً Mosquitto) واسط پیام است</li>
-          <li><strong>Publisher</strong> داده می‌فرستد · <strong>Subscriber</strong> دریافت می‌کند</li>
-          <li><strong>Topic</strong> مسیر منطقی مثل <code>halle1/maschine3/temp</code></li>
-          <li><strong>QoS 0</strong> حداکثر یک‌بار · <strong>1</strong> حداقل یک‌بار · <strong>2</strong> دقیقاً یک‌بار</li>
-          <li>برای امنیت: کاربر/رمز روی Broker و در صورت امکان TLS</li>
+          <li>ESP32 می‌نویسد روی موضوع <code>lager/temp</code> مقدار 22.5</li>
+          <li>Node-RED همان موضوع را گوش می‌دهد</li>
+          <li>Broker (مثلاً Mosquitto) واسط است</li>
         </ul>
+        <p><strong>QoS:</strong> 0 = ممکن است گم شود · 1 = حداقل یک‌بار می‌رسد (برای آلارم مهم بهتر است 1)</p>
       </div>
       <div class="card">
-        <h3>⚡ انرژی، اندازه‌گیری، ایمنی</h3>
-        <ul>
-          <li>ولتاژ و جریان مناسب قطعه را انتخاب کن</li>
-          <li>مقادیر فیزیکی را اندازه بگیر و در Protokoll ثبت کن</li>
-          <li><strong>Betriebssicherheit</strong> – محدوده مجاز، قطع اضطراری، جلوگیری از آسیب</li>
-          <li><strong>Datensicherheit</strong> – مسیر سنسور تا سرور امن باشد</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🛠️ زنجیره عملی رایج در مدرسه</h3>
+        <h3>۳) جریان اطلاعات با مثال سردخانه</h3>
         <ol>
-          <li>ESP32 + سنسور (مثلاً DHT22)</li>
-          <li>خواندن مقدار و Publish روی MQTT</li>
-          <li>Node-RED Subscribe + نمودار + Function برای آلارم</li>
-          <li>مستند: قطعات، سیم‌کشی، Topicها، تست‌ها</li>
+          <li>سنسور دما را اندازه می‌گیرد</li>
+          <li>ESP32 عدد را با MQTT می‌فرستد</li>
+          <li>سرور ذخیره و نمایش می‌کند</li>
+          <li>اگر دما بالا رفت → پیام به موبایل مسئول</li>
         </ol>
       </div>
       <div class="card">
-        <h3>✏️ تمرین IHK-Style</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>یک CPS سردخانه را توصیف کن: سنسور، کنترلر، شبکه، هشدار، جریان اطلاعات.</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>مشتری می‌خواهد سنسور رطوبت اضافه شود. معیار انتخاب قطعه و پروتکل چیست؟</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>تفاوت QoS 0 و 1 را با مثال آلارم آتش توضیح بده.</p></div>
-        <div class="exercise"><div class="exercise-title">۴</div><p>لیست تست پذیرش (Abnahmetest) برای پروژه دما+آلارم بنویس.</p></div>
-        <div class="exercise"><div class="exercise-title">۵</div><p>سه ریسک Betriebssicherheit و سه ریسک Datensicherheit نام ببر و مقابله پیشنهاد بده.</p></div>
+        <h3>۴) ایمنی</h3>
+        <ul>
+          <li><strong>Betriebssicherheit:</strong> ولتاژ درست، قطع اضطراری، محدوده مجاز</li>
+          <li><strong>Datensicherheit:</strong> MQTT بدون رمز روی اینترنت عمومی خطرناک است</li>
+        </ul>
+        <p><strong>مثال:</strong> آلارم آتش نباید با QoS 0 و بدون تست تحویل شود.</p>
       </div>
       <div class="card">
-        <h3>📖 واژگان</h3>
-        <p>CPS · Sensor · Aktor · Datenfluss · Inbetriebnahme · MQTT · Broker · Topic · QoS · Betriebssicherheit · Datensicherheit · Protokoll</p>
+        <h3>✅ کوییز IT-Technik</h3>
+        <div id="quiz-tec"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">ثبت کوییز</button></div>
+        <div class="quiz-score" id="score-tec" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
-
     <div class="lang-block" data-lang="de">
-      <div class="card">
-        <h3>🎯 Ziel</h3>
-        <div class="goal">Physische Welt und IT zu einem CPS zusammenführen.</div>
-        <p>Analyse, Ergänzung nach Kundenauftrag, Flüsse verstehen, Komponenten wählen, in Betrieb nehmen, messen, Betriebs- und Datensicherheit beachten.</p>
-      </div>
-      <div class="card">
-        <h3>📡 MQTT</h3>
-        <p>Broker, Publisher, Subscriber, Topic, QoS 0/1/2, optional TLS und Authentifizierung.</p>
-      </div>
-      <div class="card">
-        <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>CPS Kühlraum beschreiben.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Feuchtesensor ergänzen – Auswahlkriterien.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>QoS 0 vs 1 am Beispiel Brandalarm.</p></div>
-        <div class="exercise"><div class="exercise-title">4</div><p>Abnahmetest-Liste schreiben.</p></div>
-        <div class="exercise"><div class="exercise-title">5</div><p>Risiken Betriebs- und Datensicherheit + Maßnahmen.</p></div>
-      </div>
+      <div class="card"><h3>Kern</h3><div class="goal">CPS: Sensor, Controller, MQTT, Aktor, Sicherheit – mit Alltagsbeispielen.</div></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-de"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Abgeben</button></div>
+        <div class="quiz-score" id="score-tec-de" style="display:none;margin-top:1rem"></div></div>
     </div>
-
     <div class="lang-block" data-lang="en">
-      <div class="card">
-        <h3>🎯 Goal</h3>
-        <div class="goal">Integrate the physical world and IT into a cyber-physical system.</div>
-        <p>Analyse, extend per customer order, understand flows, select components, commission, measure, respect operational and data safety.</p>
-      </div>
-      <div class="card">
-        <h3>📡 MQTT</h3>
-        <p>Broker, publisher, subscriber, topic, QoS 0/1/2, optional TLS and auth.</p>
-      </div>
-      <div class="card">
-        <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Describe a cold-storage CPS.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Add a humidity sensor – selection criteria.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>QoS 0 vs 1 for a fire alarm.</p></div>
-        <div class="exercise"><div class="exercise-title">4</div><p>Write an acceptance test list.</p></div>
-        <div class="exercise"><div class="exercise-title">5</div><p>List operational and data risks + mitigations.</p></div>
-      </div>
+      <div class="card"><h3>Core</h3><div class="goal">CPS: sensor, controller, MQTT, actuator, safety – with everyday examples.</div></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-en"></div>
+        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Submit</button></div>
+        <div class="quiz-score" id="score-tec-en" style="display:none;margin-top:1rem"></div></div>
     </div>
-
-    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Lehrplan Bayern · IT-Technik · Cyber-physische Systeme ergänzen (72 Std.)</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
+  <script>
+    const quizData={tec:{fa:[
+      {q:'Sensor چه کار می‌کند؟',opts:['فقط برق می‌دهد','مقدار فیزیکی را اندازه می‌گیرد','ویندوز نصب می‌کند'],c:1},
+      {q:'MQTT Broker چیست؟',opts:['پرینتر','واسط پیام بین Publisher و Subscriber','کارت گرافیک'],c:1},
+      {q:'برای آلارم مهم QoS بهتر؟',opts:['0 همیشه','حداقل 1','اصلاً MQTT نه'],c:1},
+      {q:'Aktor مثال؟',opts:['سنسور دما','رله/موتور/فن','فقط کابل'],c:1},
+      {q:'MQTT بدون رمز روی اینترنت عمومی؟',opts:['کاملاً امن','ریسک امنیتی','فقط برای عکس'],c:1}
+    ],de:[
+      {q:'Sensor macht?',opts:['nur Strom','misst physikalisch','installiert Windows'],c:1},
+      {q:'MQTT-Broker?',opts:['Drucker','Nachrichtenvermittler','GPU'],c:1},
+      {q:'Wichtiger Alarm QoS?',opts:['immer 0','mind. 1','kein MQTT'],c:1},
+      {q:'Aktor-Beispiel?',opts:['Temp-Sensor','Relais/Motor','nur Kabel'],c:1},
+      {q:'MQTT klartext im Internet?',opts:['sicher','Risiko','nur Fotos'],c:1}
+    ],en:[
+      {q:'A sensor does what?',opts:['only supplies power','measures a physical value','installs Windows'],c:1},
+      {q:'MQTT broker is?',opts:['a printer','message intermediary','graphics card'],c:1},
+      {q:'Important alarm QoS?',opts:['always 0','at least 1','no MQTT'],c:1},
+      {q:'Actuator example?',opts:['temp sensor','relay/motor/fan','cable only'],c:1},
+      {q:'Plain MQTT on public internet?',opts:['fully safe','security risk','photos only'],c:1}
+    ]}};
+    const answers={};let done={};
+    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
+    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
+    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
+    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
+    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
+    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
+    document.addEventListener('DOMContentLoaded',()=>renderMini('tec'));
+    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.tec){answers.tec={};renderMini('tec')}};
+  </script>
 </body>
 </html>
