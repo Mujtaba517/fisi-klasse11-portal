@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BGWP | Klasse 11</title>
+  <title>BGWP | IHK Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -32,80 +32,144 @@
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
-
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1>BGWP – Betriebs- und Gesamtwirtschaftliche Prozesse</h1>
-    <p class="sub">Serviceanfragen bearbeiten · 36 Std. · Lehrplan Bayern</p>
+    <p class="sub">Serviceanfragen bearbeiten · 36 Std. · relevant für IHK AP Teil 1</p>
   </div>
-
   <main class="container">
+
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف</h3>
-        <div class="goal">دسته‌بندی درخواست‌های خدمات، پیدا کردن علت خطا و رفع آن.</div>
-        <h3>📚 محتوا</h3>
+        <h3>🎯 هدف Lehrplan + اهمیت IHK</h3>
+        <div class="goal">دسته‌بندی Serviceanfrage، یافتن علت خطا و رفع آن.</div>
+        <p>در AP Teil 1 موضوع «Einrichten eines IT-gestützten Arbeitsplatzes» است؛ پشتیبانی کاربر، مستندسازی و کیفیت کار بخشی از همان فضای مهارتی است. در کار روزمره Systemintegrator هم تیکت و SLA همیشه هست.</p>
+      </div>
+      <div class="card">
+        <h3>🔄 فرآیند کامل تیکت</h3>
+        <ol>
+          <li><strong>Aufnahme</strong> – کانال (تلفن/ایمیل/پورتال)، مشخصات کاربر، شرح مشکل، زمان شروع</li>
+          <li><strong>SLA prüfen</strong> – زمان واکنش و حل توافق‌شده</li>
+          <li><strong>Klassifizierung</strong> – Hardware / Software / Netzwerk / Zugang / Sonstiges</li>
+          <li><strong>Priorisierung</strong> – Impact × Urgency</li>
+          <li><strong>Support-Level</strong> – سطح ۱ حل می‌کند یا Eskalation؟</li>
+          <li><strong>Diagnose</strong> – پرسش سیستماتیک، تست، لاگ</li>
+          <li><strong>Lösung & Doku</strong> – اقدام، نتیجه، Knowledge Base</li>
+          <li><strong>Abschluss</strong> – تأیید کاربر، بستن تیکت</li>
+          <li><strong>Reflexion</strong> – بهبود کیفیت</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>📋 SLA</h3>
         <ul>
-          <li>دریافت Serviceanfrage (مستقیم / غیرمستقیم)</li>
-          <li>بررسی SLA (زمان واکنش و حل)</li>
-          <li>Support-Level 1 / 2 / 3 و Eskalation</li>
-          <li>اولویت‌بندی: Impact + Urgency</li>
-          <li>ارتباط حرفه‌ای و Deeskalation</li>
-          <li>Incident در مقابل Problem (ITIL پایه)</li>
-          <li>مستندسازی و Knowledge Base</li>
+          <li><strong>Reaktionszeit</strong> – حداکثر زمان اولین پاسخ</li>
+          <li><strong>Lösungszeit / Wiederherstellungszeit</strong> – حداکثر زمان حل</li>
+          <li><strong>Verfügbarkeit</strong> – مثلاً ۹۹٫۹٪</li>
+          <li><strong>Support-Zeiten</strong> – ساعات پوشش</li>
+        </ul>
+        <p>اگر SLA در خطر باشد باید سریع‌تر عمل کنی یا Escalate کنی و مدیر/مشتری را مطلع کنی.</p>
+      </div>
+      <div class="card">
+        <h3>🎚️ Support-Level و ITIL پایه</h3>
+        <ul>
+          <li><strong>1st Level</strong> – ثبت، راهنمایی استاندارد، حل مشکلات رایج</li>
+          <li><strong>2nd Level</strong> – تخصص عمیق‌تر</li>
+          <li><strong>3rd Level</strong> – Vendor / Development</li>
+          <li><strong>Incident</strong> – اختلال ناگهانی سرویس (هدف: سریع برگردان)</li>
+          <li><strong>Problem</strong> – علت ریشه‌ای (هدف: جلوگیری از تکرار)</li>
+          <li><strong>Service Request</strong> – درخواست استاندارد (دسترسی، نصب…)</li>
+          <li><strong>Change</strong> – تغییر برنامه‌ریزی‌شده</li>
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>کاربر به SharePoint وصل نمی‌شود و امروز باید فایل تحویل دهد. سؤالات، دسته و اولویت؟</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>نرم‌افزار بعد از آپدیت کرش می‌کند. برای Eskalation چه می‌نویسی؟</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>SLA: واکنش ۳۰ دقیقه. تیکت ۱۰:۱۵، الان ۱۱:۰۰ بدون پاسخ. اقدام؟</p></div>
+        <h3>⚡ اولویت</h3>
+        <ul>
+          <li><strong>Kritisch</strong> – سرویس اصلی کل سازمان قطع</li>
+          <li><strong>Hoch</strong> – بخش مهم یا چند کاربر کلیدی</li>
+          <li><strong>Mittel</strong> – یک کاربر با Workaround</li>
+          <li><strong>Niedrig</strong> – بهبود یا مشکل جزئی</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🗣️ ارتباط و Deeskalation</h3>
+        <ul>
+          <li>آرام بمان، فعال گوش بده، خلاصه کن</li>
+          <li>برای کاربر غیرفنی ساده حرف بزن</li>
+          <li>زمان واقع‌بینانه بده؛ قول غیرممکن نده</li>
+          <li>در صورت نیاز به انگلیسی هم بتوانی ارتباط بگیری</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین‌های امتحانی</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>کاربر: از دیروز VPN قطع است و جلسه مهم دارد. سؤالات، دسته، اولویت، گام‌های اول؟</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>SLA واکنش ۳۰ دقیقه برای Prio Hoch. تیکت ۱۰:۱۵، الان ۱۱:۰۵ بدون پاسخ. چه می‌کنی و چه می‌نویسی؟</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>تفاوت Incident و Problem را با مثال پرینتر شبکه توضیح بده.</p></div>
+        <div class="exercise"><div class="exercise-title">۴</div><p>Knowledge-Base برای «رمز عبور قفل شده Active Directory» بنویس.</p></div>
+        <div class="exercise"><div class="exercise-title">۵</div><p>کاربر عصبانی تلفن زده. متن پاسخ Deeskalation + گرفتن اطلاعات فنی.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 واژگان IHK</h3>
+        <p>Serviceanfrage · SLA · Reaktionszeit · Eskalation · Deeskalation · Incident · Problem · Support-Level · Service-Management-System · Qualitätssteigerung</p>
       </div>
     </div>
+
     <div class="lang-block" data-lang="de">
       <div class="card">
-        <h3>🎯 Ziel</h3>
+        <h3>🎯 Ziel & IHK-Bezug</h3>
         <div class="goal">Serviceanfragen einordnen, Fehlerursachen ermitteln und beheben.</div>
-        <h3>📚 Inhalte</h3>
-        <ul>
-          <li>Serviceanfragen entgegennehmen</li>
-          <li>SLA prüfen (Reaktions- und Lösungszeit)</li>
-          <li>Support-Level und Eskalation</li>
-          <li>Priorisierung nach Impact und Urgency</li>
-          <li>Kommunikation und Deeskalation</li>
-          <li>Incident vs. Problem</li>
-          <li>Dokumentation und Knowledge Base</li>
-        </ul>
+        <p>Relevant für den Berufsalltag und die Denkweise der AP Teil 1 (IT-Arbeitsplatz, Support, Dokumentation, Qualität).</p>
+      </div>
+      <div class="card">
+        <h3>🔄 Ticketprozess</h3>
+        <ol>
+          <li>Aufnahme → SLA prüfen → Klassifizieren → Priorisieren</li>
+          <li>Support-Level / Eskalation → Diagnose → Lösung & Doku</li>
+          <li>Abschluss mit Nutzerbestätigung → Reflexion</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>📋 SLA & Levels</h3>
+        <p>Reaktionszeit, Lösungszeit, Verfügbarkeit, Support-Zeiten. 1st/2nd/3rd Level. Incident vs. Problem vs. Service Request vs. Change.</p>
       </div>
       <div class="card">
         <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Nutzer kommt nicht auf SharePoint und muss heute abgeben. Fragen, Kategorie, Priorität?</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Software crasht nach Update. Was dokumentierst du für die Eskalation?</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>SLA 30 Min. Ticket 10:15, jetzt 11:00 ohne Antwort. Was tun?</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>VPN seit gestern down, wichtiges Meeting – Fragen, Prio, erste Schritte?</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>SLA 30 Min. verletzt – Maßnahmen und Dokumentation?</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Incident vs. Problem am Beispiel Netzwerkdrucker.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>KB-Artikel: AD-Konto gesperrt.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>Deeskalation am Telefon + Infos sammeln.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 Begriffe</h3>
+        <p>Serviceanfrage, SLA, Eskalation, Incident, Problem, Support-Level, Qualitätssteigerung</p>
       </div>
     </div>
+
     <div class="lang-block" data-lang="en">
       <div class="card">
-        <h3>🎯 Goal</h3>
-        <div class="goal">Classify service requests, find root causes and fix them.</div>
-        <h3>📚 Content</h3>
-        <ul>
-          <li>Receive service requests</li>
-          <li>Check SLA (response & resolution time)</li>
-          <li>Support levels and escalation</li>
-          <li>Priority = impact + urgency</li>
-          <li>Communication and de-escalation</li>
-          <li>Incident vs problem</li>
-          <li>Documentation and knowledge base</li>
-        </ul>
+        <h3>🎯 Goal & IHK relevance</h3>
+        <div class="goal">Classify service requests, find causes and resolve them.</div>
+        <p>Maps to daily FISI work and the mindset of AP Part 1 (workplace, support, documentation, quality).</p>
+      </div>
+      <div class="card">
+        <h3>🔄 Ticket process</h3>
+        <p>Capture → check SLA → classify → prioritise → support level/escalate → diagnose → solve & document → close → reflect.</p>
+      </div>
+      <div class="card">
+        <h3>📋 SLA & ITIL basics</h3>
+        <p>Response/resolution time, availability. 1st/2nd/3rd level. Incident vs problem vs service request vs change.</p>
       </div>
       <div class="card">
         <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>User cannot reach SharePoint and must submit today. Questions, category, priority?</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>App crashes after update. What do you write for escalation?</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>SLA 30 min. Ticket 10:15, now 11:00 with no reply. What next?</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>VPN down since yesterday before a meeting – questions, priority, first steps?</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>30-min SLA broken – actions and what you write down?</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>Incident vs problem using a network printer example.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>KB article: locked AD account.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>Phone de-escalation script + technical fact gathering.</p></div>
       </div>
     </div>
+
+    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Lehrplan Bayern Jgst.11 BGWP · Serviceanfragen bearbeiten · IHK FIAusbV AP-Kontext</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
