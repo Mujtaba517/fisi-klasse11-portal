@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fachpraxis کامل | Klasse 11</title>
+  <title>Fachpraxis | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>pre{font-family:ui-monospace,monospace;font-size:.8rem;background:#1d1d1f;color:#f5f5f7;padding:1rem;border-radius:12px;overflow-x:auto;direction:ltr;text-align:left;line-height:1.4}code{font-family:ui-monospace,monospace;font-size:.85em}</style>
@@ -35,28 +35,14 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>Fachpraxis – کانفیگ شبکه کامل</h1>
-    <p class="sub">Switch · Router · IP · DHCP · VLAN با مثال دستوری + کوییز</p>
+    <h1>Fachpraxis</h1>
+    <p class="sub">Switch · Router · DHCP · FA/DE/EN same topics</p>
   </div>
   <main class="container">
     <div class="lang-block" data-lang="fa">
-      <div class="card">
-        <h3>هدف کلاس عملی</h3>
-        <div class="goal">خودت بتوانی در Packet Tracer یا آزمایشگاه: VLAN بسازی، روتر را وصل کنی، DHCP بدهی و با ping ثابت کنی که کار می‌کند.</div>
-      </div>
-      <div class="card">
-        <h3>۱) سناریوی نمونه (از اول تا آخر)</h3>
-        <p>یک شرکت کوچک: اداری و فنی جدا باشند.</p>
-        <ul>
-          <li>VLAN 10 Büro: شبکه <code>192.168.10.0/24</code> · Gateway <code>.1</code></li>
-          <li>VLAN 20 Technik: شبکه <code>192.168.20.0/24</code> · Gateway <code>.1</code></li>
-          <li>۱ سوئیچ · ۱ روتر · ۲ کامپیوتر</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>۲) سوئیچ – مثال دستور</h3>
-        <p>اول VLAN بساز، بعد بگو هر پورت مال کدام VLAN است.</p>
-<pre>vlan 10
+      <div class="card"><h3>هدف</h3><div class="goal">VLAN، روتر، DHCP و ping را خودت در Packet Tracer یا آزمایشگاه پیاده کنی.</div></div>
+      <div class="card"><h3>۱) سناریو</h3><ul><li>VLAN 10: 192.168.10.0/24 · GW .1</li><li>VLAN 20: 192.168.20.0/24 · GW .1</li><li>۱ سوئیچ · ۱ روتر · ۲ PC</li></ul></div>
+      <div class="card"><h3>۲) سوئیچ</h3><pre>vlan 10
  name BUERO
 vlan 20
  name TECHNIK
@@ -67,84 +53,90 @@ interface fa0/2
  switchport mode access
  switchport access vlan 20
 interface fa0/24
- switchport mode trunk</pre>
-        <p><strong>مثال:</strong> PC اداری به fa0/1 · PC فنی به fa0/2 · کابل به روتر روی fa0/24 (Trunk).</p>
-      </div>
-      <div class="card">
-        <h3>۳) روتر – مثال Subinterface</h3>
-        <p>یک کابل فیزیکی، چند شبکه منطقی (Router-on-a-Stick).</p>
-<pre>interface g0/0.10
+ switchport mode trunk</pre><p>Access برای PC · Trunk به روتر.</p></div>
+      <div class="card"><h3>۳) روتر</h3><pre>interface g0/0.10
  encapsulation dot1Q 10
  ip address 192.168.10.1 255.255.255.0
 interface g0/0.20
  encapsulation dot1Q 20
  ip address 192.168.20.1 255.255.255.0
 interface g0/0
- no shutdown</pre>
-        <p><strong>مثال:</strong> حالا PC در VLAN10 می‌تواند به Gateway 192.168.10.1 برسد و از آنجا به VLAN20 برود.</p>
-      </div>
-      <div class="card">
-        <h3>۴) DHCP – مثال Pool</h3>
-<pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99
+ no shutdown</pre></div>
+      <div class="card"><h3>۴) DHCP</h3><pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99
 ip dhcp pool BUERO
  network 192.168.10.0 255.255.255.0
  default-router 192.168.10.1
- dns-server 8.8.8.8</pre>
-        <p><strong>مثال:</strong> PC را روی DHCP بگذار → باید چیزی مثل 192.168.10.100 بگیرد و Gateway .1 باشد.</p>
-      </div>
-      <div class="card">
-        <h3>۵) تست – چه چیزی باید سبز شود؟</h3>
-        <ol>
-          <li><code>ipconfig</code> روی PC → IP درست؟</li>
-          <li><code>ping 192.168.10.1</code> → Gateway؟</li>
-          <li><code>ping 192.168.20.x</code> → VLAN دیگر؟</li>
-        </ol>
-        <p>اگر ۱ و ۲ اوکی ولی ۳ نه → Routing/Subinterface را چک کن.</p>
-      </div>
-      <div class="card">
-        <h3>✅ کوییز Fachpraxis</h3>
-        <div id="quiz-fp"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('fp')">ثبت کوییز</button></div>
-        <div class="quiz-score" id="score-fp" style="display:none;margin-top:1rem"></div>
-      </div>
+ dns-server 8.8.8.8</pre></div>
+      <div class="card"><h3>۵) تست</h3><ol><li>ipconfig → IP درست؟</li><li>ping Gateway</li><li>ping VLAN دیگر</li></ol></div>
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-fp"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('fp')">ثبت</button></div><div class="quiz-score" id="score-fp" style="display:none;margin-top:1rem"></div></div>
     </div>
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Praxis</h3><div class="goal">VLAN, Router-on-a-Stick, DHCP, Ping-Test – Schritt für Schritt.</div>
-        <p>Befehle siehe persische Ansicht (CLI ist sprachneutral).</p></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-fp-de"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('fp')">Abgeben</button></div>
-        <div class="quiz-score" id="score-fp-de" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>Ziel</h3><div class="goal">VLAN, Router, DHCP und Ping selbst in Packet Tracer oder Labor umsetzen.</div></div>
+      <div class="card"><h3>1) Szenario</h3><ul><li>VLAN 10: 192.168.10.0/24 · GW .1</li><li>VLAN 20: 192.168.20.0/24 · GW .1</li><li>1 Switch · 1 Router · 2 PCs</li></ul></div>
+      <div class="card"><h3>2) Switch</h3><pre>vlan 10
+ name BUERO
+vlan 20
+ name TECHNIK
+interface fa0/1
+ switchport mode access
+ switchport access vlan 10
+interface fa0/2
+ switchport mode access
+ switchport access vlan 20
+interface fa0/24
+ switchport mode trunk</pre><p>Access für PC · Trunk zum Router.</p></div>
+      <div class="card"><h3>3) Router</h3><pre>interface g0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+interface g0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+interface g0/0
+ no shutdown</pre></div>
+      <div class="card"><h3>4) DHCP</h3><pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99
+ip dhcp pool BUERO
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8</pre></div>
+      <div class="card"><h3>5) Test</h3><ol><li>ipconfig → richtige IP?</li><li>ping Gateway</li><li>ping anderes VLAN</li></ol></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-fp-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('fp')">Abgeben</button></div><div class="quiz-score" id="score-fp-de" style="display:none;margin-top:1rem"></div></div>
     </div>
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>Lab</h3><div class="goal">VLAN, router-on-a-stick, DHCP, ping test – step by step.</div>
-        <p>CLI examples are in the Persian view (language-neutral commands).</p></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-fp-en"></div>
-        <div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('fp')">Submit</button></div>
-        <div class="quiz-score" id="score-fp-en" style="display:none;margin-top:1rem"></div></div>
+      <div class="card"><h3>Goal</h3><div class="goal">Build VLAN, router, DHCP and ping yourself in Packet Tracer or the lab.</div></div>
+      <div class="card"><h3>1) Scenario</h3><ul><li>VLAN 10: 192.168.10.0/24 · GW .1</li><li>VLAN 20: 192.168.20.0/24 · GW .1</li><li>1 switch · 1 router · 2 PCs</li></ul></div>
+      <div class="card"><h3>2) Switch</h3><pre>vlan 10
+ name BUERO
+vlan 20
+ name TECHNIK
+interface fa0/1
+ switchport mode access
+ switchport access vlan 10
+interface fa0/2
+ switchport mode access
+ switchport access vlan 20
+interface fa0/24
+ switchport mode trunk</pre><p>Access for PC · Trunk to router.</p></div>
+      <div class="card"><h3>3) Router</h3><pre>interface g0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+interface g0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+interface g0/0
+ no shutdown</pre></div>
+      <div class="card"><h3>4) DHCP</h3><pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99
+ip dhcp pool BUERO
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8</pre></div>
+      <div class="card"><h3>5) Test</h3><ol><li>ipconfig → correct IP?</li><li>ping gateway</li><li>ping other VLAN</li></ol></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-fp-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('fp')">Submit</button></div><div class="quiz-score" id="score-fp-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={fp:{fa:[
-      {q:'پورت PC روی سوئیچ معمولاً؟',opts:['Trunk','Access','فقط Console'],c:1},
-      {q:'Trunk برای چیست؟',opts:['یک VLAN فقط','چند VLAN روی یک لینک','خاموش کردن سوئیچ'],c:1},
-      {q:'192.168.10.1 در سناریوی ما چیست؟',opts:['نام وای‌فای','Gateway VLAN10','پرینتر'],c:1},
-      {q:'excluded-address در DHCP؟',opts:['آدرس‌هایی که نباید از Pool بیایند','حذف کل شبکه','رمز روتر'],c:0},
-      {q:'Ping به Gateway اوکی، VLAN دیگر نه – اول چه؟',opts:['مانیتور بخر','Subinterface/Routing را چک کن','ویندوز را پاک کن'],c:1}
-    ],de:[
-      {q:'PC-Port am Switch?',opts:['Trunk','Access','nur Console'],c:1},
-      {q:'Trunk wozu?',opts:['ein VLAN','mehrere VLANs auf Link','Switch aus'],c:1},
-      {q:'192.168.10.1 ist?',opts:['WLAN-Name','Gateway VLAN10','Drucker'],c:1},
-      {q:'excluded-address?',opts:['nicht aus Pool','Netz löschen','Router-PW'],c:0},
-      {q:'Gateway ok, anderes VLAN nicht?',opts:['Monitor kaufen','Routing prüfen','Windows löschen'],c:1}
-    ],en:[
-      {q:'PC switch port is usually?',opts:['Trunk','Access','console only'],c:1},
-      {q:'Trunk is for?',opts:['one VLAN only','many VLANs on one link','power off'],c:1},
-      {q:'192.168.10.1 in our lab is?',opts:['Wi-Fi name','VLAN10 gateway','printer'],c:1},
-      {q:'DHCP excluded-address means?',opts:['addresses not given from pool','delete network','router password'],c:0},
-      {q:'Gateway OK, other VLAN not – check?',opts:['buy monitor','routing/subinterface','wipe Windows'],c:1}
-    ]}};
+    const quizData={fp:{fa:[{q:'پورت PC؟',opts:['Trunk','Access','Console'],c:1},{q:'Trunk؟',opts:['یک VLAN','چند VLAN روی یک لینک','خاموش'],c:1},{q:'192.168.10.1؟',opts:['وای‌فای','Gateway VLAN10','پرینتر'],c:1},{q:'excluded-address؟',opts:['خارج از Pool','حذف شبکه','رمز'],c:0},{q:'Gateway اوکی VLAN دیگر نه؟',opts:['مانیتور','Routing را چک کن','پاک کردن ویندوز'],c:1}],de:[{q:'PC-Port?',opts:['Trunk','Access','Console'],c:1},{q:'Trunk?',opts:['ein VLAN','mehrere VLANs','aus'],c:1},{q:'192.168.10.1?',opts:['WLAN','Gateway VLAN10','Drucker'],c:1},{q:'excluded-address?',opts:['nicht aus Pool','Netz löschen','Passwort'],c:0},{q:'GW ok, anderes VLAN nicht?',opts:['Monitor','Routing prüfen','Windows löschen'],c:1}],en:[{q:'PC port?',opts:['Trunk','Access','Console'],c:1},{q:'Trunk?',opts:['one VLAN','many VLANs on one link','off'],c:1},{q:'192.168.10.1?',opts:['Wi-Fi','VLAN10 gateway','printer'],c:1},{q:'excluded-address?',opts:['not from pool','delete net','password'],c:0},{q:'GW ok, other VLAN not?',opts:['monitor','check routing','wipe Windows'],c:1}]}};
     const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
