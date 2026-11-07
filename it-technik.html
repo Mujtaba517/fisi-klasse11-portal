@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT-Technik | Klasse 11</title>
+  <title>IT-Technik | IHK Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -28,73 +28,116 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
-      <a href="flashcards.html">Flash</a>
-      <a href="quiz.html">Quiz</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1>IT-Technik (IT-Tec)</h1>
-    <p class="sub">Cyber-physische Systeme ergänzen · 72 Std.</p>
+    <p class="sub">Cyber-physische Systeme ergänzen · 72 Std. · Industrie 4.0 / IoT</p>
   </div>
   <main class="container">
+
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف</h3>
-        <div class="goal">اتصال دنیای فیزیکی و IT به یک سیستم سایبر-فیزیکی (CPS).</div>
+        <h3>🎯 هدف Lehrplan</h3>
+        <div class="goal">دنیای فیزیکی و سیستم‌های IT را به یک Cyber-physisches System (CPS) وصل کن.</div>
+        <p>تحلیل سیستم موجود، افزودن قطعه طبق سفارش مشتری، درک جریان داده/انرژی/اطلاعات، انتخاب سخت‌افزار و نرم‌افزار، راه‌اندازی، اندازه‌گیری، ایمنی کارکرد و امنیت داده.</p>
+      </div>
+      <div class="card">
+        <h3>🔗 اجزای CPS</h3>
         <ul>
-          <li>Sensor / Aktor / Mikrocontroller (ESP32)</li>
-          <li>جریان داده، انرژی و اطلاعات</li>
-          <li>MQTT، Broker، Topic، QoS</li>
-          <li>Node-RED برای نمایش و آلارم</li>
-          <li>Betriebssicherheit و Datensicherheit</li>
+          <li><strong>Sensor</strong> – دما، رطوبت، حرکت، فاصله، نور…</li>
+          <li><strong>Aktor</strong> – رله، موتور، شیر، بوق، LED…</li>
+          <li><strong>Controller</strong> – ESP32, Arduino, SPS</li>
+          <li><strong>Netzwerk</strong> – WLAN, Ethernet, MQTT, Modbus…</li>
+          <li><strong>IT-Backend</strong> – Broker, Node-RED, DB, Dashboard</li>
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین</h3>
-        <div class="exercise"><div class="exercise-title">۱</div><p>Smart Home ساده را توصیف کن: جریان اطلاعات و انرژی.</p></div>
-        <div class="exercise"><div class="exercise-title">۲</div><p>سنسور دما + آلارم را از سفارش تا راه‌اندازی برنامه‌ریزی کن.</p></div>
-        <div class="exercise"><div class="exercise-title">۳</div><p>ESP32 → MQTT → Node-RED با آلارم دما.</p></div>
+        <h3>📡 MQTT عمیق</h3>
+        <ul>
+          <li><strong>Broker</strong> (مثلاً Mosquitto) واسط پیام است</li>
+          <li><strong>Publisher</strong> داده می‌فرستد · <strong>Subscriber</strong> دریافت می‌کند</li>
+          <li><strong>Topic</strong> مسیر منطقی مثل <code>halle1/maschine3/temp</code></li>
+          <li><strong>QoS 0</strong> حداکثر یک‌بار · <strong>1</strong> حداقل یک‌بار · <strong>2</strong> دقیقاً یک‌بار</li>
+          <li>برای امنیت: کاربر/رمز روی Broker و در صورت امکان TLS</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>⚡ انرژی، اندازه‌گیری، ایمنی</h3>
+        <ul>
+          <li>ولتاژ و جریان مناسب قطعه را انتخاب کن</li>
+          <li>مقادیر فیزیکی را اندازه بگیر و در Protokoll ثبت کن</li>
+          <li><strong>Betriebssicherheit</strong> – محدوده مجاز، قطع اضطراری، جلوگیری از آسیب</li>
+          <li><strong>Datensicherheit</strong> – مسیر سنسور تا سرور امن باشد</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛠️ زنجیره عملی رایج در مدرسه</h3>
+        <ol>
+          <li>ESP32 + سنسور (مثلاً DHT22)</li>
+          <li>خواندن مقدار و Publish روی MQTT</li>
+          <li>Node-RED Subscribe + نمودار + Function برای آلارم</li>
+          <li>مستند: قطعات، سیم‌کشی، Topicها، تست‌ها</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>✏️ تمرین IHK-Style</h3>
+        <div class="exercise"><div class="exercise-title">۱</div><p>یک CPS سردخانه را توصیف کن: سنسور، کنترلر، شبکه، هشدار، جریان اطلاعات.</p></div>
+        <div class="exercise"><div class="exercise-title">۲</div><p>مشتری می‌خواهد سنسور رطوبت اضافه شود. معیار انتخاب قطعه و پروتکل چیست؟</p></div>
+        <div class="exercise"><div class="exercise-title">۳</div><p>تفاوت QoS 0 و 1 را با مثال آلارم آتش توضیح بده.</p></div>
+        <div class="exercise"><div class="exercise-title">۴</div><p>لیست تست پذیرش (Abnahmetest) برای پروژه دما+آلارم بنویس.</p></div>
+        <div class="exercise"><div class="exercise-title">۵</div><p>سه ریسک Betriebssicherheit و سه ریسک Datensicherheit نام ببر و مقابله پیشنهاد بده.</p></div>
+      </div>
+      <div class="card">
+        <h3>📖 واژگان</h3>
+        <p>CPS · Sensor · Aktor · Datenfluss · Inbetriebnahme · MQTT · Broker · Topic · QoS · Betriebssicherheit · Datensicherheit · Protokoll</p>
       </div>
     </div>
+
     <div class="lang-block" data-lang="de">
       <div class="card">
         <h3>🎯 Ziel</h3>
-        <div class="goal">Physische Welt und IT-Systeme zu einem CPS verbinden.</div>
-        <ul>
-          <li>Sensor / Aktor / Mikrocontroller</li>
-          <li>Daten-, Energie- und Informationsfluss</li>
-          <li>MQTT, Broker, Topic, QoS</li>
-          <li>Node-RED Visualisierung und Alarm</li>
-          <li>Betriebs- und Datensicherheit</li>
-        </ul>
+        <div class="goal">Physische Welt und IT zu einem CPS zusammenführen.</div>
+        <p>Analyse, Ergänzung nach Kundenauftrag, Flüsse verstehen, Komponenten wählen, in Betrieb nehmen, messen, Betriebs- und Datensicherheit beachten.</p>
+      </div>
+      <div class="card">
+        <h3>📡 MQTT</h3>
+        <p>Broker, Publisher, Subscriber, Topic, QoS 0/1/2, optional TLS und Authentifizierung.</p>
       </div>
       <div class="card">
         <h3>✏️ Übungen</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Einfaches Smart Home beschreiben.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Temperatursensor mit Alarm planen und in Betrieb nehmen.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>ESP32 → MQTT → Node-RED mit Temperaturalarm.</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>CPS Kühlraum beschreiben.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Feuchtesensor ergänzen – Auswahlkriterien.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>QoS 0 vs 1 am Beispiel Brandalarm.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>Abnahmetest-Liste schreiben.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>Risiken Betriebs- und Datensicherheit + Maßnahmen.</p></div>
       </div>
     </div>
+
     <div class="lang-block" data-lang="en">
       <div class="card">
         <h3>🎯 Goal</h3>
-        <div class="goal">Connect the physical world and IT into a cyber-physical system.</div>
-        <ul>
-          <li>Sensor / actuator / microcontroller</li>
-          <li>Data, energy and information flow</li>
-          <li>MQTT, broker, topics, QoS</li>
-          <li>Node-RED dashboards and alerts</li>
-          <li>Operational and data safety</li>
-        </ul>
+        <div class="goal">Integrate the physical world and IT into a cyber-physical system.</div>
+        <p>Analyse, extend per customer order, understand flows, select components, commission, measure, respect operational and data safety.</p>
+      </div>
+      <div class="card">
+        <h3>📡 MQTT</h3>
+        <p>Broker, publisher, subscriber, topic, QoS 0/1/2, optional TLS and auth.</p>
       </div>
       <div class="card">
         <h3>✏️ Exercises</h3>
-        <div class="exercise"><div class="exercise-title">1</div><p>Describe a simple smart-home flow.</p></div>
-        <div class="exercise"><div class="exercise-title">2</div><p>Plan a temperature sensor with alarm end-to-end.</p></div>
-        <div class="exercise"><div class="exercise-title">3</div><p>ESP32 → MQTT → Node-RED with temperature alert.</p></div>
+        <div class="exercise"><div class="exercise-title">1</div><p>Describe a cold-storage CPS.</p></div>
+        <div class="exercise"><div class="exercise-title">2</div><p>Add a humidity sensor – selection criteria.</p></div>
+        <div class="exercise"><div class="exercise-title">3</div><p>QoS 0 vs 1 for a fire alarm.</p></div>
+        <div class="exercise"><div class="exercise-title">4</div><p>Write an acceptance test list.</p></div>
+        <div class="exercise"><div class="exercise-title">5</div><p>List operational and data risks + mitigations.</p></div>
       </div>
     </div>
+
+    <div class="card"><p style="margin:0;color:var(--soft);font-size:.85rem">Lehrplan Bayern · IT-Technik · Cyber-physische Systeme ergänzen (72 Std.)</p></div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
