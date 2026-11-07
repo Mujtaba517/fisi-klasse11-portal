@@ -73,11 +73,29 @@ WHERE u.name = 'Ali' AND t.status = 'open';</code></pre>
         <p>کدهای وضعیت: 200 = موفق، 404 = پیدا نشد، 401 = بدون مجوز</p>
       </div>
 
-      <div class="card"><h3>۴) امنیت داده</h3>
+      <div class="card"><h3>۴) فرمت‌های داده</h3>
+        <ul>
+          <li><strong>JSON</strong> – سبک و معمول در API</li>
+          <li><strong>CSV</strong> – ساده برای جدول</li>
+          <li><strong>XML</strong> – قدیمی‌تر ولی هنوز استفاده می‌شود</li>
+        </ul>
+      </div>
+
+      <div class="card"><h3>۵) ETL (Extract, Transform, Load)</h3>
+        <p>فرآیند یکپارچه‌سازی داده:</p>
+        <ol>
+          <li><strong>Extract</strong> – بازیابی داده از منبع</li>
+          <li><strong>Transform</strong> – پاکسازی و تغییر فرمت</li>
+          <li><strong>Load</strong> – بارگذاری در سیستم مقصد</li>
+        </ol>
+      </div>
+
+      <div class="card"><h3>۶) امنیت داده</h3>
         <ul>
           <li>همیشه HTTPS استفاده کن (نه HTTP خام)</li>
           <li>Least Privilege – فقط دسترسی لازم</li>
           <li>DSGVO برای داده‌های شخصی</li>
+          <li>Authentication (API Key یا OAuth)</li>
         </ul>
       </div>
 
@@ -89,6 +107,9 @@ WHERE u.name = 'Ali' AND t.status = 'open';</code></pre>
       <div class="card"><h3>1) Datenquellen</h3><p>Datenbank, Datei (CSV), API</p></div>
       <div class="card"><h3>2) SQL und JOIN</h3><p>Tabellen über gemeinsame Schlüssel verbinden.</p></div>
       <div class="card"><h3>3) REST API</h3><p>GET = lesen, POST = erstellen. Antworten im JSON-Format.</p></div>
+      <div class="card"><h3>4) Datenformate</h3><p>JSON, CSV, XML</p></div>
+      <div class="card"><h3>5) ETL</h3><p>Extract → Transform → Load</p></div>
+      <div class="card"><h3>6) Datensicherheit</h3><p>HTTPS, Least Privilege, DSGVO, Authentication</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Abgeben</button></div><div class="quiz-score" id="score-aeup-de" style="display:none;margin-top:1rem"></div></div>
     </div>
 
@@ -97,6 +118,9 @@ WHERE u.name = 'Ali' AND t.status = 'open';</code></pre>
       <div class="card"><h3>1) Data sources</h3><p>Database, file (CSV), API</p></div>
       <div class="card"><h3>2) SQL and JOIN</h3><p>Connect tables using common keys.</p></div>
       <div class="card"><h3>3) REST API</h3><p>GET = read, POST = create. Responses in JSON format.</p></div>
+      <div class="card"><h3>4) Data formats</h3><p>JSON, CSV, XML</p></div>
+      <div class="card"><h3>5) ETL</h3><p>Extract → Transform → Load</p></div>
+      <div class="card"><h3>6) Data security</h3><p>HTTPS, Least Privilege, GDPR, Authentication</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Submit</button></div><div class="quiz-score" id="score-aeup-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
