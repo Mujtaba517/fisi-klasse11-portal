@@ -72,10 +72,20 @@
         </ol>
       </div>
 
-      <div class="card"><h3>۴) ایمنی</h3>
+      <div class="card"><h3>۴) سنسورها و اکتورها</h3>
+        <ul>
+          <li><strong>DHT22</strong> – دما و رطوبت</li>
+          <li><strong>PIR</strong> – حسگر حرکت</li>
+          <li><strong>Relay</strong> – کنترل وسایل برقی</li>
+          <li><strong>Servo</strong> – حرکت دقیق</li>
+        </ul>
+      </div>
+
+      <div class="card"><h3>۵) ایمنی</h3>
         <ul>
           <li><strong>Betriebssicherheit</strong> – ولتاژ مناسب، دکمه قطع اضطراری</li>
           <li><strong>Datensicherheit</strong> – MQTT بدون رمز روی اینترنت خطرناک است</li>
+          <li>استفاده از TLS/SSL برای MQTT</li>
         </ul>
       </div>
 
@@ -87,6 +97,8 @@
       <div class="card"><h3>1) Komponenten eines CPS</h3><p>Sensor → Controller (ESP32) → Netzwerk (MQTT) → IT-System → Aktor</p></div>
       <div class="card"><h3>2) MQTT</h3><p>Publish / Subscribe über einen Broker. QoS 0 oder QoS 1.</p></div>
       <div class="card"><h3>3) Beispiel Kühlraum</h3><p>Temperatursensor → ESP32 → MQTT → Alarm bei zu hoher Temperatur</p></div>
+      <div class="card"><h3>4) Sensoren und Aktoren</h3><p>DHT22, PIR, Relay, Servo</p></div>
+      <div class="card"><h3>5) Sicherheit</h3><p>Betriebssicherheit und Datensicherheit (TLS für MQTT)</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Abgeben</button></div><div class="quiz-score" id="score-tec-de" style="display:none;margin-top:1rem"></div></div>
     </div>
 
@@ -95,6 +107,8 @@
       <div class="card"><h3>1) Components of a CPS</h3><p>Sensor → Controller (ESP32) → Network (MQTT) → IT system → Actuator</p></div>
       <div class="card"><h3>2) MQTT</h3><p>Publish / Subscribe via a broker. QoS 0 or QoS 1.</p></div>
       <div class="card"><h3>3) Cold storage example</h3><p>Temperature sensor → ESP32 → MQTT → alarm if temperature too high</p></div>
+      <div class="card"><h3>4) Sensors and Actuators</h3><p>DHT22, PIR, Relay, Servo</p></div>
+      <div class="card"><h3>5) Safety</h3><p>Operational safety and data security (TLS for MQTT)</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Submit</button></div><div class="quiz-score" id="score-tec-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
