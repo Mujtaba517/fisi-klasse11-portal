@@ -1,0 +1,218 @@
+const translations = {
+  fa: {
+    heroTitle: "پورتال آموزشی صنف ۱۱",
+    heroSubtitle: "آموزش کامل و مفهومی Lernfelder سال دوم Ausbildung IT با تمرکز روی Systemintegration",
+    navOverview: "معرفی",
+    navLF6: "Serviceanfragen",
+    navLF7: "Cyber-physische Systeme",
+    navLF8: "Daten bereitstellen",
+    navLF9: "Netzwerke & Dienste",
+    navTips: "نکات امتحانی",
+    overviewTitle: "معرفی کلی صنف ۱۱",
+    overviewText1: "در Ausbildung آلمان، سال دوم (که در بسیاری از مدارس Berufsschule به عنوان Jahrgangsstufe 11 شناخته می‌شود) پایه‌های پیشرفته‌تری از Systemintegration را پوشش می‌دهد.",
+    overviewText2: "تمرکز اصلی روی این چهار Lernfeld است:",
+    overviewText3: "این پورتال هر موضوع را به زبان ساده فارسی، آلمانی رسمی و انگلیسی توضیح می‌دهد تا هم برای مدرسه و هم برای کار عملی در شرکت آماده باشی.",
+    lf6Title: "Lernfeld 6: Serviceanfragen bearbeiten",
+    lf7Title: "Lernfeld 7: Cyber-physische Systeme ergänzen",
+    lf8Title: "Lernfeld 8: Daten systemübergreifend bereitstellen",
+    lf9Title: "Lernfeld 9: Netzwerke und Dienste bereitstellen",
+    whatIs: "این Lernfeld چیست؟",
+    keyTopics: "موضوعات کلیدی",
+    practical: "مثال عملی",
+    lf6What: "یاد می‌گیری چطور درخواست‌های پشتیبانی کاربران (Ticket) را دریافت، اولویت‌بندی، حل و مستند کنی. این مهارت پایه کار روزانه یک Systemintegrator است.",
+    lf6t1: "ساخت و مدیریت Ticket-System",
+    lf6t2: "اولویت‌بندی (Priority) و Escalation",
+    lf6t3: "ارتباط حرفه‌ای با مشتری (Kundenkommunikation)",
+    lf6t4: "مستندسازی راه‌حل‌ها (Knowledge Base)",
+    lf6t5: "آشنایی با ITIL پایه‌ای (Incident, Problem, Change)",
+    lf6Practical: "کاربر می‌گوید: «پرینتر شبکه کار نمی‌کند». تو باید: ۱) اطلاعات کامل بگیری ۲) مشکل را دسته‌بندی کنی ۳) راه‌حل را پیدا و تست کنی ۴) به کاربر توضیح بدهی و تیکت را ببندی.",
+    lf7What: "یاد می‌گیری چطور دنیای فیزیکی (سنسور، موتور، دستگاه) را با سیستم‌های IT ترکیب کنی. این پایه Industrie 4.0 و IoT است.",
+    lf7t1: "سنسورها و عملگرها (Sensoren & Aktoren)",
+    lf7t2: "میکروکنترلر (مثل ESP32 / Arduino)",
+    lf7t3: "پروتکل‌های IoT (MQTT, HTTP)",
+    lf7t4: "Node-RED و اتوماسیون جریان داده",
+    lf7t5: "ماشین مجازی و لینوکس برای تست",
+    lf7t6: "مفاهیم پایه الکتروتکنیک",
+    lf7Practical: "یک سنسور دما را به ESP32 وصل می‌کنی، داده‌ها را از طریق MQTT به یک داشبورد می‌فرستی و اگر دما از حد مجاز بالاتر رفت، هشدار می‌فرستی.",
+    lf8What: "یاد می‌گیری چطور داده‌ها را بین سیستم‌های مختلف (پایگاه داده، API، فایل، سرویس) به صورت امن و ساخت‌یافته منتقل و در دسترس قرار بدهی.",
+    lf8t1: "مدل‌سازی داده (ER-Modell)",
+    lf8t2: "پایگاه داده رابطه‌ای (SQL)",
+    lf8t3: "API و Webservices",
+    lf8t4: "فرمت‌های داده (JSON, XML, CSV)",
+    lf8t5: "یکپارچه‌سازی سیستم‌ها (Systemintegration of data)",
+    lf8Practical: "از یک پایگاه داده MySQL داده مشتری را می‌خوانی، آن را به JSON تبدیل می‌کنی و از طریق یک API ساده در اختیار یک برنامه دیگر قرار می‌دهی.",
+    lf9What: "قلب Systemintegration. یاد می‌گیری شبکه را طراحی، راه‌اندازی، پیکربندی و سرویس‌های مهم را ارائه کنی.",
+    lf9t1: "طراحی شبکه (Topologie, Subnetting)",
+    lf9t2: "DHCP و DNS",
+    lf9t3: "Routing (Static & Dynamic)",
+    lf9t4: "VLAN و Switch Configuration",
+    lf9t5: "سرویس‌های سرور (File, Print, Web, Mail)",
+    lf9t6: "امنیت پایه شبکه (Firewall, ACL)",
+    lf9Practical: "یک شبکه کوچک شرکتی طراحی می‌کنی: DHCP برای اختصاص IP، DNS برای نام‌گذاری، VLAN برای جداسازی بخش‌ها و یک فایل‌سرور لینوکس برای اشتراک‌گذاری فایل.",
+    tipsTitle: "نکات مهم برای موفقیت در صنف ۱۱",
+    tip1Title: "۱. تمرین عملی",
+    tip1Text: "فقط تئوری کافی نیست. با VirtualBox / Proxmox شبکه بساز، با Packet Tracer کار کن و Node-RED را روی لینوکس نصب کن.",
+    tip2Title: "۲. مستندسازی",
+    tip2Text: "هر کاری که انجام می‌دهی را مستند کن. در امتحان و در شرکت، مستندسازی خوب امتیاز بالایی دارد.",
+    tip3Title: "۳. زبان آلمانی فنی",
+    tip3Text: "اصطلاحات آلمانی را دقیق یاد بگیر. در امتحان IHK و در کار روزمره به آن‌ها نیاز داری.",
+    tip4Title: "۴. ارتباط با مشتری",
+    tip4Text: "یاد بگیر مشکل را ساده و واضح برای کاربر غیرفنی توضیح بدهی. این مهارت خیلی مهم است.",
+    footer: "ساخته شده برای دانش‌آموزان Fachinformatiker Systemintegration – Klasse 11"
+  },
+
+  de: {
+    heroTitle: "Lernportal Klasse 11",
+    heroSubtitle: "Vollständige und verständliche Erklärung der Lernfelder im zweiten Ausbildungsjahr – Fokus Systemintegration",
+    navOverview: "Übersicht",
+    navLF6: "Serviceanfragen",
+    navLF7: "Cyber-physische Systeme",
+    navLF8: "Daten bereitstellen",
+    navLF9: "Netzwerke & Dienste",
+    navTips: "Prüfungstipps",
+    overviewTitle: "Übersicht Klasse 11",
+    overviewText1: "Im zweiten Ausbildungsjahr (in vielen Berufsschulen als Jahrgangsstufe 11 geführt) werden die fortgeschrittenen Grundlagen der Systemintegration vermittelt.",
+    overviewText2: "Der Schwerpunkt liegt auf diesen vier Lernfeldern:",
+    overviewText3: "Dieses Portal erklärt jedes Thema auf verständlichem Deutsch, Farsi und Englisch – ideal für Schule und Betriebspraxis.",
+    lf6Title: "Lernfeld 6: Serviceanfragen bearbeiten",
+    lf7Title: "Lernfeld 7: Cyber-physische Systeme ergänzen",
+    lf8Title: "Lernfeld 8: Daten systemübergreifend bereitstellen",
+    lf9Title: "Lernfeld 9: Netzwerke und Dienste bereitstellen",
+    whatIs: "Worum geht es in diesem Lernfeld?",
+    keyTopics: "Wichtige Themen",
+    practical: "Praxisbeispiel",
+    lf6What: "Du lernst, wie Support-Anfragen (Tickets) aufgenommen, priorisiert, gelöst und dokumentiert werden. Das ist die tägliche Kernkompetenz eines Systemintegrators.",
+    lf6t1: "Ticket-Systeme aufbauen und verwalten",
+    lf6t2: "Priorisierung und Eskalation",
+    lf6t3: "Professionelle Kundenkommunikation",
+    lf6t4: "Lösungen dokumentieren (Knowledge Base)",
+    lf6t5: "Grundlagen ITIL (Incident, Problem, Change)",
+    lf6Practical: "Ein Benutzer meldet: «Der Netzwerkdrucker funktioniert nicht». Du musst: 1) alle Informationen einholen 2) das Problem kategorisieren 3) die Lösung finden und testen 4) dem Benutzer erklären und das Ticket schließen.",
+    lf7What: "Du lernst, die physische Welt (Sensoren, Aktoren, Geräte) mit IT-Systemen zu verbinden. Das ist die Grundlage von Industrie 4.0 und IoT.",
+    lf7t1: "Sensoren und Aktoren",
+    lf7t2: "Mikrocontroller (z. B. ESP32 / Arduino)",
+    lf7t3: "IoT-Protokolle (MQTT, HTTP)",
+    lf7t4: "Node-RED und Datenfluss-Automatisierung",
+    lf7t5: "Virtuelle Maschinen und Linux zum Testen",
+    lf7t6: "Grundlagen der Elektrotechnik",
+    lf7Practical: "Du verbindest einen Temperatursensor mit einem ESP32, sendest die Daten per MQTT an ein Dashboard und löst bei Überschreitung eines Grenzwerts einen Alarm aus.",
+    lf8What: "Du lernst, Daten sicher und strukturiert zwischen verschiedenen Systemen (Datenbanken, APIs, Dateien, Diensten) zu übertragen und bereitzustellen.",
+    lf8t1: "Datenmodellierung (ER-Modell)",
+    lf8t2: "Relationale Datenbanken (SQL)",
+    lf8t3: "APIs und Webservices",
+    lf8t4: "Datenformate (JSON, XML, CSV)",
+    lf8t5: "Systemübergreifende Datenintegration",
+    lf8Practical: "Du liest Kundendaten aus einer MySQL-Datenbank, wandelst sie in JSON um und stellst sie über eine einfache API einer anderen Anwendung zur Verfügung.",
+    lf9What: "Das Herz der Systemintegration. Du lernst, Netzwerke zu planen, aufzubauen, zu konfigurieren und wichtige Dienste bereitzustellen.",
+    lf9t1: "Netzwerkdesign (Topologie, Subnetting)",
+    lf9t2: "DHCP und DNS",
+    lf9t3: "Routing (statisch & dynamisch)",
+    lf9t4: "VLAN und Switch-Konfiguration",
+    lf9t5: "Serverdienste (File, Print, Web, Mail)",
+    lf9t6: "Netzwerksicherheit (Firewall, ACL)",
+    lf9Practical: "Du planst ein kleines Firmennetz: DHCP für IP-Vergabe, DNS für Namensauflösung, VLANs zur Trennung der Bereiche und einen Linux-Fileserver für die Dateifreigabe.",
+    tipsTitle: "Wichtige Tipps für den Erfolg in Klasse 11",
+    tip1Title: "1. Praktisch üben",
+    tip1Text: "Theorie allein reicht nicht. Baue Netzwerke mit VirtualBox/Proxmox, arbeite mit Packet Tracer und installiere Node-RED unter Linux.",
+    tip2Title: "2. Dokumentieren",
+    tip2Text: "Dokumentiere alles, was du tust. Gute Dokumentation bringt Punkte in der Prüfung und im Betrieb.",
+    tip3Title: "3. Fachsprache Deutsch",
+    tip3Text: "Lerne die deutschen Fachbegriffe genau. Du brauchst sie in der IHK-Prüfung und im Arbeitsalltag.",
+    tip4Title: "4. Kundenkommunikation",
+    tip4Text: "Lerne, technische Probleme einfach und klar für nicht-technische Benutzer zu erklären. Das ist eine Schlüsselkompetenz.",
+    footer: "Erstellt für Auszubildende Fachinformatiker Systemintegration – Klasse 11"
+  },
+
+  en: {
+    heroTitle: "Class 11 Learning Portal",
+    heroSubtitle: "Complete and clear explanations of the learning fields in the second year of IT apprenticeship – focus on System Integration",
+    navOverview: "Overview",
+    navLF6: "Service Requests",
+    navLF7: "Cyber-Physical Systems",
+    navLF8: "Data Provision",
+    navLF9: "Networks & Services",
+    navTips: "Exam Tips",
+    overviewTitle: "Class 11 Overview",
+    overviewText1: "In the second year of the German dual training (often called Jahrgangsstufe 11 in vocational schools), you deepen the core skills of System Integration.",
+    overviewText2: "The main focus is on these four learning fields:",
+    overviewText3: "This portal explains every topic in simple Persian, proper German and clear English – perfect for school and company practice.",
+    lf6Title: "Learning Field 6: Handling Service Requests",
+    lf7Title: "Learning Field 7: Extending Cyber-Physical Systems",
+    lf8Title: "Learning Field 8: Providing Data Across Systems",
+    lf9Title: "Learning Field 9: Providing Networks and Services",
+    whatIs: "What is this learning field about?",
+    keyTopics: "Key Topics",
+    practical: "Practical Example",
+    lf6What: "You learn how to receive, prioritize, solve and document user support requests (tickets). This is the daily core skill of a System Integrator.",
+    lf6t1: "Building and managing ticket systems",
+    lf6t2: "Prioritization and escalation",
+    lf6t3: "Professional customer communication",
+    lf6t4: "Documenting solutions (Knowledge Base)",
+    lf6t5: "Basic ITIL concepts (Incident, Problem, Change)",
+    lf6Practical: "A user reports: «The network printer is not working». You must: 1) gather all information 2) categorize the problem 3) find and test the solution 4) explain it to the user and close the ticket.",
+    lf7What: "You learn how to connect the physical world (sensors, actuators, devices) with IT systems. This is the foundation of Industry 4.0 and IoT.",
+    lf7t1: "Sensors and actuators",
+    lf7t2: "Microcontrollers (e.g. ESP32 / Arduino)",
+    lf7t3: "IoT protocols (MQTT, HTTP)",
+    lf7t4: "Node-RED and data-flow automation",
+    lf7t5: "Virtual machines and Linux for testing",
+    lf7t6: "Basic electrical engineering concepts",
+    lf7Practical: "You connect a temperature sensor to an ESP32, send the data via MQTT to a dashboard and trigger an alert when a threshold is exceeded.",
+    lf8What: "You learn how to transfer and provide data securely and in a structured way between different systems (databases, APIs, files, services).",
+    lf8t1: "Data modelling (ER model)",
+    lf8t2: "Relational databases (SQL)",
+    lf8t3: "APIs and web services",
+    lf8t4: "Data formats (JSON, XML, CSV)",
+    lf8t5: "Cross-system data integration",
+    lf8Practical: "You read customer data from a MySQL database, convert it to JSON and make it available to another application through a simple API.",
+    lf9What: "The heart of System Integration. You learn how to design, set up, configure networks and provide important services.",
+    lf9t1: "Network design (topology, subnetting)",
+    lf9t2: "DHCP and DNS",
+    lf9t3: "Routing (static & dynamic)",
+    lf9t4: "VLANs and switch configuration",
+    lf9t5: "Server services (File, Print, Web, Mail)",
+    lf9t6: "Basic network security (Firewall, ACL)",
+    lf9Practical: "You design a small company network: DHCP for IP assignment, DNS for name resolution, VLANs to separate departments and a Linux file server for sharing files.",
+    tipsTitle: "Important Tips for Success in Class 11",
+    tip1Title: "1. Practice hands-on",
+    tip1Text: "Theory alone is not enough. Build networks with VirtualBox/Proxmox, use Packet Tracer and install Node-RED on Linux.",
+    tip2Title: "2. Document everything",
+    tip2Text: "Document every step you take. Good documentation scores points in exams and at work.",
+    tip3Title: "3. Technical German",
+    tip3Text: "Learn the German technical terms precisely. You need them for the IHK exam and daily work.",
+    tip4Title: "4. Customer communication",
+    tip4Text: "Learn to explain technical problems simply and clearly to non-technical users. This is a key skill.",
+    footer: "Created for apprentices in Fachinformatiker Systemintegration – Class 11"
+  }
+};
+
+function setLang(lang) {
+  const t = translations[lang];
+  if (!t) return;
+
+  // Update HTML attributes
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+
+  // Update all elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      el.textContent = t[key];
+    }
+  });
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Save preference
+  localStorage.setItem('fisi-lang', lang);
+}
+
+// Load saved language or default to Persian
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('fisi-lang') || 'fa';
+  setLang(saved);
+});
