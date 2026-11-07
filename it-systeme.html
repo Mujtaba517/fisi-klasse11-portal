@@ -6,7 +6,7 @@
   <title>IT-Systeme (FU-IT) | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
+  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}.toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin-bottom:1.5rem}.toc a{display:block;padding:.4rem 0;color:var(--blue);text-decoration:none;font-weight:600}.toc a:hover{text-decoration:underline}</style>
 </head>
 <body>
   <header class="topbar">
@@ -37,14 +37,24 @@
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1>IT-Systeme (FU-IT)</h1>
     <p class="sub">Netzwerke planen und bereitstellen · IP · VLAN · DHCP · DNS · Sicherheit</p>
-    <p><a href="it-systeme_FUIT11_1.2.pdf.pdf" target="_blank" class="btn btn-soft">📄 PDF ماده درس (FUIT11_1.2)</a></p>
   </div>
   <main class="container">
+
+    <div class="toc">
+      <strong>موضوعات:</strong>
+      <a href="#osi">۱) مدل OSI</a>
+      <a href="#ip">۲) آدرس‌دهی IP و Gateway</a>
+      <a href="#subnet">۳) Subnetting</a>
+      <a href="#vlan">۴) VLAN</a>
+      <a href="#dhcp">۵) DHCP</a>
+      <a href="#dns">۶) DNS</a>
+      <a href="#security">۷) امنیت پایه</a>
+    </div>
 
     <div class="lang-block" data-lang="fa">
       <div class="card"><h3>این درس چیست؟</h3><div class="goal">شبکه‌های کامپیوتری را طراحی، پیاده‌سازی و مدیریت کنید.</div><p><strong>مثال واقعی:</strong> شرکتی با ۳۰ کارمند، ۳ بخش (اداری، فنی، مهمان). باید VLAN، DHCP، DNS و امنیت داشته باشد.</p></div>
 
-      <div class="card"><h3>۱) مدل OSI (ساده‌شده)</h3>
+      <div class="card" id="osi"><h3>۱) مدل OSI (ساده‌شده)</h3>
         <ul>
           <li><strong>L1 فیزیکی:</strong> کابل، سوئیچ، نور</li>
           <li><strong>L2 لینک دیتا:</strong> MAC، Switch، VLAN</li>
@@ -54,7 +64,7 @@
         <p><strong>مثال:</strong> Ping به Gateway کار می‌کند ولی سایت باز نمی‌شود → اغلب مشکل در DNS یا Firewall است.</p>
       </div>
 
-      <div class="card"><h3>۲) آدرس‌دهی IP و Gateway</h3>
+      <div class="card" id="ip"><h3>۲) آدرس‌دهی IP و Gateway</h3>
         <ul>
           <li>IP کامپیوتر: <code>192.168.10.50</code></li>
           <li>Subnet Mask: <code>255.255.255.0</code> (/24)</li>
@@ -63,7 +73,7 @@
         <p>بدون Gateway فقط همان شبکه محلی قابل دسترس است.</p>
       </div>
 
-      <div class="card"><h3>۳) Subnetting</h3>
+      <div class="card" id="subnet"><h3>۳) Subnetting</h3>
         <p><code>192.168.50.0/24</code> را به دو شبکه /25 تقسیم کنید:</p>
         <ul>
           <li>شبکه ۱: <code>192.168.50.0 – 192.168.50.127</code></li>
@@ -72,7 +82,7 @@
         <p>/24 ≈ 254 Host &nbsp;|&nbsp; /26 ≈ 62 Host &nbsp;|&nbsp; /27 ≈ 30 Host</p>
       </div>
 
-      <div class="card"><h3>۴) VLAN (Virtual LAN)</h3>
+      <div class="card" id="vlan"><h3>۴) VLAN (Virtual LAN)</h3>
         <ul>
           <li>VLAN 10 = اداری</li>
           <li>VLAN 20 = فنی</li>
@@ -83,7 +93,7 @@
         <p><strong>مثال:</strong> مهمان نمی‌تواند به File Server اداری دسترسی داشته باشد.</p>
       </div>
 
-      <div class="card"><h3>۵) DHCP</h3>
+      <div class="card" id="dhcp"><h3>۵) DHCP</h3>
         <p>فرآیند <strong>DORA</strong>:</p>
         <ol>
           <li><strong>Discover</strong> – کلاینت دنبال سرور می‌گردد</li>
@@ -95,13 +105,13 @@
         Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> یا سرور داخلی</p>
       </div>
 
-      <div class="card"><h3>۶) DNS</h3>
+      <div class="card" id="dns"><h3>۶) DNS</h3>
         <p>تبدیل نام به IP:</p>
         <p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p>
         <p><strong>مشکل معمول:</strong> IP پینگ می‌شود ولی نام باز نمی‌شود → مشکل DNS.</p>
       </div>
 
-      <div class="card"><h3>۷) امنیت پایه</h3>
+      <div class="card" id="security"><h3>۷) امنیت پایه</h3>
         <ul>
           <li>فقط پورت‌های لازم باز باشد</li>
           <li>Least Privilege (حداقل دسترسی)</li>
@@ -116,147 +126,25 @@
 
     <div class="lang-block" data-lang="de">
       <div class="card"><h3>Worum geht es?</h3><div class="goal">Computernetzwerke planen, einrichten und verwalten.</div><p><strong>Beispiel:</strong> Firma mit 30 Mitarbeitern, 3 Abteilungen. Benötigt VLANs, DHCP, DNS und Sicherheit.</p></div>
-
-      <div class="card"><h3>1) OSI-Modell (vereinfacht)</h3>
-        <ul>
-          <li><strong>L1 Physical:</strong> Kabel, Switch, Licht</li>
-          <li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li>
-          <li><strong>L3 Network:</strong> IP, Gateway, Router</li>
-          <li><strong>L4–7:</strong> TCP/UDP, Ports, Anwendungen</li>
-        </ul>
-        <p><strong>Beispiel:</strong> Ping zum Gateway funktioniert, Website nicht → meist DNS oder Firewall.</p>
-      </div>
-
-      <div class="card"><h3>2) IP-Adressierung und Gateway</h3>
-        <ul>
-          <li>PC-IP: <code>192.168.10.50</code></li>
-          <li>Subnet Mask: <code>255.255.255.0</code> (/24)</li>
-          <li>Gateway: <code>192.168.10.1</code> (meist Router)</li>
-        </ul>
-        <p>Ohne Gateway nur das lokale Netz erreichbar.</p>
-      </div>
-
-      <div class="card"><h3>3) Subnetting</h3>
-        <p><code>192.168.50.0/24</code> in zwei /25-Netze aufteilen:</p>
-        <ul>
-          <li>Netz 1: <code>192.168.50.0 – 192.168.50.127</code></li>
-          <li>Netz 2: <code>192.168.50.128 – 192.168.50.255</code></li>
-        </ul>
-        <p>/24 ≈ 254 Hosts &nbsp;|&nbsp; /26 ≈ 62 Hosts &nbsp;|&nbsp; /27 ≈ 30 Hosts</p>
-      </div>
-
-      <div class="card"><h3>4) VLAN</h3>
-        <ul>
-          <li>VLAN 10 = Büro</li>
-          <li>VLAN 20 = Technik</li>
-          <li>VLAN 30 = Gäste</li>
-        </ul>
-        <p><strong>Access-Port:</strong> ein VLAN für den PC<br>
-        <strong>Trunk-Port:</strong> mehrere VLANs zwischen Switch und Router</p>
-        <p><strong>Beispiel:</strong> Gäste dürfen nicht auf den Büro-Fileserver zugreifen.</p>
-      </div>
-
-      <div class="card"><h3>5) DHCP</h3>
-        <p>Prozess <strong>DORA</strong>:</p>
-        <ol>
-          <li><strong>Discover</strong></li>
-          <li><strong>Offer</strong></li>
-          <li><strong>Request</strong></li>
-          <li><strong>Acknowledge</strong></li>
-        </ol>
-        <p>Beispiel Pool: <code>192.168.10.100 – 192.168.10.200</code><br>
-        Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> oder interner Server</p>
-      </div>
-
-      <div class="card"><h3>6) DNS</h3>
-        <p>Name zu IP auflösen:</p>
-        <p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p>
-        <p><strong>Typisches Problem:</strong> IP pingt, Name funktioniert nicht → DNS-Problem.</p>
-      </div>
-
-      <div class="card"><h3>7) Sicherheit</h3>
-        <ul>
-          <li>Nur notwendige Ports öffnen</li>
-          <li>Least Privilege</li>
-          <li>Gäste-VLAN getrennt</li>
-          <li>Regelmäßiges Backup und Updates</li>
-          <li>Firewall zwischen VLANs</li>
-        </ul>
-      </div>
-
+      <div class="card" id="osi-de"><h3>1) OSI-Modell (vereinfacht)</h3><ul><li><strong>L1 Physical:</strong> Kabel, Switch, Licht</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, Ports, Anwendungen</li></ul><p><strong>Beispiel:</strong> Ping zum Gateway funktioniert, Website nicht → meist DNS oder Firewall.</p></div>
+      <div class="card"><h3>2) IP-Adressierung und Gateway</h3><ul><li>PC-IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code> (meist Router)</li></ul><p>Ohne Gateway nur das lokale Netz erreichbar.</p></div>
+      <div class="card"><h3>3) Subnetting</h3><p><code>192.168.50.0/24</code> in zwei /25-Netze aufteilen:</p><ul><li>Netz 1: <code>192.168.50.0 – 192.168.50.127</code></li><li>Netz 2: <code>192.168.50.128 – 192.168.50.255</code></li></ul><p>/24 ≈ 254 Hosts &nbsp;|&nbsp; /26 ≈ 62 Hosts &nbsp;|&nbsp; /27 ≈ 30 Hosts</p></div>
+      <div class="card"><h3>4) VLAN</h3><ul><li>VLAN 10 = Büro</li><li>VLAN 20 = Technik</li><li>VLAN 30 = Gäste</li></ul><p><strong>Access-Port:</strong> ein VLAN für den PC<br><strong>Trunk-Port:</strong> mehrere VLANs zwischen Switch und Router</p><p><strong>Beispiel:</strong> Gäste dürfen nicht auf den Büro-Fileserver zugreifen.</p></div>
+      <div class="card"><h3>5) DHCP</h3><p>Prozess <strong>DORA</strong>:</p><ol><li><strong>Discover</strong></li><li><strong>Offer</strong></li><li><strong>Request</strong></li><li><strong>Acknowledge</strong></li></ol><p>Beispiel Pool: <code>192.168.10.100 – 192.168.10.200</code><br>Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> oder interner Server</p></div>
+      <div class="card"><h3>6) DNS</h3><p>Name zu IP auflösen:</p><p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p><p><strong>Typisches Problem:</strong> IP pingt, Name funktioniert nicht → DNS-Problem.</p></div>
+      <div class="card"><h3>7) Sicherheit</h3><ul><li>Nur notwendige Ports öffnen</li><li>Least Privilege</li><li>Gäste-VLAN getrennt</li><li>Regelmäßiges Backup und Updates</li><li>Firewall zwischen VLANs</li></ul></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Abgeben</button></div><div class="quiz-score" id="score-its-de" style="display:none;margin-top:1rem"></div></div>
     </div>
 
     <div class="lang-block" data-lang="en">
       <div class="card"><h3>What is this about?</h3><div class="goal">Plan, set up and manage computer networks.</div><p><strong>Example:</strong> Company with 30 employees, 3 departments. Needs VLANs, DHCP, DNS and security.</p></div>
-
-      <div class="card"><h3>1) OSI Model (simplified)</h3>
-        <ul>
-          <li><strong>L1 Physical:</strong> Cable, switch, light</li>
-          <li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li>
-          <li><strong>L3 Network:</strong> IP, Gateway, Router</li>
-          <li><strong>L4–7:</strong> TCP/UDP, ports, applications</li>
-        </ul>
-        <p><strong>Example:</strong> Gateway ping works, website does not → usually DNS or firewall.</p>
-      </div>
-
-      <div class="card"><h3>2) IP Addressing and Gateway</h3>
-        <ul>
-          <li>PC IP: <code>192.168.10.50</code></li>
-          <li>Subnet Mask: <code>255.255.255.0</code> (/24)</li>
-          <li>Gateway: <code>192.168.10.1</code> (usually router)</li>
-        </ul>
-        <p>Without a gateway you can only reach the local network.</p>
-      </div>
-
-      <div class="card"><h3>3) Subnetting</h3>
-        <p>Split <code>192.168.50.0/24</code> into two /25 networks:</p>
-        <ul>
-          <li>Network 1: <code>192.168.50.0 – 192.168.50.127</code></li>
-          <li>Network 2: <code>192.168.50.128 – 192.168.50.255</code></li>
-        </ul>
-        <p>/24 ≈ 254 hosts &nbsp;|&nbsp; /26 ≈ 62 hosts &nbsp;|&nbsp; /27 ≈ 30 hosts</p>
-      </div>
-
-      <div class="card"><h3>4) VLAN</h3>
-        <ul>
-          <li>VLAN 10 = Office</li>
-          <li>VLAN 20 = Technical</li>
-          <li>VLAN 30 = Guest</li>
-        </ul>
-        <p><strong>Access Port:</strong> one VLAN for the PC<br>
-        <strong>Trunk Port:</strong> multiple VLANs between switch and router</p>
-        <p><strong>Example:</strong> Guests must not access the office file server.</p>
-      </div>
-
-      <div class="card"><h3>5) DHCP</h3>
-        <p><strong>DORA</strong> process:</p>
-        <ol>
-          <li><strong>Discover</strong></li>
-          <li><strong>Offer</strong></li>
-          <li><strong>Request</strong></li>
-          <li><strong>Acknowledge</strong></li>
-        </ol>
-        <p>Example pool: <code>192.168.10.100 – 192.168.10.200</code><br>
-        Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> or internal server</p>
-      </div>
-
-      <div class="card"><h3>6) DNS</h3>
-        <p>Resolve name to IP:</p>
-        <p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p>
-        <p><strong>Common problem:</strong> IP pings but name does not work → DNS issue.</p>
-      </div>
-
-      <div class="card"><h3>7) Security Basics</h3>
-        <ul>
-          <li>Open only necessary ports</li>
-          <li>Least privilege</li>
-          <li>Separate guest VLAN</li>
-          <li>Regular backups and updates</li>
-          <li>Firewall between VLANs</li>
-        </ul>
-      </div>
-
+      <div class="card"><h3>1) OSI Model (simplified)</h3><ul><li><strong>L1 Physical:</strong> Cable, switch, light</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, ports, applications</li></ul><p><strong>Example:</strong> Gateway ping works, website does not → usually DNS or firewall.</p></div>
+      <div class="card"><h3>2) IP Addressing and Gateway</h3><ul><li>PC IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code> (usually router)</li></ul><p>Without a gateway you can only reach the local network.</p></div>
+      <div class="card"><h3>3) Subnetting</h3><p>Split <code>192.168.50.0/24</code> into two /25 networks:</p><ul><li>Network 1: <code>192.168.50.0 – 192.168.50.127</code></li><li>Network 2: <code>192.168.50.128 – 192.168.50.255</code></li></ul><p>/24 ≈ 254 hosts &nbsp;|&nbsp; /26 ≈ 62 hosts &nbsp;|&nbsp; /27 ≈ 30 hosts</p></div>
+      <div class="card"><h3>4) VLAN</h3><ul><li>VLAN 10 = Office</li><li>VLAN 20 = Technical</li><li>VLAN 30 = Guest</li></ul><p><strong>Access Port:</strong> one VLAN for the PC<br><strong>Trunk Port:</strong> multiple VLANs between switch and router</p><p><strong>Example:</strong> Guests must not access the office file server.</p></div>
+      <div class="card"><h3>5) DHCP</h3><p><strong>DORA</strong> process:</p><ol><li><strong>Discover</strong></li><li><strong>Offer</strong></li><li><strong>Request</strong></li><li><strong>Acknowledge</strong></li></ol><p>Example pool: <code>192.168.10.100 – 192.168.10.200</code><br>Gateway: <code>.1</code> &nbsp; DNS: <code>8.8.8.8</code> or internal server</p></div>
+      <div class="card"><h3>6) DNS</h3><p>Resolve name to IP:</p><p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p><p><strong>Common problem:</strong> IP pings but name does not work → DNS issue.</p></div>
+      <div class="card"><h3>7) Security Basics</h3><ul><li>Open only necessary ports</li><li>Least privilege</li><li>Separate guest VLAN</li><li>Regular backups and updates</li><li>Firewall between VLANs</li></ul></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-its-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('its')">Submit</button></div><div class="quiz-score" id="score-its-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
