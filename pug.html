@@ -11,7 +11,6 @@
     .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
     .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
     .topic-item h3{font-size:1.05rem;margin:0}
-    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
   </style>
 </head>
 <body>
@@ -41,7 +40,7 @@
     </nav></div>
   </header>
   <div class="container page-head">
-    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()">←</button>
     <h1>PuG – Demokratie in der BRD</h1>
     <p class="sub">Strukturprinzipien · Volkssouveränität · Gewaltenteilung · Rechtsstaat</p>
   </div>
@@ -51,7 +50,6 @@
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
-      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
       <div id="singleTopicContent"></div>
     </div>
   </main>
@@ -79,6 +77,7 @@
       ]
     };
 
+    let viewingTopic = false;
     function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
     function renderTopicList(){
       const lang = currentLang();
@@ -102,13 +101,18 @@
       document.getElementById('singleTopicContent').innerHTML = topic.content;
       document.getElementById('topicListView').style.display = 'none';
       document.getElementById('topicContentView').style.display = 'block';
+      viewingTopic = true;
       window.scrollTo(0, 0);
     }
-    function showList(e){
-      if (e) e.preventDefault();
+    function showList(){
       document.getElementById('topicContentView').style.display = 'none';
       document.getElementById('topicListView').style.display = 'block';
+      viewingTopic = false;
       renderTopicList();
+    }
+    function smartBack(){
+      if (viewingTopic) showList();
+      else window.location.href = 'index.html';
     }
     const originalSetLang = window.setLang;
     window.setLang = function(lang){
