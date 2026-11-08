@@ -7,16 +7,16 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .fc-wrap { max-width: 420px; margin: 1.5rem auto; }
-    .fc-scene { perspective: 1200px; height: 240px; cursor: pointer; }
+    .fc-wrap { max-width: 480px; margin: 1.5rem auto; }
+    .fc-scene { perspective: 1200px; height: 280px; cursor: pointer; }
     .fc-card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.8,.2,1); }
     .fc-card.is-flipped { transform: rotateY(180deg); }
-    .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 18px; border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; background: var(--card); }
+    .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 18px; border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.4rem; text-align: center; background: var(--card); }
     .fc-front .term { font-size: 1.55rem; font-weight: 750; color: var(--blue); letter-spacing: -.02em; }
     .fc-front .hint { margin-top: .65rem; color: var(--muted); font-size: .88rem; }
     .fc-back { transform: rotateY(180deg); background: #eef5ff; }
-    .fc-back .meaning { font-size: 1.15rem; font-weight: 650; color: var(--text); line-height: 1.45; }
-    .fc-back .meaning small { display: block; margin-top: .45rem; color: var(--muted); font-weight: 500; font-size: .95rem; }
+    .fc-back .meaning { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.5; }
+    .fc-back .meaning .trans { display: block; margin-top: .5rem; font-size: .9rem; color: var(--muted); font-weight: 500; }
     .fc-controls { display: flex; gap: .55rem; justify-content: center; flex-wrap: wrap; margin-top: 1.25rem; }
     .fc-progress { text-align: center; margin-top: .85rem; color: var(--soft); font-size: .9rem; font-weight: 600; }
   </style>
@@ -50,7 +50,7 @@
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1 data-i18n="flashPageTitle">فلش‌کارت اصطلاحات</h1>
-    <p class="sub" data-i18n="flashPageSub">روی کارت بزن تا معنی را ببینی</p>
+    <p class="sub" data-i18n="flashPageSub">روی کارت بزن تا توضیح را ببینی</p>
   </div>
 
   <main class="container">
@@ -70,7 +70,7 @@
       <div class="fc-controls">
         <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); prevCard()" id="btnPrev">← قبلی</button>
         <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); nextCard()" id="btnNext">بعدی →</button>
-        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); shuffleCards()" id="btnShuffle" data-i18n="shuffle">بُر زدن</button>
+        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); shuffleCards()" id="btnShuffle">بُر زدن</button>
       </div>
       <div class="fc-progress" id="progress">1 / 24</div>
     </div>
@@ -80,34 +80,82 @@
   <script src="script.js"></script>
   <script>
     const cards = [
-      { de: 'Serviceanfrage', fa: 'درخواست خدمات', en: 'Service request' },
-      { de: 'Störungsmeldung', fa: 'گزارش اختلال', en: 'Incident report' },
-      { de: 'Eskalation', fa: 'ارجاع به سطح بالاتر', en: 'Escalation' },
-      { de: 'Deeskalation', fa: 'آرام‌سازی', en: 'De-escalation' },
-      { de: 'First-Level-Support', fa: 'پشتیبانی سطح اول', en: 'First-level support' },
-      { de: 'Incident', fa: 'اختلال فعلی سرویس', en: 'Incident' },
-      { de: 'Problem', fa: 'علت ریشه‌ای', en: 'Problem (root cause)' },
-      { de: 'SLA', fa: 'توافق سطح خدمات', en: 'Service level agreement' },
-      { de: 'Cyber-physisches System', fa: 'سیستم سایبر-فیزیکی', en: 'Cyber-physical system' },
-      { de: 'Sensor', fa: 'سنسور', en: 'Sensor' },
-      { de: 'Aktor', fa: 'عملگر', en: 'Actuator' },
-      { de: 'Mikrocontroller', fa: 'میکروکنترلر', en: 'Microcontroller' },
-      { de: 'MQTT-Broker', fa: 'واسط پیام MQTT', en: 'MQTT broker' },
-      { de: 'Topic', fa: 'موضوع پیام', en: 'Topic' },
-      { de: 'QoS', fa: 'کیفیت تحویل پیام', en: 'Quality of Service' },
-      { de: 'Datenmodellierung', fa: 'مدل‌سازی داده', en: 'Data modelling' },
-      { de: 'Entität', fa: 'موجودیت', en: 'Entity' },
-      { de: 'Primärschlüssel', fa: 'کلید اصلی', en: 'Primary key' },
-      { de: 'Schnittstelle / API', fa: 'رابط برنامه‌نویسی', en: 'Interface / API' },
-      { de: 'JSON', fa: 'فرمت داده سبک', en: 'Lightweight data format' },
-      { de: 'Teilnetz / Subnetz', fa: 'زیرشبکه', en: 'Subnet' },
-      { de: 'VLAN', fa: 'شبکه مجازی محلی', en: 'Virtual LAN' },
-      { de: 'Standardgateway', fa: 'دروازه پیش‌فرض', en: 'Default gateway' },
-      { de: 'Firewall', fa: 'فایروال', en: 'Firewall' }
+      { de: 'Serviceanfrage', 
+        fa: 'درخواست خدمات: هر درخواستی که کاربر از بخش IT دارد (مثل نصب نرم‌افزار یا خرابی پرینتر).', 
+        en: 'Service request: Any request a user makes to the IT department (e.g. software installation or printer issue).' },
+      { de: 'Störungsmeldung', 
+        fa: 'گزارش اختلال: اعلام خرابی یک سرویس یا دستگاه به پشتیبانی.', 
+        en: 'Incident report: Reporting a disruption of a service or device to support.' },
+      { de: 'Eskalation', 
+        fa: 'ارجاع به سطح بالاتر: وقتی که مشکل در سطح اول حل نشود و به متخصص بالاتر ارجاع می‌شود.', 
+        en: 'Escalation: Passing a problem to a higher support level when it cannot be solved at the first level.' },
+      { de: 'Deeskalation', 
+        fa: 'آرام‌سازی: آرام کردن کاربر عصبانی و جلوگیری از افزایش تنش.', 
+        en: 'De-escalation: Calming an angry user and preventing the situation from getting worse.' },
+      { de: 'First-Level-Support', 
+        fa: 'پشتیبانی سطح اول: اولین نقطه تماس که مشکلات ساده را حل می‌کند (ریست رمز، راهنمایی اولیه).', 
+        en: 'First-level support: The first contact point that handles simple issues (password reset, basic guidance).' },
+      { de: 'Incident', 
+        fa: 'اختلال فعلی سرویس: چیزی الان خراب است و باید سریع برگردانده شود.', 
+        en: 'Incident: Something is currently broken and needs to be restored quickly.' },
+      { de: 'Problem', 
+        fa: 'علت ریشه‌ای: علت اصلی که باعث تکرار اختلالات می‌شود.', 
+        en: 'Problem: The root cause that leads to recurring incidents.' },
+      { de: 'SLA', 
+        fa: 'توافق سطح خدمات: قول کتبی درباره زمان پاسخ و زمان حل مشکل.', 
+        en: 'Service Level Agreement: Written promise about response time and resolution time.' },
+      { de: 'Cyber-physisches System', 
+        fa: 'سیستم سایبر-فیزیکی: ترکیب دنیای فیزیکی (سنسور، موتور) با دنیای IT.', 
+        en: 'Cyber-physical system: Combination of the physical world (sensors, motors) with IT.' },
+      { de: 'Sensor', 
+        fa: 'سنسور: دستگاهی که مقدار فیزیکی (دما، رطوبت، حرکت) را اندازه می‌گیرد.', 
+        en: 'Sensor: A device that measures a physical value (temperature, humidity, motion).' },
+      { de: 'Aktor', 
+        fa: 'عملگر: دستگاهی که کار فیزیکی انجام می‌دهد (رله، فن، موتور).', 
+        en: 'Actuator: A device that performs a physical action (relay, fan, motor).' },
+      { de: 'Mikrocontroller', 
+        fa: 'میکروکنترلر: مغز کوچک سیستم (مثل ESP32) که سنسورها را می‌خواند و اکتورها را کنترل می‌کند.', 
+        en: 'Microcontroller: Small brain of the system (e.g. ESP32) that reads sensors and controls actuators.' },
+      { de: 'MQTT-Broker', 
+        fa: 'واسط پیام MQTT: سرور مرکزی که پیام‌ها را بین دستگاه‌ها منتقل می‌کند.', 
+        en: 'MQTT Broker: Central server that forwards messages between devices.' },
+      { de: 'Topic', 
+        fa: 'موضوع پیام: نام کانالی که پیام‌ها روی آن منتشر می‌شوند (مثل lager/temp).', 
+        en: 'Topic: The channel name on which messages are published (e.g. lager/temp).' },
+      { de: 'QoS', 
+        fa: 'کیفیت تحویل پیام: سطح تضمین رسیدن پیام در MQTT (0 = ممکن است گم شود، 1 = حداقل یک بار).', 
+        en: 'Quality of Service: Delivery guarantee level in MQTT (0 = may be lost, 1 = at least once).' },
+      { de: 'Datenmodellierung', 
+        fa: 'مدل‌سازی داده: طراحی ساختار داده‌ها قبل از پیاده‌سازی پایگاه داده.', 
+        en: 'Data modelling: Designing the structure of data before implementing a database.' },
+      { de: 'Entität', 
+        fa: 'موجودیت: شیء یا مفهومی که در پایگاه داده ذخیره می‌شود (مثل مشتری یا تیکت).', 
+        en: 'Entity: A thing or concept that is stored in a database (e.g. customer or ticket).' },
+      { de: 'Primärschlüssel', 
+        fa: 'کلید اصلی: شناسه یکتا برای هر رکورد در جدول (مثل id).', 
+        en: 'Primary key: Unique identifier for each record in a table (e.g. id).' },
+      { de: 'Schnittstelle / API', 
+        fa: 'رابط برنامه‌نویسی: راه ارتباط بین دو سیستم برای تبادل داده.', 
+        en: 'Interface / API: A way for two systems to communicate and exchange data.' },
+      { de: 'JSON', 
+        fa: 'فرمت داده سبک: فرمت متنی رایج برای ارسال داده در APIها.', 
+        en: 'Lightweight data format: Common text format for sending data in APIs.' },
+      { de: 'Teilnetz / Subnetz', 
+        fa: 'زیرشبکه: تقسیم یک شبکه بزرگ به چند شبکه کوچک‌تر.', 
+        en: 'Subnet: Dividing a large network into smaller networks.' },
+      { de: 'VLAN', 
+        fa: 'شبکه مجازی محلی: جدا کردن منطقی شبکه روی یک سوئیچ فیزیکی.', 
+        en: 'Virtual LAN: Logically separating networks on the same physical switch.' },
+      { de: 'Standardgateway', 
+        fa: 'دروازه پیش‌فرض: آدرس روتر که پکت‌ها را به خارج از شبکه محلی می‌فرستد.', 
+        en: 'Default gateway: The router address that forwards packets outside the local network.' },
+      { de: 'Firewall', 
+        fa: 'فایروال: دستگاه یا نرم‌افزاری که ترافیک شبکه را کنترل و فیلتر می‌کند.', 
+        en: 'Firewall: Device or software that controls and filters network traffic.' }
     ];
 
     const ui = {
-      fa: { prev: '← قبلی', next: 'بعدی →', shuffle: 'بُر زدن', hint: 'کلیک برای دیدن معنی' },
+      fa: { prev: '← قبلی', next: 'بعدی →', shuffle: 'بُر زدن', hint: 'کلیک برای دیدن توضیح' },
       de: { prev: '← Zurück', next: 'Weiter →', shuffle: 'Mischen', hint: 'Klicken zum Umdrehen' },
       en: { prev: '← Previous', next: 'Next →', shuffle: 'Shuffle', hint: 'Click to flip' }
     };
@@ -127,14 +175,16 @@
       document.getElementById('cardTerm').textContent = c.de;
       document.getElementById('cardHint').textContent = t.hint;
 
-      // Meaning always in the selected language, with German term as small reference if not German
-      if (l === 'de') {
-        document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.fa + '</small>';
-      } else if (l === 'en') {
-        document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.de + '</small>';
+      // Full explanation in selected language + translations
+      let html = '';
+      if (l === 'fa') {
+        html = c.fa + '<span class="trans">EN: ' + c.en + '</span>';
+      } else if (l === 'de') {
+        html = c.en + '<span class="trans">FA: ' + c.fa.split(':')[0] + '</span>';
       } else {
-        document.getElementById('cardMeaning').innerHTML = c.fa + '<small>' + c.de + '</small>';
+        html = c.en + '<span class="trans">DE: ' + c.de + '</span>';
       }
+      document.getElementById('cardMeaning').innerHTML = html;
 
       document.getElementById('btnPrev').textContent = t.prev;
       document.getElementById('btnNext').textContent = t.next;
