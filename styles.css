@@ -53,14 +53,15 @@ html[lang=fa] .lang-block[data-lang=fa],html[lang=de] .lang-block[data-lang=de],
 /* Single smart back button */
 .back-btn{
   display:inline-flex;align-items:center;justify-content:center;
-  width:40px;height:40px;border-radius:50%;
+  width:44px;height:44px;border-radius:50%;
   background:var(--card);border:1px solid var(--border);
-  color:var(--text);text-decoration:none;
+  color:var(--text);cursor:pointer;
   transition:.2s;margin-bottom:1rem;
-  font-size:1.3rem;
+  font-size:1.4rem;line-height:1;
 }
-.back-btn:hover{background:var(--blue-soft);border-color:var(--blue);color:var(--blue);transform:translateX(-3px)}
-html[dir=rtl] .back-btn:hover{transform:translateX(3px)}
+.back-btn:hover{background:var(--blue-soft);border-color:var(--blue);color:var(--blue)}
+html[dir=rtl] .back-btn{transform:scaleX(-1)}
+html[dir=rtl] .back-btn:hover{transform:scaleX(-1)}
 .page-head{padding-top:1.2rem}
 
 .hero{padding:3.5rem 0 2.5rem;text-align:center}
