@@ -2,42 +2,79 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LF 9 – Netzwerke und Dienste | FISI Klasse 11</title>
+  <meta name="theme-color" content="#101418" />
+  <title>LF 9 – Netzwerke und Dienste | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-  <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="lf6.html">LF 6</a>
-      <a href="lf7.html">LF 7</a>
-      <a href="lf8.html">LF 8</a>
-      <a href="lf9.html" class="active">LF 9</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
+        </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
+      </div>
     </div>
-  </nav>
-  <header class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / LF 9</div>
-      <h1>🌐 Netzwerke und Dienste bereitstellen</h1>
-      <p class="subtitle">96 Std. · IT-Systeme</p>
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
     </div>
   </header>
-  <main class="container">
+  <div class="container page-head">
+    <a class="back-btn" href="index.html" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></a>
+    <div>
+      <p class="breadcrumb"><a href="index.html" data-i18n="navHome">خانه</a> <span aria-hidden="true">/</span> LF 9</p>
+      <h1>Netzwerke und Dienste bereitstellen</h1>
+      <p class="pathway">Klasse 11 · Fachinformatiker Systemintegration</p>
+      <p class="sub">96 Std. · IT-Systeme</p>
+      <p class="related"><a href="it-systeme.html">Zum Fach IT-Systeme</a></p>
+    </div>
+  </div>
+  <nav class="container subnav" aria-label="Lernfelder"><a href="lf6.html" title="Serviceanfragen">LF 6</a><a href="lf7.html" title="Cyber-physische Systeme">LF 7</a><a href="lf8.html" title="Daten bereitstellen">LF 8</a><a href="lf9.html" title="Netzwerke und Dienste" aria-current="page">LF 9</a></nav>
+  <main id="main" class="container">
 
     <div class="lang-block" data-lang="fa">
+      <div class="card lesson-block"><h2>پیش از شروع</h2><p>حوزه <strong>Netzwerke und Dienste bereitstellen</strong>، ۹۶ ساعت، IT-Systeme. شبکه و خدمت را طبق نیاز مشتری طرح و پیکربندی می‌کنی: نشانی، VLAN، DHCP، DNS، مسیریابی، آزمون و مستند. پایه ۱۲ (سرور و امنیت بهره‌برداری) اینجا موضوع نیست.</p></div>
       <div class="card">
-        <h3>🎯 هدف یادگیری</h3>
+        <h2>هدف یادگیری</h2>
         <div class="goal-box">دانش‌آموزان صلاحیت برنامه‌ریزی، پیکربندی و گسترش شبکه‌ها و سرویس‌ها را دارند.</div>
-        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <h3>چه چیزهایی یاد می‌گیری؟</h3>
         <ul>
           <li>استخراج نیاز مشتری برای شبکه و سرویس‌ها</li>
           <li>بررسی قطعات، عملکرد و جنبه‌های امنیتی</li>
@@ -47,7 +84,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🧱 موضوعات کلیدی</h3>
+        <h2>موضوعات کلیدی</h2>
         <ul>
           <li>توپولوژی، IP-Planung، Subnetting</li>
           <li>VLAN، Routing</li>
@@ -57,7 +94,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین‌ها</h3>
+        <h2>تمرین‌ها</h2>
         <div class="exercise"><div class="exercise-title">تمرین ۱</div><p>برای شرکت ۳۰ نفره با ۳ بخش، چه سؤالاتی از مشتری می‌پرسی؟</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۲</div><p>طرح IP + VLAN + DHCP/DNS طراحی کن.</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۳</div><p>در Packet Tracer یا VM پیاده و تست کن.</p></div>
@@ -65,7 +102,7 @@
         <div class="exercise"><div class="exercise-title">تمرین ۵</div><p>مستند تحویل: نقشه، جدول IP، تنظیمات، امنیت، تست.</p></div>
       </div>
       <div class="card">
-        <h3>📖 اصطلاحات</h3>
+        <h2>اصطلاحات</h2>
         <ul>
           <li><strong>Netzwerkkomponente</strong> – قطعه شبکه</li>
           <li><strong>Infrastruktur</strong> – زیرساخت</li>
@@ -76,10 +113,11 @@
     </div>
 
     <div class="lang-block" data-lang="de">
+      <div class="card lesson-block"><h2>Bevor du startest</h2><p>Lernfeld <strong>Netzwerke und Dienste bereitstellen</strong>, 96 Stunden, IT-Systeme. Du planst und konfigurierst Netze und Dienste nach Kundenanforderung: Adressen, VLAN, DHCP, DNS, Routing, Prüfung und Dokumentation. Jahrgangsstufe 12 (Server, Sicherheit im Betrieb) ist hier nicht der Stoff.</p></div>
       <div class="card">
-        <h3>🎯 Zielformulierung</h3>
+        <h2>Zielformulierung</h2>
         <div class="goal-box">Die Schülerinnen und Schüler verfügen über die Kompetenz, Netzwerke und Dienste zu planen, zu konfigurieren und zu erweitern.</div>
-        <h3>📚 Was du lernst</h3>
+        <h3>Was du lernst</h3>
         <ul>
           <li>Anforderungen an Netzwerke und Dienste mit dem Kunden ermitteln</li>
           <li>Komponenten und sicherheitsrelevante Merkmale recherchieren</li>
@@ -89,7 +127,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🧱 Kernthemen</h3>
+        <h2>Kernthemen</h2>
         <ul>
           <li>Topologie, IP-Planung, Subnetting</li>
           <li>VLAN, Routing</li>
@@ -99,7 +137,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Übungen</h3>
+        <h2>Übungen</h2>
         <div class="exercise"><div class="exercise-title">Übung 1</div><p>Welche Fragen stellst du einem Kunden mit 30 Mitarbeitern und 3 Abteilungen?</p></div>
         <div class="exercise"><div class="exercise-title">Übung 2</div><p>Entwirf IP-Plan, VLANs sowie DHCP/DNS.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 3</div><p>Setze den Plan in Packet Tracer oder einer VM um und teste.</p></div>
@@ -107,7 +145,7 @@
         <div class="exercise"><div class="exercise-title">Übung 5</div><p>Erstelle die Übergabedoku: Plan, IP-Tabelle, Konfiguration, Sicherheit, Tests.</p></div>
       </div>
       <div class="card">
-        <h3>📖 Wichtige Begriffe</h3>
+        <h2>Wichtige Begriffe</h2>
         <ul>
           <li><strong>Netzwerkkomponente</strong></li>
           <li><strong>Infrastruktur</strong></li>
@@ -118,10 +156,11 @@
     </div>
 
     <div class="lang-block" data-lang="en">
+      <div class="card lesson-block"><h2>Before you start</h2><p>Learning field <strong>Netzwerke und Dienste bereitstellen</strong>, 96 hours, IT systems. You plan and configure networks and services for a customer: addresses, VLAN, DHCP, DNS, routing, tests and documentation. Year 12 (servers and operations security) is not this material.</p></div>
       <div class="card">
-        <h3>🎯 Learning Goal</h3>
+        <h2>Learning Goal</h2>
         <div class="goal-box">Students can plan, configure and extend networks and services.</div>
-        <h3>📚 What you learn</h3>
+        <h3>What you learn</h3>
         <ul>
           <li>Gather network and service requirements with the customer</li>
           <li>Research components and security-relevant features</li>
@@ -131,7 +170,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🧱 Core topics</h3>
+        <h2>Core topics</h2>
         <ul>
           <li>Topology, IP planning, subnetting</li>
           <li>VLANs, routing</li>
@@ -141,7 +180,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Exercises</h3>
+        <h2>Exercises</h2>
         <div class="exercise"><div class="exercise-title">Exercise 1</div><p>What questions do you ask a customer with 30 staff and 3 departments?</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 2</div><p>Design an IP plan, VLANs and DHCP/DNS.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 3</div><p>Implement in Packet Tracer or a VM and test.</p></div>
@@ -149,7 +188,7 @@
         <div class="exercise"><div class="exercise-title">Exercise 5</div><p>Hand-over docs: map, IP table, config, security, tests.</p></div>
       </div>
       <div class="card">
-        <h3>📖 Key Terms</h3>
+        <h2>Key Terms</h2>
         <ul>
           <li><strong>Network component</strong></li>
           <li><strong>Infrastructure</strong></li>
@@ -161,7 +200,16 @@
 
     <div class="card"><p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Netzwerke und Dienste bereitstellen (96 Std.), Mai 2020</p></div>
   </main>
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
+  <script src="lesson.js"></script>
 </body>
 </html>

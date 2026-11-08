@@ -1,6 +1,6 @@
-// Admin panel — shown only inside settings
+// Admin panel — opened from settings. Keeps the localStorage user list.
 function getUsers() {
-  const stored = localStorage.getItem('fisi-users');
+  var stored = localStorage.getItem('fisi-users');
   return stored ? JSON.parse(stored) : [];
 }
 
@@ -8,107 +8,112 @@ function saveUsers(users) {
   localStorage.setItem('fisi-users', JSON.stringify(users));
 }
 
+function esc(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+  });
+}
+
 async function sha256(text) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+  var encoder = new TextEncoder();
+  var data = encoder.encode(text);
+  var hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
 }
 
 function openAdminPanel() {
-  // Close settings first
-  const settingsPanel = document.getElementById('settingsPanel');
+  var settingsPanel = document.getElementById('settingsPanel');
   if (settingsPanel) settingsPanel.classList.remove('open');
-  
-  // Create or show admin modal
-  let modal = document.getElementById('adminModal');
+  var settingsBtn = document.getElementById('settingsBtn');
+  if (settingsBtn) settingsBtn.setAttribute('aria-expanded', 'false');
+
+  var modal = document.getElementById('adminModal');
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'adminModal';
-    modal.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;overflow:auto;padding:2rem';
-    modal.innerHTML = `
-      <div style="max-width:800px;margin:0 auto;background:var(--card,#1e293b);border-radius:20px;padding:1.5rem;color:var(--text,#f1f5f9);border:1px solid var(--border)">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
-          <h2 style="margin:0">Benutzerverwaltung</h2>
-          <button onclick="closeAdminPanel()" style="background:none;border:none;color:inherit;font-size:1.5rem;cursor:pointer">✕</button>
-        </div>
-        <div id="adminContent"></div>
-      </div>
-    `;
+    modal.className = 'modal-backdrop';
+    modal.hidden = true;
+    modal.innerHTML = ''
+      + '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">'
+      + '  <div class="modal-header">'
+      + '    <h2 id="adminTitle">Benutzerverwaltung</h2>'
+      + '    <button type="button" class="close-btn" onclick="closeAdminPanel()" aria-label="Schließen">✕</button>'
+      + '  </div>'
+      + '  <div id="adminContent"></div>'
+      + '</div>';
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeAdminPanel();
+    });
     document.body.appendChild(modal);
   }
-  modal.style.display = 'block';
+  modal.hidden = false;
   renderAdminPanel();
+  var close = modal.querySelector('.close-btn');
+  if (close) close.focus();
 }
 
 function closeAdminPanel() {
-  const modal = document.getElementById('adminModal');
-  if (modal) modal.style.display = 'none';
+  var modal = document.getElementById('adminModal');
+  if (modal) modal.hidden = true;
+  var btn = document.getElementById('settingsBtn');
+  if (btn) btn.focus();
 }
 
 function renderAdminPanel() {
-  const users = getUsers();
-  const pending = users.filter(u => !u.approved && u.role !== 'admin');
-  const approved = users.filter(u => u.approved && u.role !== 'admin');
+  var users = getUsers();
+  var pending = users.filter(function (u) { return !u.approved && u.role !== 'admin'; });
+  var approved = users.filter(function (u) { return u.approved && u.role !== 'admin'; });
+  var html = '';
 
-  let html = '';
-
-  html += '<h3 style="margin-bottom:1rem;color:#fbbf24">Ausstehende Freigaben (' + pending.length + ')</h3>';
+  html += '<h3 class="count">Ausstehende Freigaben (' + pending.length + ')</h3>';
   if (pending.length === 0) {
-    html += '<p style="color:var(--muted,#94a3b8);margin-bottom:1.5rem">Keine ausstehenden Anfragen</p>';
+    html += '<p class="search-empty">Keine ausstehenden Anfragen</p>';
   } else {
-    pending.forEach((u) => {
-      const idx = users.findIndex(x => x.username === u.username);
-      html += `
-        <div style="background:var(--bg-soft,#0f172a);border:1px solid var(--border,#334155);border-radius:12px;padding:1rem;margin-bottom:.8rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem">
-            <div>
-              <strong>${u.firstName} ${u.lastName}</strong>
-              <div style="font-size:.85rem;color:var(--muted,#94a3b8);margin-top:.3rem">
-                Benutzer: ${u.username} · E-Mail: ${u.email} · Schülernr: ${u.studentId}
-              </div>
-            </div>
-            <div style="display:flex;gap:.5rem">
-              <button onclick="approveUser(${idx})" style="padding:.5rem 1rem;background:#22c55e;border:none;border-radius:8px;color:#fff;cursor:pointer;font-weight:600">Freigeben</button>
-              <button onclick="rejectUser(${idx})" style="padding:.5rem 1rem;background:#ef4444;border:none;border-radius:8px;color:#fff;cursor:pointer;font-weight:600">Ablehnen</button>
-            </div>
-          </div>
-        </div>
-      `;
+    html += '<div class="stack">';
+    pending.forEach(function (u) {
+      var idx = users.findIndex(function (x) { return x.username === u.username; });
+      html += '<div class="user-row"><div class="info"><strong>' + esc(u.firstName) + ' ' + esc(u.lastName) + '</strong>'
+        + '<span class="user-meta">Benutzer: ' + esc(u.username) + ' · E-Mail: ' + esc(u.email) + ' · Schülernr: ' + esc(u.studentId) + '</span></div>'
+        + '<div class="row-actions"><button type="button" class="btn-success" onclick="approveUser(' + idx + ')">Freigeben</button>'
+        + '<button type="button" class="btn-danger" onclick="rejectUser(' + idx + ')">Ablehnen</button></div></div>';
     });
+    html += '</div>';
   }
 
-  html += '<h3 style="margin:1.5rem 0 1rem">Freigegebene Benutzer (' + approved.length + ')</h3>';
+  html += '<h3 class="count">Freigegebene Benutzer (' + approved.length + ')</h3>';
   if (approved.length === 0) {
-    html += '<p style="color:var(--muted,#94a3b8)">Noch keine freigegebenen Benutzer</p>';
+    html += '<p class="search-empty">Noch keine freigegebenen Benutzer</p>';
   } else {
-    approved.forEach(u => {
-      const idx = users.findIndex(x => x.username === u.username);
-      html += `
-        <div style="background:var(--bg-soft,#0f172a);border:1px solid var(--border,#334155);border-radius:12px;padding:.8rem 1rem;margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <strong>${u.firstName} ${u.lastName}</strong>
-            <span style="color:var(--muted,#94a3b8);font-size:.85rem;margin-left:.5rem">${u.username}</span>
-          </div>
-          <button onclick="revokeUser(${idx})" style="padding:.4rem .8rem;background:transparent;border:1px solid #ef4444;border-radius:8px;color:#ef4444;cursor:pointer;font-size:.85rem">Sperren</button>
-        </div>
-      `;
+    html += '<div class="stack">';
+    approved.forEach(function (u) {
+      var idx = users.findIndex(function (x) { return x.username === u.username; });
+      html += '<div class="user-row"><div class="info"><strong>' + esc(u.firstName) + ' ' + esc(u.lastName) + '</strong>'
+        + '<span class="user-meta">' + esc(u.username) + '</span></div>'
+        + '<button type="button" class="btn-revoke" onclick="revokeUser(' + idx + ')">Sperren</button></div>';
     });
+    html += '</div>';
   }
 
-  html += `
-    <h3 style="margin:1.5rem 0 1rem">Admin-Passwort ändern</h3>
-    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-      <input type="password" id="newAdminPass" placeholder="Neues Passwort" style="padding:.6rem .8rem;background:var(--bg-soft,#0f172a);border:1px solid var(--border,#334155);border-radius:8px;color:inherit;font-family:inherit">
-      <button onclick="changeAdminPassword()" style="padding:.6rem 1rem;background:#38bdf8;border:none;border-radius:8px;color:#0f172a;cursor:pointer;font-weight:600">Ändern</button>
-    </div>
-  `;
+  html += '<h3 class="count">Admin-Passwort ändern</h3>'
+    + '<div class="form-row">'
+    + '<div class="form-group"><label for="newAdminPass">Neues Passwort</label>'
+    + '<input type="password" id="newAdminPass" autocomplete="new-password" minlength="6"></div></div>'
+    + '<button type="button" class="btn btn-primary" onclick="changeAdminPassword()">Ändern</button>'
+    + '<p id="adminStatus" class="form-status" role="status" hidden></p>';
 
   document.getElementById('adminContent').innerHTML = html;
 }
 
+function setAdminStatus(message, type) {
+  var el = document.getElementById('adminStatus');
+  if (!el) return;
+  el.hidden = !message;
+  el.className = 'form-status ' + (type || '');
+  el.textContent = message || '';
+}
+
 function approveUser(idx) {
-  const users = getUsers();
+  var users = getUsers();
   users[idx].approved = true;
   saveUsers(users);
   renderAdminPanel();
@@ -116,7 +121,7 @@ function approveUser(idx) {
 
 function rejectUser(idx) {
   if (!confirm('Benutzer wirklich ablehnen und löschen?')) return;
-  const users = getUsers();
+  var users = getUsers();
   users.splice(idx, 1);
   saveUsers(users);
   renderAdminPanel();
@@ -124,24 +129,31 @@ function rejectUser(idx) {
 
 function revokeUser(idx) {
   if (!confirm('Zugang wirklich sperren?')) return;
-  const users = getUsers();
+  var users = getUsers();
   users[idx].approved = false;
   saveUsers(users);
   renderAdminPanel();
 }
 
 async function changeAdminPassword() {
-  const newPass = document.getElementById('newAdminPass').value;
+  var field = document.getElementById('newAdminPass');
+  var newPass = field ? field.value : '';
   if (newPass.length < 6) {
-    alert('Passwort muss mindestens 6 Zeichen haben');
+    setAdminStatus('Passwort muss mindestens 6 Zeichen haben', 'err');
     return;
   }
-  const users = getUsers();
-  const admin = users.find(u => u.username === 'admin');
+  var users = getUsers();
+  var admin = users.find(function (u) { return u.username === 'admin'; });
   if (admin) {
     admin.passwordHash = await sha256(newPass);
     saveUsers(users);
-    alert('Passwort geändert!');
-    document.getElementById('newAdminPass').value = '';
+    field.value = '';
+    setAdminStatus('Passwort geändert.', 'ok');
   }
 }
+
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  var modal = document.getElementById('adminModal');
+  if (modal && !modal.hidden) closeAdminPanel();
+});

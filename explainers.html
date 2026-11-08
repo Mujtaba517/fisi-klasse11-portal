@@ -2,84 +2,68 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>توضیح‌گرها | Klasse 11</title>
+  <meta name="theme-color" content="#101418" />
+  <title>Kurzerklärer | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}
-    .filter-row button{
-      border:1px solid var(--border);background:var(--card);border-radius:980px;
-      padding:.4rem .85rem;font-size:.8rem;font-weight:650;cursor:pointer;font-family:inherit;color:var(--muted)
-    }
-    .filter-row button.on{background:var(--blue-soft);color:var(--blue);border-color:transparent}
-    .ex-list{display:grid;gap:.7rem;margin-bottom:1.4rem}
-    .ex-pick{
-      display:flex;align-items:center;gap:.85rem;width:100%;
-      background:var(--card);border:1.5px solid var(--border);border-radius:16px;
-      padding:.9rem 1rem;cursor:pointer;text-align:start;font-family:inherit;
-      box-shadow:var(--shadow);transition:border-color .15s,transform .15s;
-    }
-    .ex-pick:hover,.ex-pick.active{border-color:var(--blue);transform:translateY(-1px)}
-    .ex-pick .ico{
-      width:42px;height:42px;border-radius:12px;background:var(--blue-soft);
-      display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;
-    }
-    .ex-pick strong{display:block;font-size:.95rem;color:var(--text)}
-    .ex-pick span{font-size:.8rem;color:var(--muted)}
-    .ex-pick .tag{font-size:.68rem;font-weight:700;color:var(--blue);margin-top:.15rem}
-    .player{background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;display:none}
-    .player.on{display:block}
-    .player-top{background:linear-gradient(145deg,#007aff 0%,#5856d6 100%);color:#fff;padding:1.25rem 1.2rem 1rem}
-    .player-top h2{font-size:1.15rem;font-weight:750;margin-bottom:.2rem}
-    .player-top p{opacity:.9;font-size:.86rem}
-    .player-body{padding:1.25rem 1.2rem 1.1rem;min-height:190px}
-    .step-title{font-size:1.05rem;font-weight:750;margin-bottom:.5rem}
-    .step-text{color:var(--muted);font-size:.95rem;line-height:1.6;margin-bottom:.8rem}
-    .step-example{background:#f2f2f7;border-radius:14px;padding:.95rem 1rem;border-inline-start:3px solid var(--blue)}
-    .step-example .lab{font-size:.7rem;font-weight:700;color:var(--blue);margin-bottom:.3rem;letter-spacing:.03em}
-    .step-example p{margin:0;color:var(--text);font-size:.9rem}
-    .player-bar{display:flex;align-items:center;gap:.55rem;padding:.85rem 1.1rem 1.1rem;border-top:1px solid var(--border);flex-wrap:wrap}
-    .dots{display:flex;gap:.32rem;flex:1;justify-content:center;flex-wrap:wrap}
-    .dot{width:8px;height:8px;border-radius:50%;background:#d2d2d7;border:none;padding:0;cursor:pointer}
-    .dot.on{background:var(--blue);transform:scale(1.15)}
-    .player-bar .btn{padding:.5rem .95rem;font-size:.86rem}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <div class="lang-menu">
-        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
-        <div class="lang-panel" id="langPanel">
-          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
-          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
         </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
       </div>
     </div>
-    <div class="container"><nav class="nav-scroll">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="bgwp.html">BGWP</a>
-      <a href="it-technik.html">IT-Technik</a>
-      <a href="aeup.html">AEuP</a>
-      <a href="it-systeme.html">IT-Systeme</a>
-      <a href="fachpraxis.html">Fp-Plus</a>
-      <a href="pug.html">PuG</a>
-      <a href="explainers.html" class="active" data-i18n="navExplain">توضیح‌گر</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
-    </nav></div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain" class="active" aria-current="page">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
+    </div>
   </header>
 
   <div class="container page-head">
-    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <a class="back-btn" href="index.html" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></a>
     <h1 id="pageTitle">توضیح‌گرهای کوتاه</h1>
     <p class="sub" id="pageSub">همه مضامین · حدود یک دقیقه · با مثال · سه زبان</p>
   </div>
 
-  <main class="container">
+  <main id="main" class="container">
     <div class="filter-row" id="filters"></div>
     <div class="ex-list" id="topicList"></div>
     <div class="player" id="player">
@@ -87,7 +71,7 @@
         <h2 id="playerTitle">—</h2>
         <p id="playerMeta">—</p>
       </div>
-      <div class="player-body">
+      <div class="player-body" aria-live="polite">
         <div class="step-title" id="stepTitle"></div>
         <div class="step-text" id="stepText"></div>
         <div class="step-example">
@@ -103,7 +87,12 @@
     </div>
   </main>
 
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
   <script src="explainers-data.js"></script>
   <script>
@@ -113,9 +102,18 @@
       en:{title:'Short explainers',sub:'All subjects · about 1 minute · with example',example:'Example',next:'Next',prev:'Back',done:'Done',step:'Step',all:'All'}
     };
     const catLabels = {
-      fa:{all:'همه',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fp-Plus',pug:'PuG'},
-      de:{all:'Alle',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fp-Plus',pug:'PuG'},
-      en:{all:'All',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fp-Plus',pug:'PuG'}
+      fa:{all:'همه',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fachpraxis',pug:'PuG'},
+      de:{all:'Alle',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fachpraxis',pug:'PuG'},
+      en:{all:'All',bgwp:'BGWP',ittec:'IT-Technik',aeup:'AEuP',itsys:'IT-Systeme',fp:'Fachpraxis',pug:'PuG'}
+    };
+
+    const CAT_ICON = {
+      bgwp: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/></svg>',
+      ittec: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>',
+      aeup: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>',
+      itsys: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 12h8M16.2 8.4 8.8 11M16.2 15.6 8.8 13"/></svg>',
+      fp: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.2 6.2L3 18l3 3 5.5-5.5a4.5 4.5 0 0 0 6.2-6.2L15 12l-3-3z"/></svg>',
+      pug: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 10v8M10 10v8M14 10v8M18 10v8M12 3l9 7H3z"/></svg>'
     };
 
     let activeId = null, step = 0, filter = 'all';
@@ -131,6 +129,7 @@
         const b = document.createElement('button');
         b.type='button';
         b.className = filter===c ? 'on' : '';
+        b.setAttribute('aria-pressed', filter===c ? 'true' : 'false');
         b.textContent = catLabels[l][c];
         b.onclick = ()=>{ filter=c; activeId=null; document.getElementById('player').classList.remove('on'); renderList(); renderFilters(); };
         box.appendChild(b);
@@ -151,7 +150,7 @@
         btn.type='button';
         btn.className='ex-pick'+(activeId===id?' active':'');
         btn.onclick=()=>openTopic(id);
-        btn.innerHTML = `<div class="ico">${t.ico}</div><div><strong>${t.title[l]}</strong><span>${t.blurb[l]}</span><div class="tag">${catLabels[l][t.cat]||t.cat}</div></div>`;
+        btn.innerHTML = `<div class="ico">${CAT_ICON[t.cat] || ''}</div><div><strong>${t.title[l]}</strong><span>${t.blurb[l]}</span><div class="tag">${catLabels[l][t.cat]||t.cat}</div></div>`;
         list.appendChild(btn);
       });
     }
@@ -173,7 +172,7 @@
       document.getElementById('exampleLab').textContent=u.example;
       document.getElementById('exampleText').textContent=s.e;
       const dots=document.getElementById('dots'); dots.innerHTML='';
-      steps.forEach((_,i)=>{const d=document.createElement('button');d.type='button';d.className='dot'+(i===step?' on':'');d.onclick=()=>{step=i;renderStep()};dots.appendChild(d)});
+      steps.forEach((_,i)=>{const d=document.createElement('button');d.type='button';d.className='dot'+(i===step?' on':'');d.setAttribute('aria-label', u.step+' '+(i+1));d.setAttribute('aria-current', i===step ? 'step' : 'false');d.onclick=()=>{step=i;renderStep()};dots.appendChild(d)});
       document.getElementById('btnPrev').disabled=step===0;
       document.getElementById('btnPrev').textContent='← '+u.prev;
       document.getElementById('btnNext').textContent=(step===steps.length-1?u.done:u.next)+' →';
@@ -191,5 +190,9 @@
     const _setLang=window.setLang;
     window.setLang=function(l){_setLang(l);renderFilters();renderList();if(activeId)renderStep()};
   </script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
+  <script src="lesson.js"></script>
 </body>
 </html>

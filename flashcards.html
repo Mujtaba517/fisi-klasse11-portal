@@ -2,62 +2,71 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flashcards | Klasse 11</title>
+  <meta name="theme-color" content="#101418" />
+  <title>Karteikarten | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="auth.js"></script>
-  <style>
-    .fc-wrap { max-width: 480px; margin: 1.5rem auto; }
-    .fc-scene { perspective: 1200px; height: 280px; cursor: pointer; }
-    .fc-card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.8,.2,1); }
-    .fc-card.is-flipped { transform: rotateY(180deg); }
-    .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 18px; border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.4rem; text-align: center; background: var(--card); }
-    .fc-front .term { font-size: 1.55rem; font-weight: 750; color: var(--blue); letter-spacing: -.02em; }
-    .fc-front .hint { margin-top: .65rem; color: var(--muted); font-size: .88rem; }
-    .fc-back { transform: rotateY(180deg); background: #eef5ff; }
-    .fc-back .meaning { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.5; }
-    .fc-back .meaning .trans { display: block; margin-top: .5rem; font-size: .9rem; color: var(--muted); font-weight: 500; }
-    .fc-controls { display: flex; gap: .55rem; justify-content: center; flex-wrap: wrap; margin-top: 1.25rem; }
-    .fc-progress { text-align: center; margin-top: .85rem; color: var(--soft); font-size: .9rem; font-weight: 600; }
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <div class="lang-menu">
-        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
-        <div class="lang-panel" id="langPanel">
-          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
-          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
         </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
       </div>
     </div>
-    <div class="container"><nav class="nav-scroll">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="bgwp.html">BGWP</a>
-      <a href="it-technik.html">IT-Technik</a>
-      <a href="aeup.html">AEuP</a>
-      <a href="it-systeme.html">IT-Systeme</a>
-      <a href="fachpraxis.html">Fp-Plus</a>
-      <a href="pug.html">PuG</a>
-      <a href="englisch.html">Englisch</a>
-      <a href="flashcards.html" class="active" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
-    </nav></div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash" class="active" aria-current="page">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
+    </div>
   </header>
 
   <div class="container page-head">
-    <button type="button" class="back-btn" onclick="window.location.href='index.html'">←</button>
+    <button type="button" class="back-btn" onclick="window.location.href='index.html'" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></button>
     <h1 data-i18n="flashPageTitle">فلش‌کارت اصطلاحات</h1>
     <p class="sub" data-i18n="flashPageSub">روی کارت بزن تا توضیح را ببینی</p>
   </div>
 
-  <main class="container">
+  <main id="main" class="container">
     <div class="fc-wrap">
-      <div class="fc-scene" onclick="flipCard()" role="button" tabindex="0">
+      <div class="fc-scene" id="cardScene" onclick="flipCard()" onkeydown="cardKey(event)" role="button" tabindex="0" aria-labelledby="cardTerm">
         <div class="fc-card" id="flashcard">
           <div class="fc-face fc-front">
             <div class="term" id="cardTerm">Serviceanfrage</div>
@@ -78,7 +87,12 @@
     </div>
   </main>
 
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
   <script>
     const cards = [
@@ -194,11 +208,28 @@
 
       document.getElementById('flashcard').classList.remove('is-flipped');
       flipped = false;
+      const scene = document.getElementById('cardScene');
+      if (scene) scene.setAttribute('aria-pressed', 'false');
     }
 
     function flipCard() {
       flipped = !flipped;
       document.getElementById('flashcard').classList.toggle('is-flipped', flipped);
+      const scene = document.getElementById('cardScene');
+      if (scene) scene.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+    }
+
+    function cardKey(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        flipCard();
+        return;
+      }
+      const rtl = document.documentElement.dir === 'rtl';
+      const next = rtl ? 'ArrowLeft' : 'ArrowRight';
+      const prev = rtl ? 'ArrowRight' : 'ArrowLeft';
+      if (e.key === next) { e.preventDefault(); nextCard(); }
+      if (e.key === prev) { e.preventDefault(); prevCard(); }
     }
 
     function nextCard() {
@@ -228,5 +259,9 @@
       renderCard();
     };
   </script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
+  <script src="lesson.js"></script>
 </body>
 </html>

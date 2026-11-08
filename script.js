@@ -6,23 +6,41 @@ const translations = {
     navHome: 'خانه',
     navFlash: 'فلش‌کارت',
     navQuiz: 'کوییز',
-    backHome: '← بازگشت به خانه',
-    backTopics: '← بازگشت به فهرست',
+    navExplain: 'توضیح‌گر',
+    navMenu: 'منو',
+    skipLink: 'رفتن به محتوا',
+    searchLabel: 'جستجو',
+    searchPlaceholder: 'جستجو در درس‌ها و ابزارها',
+    searchEmpty: 'موردی پیدا نشد.',
+    signedIn: 'وارد شده:',
+    backHome: 'بازگشت به خانه',
+    backTopics: 'بازگشت به فهرست',
     topicsTitle: 'موضوعات',
     itsSubtitle: 'شبکه‌ها را طراحی و پیاده‌سازی کنید',
-    heroTitle: 'پورتال آموزشی صنف ۱۱',
-    heroSubtitle: 'شبکه · سیستم‌های سایبر-فیزیکی · داده و API · پشتیبانی IT<br>با توضیحات واضح، مثال واقعی و تمرین تعاملی',
-    btnStart: 'شروع یادگیری',
-    btnNetwork: '🌐 شبکه و VLAN',
-    sectionSubjects: 'مضامین صنف ۱۱',
+    eyebrow: 'Lernova',
+    homeHeading: 'خوش آمدی؛ آینده‌ات با قدم بعدی تو ساخته می‌شود.',
+    homeLead: 'لازم نیست همه‌چیز را از همان ابتدا بدانی. کنجکاو بمان، با سرعت خودت پیش برو و همراه لرنووا توانایی‌هایت را کشف کن. هر نکته‌ای که یاد می‌گیری، قدمی رو به جلوست.',
+    btnStart: 'به درس‌ها',
+    btnQuiz: 'آزمون',
+    btnNetwork: 'شبکه و VLAN',
+    pathwayLead: 'این بخش فقط مسیر فعلی است، نه کل Lernova.',
+    sectionSubjects: 'مضامین این مسیر',
     sectionTools: 'ابزارهای یادگیری',
+    toolsLead: 'برای مرور کوتاه از همین‌جا شروع کن.',
+    sectionLF: 'حوزه‌های یادگیری',
+    lfLead: 'از برنامه درسی پایه ۱۱ بایرن.',
+    lf6Desc: 'درخواست خدمات، SLA و پشتیبانی · ۳۶ ساعت',
+    lf7Desc: 'سیستم‌های سایبر-فیزیکی · ۷۲ ساعت',
+    lf8Desc: 'داده، مدل‌ها و رابط‌ها · ۹۶ ساعت',
+    lf9Desc: 'شبکه و سرویس‌ها · ۹۶ ساعت',
+    cardEn: 'زبان‌های کامپیوتر، واژگان فنی و اخبار IT',
     cardITSys: 'شبکه، VLAN، DHCP، DNS، Subnetting و امنیت',
     cardITTec: 'سیستم‌های سایبر-فیزیکی، ESP32، MQTT و IoT',
     cardAEuP: 'داده، SQL، REST API، JSON و یکپارچه‌سازی',
     cardBGWP: 'پردازش درخواست خدمات، SLA و ITIL',
     cardFp: 'کار عملی سوئیچ، روتر و DHCP',
     cardPuG: 'سیاست، جامعه و WiSo',
-    tagOpen: 'مطالعه کن →',
+    tagOpen: 'مطالعه کن',
     flashTitle: 'فلش‌کارت',
     flashDesc: 'واژگان فنی آلمانی',
     flashPageTitle: 'فلش‌کارت اصطلاحات',
@@ -31,12 +49,12 @@ const translations = {
     quizTitle: 'کوییز تعاملی',
     quizDesc: 'آزمون چندگزینه‌ای',
     quizPageTitle: 'کوییز آمادگی',
-    quizPageSub: '۱۲ سؤال از مضامین صنف ۱۱',
+    quizPageSub: 'آزمون بر اساس مضمون، موضوع و سطح',
     submitQuiz: 'ثبت پاسخ‌ها',
     retryQuiz: 'دوباره',
     explainTitle: 'توضیح‌گر کوتاه',
     explainDesc: 'درس‌های ۱ دقیقه‌ای',
-    footer: 'Fachinformatiker Systemintegration · Klasse 11 · 2026'
+    footer: 'Lernova · 2026'
   },
   de: {
     langLabel: 'Sprache',
@@ -45,23 +63,41 @@ const translations = {
     navHome: 'Home',
     navFlash: 'Karteikarten',
     navQuiz: 'Quiz',
-    backHome: '← Zurück zur Startseite',
-    backTopics: '← Zurück zur Liste',
+    navExplain: 'Kurzerklärer',
+    navMenu: 'Menü',
+    skipLink: 'Zum Inhalt',
+    searchLabel: 'Suche',
+    searchPlaceholder: 'Fächer und Werkzeuge suchen',
+    searchEmpty: 'Keine Treffer.',
+    signedIn: 'Angemeldet:',
+    backHome: 'Zurück zur Startseite',
+    backTopics: 'Zurück zur Liste',
     topicsTitle: 'Themen',
     itsSubtitle: 'Netzwerke planen und bereitstellen',
-    heroTitle: 'Lernportal Klasse 11',
-    heroSubtitle: 'Netzwerke · Cyber-physische Systeme · Daten und API · IT-Support<br>Mit klaren Erklärungen, realen Beispielen und interaktiven Übungen',
-    btnStart: 'Lernen starten',
-    btnNetwork: '🌐 Netzwerk & VLAN',
-    sectionSubjects: 'Fächer Klasse 11',
+    eyebrow: 'Lernova',
+    homeHeading: 'Schön, dass du da bist. Deine Zukunft beginnt mit dem nächsten Schritt.',
+    homeLead: 'Du musst nicht alles auf einmal verstehen. Bleib neugierig, geh in deinem Tempo weiter und entdecke mit Lernova, wie viel du erreichen kannst. Jeder neue Gedanke zählt.',
+    btnStart: 'Zu den Fächern',
+    btnQuiz: 'Quiz öffnen',
+    btnNetwork: 'Netzwerk & VLAN',
+    pathwayLead: 'Dieser Block ist der aktuelle Lernweg, nicht die ganze Plattform.',
+    sectionSubjects: 'Fächer in diesem Weg',
     sectionTools: 'Lernwerkzeuge',
+    toolsLead: 'Zum Wiederholen direkt hier starten.',
+    sectionLF: 'Lernfelder',
+    lfLead: 'Aus den Lehrplanrichtlinien der Jahrgangsstufe 11.',
+    lf6Desc: 'Serviceanfragen, SLA und Support · 36 Std.',
+    lf7Desc: 'Cyber-physische Systeme · 72 Std.',
+    lf8Desc: 'Daten, Modelle und Schnittstellen · 96 Std.',
+    lf9Desc: 'Netzwerke und Dienste · 96 Std.',
+    cardEn: 'Computer Languages, Fachvokabular und IT-News',
     cardITSys: 'Netzwerke, VLAN, DHCP, DNS, Subnetting und Sicherheit',
     cardITTec: 'Cyber-physische Systeme, ESP32, MQTT und IoT',
     cardAEuP: 'Daten, SQL, REST API, JSON und Integration',
     cardBGWP: 'Serviceanfragen, SLA und ITIL',
     cardFp: 'Praktische Arbeit mit Switch, Router und DHCP',
     cardPuG: 'Politik, Gesellschaft und WiSo',
-    tagOpen: 'Öffnen →',
+    tagOpen: 'Öffnen',
     flashTitle: 'Karteikarten',
     flashDesc: 'Deutsche Fachbegriffe',
     flashPageTitle: 'Karteikarten – Fachbegriffe',
@@ -70,12 +106,12 @@ const translations = {
     quizTitle: 'Interaktives Quiz',
     quizDesc: 'Multiple-Choice-Test',
     quizPageTitle: 'Vorbereitungsquiz',
-    quizPageSub: '12 Fragen aus den Fächern der Klasse 11',
+    quizPageSub: 'Quiz nach Fach, Thema und Niveau',
     submitQuiz: 'Antworten abgeben',
     retryQuiz: 'Nochmal',
     explainTitle: 'Kurzerklärer',
     explainDesc: '1-Minuten-Lektionen',
-    footer: 'Fachinformatiker Systemintegration · Klasse 11 · 2026'
+    footer: 'Lernova · 2026'
   },
   en: {
     langLabel: 'Language',
@@ -84,23 +120,41 @@ const translations = {
     navHome: 'Home',
     navFlash: 'Flashcards',
     navQuiz: 'Quiz',
-    backHome: '← Back to home',
-    backTopics: '← Back to list',
+    navExplain: 'Explainers',
+    navMenu: 'Menu',
+    skipLink: 'Skip to content',
+    searchLabel: 'Search',
+    searchPlaceholder: 'Search subjects and tools',
+    searchEmpty: 'No matches.',
+    signedIn: 'Signed in:',
+    backHome: 'Back to home',
+    backTopics: 'Back to list',
     topicsTitle: 'Topics',
     itsSubtitle: 'Plan and deploy networks',
-    heroTitle: 'Class 11 Learning Portal',
-    heroSubtitle: 'Networks · Cyber-physical systems · Data and API · IT Support<br>With clear explanations, real examples and interactive practice',
-    btnStart: 'Start learning',
-    btnNetwork: '🌐 Network & VLAN',
-    sectionSubjects: 'Class 11 Subjects',
-    sectionTools: 'Learning Tools',
+    eyebrow: 'Lernova',
+    homeHeading: 'Welcome back. Your future begins with the next step.',
+    homeLead: 'You do not have to understand everything at once. Stay curious, move at your own pace, and discover how much you can achieve with Lernova. Every new insight counts.',
+    btnStart: 'Browse subjects',
+    btnQuiz: 'Open quiz',
+    btnNetwork: 'Network & VLAN',
+    pathwayLead: 'This block is the current pathway, not the whole platform.',
+    sectionSubjects: 'Subjects on this pathway',
+    sectionTools: 'Study tools',
+    toolsLead: 'Start here when you want to review.',
+    sectionLF: 'Learning fields',
+    lfLead: 'From the year-11 curriculum guidelines.',
+    lf6Desc: 'Service requests, SLA and support · 36 hours',
+    lf7Desc: 'Cyber-physical systems · 72 hours',
+    lf8Desc: 'Data, models and interfaces · 96 hours',
+    lf9Desc: 'Networks and services · 96 hours',
+    cardEn: 'Computer languages, technical vocabulary and IT news',
     cardITSys: 'Networks, VLAN, DHCP, DNS, Subnetting and security',
     cardITTec: 'Cyber-physical systems, ESP32, MQTT and IoT',
     cardAEuP: 'Data, SQL, REST API, JSON and integration',
     cardBGWP: 'Service requests, SLA and ITIL',
     cardFp: 'Practical work with switches, routers and DHCP',
     cardPuG: 'Politics, society and WiSo',
-    tagOpen: 'Open →',
+    tagOpen: 'Open',
     flashTitle: 'Flashcards',
     flashDesc: 'German technical terms',
     flashPageTitle: 'Flashcards – Technical Terms',
@@ -109,12 +163,12 @@ const translations = {
     quizTitle: 'Interactive Quiz',
     quizDesc: 'Multiple-choice test',
     quizPageTitle: 'Preparation Quiz',
-    quizPageSub: '12 questions from Class 11 subjects',
+    quizPageSub: 'Quiz by subject, topic and level',
     submitQuiz: 'Submit answers',
     retryQuiz: 'Retry',
     explainTitle: 'Short Explainers',
     explainDesc: '1-minute lessons',
-    footer: 'Fachinformatiker Systemintegration · Class 11 · 2026'
+    footer: 'Lernova · 2026'
   }
 };
 
@@ -127,11 +181,29 @@ function setLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (t[key] != null) el.innerHTML = t[key];
   });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] != null) el.setAttribute('placeholder', t[key]);
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    if (t[key] != null) el.setAttribute('aria-label', t[key]);
+  });
   const label = document.getElementById('langLabel');
   if (label) label.textContent = t.langLabel;
   localStorage.setItem('fisi-lang', lang);
   updateThemeButton();
   closeLangPanel();
+  document.dispatchEvent(new CustomEvent('fisi-lang', { detail: lang }));
+}
+
+function changeLang(lang) {
+  setLang(lang);
+  document.querySelectorAll('.lang-opt').forEach(btn => {
+    const on = btn.dataset.lang === lang;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
 }
 
 function updateThemeButton() {

@@ -2,46 +2,84 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LF 6 – Serviceanfragen | FISI Klasse 11</title>
+  <meta name="theme-color" content="#101418" />
+  <title>LF 6 – Serviceanfragen | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-
-  <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="lf6.html" class="active">LF 6</a>
-      <a href="lf7.html">LF 7</a>
-      <a href="lf8.html">LF 8</a>
-      <a href="lf9.html">LF 9</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
+        </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
+      </div>
     </div>
-  </nav>
-
-  <header class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / LF 6</div>
-      <h1>🎫 Serviceanfragen bearbeiten</h1>
-      <p class="subtitle">36 Std. · Betriebs- und Gesamtwirtschaftliche Prozesse</p>
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
     </div>
   </header>
+  <div class="container page-head">
+    <a class="back-btn" href="index.html" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></a>
+    <div>
+      <p class="breadcrumb"><a href="index.html" data-i18n="navHome">خانه</a> <span aria-hidden="true">/</span> LF 6</p>
+      <h1>Serviceanfragen bearbeiten</h1>
+      <p class="pathway">Klasse 11 · Fachinformatiker Systemintegration</p>
+      <p class="sub">36 Std. · Betriebs- und Gesamtwirtschaftliche Prozesse</p>
+      <p class="related"><a href="bgwp.html">Zum Fach BGWP</a></p>
+    </div>
+  </div>
+  <nav class="container subnav" aria-label="Lernfelder"><a href="lf6.html" title="Serviceanfragen" aria-current="page">LF 6</a><a href="lf7.html" title="Cyber-physische Systeme">LF 7</a><a href="lf8.html" title="Daten bereitstellen">LF 8</a><a href="lf9.html" title="Netzwerke und Dienste">LF 9</a></nav>
 
-  <main class="container">
+  <main id="main" class="container">
 
     <!-- FA -->
     <div class="lang-block" data-lang="fa">
+      <div class="card lesson-block">
+        <h2>پیش از شروع</h2>
+        <p>این حوزه <strong>Serviceanfragen bearbeiten</strong> است، ۳۶ ساعت، در درس فرآیندهای اقتصادی. طبق برنامه درسی بایرن (مه ۲۰۲۰) باید پیش از بخش اول آزمون پایانی تدریس شود. گواهی ITIL لازم نیست. باید بتوانی یک رویداد را بنویسی، ساعت را بخوانی، و جدا کنی که خدمت الان خوابیده یا چرا هی تکرار می‌شود.</p>
+      </div>
       <div class="card">
-        <h3>🎯 هدف یادگیری</h3>
+        <h2>هدف یادگیری</h2>
         <div class="goal-box">دانش‌آموزان صلاحیت دسته‌بندی درخواست‌های خدمات، پیدا کردن علت خطا و رفع آن را دارند.</div>
-        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <h3>چه چیزهایی یاد می‌گیری؟</h3>
         <ul>
           <li>دریافت Serviceanfrage (تماس مستقیم یا غیرمستقیم با مشتری)</li>
           <li>تحلیل درخواست و بررسی قرارداد خدمات (SLA)</li>
@@ -53,7 +91,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔄 فرآیند استاندارد</h3>
+        <h2>فرآیند استاندارد</h2>
         <ol>
           <li><strong>Aufnahme</strong> – دریافت و ثبت کامل اطلاعات</li>
           <li><strong>SLA prüfen</strong> – بررسی زمان واکنش و سطح خدمات</li>
@@ -67,7 +105,7 @@
         </ol>
       </div>
       <div class="card">
-        <h3>📋 SLA و Support-Level</h3>
+        <h2>SLA و Support-Level</h2>
         <p><strong>SLA</strong> توافق سطح خدمات است: زمان واکنش، زمان حل، ساعات پشتیبانی.</p>
         <ul>
           <li><strong>1st Level</strong> – اولین تماس، مشکلات ساده، ثبت تیکت</li>
@@ -77,7 +115,7 @@
         <p>اگر خارج از سطح تو بود → <strong>Eskalation</strong> با مستندات کامل.</p>
       </div>
       <div class="card">
-        <h3>⚡ اولویت‌بندی</h3>
+        <h2>اولویت‌بندی</h2>
         <ul>
           <li><strong>بسیار بالا</strong> – سرویس اصلی کل شرکت قطع است</li>
           <li><strong>بالا</strong> – یک دپارتمان یا چند کاربر مهم</li>
@@ -86,7 +124,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین‌ها</h3>
+        <h2>تمرین‌ها</h2>
         <div class="exercise">
           <div class="exercise-title">تمرین ۱</div>
           <p>کاربر: «از دیروز به SharePoint وصل نمی‌شوم و امروز باید فایل پروژه را تحویل بدهم.» چه سؤالاتی می‌پرسی؟ دسته و اولویت چیست؟</p>
@@ -109,7 +147,7 @@
         </div>
       </div>
       <div class="card">
-        <h3>📖 اصطلاحات آلمانی</h3>
+        <h2>اصطلاحات آلمانی</h2>
         <ul>
           <li><strong>Serviceanfrage</strong> – درخواست خدمات</li>
           <li><strong>Service-Level-Agreement (SLA)</strong> – توافق سطح خدمات</li>
@@ -123,10 +161,14 @@
 
     <!-- DE -->
     <div class="lang-block" data-lang="de">
+      <div class="card lesson-block">
+        <h2>Bevor du startest</h2>
+        <p>Dieses Lernfeld heißt <strong>Serviceanfragen bearbeiten</strong>, 36 Stunden, Fach Betriebs- und Gesamtwirtschaftliche Prozesse. Es soll vor Teil 1 der gestreckten Abschlussprüfung unterrichtet werden (Lehrplanrichtlinien Bayern, Mai 2020). Du brauchst noch kein ITIL-Zertifikat. Du musst einen Vorgang aufschreiben, eine Uhr lesen und unterscheiden, ob der Dienst jetzt steht oder warum er immer wieder ausfällt.</p>
+      </div>
       <div class="card">
-        <h3>🎯 Zielformulierung</h3>
+        <h2>Zielformulierung</h2>
         <div class="goal-box">Die Schülerinnen und Schüler verfügen über die Kompetenz, Serviceanfragen einzuordnen, Fehlerursachen zu ermitteln und zu beheben.</div>
-        <h3>📚 Was du lernst</h3>
+        <h3>Was du lernst</h3>
         <ul>
           <li>Serviceanfragen entgegennehmen (direkter und indirekter Kundenkontakt)</li>
           <li>Anfragen analysieren und vertragliche Grundlage (SLA) prüfen</li>
@@ -138,7 +180,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔄 Standardprozess</h3>
+        <h2>Standardprozess</h2>
         <ol>
           <li><strong>Aufnahme</strong> – Anfrage erfassen</li>
           <li><strong>SLA prüfen</strong> – Reaktions- und Lösungszeiten</li>
@@ -152,7 +194,7 @@
         </ol>
       </div>
       <div class="card">
-        <h3>📋 SLA & Support-Level</h3>
+        <h2>SLA & Support-Level</h2>
         <p>Ein <strong>SLA</strong> regelt Reaktionszeit, Lösungszeit und Support-Zeiten.</p>
         <ul>
           <li><strong>1st Level</strong> – Erstkontakt, Standardlösungen</li>
@@ -162,7 +204,7 @@
         <p>Außerhalb deines Levels → <strong>Eskalation</strong> mit vollständiger Dokumentation.</p>
       </div>
       <div class="card">
-        <h3>⚡ Priorisierung</h3>
+        <h2>Priorisierung</h2>
         <ul>
           <li><strong>Sehr hoch</strong> – Kernservice ausgefallen</li>
           <li><strong>Hoch</strong> – Abteilung oder mehrere wichtige Nutzer</li>
@@ -171,7 +213,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Übungen</h3>
+        <h2>Übungen</h2>
         <div class="exercise">
           <div class="exercise-title">Übung 1</div>
           <p>Nutzer: «Seit gestern komme ich nicht mehr auf SharePoint und muss heute die Projektdatei abgeben.» Welche Fragen stellst du? Kategorie und Priorität?</p>
@@ -194,7 +236,7 @@
         </div>
       </div>
       <div class="card">
-        <h3>📖 Wichtige Begriffe</h3>
+        <h2>Wichtige Begriffe</h2>
         <ul>
           <li><strong>Serviceanfrage</strong></li>
           <li><strong>Service-Level-Agreement (SLA)</strong></li>
@@ -208,10 +250,14 @@
 
     <!-- EN -->
     <div class="lang-block" data-lang="en">
+      <div class="card lesson-block">
+        <h2>Before you start</h2>
+        <p>This learning field is <strong>Serviceanfragen bearbeiten</strong>, 36 hours, in business processes. The Bavarian curriculum (May 2020) says it is taught before part 1 of the extended final exam. You do not need an ITIL certificate. You do need to write down a case, read a clock, and separate “the service is down now” from “this keeps happening”.</p>
+      </div>
       <div class="card">
-        <h3>🎯 Learning Goal</h3>
+        <h2>Learning Goal</h2>
         <div class="goal-box">Students can classify service requests, identify error causes and resolve them.</div>
-        <h3>📚 What you learn</h3>
+        <h3>What you learn</h3>
         <ul>
           <li>Receive service requests (direct and indirect customer contact)</li>
           <li>Analyse requests and check contractual basis (SLA)</li>
@@ -223,7 +269,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔄 Standard Process</h3>
+        <h2>Standard Process</h2>
         <ol>
           <li><strong>Capture</strong> – record the request fully</li>
           <li><strong>Check SLA</strong> – response and resolution times</li>
@@ -237,7 +283,7 @@
         </ol>
       </div>
       <div class="card">
-        <h3>📋 SLA & Support Levels</h3>
+        <h2>SLA & Support Levels</h2>
         <p>An <strong>SLA</strong> defines response time, resolution time and support hours.</p>
         <ul>
           <li><strong>1st Level</strong> – first contact, standard fixes</li>
@@ -247,7 +293,7 @@
         <p>Outside your level → <strong>escalate</strong> with complete documentation.</p>
       </div>
       <div class="card">
-        <h3>⚡ Prioritisation</h3>
+        <h2>Prioritisation</h2>
         <ul>
           <li><strong>Critical</strong> – core company service down</li>
           <li><strong>High</strong> – a department or several key users</li>
@@ -256,7 +302,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Exercises</h3>
+        <h2>Exercises</h2>
         <div class="exercise">
           <div class="exercise-title">Exercise 1</div>
           <p>User: “I haven’t been able to access SharePoint since yesterday and must submit the project file today.” What questions do you ask? Category and priority?</p>
@@ -279,7 +325,7 @@
         </div>
       </div>
       <div class="card">
-        <h3>📖 Key Terms</h3>
+        <h2>Key Terms</h2>
         <ul>
           <li><strong>Service request</strong></li>
           <li><strong>Service Level Agreement (SLA)</strong></li>
@@ -296,11 +342,16 @@
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
     </div>
   </footer>
   <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
+  <script src="lesson.js"></script>
 </body>
 </html>

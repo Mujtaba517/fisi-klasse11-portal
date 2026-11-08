@@ -2,227 +2,84 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz | Klasse 11</title>
+  <meta name="theme-color" content="#101418" />
+  <title>Quiz | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="auth.js"></script>
-  <style>
-    .quiz-progress{height:8px;background:var(--border);border-radius:999px;margin:1rem 0 1.5rem;overflow:hidden}
-    .quiz-progress-bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0;transition:.3s}
-    .quiz-meta{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--muted);margin-bottom:.5rem}
-    .quiz-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.3rem;margin-bottom:1rem;backdrop-filter:blur(8px)}
-    .quiz-question{font-weight:700;font-size:1.05rem;margin-bottom:.9rem}
-    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
-    .quiz-option{text-align:start;background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;cursor:pointer;font-family:inherit;color:var(--text);transition:.15s}
-    .quiz-option:hover:not(.disabled){border-color:var(--blue)}
-    .quiz-option.selected{border-color:var(--blue);background:var(--blue-soft)}
-    .quiz-option.correct{border-color:#22c55e;background:rgba(34,197,94,.15)}
-    .quiz-option.wrong{border-color:#ef4444;background:rgba(239,68,68,.15)}
-    .quiz-option.disabled{cursor:default;opacity:.9}
-    .explanation{margin-top:.7rem;padding:.7rem .9rem;background:var(--blue-soft);border-radius:10px;font-size:.9rem;color:var(--text);display:none}
-    .quiz-score{text-align:center;padding:1.5rem;background:var(--card);border-radius:18px;border:1px solid var(--border);margin-top:1rem}
-    .quiz-score strong{font-size:1.8rem;display:block;margin-bottom:.3rem}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <div class="lang-menu">
-        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
-        <div class="lang-panel" id="langPanel">
-          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
-          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
         </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
       </div>
     </div>
-    <div class="container"><nav class="nav-scroll">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="bgwp.html">BGWP</a>
-      <a href="it-technik.html">IT-Technik</a>
-      <a href="aeup.html">AEuP</a>
-      <a href="it-systeme.html">IT-Systeme</a>
-      <a href="fachpraxis.html">Fp-Plus</a>
-      <a href="pug.html">PuG</a>
-      <a href="englisch.html">Englisch</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" class="active" data-i18n="navQuiz">کوییز</a>
-    </nav></div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz" class="active" aria-current="page">کوییز</a>
+      </nav>
+    </div>
   </header>
 
   <div class="container page-head">
-    <button type="button" class="back-btn" onclick="window.location.href='index.html'">←</button>
+    <button type="button" class="back-btn" onclick="window.location.href='index.html'" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></button>
     <h1 data-i18n="quizPageTitle">کوییز آمادگی</h1>
     <p class="sub" data-i18n="quizPageSub">۱۲ سؤال از مضامین صنف ۱۱</p>
   </div>
 
-  <main class="container">
-    <div class="quiz-meta">
-      <span id="progressText">0 / 12</span>
-      <span id="answeredCount">0</span>
-    </div>
-    <div class="quiz-progress"><div class="quiz-progress-bar" id="progressBar"></div></div>
-
-    <div id="quizArea"></div>
-
-    <div style="text-align:center;margin:1.5rem 0 2rem">
-      <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()" data-i18n="submitQuiz">ثبت پاسخ‌ها</button>
-      <button class="btn btn-soft" id="retryBtn" style="display:none" onclick="location.reload()" data-i18n="retryQuiz">دوباره</button>
-    </div>
-    <div class="quiz-score" id="scoreBox" style="display:none"></div>
+  <main id="main" class="container">
+    <div id="quizRoot"></div>
   </main>
 
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
-  <script>
-    const questions = [
-      { q:{fa:"اولین گام منطقی در پردازش درخواست خدمات؟",de:"Erster sinnvoller Schritt bei einer Serviceanfrage?",en:"First logical step for a service request?"},
-        options:{fa:["بستن تیکت","ثبت کامل اطلاعات","ارسال فوری به سازنده","نادیده گرفتن SLA"],de:["Ticket schließen","Vollständige Aufnahme","Sofort an Hersteller","SLA ignorieren"],en:["Close ticket","Full capture of information","Immediate vendor call","Ignore SLA"]},
-        correct:1,
-        explain:{fa:"اول باید اطلاعات کامل ثبت شود تا بتوان اولویت و SLA را تشخیص داد.",de:"Zuerst vollständige Aufnahme, damit Priorität und SLA korrekt bestimmt werden können.",en:"First capture full information so priority and SLA can be determined."} },
-      { q:{fa:"Incident در ITIL بیشتر یعنی؟",de:"Incident in ITIL bedeutet vor allem?",en:"Incident in ITIL mainly means?"},
-        options:{fa:["علت ریشه‌ای","اختلال در سرویس که باید سریع برگردد","درخواست لپ‌تاپ جدید","تغییر برنامه‌ریزی‌شده"],de:["Grundursache","Störung des Services, die schnell behoben werden soll","Neuer Laptop-Antrag","Geplanter Change"],en:["Root cause","Service disruption to restore quickly","New laptop request","Planned change"]},
-        correct:1,
-        explain:{fa:"Incident = اختلال فعلی سرویس. Problem = علت ریشه‌ای.",de:"Incident = aktuelle Störung. Problem = Grundursache.",en:"Incident = current disruption. Problem = root cause."} },
-      { q:{fa:"MQTT عمدتاً برای چیست؟",de:"MQTT dient vor allem?",en:"MQTT is mainly for?"},
-        options:{fa:["ویدیو ۴K","پیام سبک IoT","ویرایش عکس","DNS"],de:["4K-Video","leichte IoT-Botschaften","Bildbearbeitung","DNS"],en:["4K video","lightweight IoT messaging","photo editing","DNS"]},
-        correct:1,
-        explain:{fa:"MQTT پروتکل سبک برای ارسال پیام بین دستگاه‌های IoT است.",de:"MQTT ist ein leichtes Protokoll für IoT-Nachrichten.",en:"MQTT is a lightweight protocol for IoT messaging."} },
-      { q:{fa:"QoS 1 در MQTT یعنی؟",de:"QoS 1 bei MQTT bedeutet?",en:"MQTT QoS 1 means?"},
-        options:{fa:["حداکثر یک‌بار","حداقل یک‌بار","هرگز ارسال نشود","فقط UDP"],de:["höchstens einmal","mindestens einmal","nie senden","nur UDP"],en:["at most once","at least once","never send","UDP only"]},
-        correct:1,
-        explain:{fa:"QoS 1 = حداقل یک بار تحویل. QoS 0 = حداکثر یک بار.",de:"QoS 1 = mindestens einmal. QoS 0 = höchstens einmal.",en:"QoS 1 = at least once. QoS 0 = at most once."} },
-      { q:{fa:"ER در مدل‌سازی داده؟",de:"ER in der Datenmodellierung?",en:"ER in data modelling?"},
-        options:{fa:["Error Route","Entity-Relationship","Email Relay","Edge Router"],de:["Error Route","Entity-Relationship","Email Relay","Edge Router"],en:["Error Route","Entity-Relationship","Email Relay","Edge Router"]},
-        correct:1,
-        explain:{fa:"ER = Entity-Relationship (موجودیت-رابطه).",de:"ER = Entity-Relationship.",en:"ER = Entity-Relationship."} },
-      { q:{fa:"فرمت رایج API مدرن؟",de:"Gängiges API-Format heute?",en:"Common modern API format?"},
-        options:{fa:["فقط Binary","JSON","MP3","EXE"],de:["nur Binary","JSON","MP3","EXE"],en:["binary only","JSON","MP3","EXE"]},
-        correct:1,
-        explain:{fa:"JSON فرمت استاندارد برای REST API مدرن است.",de:"JSON ist das Standardformat für moderne REST APIs.",en:"JSON is the standard format for modern REST APIs."} },
-      { q:{fa:"DHCP چه می‌کند؟",de:"Was macht DHCP?",en:"What does DHCP do?"},
-        options:{fa:["نام را به IP ترجمه می‌کند","IP را خودکار می‌دهد","فایروال است","VLAN می‌سازد"],de:["Name zu IP","vergibt IP automatisch","ist Firewall","erstellt VLANs"],en:["maps name to IP","assigns IP automatically","is a firewall","creates VLANs"]},
-        correct:1,
-        explain:{fa:"DHCP آدرس IP را به صورت خودکار تخصیص می‌دهد.",de:"DHCP vergibt automatisch IP-Adressen.",en:"DHCP automatically assigns IP addresses."} },
-      { q:{fa:"هدف اصلی VLAN؟",de:"Hauptzweck VLAN?",en:"Main purpose of VLAN?"},
-        options:{fa:["جداسازی منطقی شبکه","حذف نیاز به سوئیچ","جایگزین DNS","افزایش ولتاژ"],de:["logische Netztrennung","Switch überflüssig machen","DNS ersetzen","Spannung erhöhen"],en:["logical network separation","remove need for switches","replace DNS","increase voltage"]},
-        correct:0,
-        explain:{fa:"VLAN شبکه را به صورت منطقی جدا می‌کند.",de:"VLAN trennt Netzwerke logisch.",en:"VLAN logically separates networks."} },
-      { q:{fa:"در /26 تقریباً چند Host قابل استفاده؟",de:"Nutzbare Hosts in /26?",en:"Usable hosts in /26?"},
-        options:{fa:["14","30","62","254"],de:["14","30","62","254"],en:["14","30","62","254"]},
-        correct:2,
-        explain:{fa:"/26 = 64 آدرس – 2 = 62 Host قابل استفاده.",de:"/26 = 64 Adressen – 2 = 62 nutzbare Hosts.",en:"/26 = 64 addresses – 2 = 62 usable hosts."} },
-      { q:{fa:"Inter-VLAN Routing برای چیست؟",de:"Wozu Inter-VLAN-Routing?",en:"What is inter-VLAN routing for?"},
-        options:{fa:["ارتباط بین VLANها","حذف IP","فقط وای‌فای","جایگزین کابل"],de:["Kommunikation zwischen VLANs","IP löschen","nur WLAN","Kabel ersetzen"],en:["communication between VLANs","delete IPs","Wi-Fi only","replace cables"]},
-        correct:0,
-        explain:{fa:"برای ارتباط بین VLANهای مختلف نیاز به Routing است.",de:"Für Kommunikation zwischen verschiedenen VLANs wird Routing benötigt.",en:"Routing is needed for communication between different VLANs."} },
-      { q:{fa:"Grundgesetz در آلمان چیست؟",de:"Was ist das Grundgesetz?",en:"What is the Grundgesetz?"},
-        options:{fa:["قرارداد کاری یک شرکت","قانون اساسی","دستور یک روتر","مجوز نرم‌افزار"],de:["Arbeitsvertrag einer Firma","die Verfassung","Router-Befehl","Softwarelizenz"],en:["one company employment contract","the constitution","a router command","a software license"]},
-        correct:1,
-        explain:{fa:"Grundgesetz = قانون اساسی آلمان.",de:"Das Grundgesetz ist die Verfassung Deutschlands.",en:"The Grundgesetz is the German constitution."} },
-      { q:{fa:"Berichtsheft در Ausbildung چرا مهم است؟",de:"Warum ist das Berichtsheft wichtig?",en:"Why is the training record (Berichtsheft) important?"},
-        options:{fa:["فقط تزئینی است","اثبات آموزش و اغلب پیش‌نیاز آزمون","جایگزین دیپلم","مالیات"],de:["nur Deko","Nachweis der Ausbildung und oft Prüfungsvoraussetzung","ersetzt Abschluss","Steuer"],en:["decoration only","proof of training and often exam prerequisite","replaces diploma","taxes"]},
-        correct:1,
-        explain:{fa:"Berichtsheft اثبات آموزش است و اغلب برای آزمون لازم است.",de:"Das Berichtsheft ist Nachweis der Ausbildung und oft Prüfungsvoraussetzung.",en:"The Berichtsheft proves training and is often required for the exam."} }
-    ];
-
-    const answeredLabel = {
-      fa: 'پاسخ داده شده',
-      de: 'beantwortet',
-      en: 'answered'
-    };
-
-    let answered = {};
-    let submitted = false;
-
-    function getLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
-
-    function updateProgress(){
-      const total = questions.length;
-      const count = Object.keys(answered).length;
-      const lang = getLang();
-      document.getElementById('progressText').textContent = count + ' / ' + total;
-      document.getElementById('answeredCount').textContent = count + ' ' + (answeredLabel[lang] || answeredLabel.fa);
-      document.getElementById('progressBar').style.width = (count / total * 100) + '%';
-    }
-
-    function renderQuiz(){
-      const lang = getLang();
-      const area = document.getElementById('quizArea');
-      area.innerHTML = '';
-      questions.forEach((item, idx) => {
-        const card = document.createElement('div');
-        card.className = 'quiz-card';
-        card.id = 'q'+idx;
-        let opts = '';
-        item.options[lang].forEach((opt, oIdx) => {
-          opts += `<button type="button" class="quiz-option" data-q="${idx}" data-o="${oIdx}" onclick="selectOption(${idx},${oIdx})">${opt}</button>`;
-        });
-        const expl = item.explain ? `<div class="explanation" id="expl${idx}">${item.explain[lang]||item.explain.fa}</div>` : '';
-        card.innerHTML = `<div class="quiz-question">${idx+1}. ${item.q[lang]}</div><div class="quiz-options">${opts}</div>${expl}`;
-        area.appendChild(card);
-
-        if (answered[idx] !== undefined) {
-          const options = card.querySelectorAll('.quiz-option');
-          const oIdx = answered[idx];
-          if (options[oIdx]) options[oIdx].classList.add('selected');
-        }
-      });
-      updateProgress();
-    }
-
-    function selectOption(qIdx, oIdx){
-      if (submitted) return;
-      answered[qIdx] = oIdx;
-      const options = document.querySelectorAll('#q'+qIdx+' .quiz-option');
-      options.forEach(o => o.classList.remove('selected'));
-      options[oIdx].classList.add('selected');
-      updateProgress();
-    }
-
-    function submitQuiz(){
-      if (submitted) return;
-      submitted = true;
-      let score = 0;
-      const lang = getLang();
-      questions.forEach((item, idx) => {
-        const options = document.querySelectorAll('#q'+idx+' .quiz-option');
-        options.forEach(o => o.classList.add('disabled'));
-        const userAns = answered[idx];
-        if (userAns === item.correct) {
-          score++;
-          options[item.correct].classList.add('correct');
-        } else {
-          options[item.correct].classList.add('correct');
-          if (userAns !== undefined) options[userAns].classList.add('wrong');
-        }
-        const expl = document.getElementById('expl'+idx);
-        if (expl) expl.style.display = 'block';
-      });
-
-      const percent = Math.round(score / questions.length * 100);
-      let grade = '';
-      if (percent >= 90) grade = lang==='de'?'Sehr gut':lang==='en'?'Excellent':'عالی';
-      else if (percent >= 75) grade = lang==='de'?'Gut':lang==='en'?'Good':'خوب';
-      else if (percent >= 60) grade = lang==='de'?'Befriedigend':lang==='en'?'Satisfactory':'قابل قبول';
-      else grade = lang==='de'?'Verbesserung nötig':lang==='en'?'Needs improvement':'نیاز به تمرین بیشتر';
-
-      const box = document.getElementById('scoreBox');
-      box.style.display = 'block';
-      box.innerHTML = `<strong>${score} / ${questions.length}</strong>${percent}%<br><span style="color:var(--blue)">${grade}</span>`;
-      document.getElementById('submitBtn').style.display = 'none';
-      document.getElementById('retryBtn').style.display = 'inline-flex';
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
-
-    document.addEventListener('DOMContentLoaded', renderQuiz);
-    const _setLang = window.setLang;
-    window.setLang = function(lang){
-      _setLang(lang);
-      if (!submitted) renderQuiz();
-    };
-  </script>
+  <script src="quiz-data.js"></script>
+  <script src="quiz-app.js"></script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
+  <script src="lesson.js"></script>
 </body>
 </html>
