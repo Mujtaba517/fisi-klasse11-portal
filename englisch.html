@@ -61,7 +61,7 @@
         { id:'noten', title:'ساختار نمره', content:'<div class="card"><h3>ساختار نمره</h3><ul><li>3 نمره هم‌ارزش</li><li>حداقل 1 نمره کتبی (اعلام‌شده)</li><li>1 ارائه (Referat)</li><li>احتمالاً مشارکت کلاسی / تست</li></ul><p><strong>KMK Fremdsprachenzertifikat</strong> (B1/B2) اختیاری است. ثبت‌نام در ژانویه/فوریه، آزمون در اوریل/مه. هزینه حدود 30€.</p></div>' },
         { id:'machine', title:'Machine Languages', content:'<div class="card"><h3>Machine Languages & Programming Languages</h3><ul><li><strong>Machine Code / Machine Language:</strong> زبان ماشین – مستقیم برای پردازنده</li><li><strong>Assembly Language:</strong> زبان سطح پایین با استفاده از منمونیک</li><li><strong>Mnemonic:</strong> مخفف برای دستورات (مثل AND، SUB، MUL)</li><li><strong>High-level languages:</strong> زبان‌های سطح بالا (قابل فهم‌تر برای انسان)</li></ul><p>زبان ماشین مستقیم اجرا می‌شود اما سخت و وابسته به ماشین است. زبان‌های سطح بالا باید به زبان ماشین ترجمه (compile) شوند.</p></div>' },
         { id:'vocab', title:'واژگان مهم', content:'<div class="card"><h3>واژگان مهم (Vocabulary)</h3><ul><li><strong>mnemonic</strong> – مخفف / Eselsbrücke</li><li><strong>to assemble</strong> – مونتاژ کردن / جمع کردن</li><li><strong>to compile</strong> – ترجمه / کامپایل کردن</li><li><strong>machine dependent</strong> – وابسته به ماشین</li><li><strong>tedious</strong> – خسته‌کننده / کسل‌کننده</li><li><strong>instruction</strong> – دستور</li><li><strong>executables</strong> – فایل‌های قابل اجرا</li><li><strong>payroll program</strong> – برنامه حقوق و دستمزد</li></ul></div>' },
-        { id:'themen', title:'موضوعات کلاس', content:'<div class="card"><h3>موضوعات کلاس</h3><ul><li>Hörverstehen و Leseverstehen</li><li>Computer & Machine Languages</li><li>واژگان فنی</li><li>IT-News (ارائه خبرهای فناوری)</li></ul><p>آزمون اول: پنجشنبه، 08.10.2026</p></div>' }
+        { id:'themen', title:'موضوعات کلاس', content:'<div class="card"><h3>موضوعات کلاس</h3><ul><li>Hörverstehen und Leseverstehen</li><li>Computer & Machine Languages</li><li>واژگان فنی</li><li>IT-News (ارائه خبرهای فناوری)</li></ul><p>آزمون اول: پنجشنبه، 08.10.2026</p></div>' }
       ],
       de: [
         { id:'noten', title:'Notengebung', content:'<div class="card"><h3>Notengebung</h3><p>3 gleichwertige Noten · mind. 1 schriftliche · 1 Referat · ggf. Unterrichtsbeitrag/Test</p><p>KMK Fremdsprachenzertifikat (B1/B2) freiwillig möglich.</p></div>' },
@@ -102,25 +102,44 @@
       document.getElementById('topicListView').style.display = 'none';
       document.getElementById('topicContentView').style.display = 'block';
       viewingTopic = true;
+      history.replaceState(null, '', '#' + id);
       window.scrollTo(0, 0);
     }
     function showList(){
       document.getElementById('topicContentView').style.display = 'none';
       document.getElementById('topicListView').style.display = 'block';
       viewingTopic = false;
+      history.replaceState(null, '', location.pathname + location.search);
       renderTopicList();
     }
     function smartBack(){
       if (viewingTopic) showList();
       else window.location.href = 'index.html';
     }
+    function initFromHash() {
+      const hash = location.hash.slice(1);
+      if (hash) {
+        const lang = currentLang();
+        const list = topics[lang] || topics.fa;
+        if (list.find(t => t.id === hash)) {
+          showTopic(hash);
+          return;
+        }
+      }
+      renderTopicList();
+    }
     const originalSetLang = window.setLang;
     window.setLang = function(lang){
       originalSetLang(lang);
-      renderTopicList();
-      showList();
+      const hash = location.hash.slice(1);
+      if (hash && viewingTopic) {
+        showTopic(hash);
+      } else {
+        renderTopicList();
+      }
     };
-    document.addEventListener('DOMContentLoaded', renderTopicList);
+    document.addEventListener('DOMContentLoaded', initFromHash);
+    window.addEventListener('hashchange', initFromHash);
   </script>
 </body>
 </html>
