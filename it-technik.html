@@ -6,7 +6,14 @@
   <title>IT-Technik | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
+  <style>
+    code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}
+    .topic-list{display:grid;gap:.8rem;margin-top:1rem}
+    .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
+    .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
+    .topic-item h3{font-size:1.05rem;margin:0}
+    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -29,6 +36,7 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
+      <a href="englisch.html">Englisch</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
@@ -39,109 +47,91 @@
     <p class="sub">CPS · Sensor/Aktor · ESP32 · MQTT · WLAN · Pullup/Debounce</p>
   </div>
   <main class="container">
-    <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>IoT در مقابل CPS</h3>
-        <p><strong>IoT:</strong> تمرکز بر اتصال و انتقال داده از طریق اینترنت.</p>
-        <p><strong>CPS (Cyber-Physical System):</strong> ارتباط عمیق و حلقه بسته بین نرم‌افزار (Cyber) و سخت‌افزار (فیزیکی).</p>
-      </div>
-
-      <div class="card"><h3>سنسور و اکتور</h3>
-        <ul>
-          <li><strong>Sensor:</strong> مقدار فیزیکی (دما، فشار هوا) را اندازه می‌گیرد و به سیستم می‌فرستد.</li>
-          <li><strong>Aktor:</strong> ورودی از دنیای Cyber می‌گیرد و در دنیای فیزیکی عمل می‌کند (رله، فن، موتور).</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>ESP32 و Arduino Framework</h3>
-        <ul>
-          <li><strong>setup():</strong> تنظیمات اولیه (یک بار اجرا می‌شود)</li>
-          <li><strong>loop():</strong> حلقه اصلی که مدام تکرار می‌شود</li>
-          <li><strong>void:</strong> تابع بدون مقدار بازگشتی</li>
-          <li>ESP32 داخلی با <strong>3.3V</strong> کار می‌کند. از USB می‌تواند 5V خروجی بدهد.</li>
-          <li><strong>Hard Reset:</strong> وقتی پایه EN به GND کشیده شود.</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>Pullup و Pulldown</h3>
-        <p>ورودی باز میکروکنترلر مانند آنتن عمل می‌کند و حالت تصادفی (Float) دارد.</p>
-        <ul>
-          <li><strong>Pulldown:</strong> پایه را با مقاومت به GND می‌کشد → باز = LOW، فشرده = HIGH</li>
-          <li><strong>Pullup:</strong> پایه را به VCC می‌کشد → باز = HIGH، فشرده = LOW (Active Low)</li>
-        </ul>
-        <p>بسیاری از میکروکنترلرها Pullup داخلی دارند.</p>
-      </div>
-
-      <div class="card"><h3>Prellen (Debouncing)</h3>
-        <p>وقتی تاستر فشرده می‌شود، کنتاکت‌ها چندین بار سریع وصل و قطع می‌شوند. ESP32 چون سریع است، این را چندین فشار جداگانه می‌بیند.</p>
-        <p><strong>راه‌حل نرم‌افزاری:</strong> پس از اولین تغییر، ۱۰ تا ۵۰ میلی‌ثانیه صبر کن و حالت را دوباره چک کن.</p>
-      </div>
-
-      <div class="card"><h3>Baudrate و Serial Monitor</h3>
-        <p>Baudrate تعداد تغییر سیگنال در ثانیه است. فرستنده و گیرنده باید <strong>دقیقاً یکسان</strong> باشند (مثل 115200).</p>
-        <p>در ارتباط سریال ساده: 1 Baud = 1 Bit/s</p>
-      </div>
-
-      <div class="card"><h3>اتصال WLAN با ESP32</h3>
-        <p>مثال کلاس: اتصال به روتر و نمایش IP و MAC از طریق Serial Monitor، سپس Ping به google.de</p>
-      </div>
-
-      <div class="card"><h3>✅ کوییز</h3><div id="quiz-tec"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">ثبت پاسخ</button></div><div class="quiz-score" id="score-tec" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicListView">
+      <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
+      <div class="topic-list" id="topicList"></div>
     </div>
-
-    <div class="lang-block" data-lang="de">
-      <div class="card"><h3>IoT vs. CPS</h3>
-        <p><strong>IoT:</strong> Fokus auf Vernetzung und Datenübertragung über das Internet.</p>
-        <p><strong>CPS:</strong> Tiefe Verknüpfung und geschlossene Regelkreise zwischen Software (Cyber) und Hardware (Physisch).</p>
-      </div>
-      <div class="card"><h3>Sensor und Aktor</h3>
-        <p><strong>Sensor:</strong> Misst physikalische Werte und gibt sie weiter.<br>
-        <strong>Aktor:</strong> Empfängt Input aus der Cyber-Welt und wirkt in der physischen Welt.</p>
-      </div>
-      <div class="card"><h3>ESP32 + Arduino</h3>
-        <p>setup() = einmalige Konfiguration<br>loop() = Hauptschleife<br>ESP32 arbeitet intern mit 3,3 V. Hard Reset durch Ziehen von EN auf GND.</p>
-      </div>
-      <div class="card"><h3>Pullup / Pulldown & Prellen</h3>
-        <p>Pull-Widerstände verhindern Floating. Prellen = mechanisches Kontaktprellen beim Taster – im Code mit kurzer Sperrzeit (10–50 ms) entprellen.</p>
-      </div>
-      <div class="card"><h3>Baudrate</h3>
-        <p>Sender und Empfänger müssen exakt dieselbe Baudrate haben (z. B. 115200).</p>
-      </div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Abgeben</button></div><div class="quiz-score" id="score-tec-de" style="display:none;margin-top:1rem"></div></div>
-    </div>
-
-    <div class="lang-block" data-lang="en">
-      <div class="card"><h3>IoT vs CPS</h3>
-        <p><strong>IoT:</strong> Focus on networking and data transfer over the internet.<br>
-        <strong>CPS:</strong> Deep coupling and closed control loops between software and physical hardware.</p>
-      </div>
-      <div class="card"><h3>Sensor & Actuator</h3>
-        <p><strong>Sensor:</strong> Measures physical values.<br><strong>Actuator:</strong> Receives cyber input and acts in the physical world.</p>
-      </div>
-      <div class="card"><h3>ESP32 + Arduino</h3>
-        <p>setup() = one-time configuration<br>loop() = main loop<br>ESP32 runs internally on 3.3 V. Hard reset by pulling EN to GND.</p>
-      </div>
-      <div class="card"><h3>Pullup / Pulldown & Debouncing</h3>
-        <p>Pull resistors prevent floating inputs. Debouncing handles mechanical contact bounce (ignore changes for 10–50 ms).</p>
-      </div>
-      <div class="card"><h3>Baudrate</h3>
-        <p>Sender and receiver must use exactly the same baudrate (e.g. 115200).</p>
-      </div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-tec-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('tec')">Submit</button></div><div class="quiz-score" id="score-tec-en" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicContentView" style="display:none">
+      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
+      <div id="singleTopicContent"></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={tec:{fa:[{q:'تفاوت اصلی IoT و CPS؟',opts:['هیچ','CPS حلقه بسته فیزیکی-سایبر دارد','فقط ویدیو'],c:1},{q:'ESP32 داخلی با چند ولت کار می‌کند؟',opts:['5V','3.3V','12V'],c:1},{q:'Pulldown چه می‌کند؟',opts:['پایه را به VCC می‌کشد','پایه را به GND می‌کشد','حذف تاستر'],c:1},{q:'Prellen چیست؟',opts:['نوع سنسور','تماس مکرر مکانیکی تاستر','فقط وای‌فای'],c:1},{q:'Baudrate باید چگونه باشد؟',opts:['مختلف','دقیقاً یکسان در فرستنده و گیرنده','فقط 9600'],c:1}],de:[{q:'Hauptunterschied IoT und CPS?',opts:['keiner','CPS hat geschlossenen Regelkreis','nur Video'],c:1},{q:'ESP32 interne Spannung?',opts:['5V','3,3V','12V'],c:1},{q:'Was macht Pulldown?',opts:['zieht auf VCC','zieht auf GND','löscht Taster'],c:1},{q:'Was ist Prellen?',opts:['Sensor','mechanisches Kontaktprellen','nur WLAN'],c:1},{q:'Baudrate muss?',opts:['unterschiedlich','exakt gleich sein','nur 9600'],c:1}],en:[{q:'Main difference IoT vs CPS?',opts:['none','CPS has closed control loop','only video'],c:1},{q:'ESP32 internal voltage?',opts:['5V','3.3V','12V'],c:1},{q:'What does pulldown do?',opts:['pulls to VCC','pulls to GND','deletes button'],c:1},{q:'What is bouncing?',opts:['a sensor','mechanical contact bounce','only WiFi'],c:1},{q:'Baudrate must be?',opts:['different','exactly the same','only 9600'],c:1}]}};
-    const answers={};let done={};
-    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
-    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
-    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
-    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
-    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
-    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
-    document.addEventListener('DOMContentLoaded',()=>renderMini('tec'));
-    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.tec){answers.tec={};renderMini('tec')}};
+    const topics = {
+      fa: [
+        { id:'iotcps', title:'IoT در مقابل CPS', content:'<div class="card"><h3>IoT در مقابل CPS</h3><p><strong>IoT:</strong> تمرکز بر اتصال و انتقال داده از طریق اینترنت.</p><p><strong>CPS (Cyber-Physical System):</strong> ارتباط عمیق و حلقه بسته بین نرم‌افزار (Cyber) و سخت‌افزار (فیزیکی).</p></div>' },
+        { id:'sensor', title:'سنسور و اکتور', content:'<div class="card"><h3>سنسور و اکتور</h3><ul><li><strong>Sensor:</strong> مقدار فیزیکی (دما، فشار هوا) را اندازه می‌گیرد و به سیستم می‌فرستد.</li><li><strong>Aktor:</strong> ورودی از دنیای Cyber می‌گیرد و در دنیای فیزیکی عمل می‌کند (رله، فن، موتور).</li></ul></div>' },
+        { id:'esp32', title:'ESP32 و Arduino Framework', content:'<div class="card"><h3>ESP32 و Arduino Framework</h3><ul><li><strong>setup():</strong> تنظیمات اولیه (یک بار اجرا می‌شود)</li><li><strong>loop():</strong> حلقه اصلی که مدام تکرار می‌شود</li><li><strong>void:</strong> تابع بدون مقدار بازگشتی</li><li>ESP32 داخلی با <strong>3.3V</strong> کار می‌کند. از USB می‌تواند 5V خروجی بدهد.</li><li><strong>Hard Reset:</strong> وقتی پایه EN به GND کشیده شود.</li></ul></div>' },
+        { id:'pull', title:'Pullup و Pulldown', content:'<div class="card"><h3>Pullup و Pulldown</h3><p>ورودی باز میکروکنترلر مانند آنتن عمل می‌کند و حالت تصادفی (Float) دارد.</p><ul><li><strong>Pulldown:</strong> پایه را با مقاومت به GND می‌کشد → باز = LOW، فشرده = HIGH</li><li><strong>Pullup:</strong> پایه را به VCC می‌کشد → باز = HIGH، فشرده = LOW (Active Low)</li></ul><p>بسیاری از میکروکنترلرها Pullup داخلی دارند.</p></div>' },
+        { id:'prellen', title:'Prellen (Debouncing)', content:'<div class="card"><h3>Prellen (Debouncing)</h3><p>وقتی تاستر فشرده می‌شود، کنتاکت‌ها چندین بار سریع وصل و قطع می‌شوند. ESP32 چون سریع است، این را چندین فشار جداگانه می‌بیند.</p><p><strong>راه‌حل نرم‌افزاری:</strong> پس از اولین تغییر، ۱۰ تا ۵۰ میلی‌ثانیه صبر کن و حالت را دوباره چک کن.</p></div>' },
+        { id:'baud', title:'Baudrate و Serial Monitor', content:'<div class="card"><h3>Baudrate و Serial Monitor</h3><p>Baudrate تعداد تغییر سیگنال در ثانیه است. فرستنده و گیرنده باید <strong>دقیقاً یکسان</strong> باشند (مثل 115200).</p><p>در ارتباط سریال ساده: 1 Baud = 1 Bit/s</p></div>' },
+        { id:'wlan', title:'اتصال WLAN با ESP32', content:'<div class="card"><h3>اتصال WLAN با ESP32</h3><p>مثال کلاس: اتصال به روتر و نمایش IP و MAC از طریق Serial Monitor، سپس Ping به google.de</p></div>' }
+      ],
+      de: [
+        { id:'iotcps', title:'IoT vs. CPS', content:'<div class="card"><h3>IoT vs. CPS</h3><p><strong>IoT:</strong> Fokus auf Vernetzung und Datenübertragung über das Internet.</p><p><strong>CPS:</strong> Tiefe Verknüpfung und geschlossene Regelkreise zwischen Software (Cyber) und Hardware (Physisch).</p></div>' },
+        { id:'sensor', title:'Sensor und Aktor', content:'<div class="card"><h3>Sensor und Aktor</h3><p><strong>Sensor:</strong> Misst physikalische Werte und gibt sie weiter.<br><strong>Aktor:</strong> Empfängt Input aus der Cyber-Welt und wirkt in der physischen Welt.</p></div>' },
+        { id:'esp32', title:'ESP32 + Arduino', content:'<div class="card"><h3>ESP32 + Arduino</h3><p>setup() = einmalige Konfiguration<br>loop() = Hauptschleife<br>ESP32 arbeitet intern mit 3,3 V. Hard Reset durch Ziehen von EN auf GND.</p></div>' },
+        { id:'pull', title:'Pullup / Pulldown & Prellen', content:'<div class="card"><h3>Pullup / Pulldown & Prellen</h3><p>Pull-Widerstände verhindern Floating. Prellen = mechanisches Kontaktprellen beim Taster – im Code mit kurzer Sperrzeit (10–50 ms) entprellen.</p></div>' },
+        { id:'prellen', title:'Prellen (Debouncing)', content:'<div class="card"><h3>Prellen (Debouncing)</h3><p>Mechanisches Kontaktprellen beim Taster. Im Code nach dem ersten Flankenwechsel 10–50 ms warten und Zustand erneut prüfen.</p></div>' },
+        { id:'baud', title:'Baudrate', content:'<div class="card"><h3>Baudrate</h3><p>Sender und Empfänger müssen exakt dieselbe Baudrate haben (z. B. 115200).</p></div>' },
+        { id:'wlan', title:'WLAN mit ESP32', content:'<div class="card"><h3>WLAN mit ESP32</h3><p>Beispiel: Verbindung zum Router, Ausgabe von IP und MAC über den seriellen Monitor, danach Ping auf google.de.</p></div>' }
+      ],
+      en: [
+        { id:'iotcps', title:'IoT vs CPS', content:'<div class="card"><h3>IoT vs CPS</h3><p><strong>IoT:</strong> Focus on networking and data transfer over the internet.<br><strong>CPS:</strong> Deep coupling and closed control loops between software and physical hardware.</p></div>' },
+        { id:'sensor', title:'Sensor & Actuator', content:'<div class="card"><h3>Sensor & Actuator</h3><p><strong>Sensor:</strong> Measures physical values.<br><strong>Actuator:</strong> Receives cyber input and acts in the physical world.</p></div>' },
+        { id:'esp32', title:'ESP32 + Arduino', content:'<div class="card"><h3>ESP32 + Arduino</h3><p>setup() = one-time configuration<br>loop() = main loop<br>ESP32 runs internally on 3.3 V. Hard reset by pulling EN to GND.</p></div>' },
+        { id:'pull', title:'Pullup / Pulldown', content:'<div class="card"><h3>Pullup / Pulldown</h3><p>Pull resistors prevent floating inputs. Pullup is often built-in.</p></div>' },
+        { id:'prellen', title:'Debouncing', content:'<div class="card"><h3>Debouncing</h3><p>Mechanical contact bounce of a button. In code, wait 10–50 ms after the first edge and check the state again.</p></div>' },
+        { id:'baud', title:'Baudrate', content:'<div class="card"><h3>Baudrate</h3><p>Sender and receiver must use exactly the same baudrate (e.g. 115200).</p></div>' },
+        { id:'wlan', title:'WLAN with ESP32', content:'<div class="card"><h3>WLAN with ESP32</h3><p>Example: Connect to router, print IP and MAC via serial monitor, then ping google.de.</p></div>' }
+      ]
+    };
+
+    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
+
+    function renderTopicList(){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const container = document.getElementById('topicList');
+      container.innerHTML = '';
+      list.forEach(t => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'topic-item';
+        a.innerHTML = `<h3>${t.title}</h3><span>→</span>`;
+        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
+        container.appendChild(a);
+      });
+    }
+
+    function showTopic(id){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const topic = list.find(t => t.id === id);
+      if (!topic) return;
+      document.getElementById('singleTopicContent').innerHTML = topic.content;
+      document.getElementById('topicListView').style.display = 'none';
+      document.getElementById('topicContentView').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function showList(e){
+      if (e) e.preventDefault();
+      document.getElementById('topicContentView').style.display = 'none';
+      document.getElementById('topicListView').style.display = 'block';
+      renderTopicList();
+    }
+
+    const originalSetLang = window.setLang;
+    window.setLang = function(lang){
+      originalSetLang(lang);
+      renderTopicList();
+      showList();
+    };
+
+    document.addEventListener('DOMContentLoaded', renderTopicList);
   </script>
 </body>
 </html>
