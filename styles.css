@@ -194,20 +194,16 @@ html[lang="en"] .lang-block[data-lang="en"] { display: block; }
   min-height: 44px;
 }
 .brand:hover { color: var(--text); }
-.brand-mark {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  background: var(--primary-strong);
-  color: var(--on-primary);
-  font-size: 0.78rem;
+.brand-logo { display: block; flex: none; color: var(--text); }
+.brand-word { font-size: 1.05rem; font-weight: 650; letter-spacing: -0.03em; line-height: 1; }
+.pathway {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: var(--fs-xs);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
-.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-.brand-text span { color: var(--muted); font-size: var(--fs-xs); font-weight: 550; letter-spacing: 0.01em; }
 .header-tools { display: flex; align-items: center; gap: 0.4rem; }
 .lang-switch { display: flex; gap: 0.25rem; }
 .lang-opt, .theme-opt {
@@ -341,9 +337,18 @@ html[lang="en"] .lang-block[data-lang="en"] { display: block; }
   transform: translateX(100%);
   transition: transform 0.2s ease;
   overflow-y: auto;
+  visibility: hidden;
+  pointer-events: none;
 }
-html[dir="rtl"] .settings-panel { transform: translateX(-100%); }
-.settings-panel.open { transform: translateX(0); }
+/* html[dir] counts as an element + attribute, so it outranks .settings-panel.open.
+   Without the :not(.open) / .open pair below, Persian keeps the drawer off-screen. */
+html[dir="rtl"] .settings-panel:not(.open) { transform: translateX(-100%); }
+.settings-panel.open,
+html[dir="rtl"] .settings-panel.open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
 .settings-content { padding: 1.25rem 1.25rem 2rem; }
 .settings-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
 .settings-header h2, .settings-header h3 { margin: 0; font-size: 1.15rem; }
@@ -434,7 +439,7 @@ input[type="range"] { width: 100%; accent-color: var(--primary-strong); }
 html[dir="rtl"] .chevron-back { transform: scaleX(-1); }
 
 .search { display: block; width: min(22rem, 100%); }
-.search input, .list-search, input[type="search"], input[type="text"], input[type="password"], input[type="email"] {
+.search input, .list-search, input[type="search"], input[type="text"], input[type="password"], input[type="email"], select, textarea {
   width: 100%;
   min-height: 44px;
   padding: 0.55rem 0.8rem;
@@ -443,7 +448,9 @@ html[dir="rtl"] .chevron-back { transform: scaleX(-1); }
   border-radius: var(--radius-sm);
   color: var(--text);
 }
-.search input::placeholder, input::placeholder { color: var(--muted); }
+.search input::placeholder, input::placeholder, textarea::placeholder { color: var(--muted); }
+select, textarea { background: var(--bg); }
+textarea { padding: 0.7rem 0.8rem; min-height: 6rem; }
 .section-head .search { margin-inline-start: auto; }
 .search-empty {
   color: var(--muted);
@@ -555,6 +562,13 @@ html[dir="rtl"] .chevron-back { transform: scaleX(-1); }
 .exercise { background: var(--bg); border: 1px solid var(--border); border-inline-start: 3px solid var(--accent); }
 .exercise-title { font-size: var(--fs-sm); font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; }
 .source-note { color: var(--muted); font-size: var(--fs-sm); }
+.lesson-block { margin: 0.8rem 0 1rem; }
+.lesson-block h3 { margin: 0 0 0.35rem; font-size: 0.98rem; }
+.term-table { width: 100%; border-collapse: collapse; margin: 0.4rem 0 0.8rem; font-size: var(--fs-sm); }
+.term-table th, .term-table td { border-bottom: 1px solid var(--border); text-align: start; padding: 0.45rem 0.4rem; vertical-align: top; }
+.term-table th { color: var(--muted); font-weight: 650; }
+.answer { margin-top: 0.55rem; padding: 0.7rem 0.8rem; border-radius: var(--radius-sm); background: var(--ok-bg); border: 1px solid color-mix(in srgb, var(--ok) 35%, transparent); }
+.untranslated { font-size: var(--fs-xs); color: var(--warn); font-weight: 650; }
 
 .topic-list, .ex-list { display: grid; gap: 0.55rem; }
 .topic-item, .ex-pick {

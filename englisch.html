@@ -2,9 +2,11 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#101418" />
-  <title>Englisch | Klasse 11</title>
+  <title>Englisch | Lernova</title>
   <script src="theme-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,8 +18,13 @@
   <header class="site-header">
     <div class="container header-bar">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">11</span>
-        <span class="brand-text">FISI<span>Klasse 11</span></span>
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
       </a>
       <div class="header-tools">
         <div class="lang-switch" role="group" aria-label="Sprache">
@@ -52,6 +59,7 @@
   <div class="container page-head">
     <button type="button" class="back-btn" id="smartBack" onclick="smartBack()" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></button>
     <h1>Englisch – Computer Languages & Technical English</h1>
+      <p class="pathway">Klasse 11 · Fachinformatiker Systemintegration</p>
     <p class="sub">Machine Languages · Mnemonics · Vocabulary · IT-News</p>
   </div>
   <main id="main" class="container">
@@ -113,7 +121,7 @@
       const list = topics[lang] || topics.fa;
       const topic = list.find(t => t.id === id);
       if (!topic) return;
-      document.getElementById('singleTopicContent').innerHTML = topic.content;
+      document.getElementById('singleTopicContent').innerHTML = (typeof lessonHtml === 'function' && lessonHtml(id)) || topic.content;
       document.getElementById('topicListView').style.display = 'none';
       document.getElementById('topicContentView').style.display = 'block';
       viewingTopic = true;
@@ -159,5 +167,7 @@
   <script src="settings.js"></script>
   <script src="admin-panel.js"></script>
   <script src="shell.js"></script>
+  <script src="lesson-pack.js"></script>
+  <script src="lesson.js"></script>
 </body>
 </html>

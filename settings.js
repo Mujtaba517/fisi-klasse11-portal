@@ -22,7 +22,10 @@ function createSettingsButton() {
   btn.setAttribute('aria-haspopup', 'dialog');
   btn.setAttribute('aria-controls', 'settingsPanel');
   btn.setAttribute('aria-expanded', 'false');
-  btn.onclick = toggleSettings;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleSettings();
+  });
   topActions.appendChild(btn);
 }
 
@@ -38,7 +41,7 @@ function createSettingsPanel() {
     + '<div class="settings-content">'
     + '  <div class="settings-header">'
     + '    <h2 id="settingsTitle">Einstellungen</h2>'
-    + '    <button type="button" onclick="toggleSettings()" class="close-btn" id="settingsClose" aria-label="Schließen">✕</button>'
+    + '    <button type="button" onclick="closeSettings()" class="close-btn" id="settingsClose" aria-label="Schließen">✕</button>'
     + '  </div>'
     + '  <div class="settings-section">'
     + '    <p class="field-label" id="themeLabel">Erscheinungsbild</p>'
@@ -73,7 +76,7 @@ function createSettingsPanel() {
     + '    <input type="file" id="bgUpload" accept="image/*" onchange="uploadBackground(event)" class="sr-only">'
     + '    <button type="button" onclick="document.getElementById(\'bgUpload\').click()" class="upload-btn" id="uploadBtn">Bild auswählen</button>'
     + '    <button type="button" onclick="removeBackground()" class="remove-btn" id="removeBtn" style="display:none">Entfernen</button>'
-    + '    <p class="hint">Maximal 10 MB. Das Bild bleibt nur in diesem Browser.</p>'
+    + '    <p class="hint" id="bgHint">Maximal 10 MB. Das Bild bleibt nur in diesem Browser.</p>'
     + '  </div>'
     + '  <div class="settings-section" id="adminSection" hidden>'
     + '    <p class="field-label" id="adminLabel">Benutzerverwaltung</p>'
@@ -104,16 +107,27 @@ function createSettingsPanel() {
   updateSettingsLang();
 }
 
-function toggleSettings() {
+function setSettingsOpen(open) {
   var panel = document.getElementById('settingsPanel');
-  if (!panel) return;
-  var open = panel.classList.toggle('open');
   var btn = document.getElementById('settingsBtn');
+  if (!panel) return;
+  panel.classList.toggle('open', open);
   if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
     var close = document.getElementById('settingsClose');
     if (close) close.focus();
+  } else if (btn) {
+    btn.focus();
   }
+}
+
+function toggleSettings() {
+  var panel = document.getElementById('settingsPanel');
+  setSettingsOpen(!(panel && panel.classList.contains('open')));
+}
+
+function closeSettings() {
+  setSettingsOpen(false);
 }
 
 function changeLang(lang) {
@@ -130,9 +144,9 @@ function changeLang(lang) {
 function updateSettingsLang() {
   var lang = localStorage.getItem('fisi-lang') || 'de';
   var texts = {
-    fa: { title: 'تنظیمات', theme: 'ظاهر', dark: 'تاریک', light: 'روشن', lang: 'زبان', glass: 'شفافیت سطح', opacity: 'شفافیت', blur: 'محوشدگی', bg: 'پس‌زمینه', upload: 'انتخاب تصویر', remove: 'حذف', admin: 'مدیریت کاربران', adminBtn: 'مدیریت کاربران', logout: 'خروج', close: 'بستن', settings: 'تنظیمات' },
-    de: { title: 'Einstellungen', theme: 'Erscheinungsbild', dark: 'Dunkel', light: 'Hell', lang: 'Sprache', glass: 'Flächentransparenz', opacity: 'Transparenz', blur: 'Unschärfe', bg: 'Hintergrundbild', upload: 'Bild auswählen', remove: 'Entfernen', admin: 'Benutzerverwaltung', adminBtn: 'Benutzer verwalten', logout: 'Abmelden', close: 'Schließen', settings: 'Einstellungen' },
-    en: { title: 'Settings', theme: 'Appearance', dark: 'Dark', light: 'Light', lang: 'Language', glass: 'Surface transparency', opacity: 'Opacity', blur: 'Blur', bg: 'Background', upload: 'Choose image', remove: 'Remove', admin: 'User management', adminBtn: 'Manage users', logout: 'Log out', close: 'Close', settings: 'Settings' }
+    fa: { title: 'تنظیمات', theme: 'ظاهر', dark: 'تاریک', light: 'روشن', lang: 'زبان', glass: 'شفافیت سطح', opacity: 'شفافیت', blur: 'محوشدگی', bg: 'پس‌زمینه', upload: 'انتخاب تصویر', remove: 'حذف', admin: 'مدیریت کاربران', adminBtn: 'مدیریت کاربران', logout: 'خروج', close: 'بستن', settings: 'تنظیمات', bgHint: 'حداکثر ۱۰ مگابایت. تصویر فقط در همین مرورگر می‌ماند.' },
+    de: { title: 'Einstellungen', theme: 'Erscheinungsbild', dark: 'Dunkel', light: 'Hell', lang: 'Sprache', glass: 'Flächentransparenz', opacity: 'Transparenz', blur: 'Unschärfe', bg: 'Hintergrundbild', upload: 'Bild auswählen', remove: 'Entfernen', admin: 'Benutzerverwaltung', adminBtn: 'Benutzer verwalten', logout: 'Abmelden', close: 'Schließen', settings: 'Einstellungen', bgHint: 'Maximal 10 MB. Das Bild bleibt nur in diesem Browser.' },
+    en: { title: 'Settings', theme: 'Appearance', dark: 'Dark', light: 'Light', lang: 'Language', glass: 'Surface transparency', opacity: 'Opacity', blur: 'Blur', bg: 'Background', upload: 'Choose image', remove: 'Remove', admin: 'User management', adminBtn: 'Manage users', logout: 'Log out', close: 'Close', settings: 'Settings', bgHint: 'Maximum 10 MB. The image stays only in this browser.' }
   };
   var t = texts[lang] || texts.de;
   var el = function (id) { return document.getElementById(id); };
@@ -145,6 +159,7 @@ function updateSettingsLang() {
   if (el('opacityLabel')) el('opacityLabel').textContent = t.opacity;
   if (el('blurLabel')) el('blurLabel').textContent = t.blur;
   if (el('bgLabel')) el('bgLabel').textContent = t.bg;
+  if (el('bgHint')) el('bgHint').textContent = t.bgHint;
   if (el('uploadBtn')) el('uploadBtn').textContent = t.upload;
   if (el('removeBtn')) el('removeBtn').textContent = t.remove;
   if (el('adminLabel')) el('adminLabel').textContent = t.admin;
@@ -257,21 +272,14 @@ function doLogout() {
 document.addEventListener('click', function (e) {
   var panel = document.getElementById('settingsPanel');
   var btn = document.getElementById('settingsBtn');
-  if (panel && panel.classList.contains('open') && !panel.contains(e.target) && e.target !== btn && !(btn && btn.contains(e.target))) {
-    panel.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
+  var inside = e.target.closest && e.target.closest('#settingsBtn, #settingsPanel');
+  if (panel && panel.classList.contains('open') && !inside) {
+    closeSettings();
   }
 });
 
 document.addEventListener('keydown', function (e) {
   if (e.key !== 'Escape') return;
   var panel = document.getElementById('settingsPanel');
-  if (panel && panel.classList.contains('open')) {
-    panel.classList.remove('open');
-    var btn = document.getElementById('settingsBtn');
-    if (btn) {
-      btn.setAttribute('aria-expanded', 'false');
-      btn.focus();
-    }
-  }
+  if (panel && panel.classList.contains('open')) closeSettings();
 });

@@ -14,7 +14,7 @@
 4. **LF 9** – Netzwerke und Dienste bereitstellen
 
 ## نحوه استفاده
-صفحه ورود `login.html` است. بعد از ورود، `index.html` داشبورد درس‌هاست.
+نام پلتفرم Lernova است. صفحه ورود `login.html` است. بعد از ورود، `index.html` راه فعلی را نشان می‌دهد: Fachinformatiker Systemintegration، صنف ۱۱.
 روی GitHub Pages هم همین مسیر است. حساب پیش‌فرض مدیر فقط برای استفاده کلاسی در خود مرورگر ساخته می‌شود.
 
 ## ساختار فایل‌ها
