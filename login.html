@@ -21,100 +21,58 @@
     }
     .login-box{
       width:100%;
-      max-width:420px;
-      background:rgba(15,23,42,.92);
+      max-width:440px;
+      background:rgba(15,23,42,.94);
       border:1px solid rgba(148,163,184,.2);
       border-radius:24px;
-      padding:2.5rem 2rem;
+      padding:2.2rem 1.8rem;
       backdrop-filter:blur(20px);
       box-shadow:0 25px 60px rgba(0,0,0,.5);
     }
-    .logo{
-      text-align:center;
-      margin-bottom:1.8rem;
-    }
+    .logo{text-align:center;margin-bottom:1.5rem}
     .logo-icon{
-      width:72px;height:72px;
+      width:64px;height:64px;
       background:linear-gradient(135deg,#38bdf8,#22d3ee);
-      border-radius:18px;
+      border-radius:16px;
       display:flex;align-items:center;justify-content:center;
-      font-size:2rem;
-      margin:0 auto .8rem;
+      font-size:1.8rem;
+      margin:0 auto .6rem;
       box-shadow:0 8px 30px rgba(56,189,248,.3);
     }
-    .logo h1{
-      font-size:1.5rem;
-      font-weight:800;
-      color:#f1f5f9;
-      letter-spacing:-.02em;
+    .logo h1{font-size:1.4rem;font-weight:800;color:#f1f5f9}
+    .logo p{color:#94a3b8;font-size:.85rem;margin-top:.2rem}
+    .tabs{display:flex;gap:.5rem;margin-bottom:1.5rem}
+    .tab{
+      flex:1;padding:.7rem;background:transparent;
+      border:1px solid rgba(148,163,184,.3);border-radius:10px;
+      color:#94a3b8;font-weight:600;cursor:pointer;font-family:inherit;font-size:.9rem;
     }
-    .logo p{
-      color:#94a3b8;
-      font-size:.9rem;
-      margin-top:.3rem;
-    }
-    .form-group{
-      margin-bottom:1.2rem;
-    }
-    .form-group label{
-      display:block;
-      color:#cbd5e1;
-      font-size:.85rem;
-      font-weight:600;
-      margin-bottom:.4rem;
-    }
+    .tab.active{background:rgba(56,189,248,.15);border-color:#38bdf8;color:#38bdf8}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;color:#cbd5e1;font-size:.8rem;font-weight:600;margin-bottom:.35rem}
     .form-group input{
-      width:100%;
-      padding:.85rem 1rem;
+      width:100%;padding:.75rem .9rem;
       background:rgba(30,41,59,.8);
       border:1px solid rgba(148,163,184,.25);
-      border-radius:12px;
-      color:#f1f5f9;
-      font-size:1rem;
-      font-family:inherit;
-      transition:.2s;
+      border-radius:10px;color:#f1f5f9;font-size:.95rem;font-family:inherit;
     }
-    .form-group input:focus{
-      outline:none;
-      border-color:#38bdf8;
-      box-shadow:0 0 0 3px rgba(56,189,248,.2);
-    }
+    .form-group input:focus{outline:none;border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.2)}
     .form-group input::placeholder{color:#64748b}
-    .btn-login{
-      width:100%;
-      padding:1rem;
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    .btn-submit{
+      width:100%;padding:.9rem;
       background:linear-gradient(135deg,#38bdf8,#22d3ee);
-      border:none;
-      border-radius:12px;
-      color:#0f172a;
-      font-size:1rem;
-      font-weight:700;
-      font-family:inherit;
-      cursor:pointer;
-      transition:.2s;
-      margin-top:.5rem;
+      border:none;border-radius:10px;
+      color:#0f172a;font-size:1rem;font-weight:700;
+      font-family:inherit;cursor:pointer;margin-top:.5rem;
     }
-    .btn-login:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 25px rgba(56,189,248,.4);
-    }
-    .error{
-      background:rgba(239,68,68,.15);
-      border:1px solid rgba(239,68,68,.3);
-      color:#fca5a5;
-      padding:.75rem 1rem;
-      border-radius:10px;
-      font-size:.85rem;
-      margin-bottom:1rem;
-      display:none;
-    }
-    .error.show{display:block}
-    .footer-text{
-      text-align:center;
-      margin-top:1.5rem;
-      color:#64748b;
-      font-size:.8rem;
-    }
+    .btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(56,189,248,.4)}
+    .msg{padding:.7rem .9rem;border-radius:8px;font-size:.85rem;margin-bottom:1rem;display:none}
+    .msg.error{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#fca5a5;display:block}
+    .msg.success{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#86efac;display:block}
+    .msg.pending{background:rgba(234,179,8,.15);border:1px solid rgba(234,179,8,.3);color:#fde047;display:block}
+    .footer-text{text-align:center;margin-top:1.2rem;color:#64748b;font-size:.75rem}
+    #registerForm{display:none}
   </style>
 </head>
 <body>
@@ -122,43 +80,173 @@
     <div class="logo">
       <div class="logo-icon">💻</div>
       <h1>FISI Klasse 11</h1>
-      <p>Lernportal – Anmeldung</p>
+      <p>Lernportal</p>
     </div>
-    <div class="error" id="error">Benutzername oder Passwort falsch</div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('login')">Anmelden</button>
+      <button class="tab" onclick="showTab('register')">Registrieren</button>
+    </div>
+
+    <div id="msgBox" class="msg"></div>
+
     <form id="loginForm" onsubmit="return doLogin(event)">
       <div class="form-group">
-        <label for="username">Benutzername</label>
-        <input type="text" id="username" name="username" placeholder="Dein Benutzername" required autocomplete="username">
+        <label for="loginUser">Benutzername</label>
+        <input type="text" id="loginUser" placeholder="Benutzername" required>
       </div>
       <div class="form-group">
-        <label for="password">Passwort</label>
-        <input type="password" id="password" name="password" placeholder="Dein Passwort" required autocomplete="current-password">
+        <label for="loginPass">Passwort</label>
+        <input type="password" id="loginPass" placeholder="Passwort" required>
       </div>
-      <button type="submit" class="btn-login">Anmelden</button>
+      <button type="submit" class="btn-submit">Anmelden</button>
     </form>
+
+    <form id="registerForm" onsubmit="return doRegister(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="regFirst">Vorname</label>
+          <input type="text" id="regFirst" placeholder="Max" required>
+        </div>
+        <div class="form-group">
+          <label for="regLast">Nachname</label>
+          <input type="text" id="regLast" placeholder="Mustermann" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="regUser">Benutzername</label>
+        <input type="text" id="regUser" placeholder="maxm" required>
+      </div>
+      <div class="form-group">
+        <label for="regEmail">E-Mail</label>
+        <input type="email" id="regEmail" placeholder="max@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="regStudent">Schülernummer</label>
+        <input type="text" id="regStudent" placeholder="12345" required>
+      </div>
+      <div class="form-group">
+        <label for="regPass">Passwort</label>
+        <input type="password" id="regPass" placeholder="Mindestens 6 Zeichen" required minlength="6">
+      </div>
+      <button type="submit" class="btn-submit">Registrieren</button>
+    </form>
+
     <p class="footer-text">Fachinformatiker Systemintegration · 2026</p>
   </div>
-  <script src="users.js"></script>
-  <script>
-    function doLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById('username').value.trim();
-      const pass = document.getElementById('password').value;
-      const errorEl = document.getElementById('error');
 
-      const found = USERS.find(u => u.username === user && u.password === pass);
-      if (found) {
-        sessionStorage.setItem('fisi-auth', JSON.stringify({ username: found.username, name: found.name, role: found.role || 'student' }));
-        window.location.href = 'index.html';
-      } else {
-        errorEl.classList.add('show');
-        document.getElementById('password').value = '';
-        document.getElementById('password').focus();
+  <script>
+    async function sha256(text) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
+      const hash = await crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function getUsers() {
+      const stored = localStorage.getItem('fisi-users');
+      if (stored) return JSON.parse(stored);
+      // Default admin
+      return [{ username: 'admin', passwordHash: '', firstName: 'Admin', lastName: '', email: '', studentId: '', role: 'admin', approved: true }];
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem('fisi-users', JSON.stringify(users));
+    }
+
+    async function initAdmin() {
+      let users = getUsers();
+      const admin = users.find(u => u.username === 'admin');
+      if (admin && !admin.passwordHash) {
+        admin.passwordHash = await sha256('admin123');
+        saveUsers(users);
       }
+    }
+    initAdmin();
+
+    function showTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('msgBox').className = 'msg';
+      if (tab === 'login') {
+        document.querySelector('.tab').classList.add('active');
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerForm').style.display = 'none';
+      } else {
+        document.querySelectorAll('.tab')[1].classList.add('active');
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+      }
+    }
+
+    function showMsg(type, text) {
+      const box = document.getElementById('msgBox');
+      box.className = 'msg ' + type;
+      box.textContent = text;
+    }
+
+    async function doLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('loginUser').value.trim();
+      const pass = document.getElementById('loginPass').value;
+      const hash = await sha256(pass);
+
+      const users = getUsers();
+      const found = users.find(u => u.username === user && u.passwordHash === hash);
+
+      if (!found) {
+        showMsg('error', 'Benutzername oder Passwort falsch');
+        return false;
+      }
+
+      if (!found.approved && found.role !== 'admin') {
+        showMsg('pending', 'Dein Konto wartet auf Freigabe durch den Administrator');
+        return false;
+      }
+
+      sessionStorage.setItem('fisi-auth', JSON.stringify({
+        username: found.username,
+        name: found.firstName + ' ' + found.lastName,
+        role: found.role
+      }));
+      window.location.href = 'index.html';
       return false;
     }
 
-    // If already logged in, redirect
+    async function doRegister(e) {
+      e.preventDefault();
+      const first = document.getElementById('regFirst').value.trim();
+      const last = document.getElementById('regLast').value.trim();
+      const username = document.getElementById('regUser').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const studentId = document.getElementById('regStudent').value.trim();
+      const pass = document.getElementById('regPass').value;
+
+      const users = getUsers();
+      if (users.find(u => u.username === username)) {
+        showMsg('error', 'Benutzername bereits vergeben');
+        return false;
+      }
+
+      const hash = await sha256(pass);
+      users.push({
+        username,
+        passwordHash: hash,
+        firstName: first,
+        lastName: last,
+        email,
+        studentId,
+        role: 'student',
+        approved: false,
+        registeredAt: new Date().toISOString()
+      });
+      saveUsers(users);
+
+      showMsg('success', 'Registrierung erfolgreich! Warte auf Freigabe durch den Administrator.');
+      document.getElementById('registerForm').reset();
+      setTimeout(() => showTab('login'), 2500);
+      return false;
+    }
+
     if (sessionStorage.getItem('fisi-auth')) {
       window.location.href = 'index.html';
     }
