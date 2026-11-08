@@ -42,13 +42,14 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
+      <a href="englisch.html">Englisch</a>
       <a href="flashcards.html" class="active" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
 
   <div class="container page-head">
-    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <button type="button" class="back-btn" onclick="window.location.href='index.html'">←</button>
     <h1 data-i18n="flashPageTitle">فلش‌کارت اصطلاحات</h1>
     <p class="sub" data-i18n="flashPageSub">روی کارت بزن تا توضیح را ببینی</p>
   </div>
@@ -175,7 +176,6 @@
       document.getElementById('cardTerm').textContent = c.de;
       document.getElementById('cardHint').textContent = t.hint;
 
-      // Full explanation in selected language + translations
       let html = '';
       if (l === 'fa') {
         html = c.fa + '<span class="trans">EN: ' + c.en + '</span>';
