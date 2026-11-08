@@ -34,92 +34,43 @@
   </header>
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1>BGWP – Betriebswirtschaftliche Prozesse</h1>
-    <p class="sub">Serviceanfragen bearbeiten · SLA · ITIL · Incident Management</p>
+    <h1>BGWP – IT-Service Management</h1>
+    <p class="sub">ITSM · Aufbau- & Ablauforganisation · eEPK · SLA · Incident</p>
   </div>
   <main class="container">
-
     <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>این درس چه چیزی است؟</h3><div class="goal">درخواست‌های کاربران را به‌درستی ثبت، اولویت‌بندی، حل یا Escalate کنی و مستند کنی.</div><p><strong>مثال واقعی:</strong> «پرینتر طبقه ۲ کار نمی‌کند و باید فاکتور چاپ کنم.»</p></div>
-
-      <div class="card"><h3>۱) Serviceanfrage (درخواست خدمات)</h3>
-        <p>هر درخواستی که کاربر از IT دارد:</p>
-        <ul>
-          <li>خرابی (پرینتر کار نمی‌کند)</li>
-          <li>نصب نرم‌افزار</li>
-          <li>دسترسی جدید</li>
-          <li>سؤال ساده</li>
-        </ul>
-        <p><strong>مثال:</strong> «رمز را فراموش کردم» → Serviceanfrage ساده<br>
-        «اینترنت کل شرکت قطع شده» → Incident با اولویت بالا</p>
+      <div class="card"><h3>1. مقدمه ITSM</h3>
+        <p>IT Service Management = مدیریت خدمات فناوری اطلاعات بر اساس ITIL.</p>
+        <p>هدف: ارائه خدمات باکیفیت به کاربران با رعایت SLA.</p>
       </div>
 
-      <div class="card"><h3>۲) فرآیند استاندارد پردازش تیکت</h3>
-        <ol>
-          <li><strong>Aufnahme</strong> – کی؟ چه مشکلی؟ از کی شروع شده؟</li>
-          <li><strong>SLA</strong> – چقدر وقت داریم؟</li>
-          <li><strong>دسته‌بندی</strong> – سخت‌افزار / نرم‌افزار / شبکه / دسترسی</li>
-          <li><strong>اولویت</strong> – شدت + فوریت</li>
-          <li><strong>حل یا Eskalation</strong></li>
-          <li><strong>مستند و بستن</strong></li>
-        </ol>
+      <div class="card"><h3>2. Aufbau- و Ablauforganisation</h3>
+        <p><strong>Aufbauorganisation:</strong> ساختار سازمانی (چه کسی چه مسئولیتی دارد)</p>
+        <p><strong>Ablauforganisation:</strong> فرآیندها و نحوه انجام کارها (چگونه تیکت پردازش می‌شود)</p>
       </div>
 
-      <div class="card"><h3>۳) SLA (Service Level Agreement)</h3>
-        <p>قول کتبی درباره زمان خدمات:</p>
+      <div class="card"><h3>3. eEPK (زنجیره فرآیند توسعه‌یافته)</h3>
+        <p>Erweiterte ereignisgesteuerte Prozesskette = روش نمایش فرآیندها با:</p>
         <ul>
-          <li><strong>Reaktionszeit</strong> = زمان اولین پاسخ (مثلاً ۳۰ دقیقه)</li>
-          <li><strong>Lösungszeit</strong> = زمان حل کامل (مثلاً ۴ ساعت)</li>
-        </ul>
-        <p><strong>مثال:</strong> تیکت ساعت ۱۰:۰۰ ثبت شد → باید تا ۱۰:۳۰ پاسخ داده باشد. اگر ساعت ۱۰:۳۵ هنوز پاسخ نداده باشی → نقض SLA.</p>
-      </div>
-
-      <div class="card"><h3>۴) سطوح پشتیبانی (Support Levels)</h3>
-        <ul>
-          <li><strong>1st Level</strong> – ثبت تیکت، راهنمایی ساده، ریست رمز</li>
-          <li><strong>2nd Level</strong> – مشکلات سرور و شبکه پیچیده</li>
-          <li><strong>3rd Level</strong> – سازنده نرم‌افزار/سخت‌افزار</li>
+          <li><strong>Ereignis</strong> (رویداد)</li>
+          <li><strong>Funktion</strong> (فعالیت)</li>
+          <li><strong>Organisationseinheit</strong> (واحد سازمانی)</li>
+          <li><strong>Informationsobjekt</strong> (شیء اطلاعاتی)</li>
         </ul>
       </div>
 
-      <div class="card"><h3>۵) Incident در مقابل Problem</h3>
+      <div class="card"><h3>Serviceanfrage و SLA</h3>
+        <p>هر درخواست کاربر از IT = Serviceanfrage</p>
         <ul>
-          <li><strong>Incident</strong> = الان چیزی خراب است → سریع برگردان</li>
-          <li><strong>Problem</strong> = علت ریشه‌ای که باعث تکرار می‌شود</li>
-        </ul>
-        <p><strong>مثال:</strong> ریستارت پرینتر = Incident<br>
-        درایور قدیمی که همیشه مشکل ایجاد می‌کند = Problem</p>
-      </div>
-
-      <div class="card"><h3>۶) اولویت‌بندی</h3>
-        <ul>
-          <li>ایمیل کل شرکت قطع → <strong>Kritisch</strong></li>
-          <li>یک بخش نمی‌تواند فاکتور بزند → <strong>Hoch</strong></li>
-          <li>ماوس جدید برای یک نفر → <strong>Niedrig</strong></li>
+          <li><strong>Reaktionszeit:</strong> زمان تا اولین پاسخ</li>
+          <li><strong>Lösungszeit:</strong> زمان تا حل کامل</li>
         </ul>
       </div>
 
-      <div class="card"><h3>۷) Deeskalation (آرام کردن کاربر)</h3>
-        <p>همیشه آرام بمان. اول همدردی کن، بعد سؤال فنی بپرس.</p>
-        <p><strong>مثال جمله خوب:</strong> «متوجه هستم که عصبانی‌اید. بیایید قدم به قدم چک کنیم.»</p>
-      </div>
-
-      <div class="card"><h3>۸) Knowledge Base (پایگاه دانش)</h3>
-        <p>مجموعه راه‌حل‌های مشکلات رایج. کمک می‌کند 1st Level سریع‌تر حل کند.</p>
-        <p><strong>مثال:</strong> «رمز ویندوز فراموش شده → ریست از Active Directory»</p>
-      </div>
-
-      <div class="card"><h3>۹) Change Management</h3>
-        <p>تغییرات در سیستم (نصب نرم‌افزار جدید، تغییر سرور) باید برنامه‌ریزی و مستند شوند تا مشکل ایجاد نکنند.</p>
-      </div>
-
-      <div class="card"><h3>۱۰) مستندسازی</h3>
-        <p>هر تیکت باید شامل باشد:</p>
+      <div class="card"><h3>Incident در مقابل Problem</h3>
         <ul>
-          <li>مشکل چه بود</li>
-          <li>چه کاری انجام شد</li>
-          <li>نتیجه چه بود</li>
-          <li>آیا نیاز به پیگیری دارد</li>
+          <li><strong>Incident:</strong> اختلال فعلی → باید سریع برگردانده شود</li>
+          <li><strong>Problem:</strong> علت ریشه‌ای تکرار اختلالات</li>
         </ul>
       </div>
 
@@ -127,33 +78,33 @@
     </div>
 
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Worum geht es?</h3><div class="goal">Serviceanfragen richtig aufnehmen, priorisieren, lösen oder eskalieren und dokumentieren.</div></div>
-      <div class="card"><h3>1) Serviceanfrage</h3><p>Jede Anfrage an die IT: Störung, Installation, Zugriff, Frage.</p></div>
-      <div class="card"><h3>2) Standardprozess</h3><p>Aufnahme → SLA → Klassifizierung → Priorisierung → Lösung/Eskalation → Dokumentation</p></div>
-      <div class="card"><h3>3) SLA</h3><p>Reaktionszeit und Lösungszeit sind vertraglich festgelegt.</p></div>
-      <div class="card"><h3>4) Support-Level</h3><p>1st Level (Standard), 2nd Level (komplex), 3rd Level (Hersteller)</p></div>
-      <div class="card"><h3>5) Incident vs. Problem</h3><p>Incident = aktuelle Störung. Problem = Ursache wiederkehrender Störungen.</p></div>
-      <div class="card"><h3>6) Knowledge Base</h3><p>Sammlung häufiger Lösungen für schnellere Bearbeitung im 1st Level.</p></div>
-      <div class="card"><h3>7) Change Management</h3><p>Änderungen am System müssen geplant und dokumentiert werden.</p></div>
+      <div class="card"><h3>1. Einführung in das ITSM</h3><p>IT Service Management auf Basis von ITIL. Ziel: qualitätsgesicherte Services unter Einhaltung von SLAs.</p></div>
+      <div class="card"><h3>2. Aufbau- und Ablauforganisation</h3>
+        <p><strong>Aufbauorganisation:</strong> Wer ist für was verantwortlich?<br>
+        <strong>Ablauforganisation:</strong> Wie laufen die Prozesse ab?</p>
+      </div>
+      <div class="card"><h3>3. eEPK</h3><p>Erweiterte ereignisgesteuerte Prozesskette: Ereignis → Funktion → Organisationseinheit → Informationsobjekt</p></div>
+      <div class="card"><h3>Serviceanfrage & SLA</h3><p>Reaktionszeit und Lösungszeit sind vertraglich festgelegt.</p></div>
+      <div class="card"><h3>Incident vs. Problem</h3><p>Incident = aktuelle Störung. Problem = Ursache wiederkehrender Störungen.</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-bgwp-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Abgeben</button></div><div class="quiz-score" id="score-bgwp-de" style="display:none;margin-top:1rem"></div></div>
     </div>
 
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>What is this about?</h3><div class="goal">Correctly capture, prioritise, resolve or escalate service requests and document them.</div></div>
-      <div class="card"><h3>1) Service Request</h3><p>Any request to IT: outage, installation, access, question.</p></div>
-      <div class="card"><h3>2) Standard Process</h3><p>Capture → SLA → Classify → Prioritise → Solve/Escalate → Document</p></div>
-      <div class="card"><h3>3) SLA</h3><p>Response time and resolution time are contractually defined.</p></div>
-      <div class="card"><h3>4) Support Levels</h3><p>1st Level (standard), 2nd Level (complex), 3rd Level (vendor)</p></div>
-      <div class="card"><h3>5) Incident vs Problem</h3><p>Incident = current disruption. Problem = root cause of recurring issues.</p></div>
-      <div class="card"><h3>6) Knowledge Base</h3><p>Collection of common solutions for faster 1st Level resolution.</p></div>
-      <div class="card"><h3>7) Change Management</h3><p>System changes must be planned and documented.</p></div>
+      <div class="card"><h3>1. Introduction to ITSM</h3><p>IT Service Management based on ITIL. Goal: quality services while meeting SLAs.</p></div>
+      <div class="card"><h3>2. Structural and Process Organisation</h3>
+        <p><strong>Aufbauorganisation:</strong> Who is responsible for what?<br>
+        <strong>Ablauforganisation:</strong> How do the processes run?</p>
+      </div>
+      <div class="card"><h3>3. eEPK</h3><p>Extended event-driven process chain: Event → Function → Organisational unit → Information object</p></div>
+      <div class="card"><h3>Service Request & SLA</h3><p>Response time and resolution time are contractually defined.</p></div>
+      <div class="card"><h3>Incident vs Problem</h3><p>Incident = current disruption. Problem = root cause of recurring issues.</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-bgwp-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Submit</button></div><div class="quiz-score" id="score-bgwp-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={bgwp:{fa:[{q:'اولین کار منطقی چیست؟',opts:['بستن تیکت','ثبت کامل اطلاعات','خرید سخت‌افزار'],c:1},{q:'SLA چه چیزی را مشخص می‌کند؟',opts:['رنگ کابل','زمان واکنش و حل','قیمت مانیتور'],c:1},{q:'Incident یعنی؟',opts:['علت بلندمدت','اختلال فعلی','فقط لپ‌تاپ'],c:1},{q:'خارج از 1st Level چه کار کنیم؟',opts:['پاک کردن','Escalate با مستند','سکوت'],c:1},{q:'ایمیل کل شرکت قطع شده؟',opts:['Niedrig','Kritisch/Hoch','فردا'],c:1}],de:[{q:'Erster Schritt?',opts:['Ticket schließen','Vollständig aufnehmen','Hardware kaufen'],c:1},{q:'SLA regelt?',opts:['Kabelfarbe','Reaktions-/Lösungszeit','Monitorpreis'],c:1},{q:'Incident?',opts:['Langfristursache','Aktuelle Störung','Nur Laptop'],c:1},{q:'Außerhalb 1st Level?',opts:['Löschen','Mit Doku eskalieren','Schweigen'],c:1},{q:'E-Mail firmweit down?',opts:['Niedrig','Kritisch/Hoch','Morgen'],c:1}],en:[{q:'First step?',opts:['Close ticket','Full capture','Buy hardware'],c:1},{q:'SLA defines?',opts:['Cable colour','Response/resolution time','Monitor price'],c:1},{q:'Incident?',opts:['Long-term cause','Current disruption','Laptop only'],c:1},{q:'Outside 1st level?',opts:['Delete','Escalate with notes','Stay silent'],c:1},{q:'Company email down?',opts:['Low','Critical/High','Tomorrow'],c:1}]}};
+    const quizData={bgwp:{fa:[{q:'تفاوت Aufbau و Ablauf؟',opts:['هیچ','Aufbau = ساختار، Ablauf = فرآیند','فقط وای‌فای'],c:1},{q:'eEPK چیست؟',opts:['پروتکل شبکه','زنجیره فرآیند توسعه‌یافته','نوع سنسور'],c:1},{q:'Incident چیست؟',opts:['علت ریشه‌ای','اختلال فعلی','فقط لپ‌تاپ'],c:1},{q:'SLA چه چیزی را مشخص می‌کند؟',opts:['رنگ کابل','زمان واکنش و حل','قیمت مانیتور'],c:1}],de:[{q:'Unterschied Aufbau und Ablauf?',opts:['keiner','Aufbau=Struktur, Ablauf=Prozess','nur WLAN'],c:1},{q:'Was ist eEPK?',opts:['Netzwerkprotokoll','erweiterte ereignisgesteuerte Prozesskette','Sensor'],c:1},{q:'Was ist ein Incident?',opts:['Grundursache','aktuelle Störung','nur Laptop'],c:1},{q:'Was regelt ein SLA?',opts:['Kabelfarbe','Reaktions- und Lösungszeit','Monitorpreis'],c:1}],en:[{q:'Difference Aufbau vs Ablauf?',opts:['none','structure vs process','only WiFi'],c:1},{q:'What is eEPK?',opts:['network protocol','extended event-driven process chain','sensor'],c:1},{q:'What is an Incident?',opts:['root cause','current disruption','laptop only'],c:1},{q:'What does an SLA define?',opts:['cable colour','response and resolution time','monitor price'],c:1}]}};
     const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
