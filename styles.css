@@ -50,6 +50,19 @@ html[lang=fa] .lang-block[data-lang=fa],html[lang=de] .lang-block[data-lang=de],
 .nav-scroll a{text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600;padding:.45rem .85rem;border-radius:999px;white-space:nowrap}
 .nav-scroll a:hover,.nav-scroll a.active{background:var(--blue-soft);color:var(--blue)}
 
+/* Single smart back button */
+.back-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text);text-decoration:none;
+  transition:.2s;margin-bottom:1rem;
+  font-size:1.3rem;
+}
+.back-btn:hover{background:var(--blue-soft);border-color:var(--blue);color:var(--blue);transform:translateX(-3px)}
+html[dir=rtl] .back-btn:hover{transform:translateX(3px)}
+.page-head{padding-top:1.2rem}
+
 .hero{padding:3.5rem 0 2.5rem;text-align:center}
 .hero h1{font-size:clamp(2rem,5.5vw,3.2rem);font-weight:800;letter-spacing:-.04em;margin:.4rem 0 .8rem;background:linear-gradient(135deg,var(--text) 40%,var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:var(--muted);max-width:620px;margin:0 auto 1.6rem;font-size:1.05rem}
