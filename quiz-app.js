@@ -152,18 +152,65 @@
   let answers = [];
 
   function subjects() { return window.QUIZ_SUBJECTS || []; }
-  function bank() { return window.QUIZ_BANK || []; }
 
   function subjectById(id) { return subjects().find(s => s.id === id); }
 
-  function pool(filters) {
-    return bank().filter(q => {
-      if (filters.set === 'legacy') return q.legacy === true;
-      if (q.legacy && filters.includeLegacy === false) return false;
-      if (filters.subject && filters.subject !== 'mixed' && q.subject !== filters.subject) return false;
-      if (filters.topic && filters.topic !== 'all' && q.topic !== filters.topic) return false;
-      if (filters.level && filters.level !== 'all' && q.difficulty !== filters.level) return false;
-      return true;
+  function countAvailable(filters) {
+    const counts = window.QUIZ_COUNTS || {};
+    const level = filters.level && filters.level !== 'all' ? filters.level : 'all';
+    if (filters.set === 'legacy') {
+      const legacy = counts.legacy || {};
+      return legacy[level] || 0;
+    }
+    const ids = filters.subject && filters.subject !== 'mixed'
+      ? [filters.subject]
+      : subjects().map(s => s.id);
+    let n = 0;
+    ids.forEach(id => {
+      const pack = (counts.subjects || {})[id];
+      if (!pack) return;
+      if (filters.topic && filters.topic !== 'all') {
+        const topic = (pack.topics || {})[filters.topic];
+        n += topic ? (topic[level] || 0) : 0;
+      } else {
+        n += (pack.all && pack.all[level]) || 0;
+      }
+    });
+    return n;
+  }
+
+  const scriptLoads = {};
+  function loadScript(src) {
+    if (scriptLoads[src]) return scriptLoads[src];
+    scriptLoads[src] = new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error(src));
+      document.body.appendChild(s);
+    });
+    return scriptLoads[src];
+  }
+
+  function filesFor(filters) {
+    const files = window.QUIZ_FILES || {};
+    if (filters.set === 'legacy') return files.legacy ? [files.legacy] : [];
+    if (filters.subject && filters.subject !== 'mixed') return files[filters.subject] ? [files[filters.subject]] : [];
+    return subjects().map(s => files[s.id]).filter(Boolean);
+  }
+
+  function ensureQuestions(filters) {
+    return Promise.all(filesFor(filters).map(loadScript)).then(() => {
+      const parts = window.QUIZ_PARTS || {};
+      let list = [];
+      if (filters.set === 'legacy') list = parts.legacy || [];
+      else if (filters.subject && filters.subject !== 'mixed') list = parts[filters.subject] || [];
+      else subjects().forEach(s => { list = list.concat(parts[s.id] || []); });
+      return list.filter(q => {
+        if (filters.topic && filters.topic !== 'all' && q.topic !== filters.topic) return false;
+        if (filters.level && filters.level !== 'all' && q.difficulty !== filters.level) return false;
+        return true;
+      });
     });
   }
 
@@ -178,7 +225,7 @@
     if (subject && currentTopic !== 'all' && !topics.some(tp => tp.id === currentTopic)) currentTopic = 'all';
     const currentLevel = (root.querySelector('#qLevel') || {}).value || 'all';
     const filters = { subject: selSubject, topic: currentTopic, level: currentLevel, set: selSubject === 'legacy' ? 'legacy' : '' };
-    const available = pool(filters).length;
+    const available = countAvailable(filters);
     const topicOptions = ['<option value="all">' + L.allTopics + '</option>'].concat(topics.map(tp => {
       const on = tp.id === currentTopic ? ' selected' : '';
       return '<option value="' + tp.id + '"' + on + '>' + tx(tp.label) + '</option>';
@@ -209,13 +256,22 @@
     root.querySelector('#quizSetup').addEventListener('submit', function (e) {
       e.preventDefault();
       const count = Number(root.querySelector('#qCount').value);
-      const items = shuffle(pool(filters)).slice(0, count).map(prepare);
-      if (!items.length) return;
-      session = { items: items, filters: filters };
-      answers = items.map(() => null);
-      index = 0;
-      mode = 'run';
-      renderRun();
+      const button = e.target.querySelector('button[type="submit"]');
+      if (button) button.disabled = true;
+      ensureQuestions(filters).then(list => {
+        const items = shuffle(list).slice(0, count).map(prepare);
+        if (!items.length) {
+          if (button) button.disabled = false;
+          return;
+        }
+        session = { items: items, filters: filters };
+        answers = items.map(() => null);
+        index = 0;
+        mode = 'run';
+        renderRun();
+      }).catch(() => {
+        if (button) button.disabled = false;
+      });
     });
   }
 
@@ -367,7 +423,8 @@
     else renderPick();
   }
 
-  document.addEventListener('DOMContentLoaded', boot);
+  if (document.getElementById('quizRoot')) boot();
+  else document.addEventListener('DOMContentLoaded', boot);
   document.addEventListener('fisi-lang', function () {
     if (mode === 'pick') renderPick();
   });

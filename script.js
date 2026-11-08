@@ -238,10 +238,16 @@ function toggleTheme() {
   updateThemeButton();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function applySavedPreferences() {
   const savedLang = localStorage.getItem('fisi-lang') || 'fa';
   setLang(savedLang);
   const savedTheme = localStorage.getItem('fisi-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeButton();
-});
+}
+
+/* script.js is loaded after the translated markup, so apply before the
+   next scripts and before the first paint. DOMContentLoaded still runs
+   for any node inserted later. */
+applySavedPreferences();
+document.addEventListener('DOMContentLoaded', applySavedPreferences);

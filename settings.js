@@ -8,6 +8,26 @@
   });
 })();
 
+var adminPanelLoading = null;
+function ensureAdminPanel() {
+  if (typeof openAdminPanel === 'function') {
+    openAdminPanel();
+    return;
+  }
+  if (!adminPanelLoading) {
+    adminPanelLoading = new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = 'admin-panel.js';
+      s.onload = function () { resolve(); };
+      s.onerror = function () { adminPanelLoading = null; reject(); };
+      document.body.appendChild(s);
+    });
+  }
+  adminPanelLoading.then(function () {
+    if (typeof openAdminPanel === 'function') openAdminPanel();
+  });
+}
+
 var GEAR_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
 
 function createSettingsButton() {
@@ -80,7 +100,7 @@ function createSettingsPanel() {
     + '  </div>'
     + '  <div class="settings-section" id="adminSection" hidden>'
     + '    <p class="field-label" id="adminLabel">Benutzerverwaltung</p>'
-    + '    <button type="button" onclick="openAdminPanel()" class="admin-btn" id="adminBtn">Benutzer verwalten</button>'
+    + '    <button type="button" onclick="ensureAdminPanel()" class="admin-btn" id="adminBtn">Benutzer verwalten</button>'
     + '  </div>'
     + '  <div class="settings-section" id="logoutSection">'
     + '    <button type="button" onclick="doLogout()" class="logout-btn" id="logoutBtn">Abmelden</button>'
