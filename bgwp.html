@@ -6,6 +6,13 @@
   <title>BGWP | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .topic-list{display:grid;gap:.8rem;margin-top:1rem}
+    .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
+    .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
+    .topic-item h3{font-size:1.05rem;margin:0}
+    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -28,6 +35,7 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
+      <a href="englisch.html">Englisch</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
@@ -38,82 +46,80 @@
     <p class="sub">ITSM · Aufbau- & Ablauforganisation · eEPK · SLA · Incident</p>
   </div>
   <main class="container">
-    <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>1. مقدمه ITSM</h3>
-        <p>IT Service Management = مدیریت خدمات فناوری اطلاعات بر اساس ITIL.</p>
-        <p>هدف: ارائه خدمات باکیفیت به کاربران با رعایت SLA.</p>
-      </div>
-
-      <div class="card"><h3>2. Aufbau- و Ablauforganisation</h3>
-        <p><strong>Aufbauorganisation:</strong> ساختار سازمانی (چه کسی چه مسئولیتی دارد)</p>
-        <p><strong>Ablauforganisation:</strong> فرآیندها و نحوه انجام کارها (چگونه تیکت پردازش می‌شود)</p>
-      </div>
-
-      <div class="card"><h3>3. eEPK (زنجیره فرآیند توسعه‌یافته)</h3>
-        <p>Erweiterte ereignisgesteuerte Prozesskette = روش نمایش فرآیندها با:</p>
-        <ul>
-          <li><strong>Ereignis</strong> (رویداد)</li>
-          <li><strong>Funktion</strong> (فعالیت)</li>
-          <li><strong>Organisationseinheit</strong> (واحد سازمانی)</li>
-          <li><strong>Informationsobjekt</strong> (شیء اطلاعاتی)</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>Serviceanfrage و SLA</h3>
-        <p>هر درخواست کاربر از IT = Serviceanfrage</p>
-        <ul>
-          <li><strong>Reaktionszeit:</strong> زمان تا اولین پاسخ</li>
-          <li><strong>Lösungszeit:</strong> زمان تا حل کامل</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>Incident در مقابل Problem</h3>
-        <ul>
-          <li><strong>Incident:</strong> اختلال فعلی → باید سریع برگردانده شود</li>
-          <li><strong>Problem:</strong> علت ریشه‌ای تکرار اختلالات</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>✅ کوییز</h3><div id="quiz-bgwp"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">ثبت پاسخ</button></div><div class="quiz-score" id="score-bgwp" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicListView">
+      <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
+      <div class="topic-list" id="topicList"></div>
     </div>
-
-    <div class="lang-block" data-lang="de">
-      <div class="card"><h3>1. Einführung in das ITSM</h3><p>IT Service Management auf Basis von ITIL. Ziel: qualitätsgesicherte Services unter Einhaltung von SLAs.</p></div>
-      <div class="card"><h3>2. Aufbau- und Ablauforganisation</h3>
-        <p><strong>Aufbauorganisation:</strong> Wer ist für was verantwortlich?<br>
-        <strong>Ablauforganisation:</strong> Wie laufen die Prozesse ab?</p>
-      </div>
-      <div class="card"><h3>3. eEPK</h3><p>Erweiterte ereignisgesteuerte Prozesskette: Ereignis → Funktion → Organisationseinheit → Informationsobjekt</p></div>
-      <div class="card"><h3>Serviceanfrage & SLA</h3><p>Reaktionszeit und Lösungszeit sind vertraglich festgelegt.</p></div>
-      <div class="card"><h3>Incident vs. Problem</h3><p>Incident = aktuelle Störung. Problem = Ursache wiederkehrender Störungen.</p></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-bgwp-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Abgeben</button></div><div class="quiz-score" id="score-bgwp-de" style="display:none;margin-top:1rem"></div></div>
-    </div>
-
-    <div class="lang-block" data-lang="en">
-      <div class="card"><h3>1. Introduction to ITSM</h3><p>IT Service Management based on ITIL. Goal: quality services while meeting SLAs.</p></div>
-      <div class="card"><h3>2. Structural and Process Organisation</h3>
-        <p><strong>Aufbauorganisation:</strong> Who is responsible for what?<br>
-        <strong>Ablauforganisation:</strong> How do the processes run?</p>
-      </div>
-      <div class="card"><h3>3. eEPK</h3><p>Extended event-driven process chain: Event → Function → Organisational unit → Information object</p></div>
-      <div class="card"><h3>Service Request & SLA</h3><p>Response time and resolution time are contractually defined.</p></div>
-      <div class="card"><h3>Incident vs Problem</h3><p>Incident = current disruption. Problem = root cause of recurring issues.</p></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-bgwp-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('bgwp')">Submit</button></div><div class="quiz-score" id="score-bgwp-en" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicContentView" style="display:none">
+      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
+      <div id="singleTopicContent"></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={bgwp:{fa:[{q:'تفاوت Aufbau و Ablauf؟',opts:['هیچ','Aufbau = ساختار، Ablauf = فرآیند','فقط وای‌فای'],c:1},{q:'eEPK چیست؟',opts:['پروتکل شبکه','زنجیره فرآیند توسعه‌یافته','نوع سنسور'],c:1},{q:'Incident چیست؟',opts:['علت ریشه‌ای','اختلال فعلی','فقط لپ‌تاپ'],c:1},{q:'SLA چه چیزی را مشخص می‌کند؟',opts:['رنگ کابل','زمان واکنش و حل','قیمت مانیتور'],c:1}],de:[{q:'Unterschied Aufbau und Ablauf?',opts:['keiner','Aufbau=Struktur, Ablauf=Prozess','nur WLAN'],c:1},{q:'Was ist eEPK?',opts:['Netzwerkprotokoll','erweiterte ereignisgesteuerte Prozesskette','Sensor'],c:1},{q:'Was ist ein Incident?',opts:['Grundursache','aktuelle Störung','nur Laptop'],c:1},{q:'Was regelt ein SLA?',opts:['Kabelfarbe','Reaktions- und Lösungszeit','Monitorpreis'],c:1}],en:[{q:'Difference Aufbau vs Ablauf?',opts:['none','structure vs process','only WiFi'],c:1},{q:'What is eEPK?',opts:['network protocol','extended event-driven process chain','sensor'],c:1},{q:'What is an Incident?',opts:['root cause','current disruption','laptop only'],c:1},{q:'What does an SLA define?',opts:['cable colour','response and resolution time','monitor price'],c:1}]}};
-    const answers={};let done={};
-    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
-    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
-    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
-    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
-    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
-    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
-    document.addEventListener('DOMContentLoaded',()=>renderMini('bgwp'));
-    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.bgwp){answers.bgwp={};renderMini('bgwp')}};
+    const topics = {
+      fa: [
+        { id:'itsm', title:'1. مقدمه ITSM', content:'<div class="card"><h3>1. مقدمه ITSM</h3><p>IT Service Management = مدیریت خدمات فناوری اطلاعات بر اساس ITIL.</p><p>هدف: ارائه خدمات باکیفیت به کاربران با رعایت SLA.</p></div>' },
+        { id:'org', title:'2. Aufbau- و Ablauforganisation', content:'<div class="card"><h3>2. Aufbau- و Ablauforganisation</h3><p><strong>Aufbauorganisation:</strong> ساختار سازمانی (چه کسی چه مسئولیتی دارد)</p><p><strong>Ablauforganisation:</strong> فرآیندها و نحوه انجام کارها (چگونه تیکت پردازش می‌شود)</p></div>' },
+        { id:'eepk', title:'3. eEPK', content:'<div class="card"><h3>3. eEPK (زنجیره فرآیند توسعه‌یافته)</h3><p>Erweiterte ereignisgesteuerte Prozesskette = روش نمایش فرآیندها با:</p><ul><li><strong>Ereignis</strong> (رویداد)</li><li><strong>Funktion</strong> (فعالیت)</li><li><strong>Organisationseinheit</strong> (واحد سازمانی)</li><li><strong>Informationsobjekt</strong> (شیء اطلاعاتی)</li></ul></div>' },
+        { id:'sla', title:'Serviceanfrage و SLA', content:'<div class="card"><h3>Serviceanfrage و SLA</h3><p>هر درخواست کاربر از IT = Serviceanfrage</p><ul><li><strong>Reaktionszeit:</strong> زمان تا اولین پاسخ</li><li><strong>Lösungszeit:</strong> زمان تا حل کامل</li></ul></div>' },
+        { id:'incident', title:'Incident در مقابل Problem', content:'<div class="card"><h3>Incident در مقابل Problem</h3><ul><li><strong>Incident:</strong> اختلال فعلی → باید سریع برگردانده شود</li><li><strong>Problem:</strong> علت ریشه‌ای تکرار اختلالات</li></ul></div>' }
+      ],
+      de: [
+        { id:'itsm', title:'1. Einführung in das ITSM', content:'<div class="card"><h3>1. Einführung in das ITSM</h3><p>IT Service Management auf Basis von ITIL. Ziel: qualitätsgesicherte Services unter Einhaltung von SLAs.</p></div>' },
+        { id:'org', title:'2. Aufbau- und Ablauforganisation', content:'<div class="card"><h3>2. Aufbau- und Ablauforganisation</h3><p><strong>Aufbauorganisation:</strong> Wer ist für was verantwortlich?<br><strong>Ablauforganisation:</strong> Wie laufen die Prozesse ab?</p></div>' },
+        { id:'eepk', title:'3. eEPK', content:'<div class="card"><h3>3. eEPK</h3><p>Erweiterte ereignisgesteuerte Prozesskette: Ereignis → Funktion → Organisationseinheit → Informationsobjekt</p></div>' },
+        { id:'sla', title:'Serviceanfrage & SLA', content:'<div class="card"><h3>Serviceanfrage & SLA</h3><p>Reaktionszeit und Lösungszeit sind vertraglich festgelegt.</p></div>' },
+        { id:'incident', title:'Incident vs. Problem', content:'<div class="card"><h3>Incident vs. Problem</h3><p>Incident = aktuelle Störung. Problem = Ursache wiederkehrender Störungen.</p></div>' }
+      ],
+      en: [
+        { id:'itsm', title:'1. Introduction to ITSM', content:'<div class="card"><h3>1. Introduction to ITSM</h3><p>IT Service Management based on ITIL. Goal: quality services while meeting SLAs.</p></div>' },
+        { id:'org', title:'2. Structural and Process Organisation', content:'<div class="card"><h3>2. Structural and Process Organisation</h3><p><strong>Aufbauorganisation:</strong> Who is responsible for what?<br><strong>Ablauforganisation:</strong> How do the processes run?</p></div>' },
+        { id:'eepk', title:'3. eEPK', content:'<div class="card"><h3>3. eEPK</h3><p>Extended event-driven process chain: Event → Function → Organisational unit → Information object</p></div>' },
+        { id:'sla', title:'Service Request & SLA', content:'<div class="card"><h3>Service Request & SLA</h3><p>Response time and resolution time are contractually defined.</p></div>' },
+        { id:'incident', title:'Incident vs Problem', content:'<div class="card"><h3>Incident vs Problem</h3><p>Incident = current disruption. Problem = root cause of recurring issues.</p></div>' }
+      ]
+    };
+
+    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
+    function renderTopicList(){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const container = document.getElementById('topicList');
+      container.innerHTML = '';
+      list.forEach(t => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'topic-item';
+        a.innerHTML = `<h3>${t.title}</h3><span>→</span>`;
+        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
+        container.appendChild(a);
+      });
+    }
+    function showTopic(id){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const topic = list.find(t => t.id === id);
+      if (!topic) return;
+      document.getElementById('singleTopicContent').innerHTML = topic.content;
+      document.getElementById('topicListView').style.display = 'none';
+      document.getElementById('topicContentView').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+    function showList(e){
+      if (e) e.preventDefault();
+      document.getElementById('topicContentView').style.display = 'none';
+      document.getElementById('topicListView').style.display = 'block';
+      renderTopicList();
+    }
+    const originalSetLang = window.setLang;
+    window.setLang = function(lang){
+      originalSetLang(lang);
+      renderTopicList();
+      showList();
+    };
+    document.addEventListener('DOMContentLoaded', renderTopicList);
   </script>
 </body>
 </html>
