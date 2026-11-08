@@ -3,41 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
   <title>LF 7 – Cyber-physische Systeme | FISI Klasse 11</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-  <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="lf6.html">LF 6</a>
-      <a href="lf7.html" class="active">LF 7</a>
-      <a href="lf8.html">LF 8</a>
-      <a href="lf9.html">LF 9</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">11</span>
+        <span class="brand-text">FISI<span>Klasse 11</span></span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
+        </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
+      </div>
     </div>
-  </nav>
-  <header class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / LF 7</div>
-      <h1>🤖 Cyber-physische Systeme ergänzen</h1>
-      <p class="subtitle">72 Std. · IT-Technik</p>
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
     </div>
   </header>
-  <main class="container">
+  <div class="container page-head">
+    <a class="back-btn" href="index.html" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></a>
+    <div>
+      <p class="breadcrumb"><a href="index.html" data-i18n="navHome">خانه</a> <span aria-hidden="true">/</span> LF 7</p>
+      <h1>Cyber-physische Systeme ergänzen</h1>
+      <p class="sub">72 Std. · IT-Technik</p>
+      <p class="related"><a href="it-technik.html">Zum Fach IT-Technik</a></p>
+    </div>
+  </div>
+  <nav class="container subnav" aria-label="Lernfelder"><a href="lf6.html" title="Serviceanfragen">LF 6</a><a href="lf7.html" title="Cyber-physische Systeme" aria-current="page">LF 7</a><a href="lf8.html" title="Daten bereitstellen">LF 8</a><a href="lf9.html" title="Netzwerke und Dienste">LF 9</a></nav>
+  <main id="main" class="container">
 
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف یادگیری</h3>
+        <h2>هدف یادگیری</h2>
         <div class="goal-box">دانش‌آموزان صلاحیت اتصال کارکردی دنیای فیزیکی و سیستم‌های IT به یک سیستم سایبر-فیزیکی را دارند.</div>
-        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <h3>چه چیزهایی یاد می‌گیری؟</h3>
         <ul>
           <li>تحلیل یک CPS برای افزودن قطعه جدید طبق سفارش مشتری</li>
           <li>بررسی جریان داده بین دنیای فیزیکی و IT</li>
@@ -48,7 +76,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔗 اجزای CPS</h3>
+        <h2>اجزای CPS</h2>
         <ul>
           <li><strong>Sensor</strong> – اندازه‌گیری (دما، حرکت، نور...)</li>
           <li><strong>Aktor</strong> – عمل روی محیط (موتور، رله...)</li>
@@ -58,14 +86,14 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین‌ها</h3>
+        <h2>تمرین‌ها</h2>
         <div class="exercise"><div class="exercise-title">تمرین ۱</div><p>یک Smart Home ساده (سنسور حرکت + لامپ) را توصیف کن: جریان اطلاعات و انرژی چگونه است؟</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۲</div><p>مشتری می‌خواهد سنسور دما اضافه شود و در دمای بالا هشدار بگیرد. مراحل کار را بنویس.</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۳</div><p>با ESP32 + MQTT دما را بفرست و در Node-RED نمایش + آلارم بساز.</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۴</div><p>یک پروتکل کوتاه بنویس: قطعات، تغذیه، اندازه‌گیری‌ها، نکات ایمنی و امنیت.</p></div>
       </div>
       <div class="card">
-        <h3>📖 اصطلاحات</h3>
+        <h2>اصطلاحات</h2>
         <ul>
           <li><strong>Cyber-physisches System (CPS)</strong></li>
           <li><strong>Sensor / Aktor</strong></li>
@@ -78,9 +106,9 @@
 
     <div class="lang-block" data-lang="de">
       <div class="card">
-        <h3>🎯 Zielformulierung</h3>
+        <h2>Zielformulierung</h2>
         <div class="goal-box">Die Schülerinnen und Schüler verfügen über die Kompetenz, die physische Welt und IT-Systeme funktional zu einem cyber-physischen System zusammenzuführen.</div>
-        <h3>📚 Was du lernst</h3>
+        <h3>Was du lernst</h3>
         <ul>
           <li>CPS analysieren und Komponenten nach Kundenauftrag ergänzen</li>
           <li>Datenfluss an der Schnittstelle physische Welt ↔ IT verstehen</li>
@@ -91,7 +119,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔗 Bestandteile eines CPS</h3>
+        <h2>Bestandteile eines CPS</h2>
         <ul>
           <li><strong>Sensor</strong> – misst die Umwelt</li>
           <li><strong>Aktor</strong> – wirkt auf die Umwelt</li>
@@ -101,14 +129,14 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Übungen</h3>
+        <h2>Übungen</h2>
         <div class="exercise"><div class="exercise-title">Übung 1</div><p>Beschreibe ein einfaches Smart-Home-System (Bewegungssensor + Lampe): Informations- und Energiefluss.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 2</div><p>Kunde will einen Temperatursensor mit Alarm bei Grenzwertüberschreitung. Plane die Schritte bis zur Inbetriebnahme.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 3</div><p>Sende Temperaturdaten per MQTT von einem ESP32 und visualisiere sie in Node-RED mit Alarm.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 4</div><p>Erstelle ein kurzes Protokoll: Komponenten, Versorgung, Messwerte, Sicherheitsaspekte.</p></div>
       </div>
       <div class="card">
-        <h3>📖 Wichtige Begriffe</h3>
+        <h2>Wichtige Begriffe</h2>
         <ul>
           <li><strong>Cyber-physisches System (CPS)</strong></li>
           <li><strong>Sensor / Aktor</strong></li>
@@ -121,9 +149,9 @@
 
     <div class="lang-block" data-lang="en">
       <div class="card">
-        <h3>🎯 Learning Goal</h3>
+        <h2>Learning Goal</h2>
         <div class="goal-box">Students can functionally integrate the physical world and IT systems into a cyber-physical system.</div>
-        <h3>📚 What you learn</h3>
+        <h3>What you learn</h3>
         <ul>
           <li>Analyse a CPS and add components for a customer order</li>
           <li>Understand data flow between the physical world and IT</li>
@@ -134,7 +162,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔗 CPS building blocks</h3>
+        <h2>CPS building blocks</h2>
         <ul>
           <li><strong>Sensor</strong> – measures the environment</li>
           <li><strong>Actuator</strong> – acts on the environment</li>
@@ -144,14 +172,14 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Exercises</h3>
+        <h2>Exercises</h2>
         <div class="exercise"><div class="exercise-title">Exercise 1</div><p>Describe a simple smart-home setup (motion sensor + lamp): information and energy flow.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 2</div><p>Customer wants a temperature sensor with an alert above a limit. Plan the steps to commissioning.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 3</div><p>Send temperature data via MQTT from an ESP32 and show it in Node-RED with an alarm.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 4</div><p>Write a short report: components, power, measurements, safety notes.</p></div>
       </div>
       <div class="card">
-        <h3>📖 Key Terms</h3>
+        <h2>Key Terms</h2>
         <ul>
           <li><strong>Cyber-physical system (CPS)</strong></li>
           <li><strong>Sensor / actuator</strong></li>
@@ -164,7 +192,15 @@
 
     <div class="card"><p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Cyber-physische Systeme ergänzen (72 Std.), Mai 2020</p></div>
   </main>
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
 </body>
 </html>

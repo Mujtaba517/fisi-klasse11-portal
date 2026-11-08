@@ -3,78 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
   <title>Quiz | Klasse 11</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="auth.js"></script>
-  <style>
-    .quiz-progress{height:8px;background:var(--border);border-radius:999px;margin:1rem 0 1.5rem;overflow:hidden}
-    .quiz-progress-bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0;transition:.3s}
-    .quiz-meta{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--muted);margin-bottom:.5rem}
-    .quiz-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.3rem;margin-bottom:1rem;backdrop-filter:blur(8px)}
-    .quiz-question{font-weight:700;font-size:1.05rem;margin-bottom:.9rem}
-    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
-    .quiz-option{text-align:start;background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;cursor:pointer;font-family:inherit;color:var(--text);transition:.15s}
-    .quiz-option:hover:not(.disabled){border-color:var(--blue)}
-    .quiz-option.selected{border-color:var(--blue);background:var(--blue-soft)}
-    .quiz-option.correct{border-color:#22c55e;background:rgba(34,197,94,.15)}
-    .quiz-option.wrong{border-color:#ef4444;background:rgba(239,68,68,.15)}
-    .quiz-option.disabled{cursor:default;opacity:.9}
-    .explanation{margin-top:.7rem;padding:.7rem .9rem;background:var(--blue-soft);border-radius:10px;font-size:.9rem;color:var(--text);display:none}
-    .quiz-score{text-align:center;padding:1.5rem;background:var(--card);border-radius:18px;border:1px solid var(--border);margin-top:1rem}
-    .quiz-score strong{font-size:1.8rem;display:block;margin-bottom:.3rem}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <div class="lang-menu">
-        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
-        <div class="lang-panel" id="langPanel">
-          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
-          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">11</span>
+        <span class="brand-text">FISI<span>Klasse 11</span></span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
         </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
       </div>
     </div>
-    <div class="container"><nav class="nav-scroll">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="bgwp.html">BGWP</a>
-      <a href="it-technik.html">IT-Technik</a>
-      <a href="aeup.html">AEuP</a>
-      <a href="it-systeme.html">IT-Systeme</a>
-      <a href="fachpraxis.html">Fp-Plus</a>
-      <a href="pug.html">PuG</a>
-      <a href="englisch.html">Englisch</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" class="active" data-i18n="navQuiz">کوییز</a>
-    </nav></div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz" class="active" aria-current="page">کوییز</a>
+      </nav>
+    </div>
   </header>
 
   <div class="container page-head">
-    <button type="button" class="back-btn" onclick="window.location.href='index.html'">←</button>
+    <button type="button" class="back-btn" onclick="window.location.href='index.html'" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></button>
     <h1 data-i18n="quizPageTitle">کوییز آمادگی</h1>
     <p class="sub" data-i18n="quizPageSub">۱۲ سؤال از مضامین صنف ۱۱</p>
   </div>
 
-  <main class="container">
+  <main id="main" class="container">
     <div class="quiz-meta">
       <span id="progressText">0 / 12</span>
       <span id="answeredCount">0</span>
     </div>
-    <div class="quiz-progress"><div class="quiz-progress-bar" id="progressBar"></div></div>
+    <div class="quiz-progress" id="progressTrack" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" aria-labelledby="progressText"><div class="quiz-progress-bar" id="progressBar"></div></div>
 
     <div id="quizArea"></div>
 
-    <div style="text-align:center;margin:1.5rem 0 2rem">
+    <div class="quiz-actions">
       <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()" data-i18n="submitQuiz">ثبت پاسخ‌ها</button>
       <button class="btn btn-soft" id="retryBtn" style="display:none" onclick="location.reload()" data-i18n="retryQuiz">دوباره</button>
     </div>
-    <div class="quiz-score" id="scoreBox" style="display:none"></div>
+    <div class="quiz-score" id="scoreBox" style="display:none" role="status" aria-live="polite"></div>
   </main>
 
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
   <script>
     const questions = [
@@ -146,6 +150,11 @@
       document.getElementById('progressText').textContent = count + ' / ' + total;
       document.getElementById('answeredCount').textContent = count + ' ' + (answeredLabel[lang] || answeredLabel.fa);
       document.getElementById('progressBar').style.width = (count / total * 100) + '%';
+      const track = document.getElementById('progressTrack');
+      if (track) {
+        track.setAttribute('aria-valuemax', String(total));
+        track.setAttribute('aria-valuenow', String(count));
+      }
     }
 
     function renderQuiz(){
@@ -158,10 +167,10 @@
         card.id = 'q'+idx;
         let opts = '';
         item.options[lang].forEach((opt, oIdx) => {
-          opts += `<button type="button" class="quiz-option" data-q="${idx}" data-o="${oIdx}" onclick="selectOption(${idx},${oIdx})">${opt}</button>`;
+          opts += `<button type="button" class="quiz-option" data-q="${idx}" data-o="${oIdx}" aria-pressed="false" onclick="selectOption(${idx},${oIdx})">${opt}</button>`;
         });
         const expl = item.explain ? `<div class="explanation" id="expl${idx}">${item.explain[lang]||item.explain.fa}</div>` : '';
-        card.innerHTML = `<div class="quiz-question">${idx+1}. ${item.q[lang]}</div><div class="quiz-options">${opts}</div>${expl}`;
+        card.innerHTML = `<h2 class="quiz-question">${idx+1}. ${item.q[lang]}</h2><div class="quiz-options">${opts}</div>${expl}`;
         area.appendChild(card);
 
         if (answered[idx] !== undefined) {
@@ -177,8 +186,9 @@
       if (submitted) return;
       answered[qIdx] = oIdx;
       const options = document.querySelectorAll('#q'+qIdx+' .quiz-option');
-      options.forEach(o => o.classList.remove('selected'));
+      options.forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-pressed', 'false'); });
       options[oIdx].classList.add('selected');
+      options[oIdx].setAttribute('aria-pressed', 'true');
       updateProgress();
     }
 
@@ -214,7 +224,9 @@
       box.innerHTML = `<strong>${score} / ${questions.length}</strong>${percent}%<br><span style="color:var(--blue)">${grade}</span>`;
       document.getElementById('submitBtn').style.display = 'none';
       document.getElementById('retryBtn').style.display = 'inline-flex';
-      window.scrollTo({top:0, behavior:'smooth'});
+      box.tabIndex = -1;
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      box.focus();
     }
 
     document.addEventListener('DOMContentLoaded', renderQuiz);
@@ -224,5 +236,8 @@
       if (!submitted) renderQuiz();
     };
   </script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
 </body>
 </html>

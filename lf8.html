@@ -3,41 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
   <title>LF 8 – Daten bereitstellen | FISI Klasse 11</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="setLang('fa')" class="lang-btn active" data-lang="fa">فارسی</button>
-    <button onclick="setLang('de')" class="lang-btn" data-lang="de">Deutsch</button>
-    <button onclick="setLang('en')" class="lang-btn" data-lang="en">English</button>
-  </div>
-  <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="lf6.html">LF 6</a>
-      <a href="lf7.html">LF 7</a>
-      <a href="lf8.html" class="active">LF 8</a>
-      <a href="lf9.html">LF 9</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">11</span>
+        <span class="brand-text">FISI<span>Klasse 11</span></span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
+        </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
+      </div>
     </div>
-  </nav>
-  <header class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / LF 8</div>
-      <h1>🗄️ Daten systemübergreifend bereitstellen</h1>
-      <p class="subtitle">96 Std. · Anwendungsentwicklung und Programmierung</p>
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
     </div>
   </header>
-  <main class="container">
+  <div class="container page-head">
+    <a class="back-btn" href="index.html" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></a>
+    <div>
+      <p class="breadcrumb"><a href="index.html" data-i18n="navHome">خانه</a> <span aria-hidden="true">/</span> LF 8</p>
+      <h1>Daten systemübergreifend bereitstellen</h1>
+      <p class="sub">96 Std. · Anwendungsentwicklung und Programmierung</p>
+      <p class="related"><a href="aeup.html">Zum Fach AEuP</a></p>
+    </div>
+  </div>
+  <nav class="container subnav" aria-label="Lernfelder"><a href="lf6.html" title="Serviceanfragen">LF 6</a><a href="lf7.html" title="Cyber-physische Systeme">LF 7</a><a href="lf8.html" title="Daten bereitstellen" aria-current="page">LF 8</a><a href="lf9.html" title="Netzwerke und Dienste">LF 9</a></nav>
+  <main id="main" class="container">
 
     <div class="lang-block" data-lang="fa">
       <div class="card">
-        <h3>🎯 هدف یادگیری</h3>
+        <h2>هدف یادگیری</h2>
         <div class="goal-box">دانش‌آموزان صلاحیت گردآوری داده از منابع غیرمتمرکز، آماده‌سازی و در اختیار قرار دادن آن‌ها را دارند.</div>
-        <h3>📚 چه چیزهایی یاد می‌گیری؟</h3>
+        <h3>چه چیزهایی یاد می‌گیری؟</h3>
         <ul>
           <li>شناسایی و تحلیل منابع داده (ساختار، دسترسی، چارچوب حقوقی)</li>
           <li>انتخاب منابع ناهمگون برای سفارش مشتری</li>
@@ -46,7 +74,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🧩 منابع داده</h3>
+        <h2>منابع داده</h2>
         <ul>
           <li>پایگاه داده رابطه‌ای (MySQL, PostgreSQL)</li>
           <li>فایل‌ها (CSV, JSON, XML)</li>
@@ -55,7 +83,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔐 امنیت اطلاعات</h3>
+        <h2>امنیت اطلاعات</h2>
         <ul>
           <li>حداقل داده لازم (Datenminimierung)</li>
           <li>حداقل دسترسی (Least Privilege)</li>
@@ -64,14 +92,14 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ تمرین‌ها</h3>
+        <h2>تمرین‌ها</h2>
         <div class="exercise"><div class="exercise-title">تمرین ۱</div><p>سه منبع (MySQL، CSV، API) را از نظر ساختار، دسترسی و ریسک امنیتی مقایسه کن.</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۲</div><p>برای سیستم تیکت ER-Modell بکش و یک Query با JOIN بنویس.</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۳</div><p>یک API ساده JSON بساز و مستند کن.</p></div>
         <div class="exercise"><div class="exercise-title">تمرین ۴</div><p>راهنمای کاربری کوتاه برای همان API بنویس.</p></div>
       </div>
       <div class="card">
-        <h3>📖 اصطلاحات</h3>
+        <h2>اصطلاحات</h2>
         <ul>
           <li><strong>Datenquelle</strong> – منبع داده</li>
           <li><strong>Informationssicherheit</strong> – امنیت اطلاعات</li>
@@ -83,9 +111,9 @@
 
     <div class="lang-block" data-lang="de">
       <div class="card">
-        <h3>🎯 Zielformulierung</h3>
+        <h2>Zielformulierung</h2>
         <div class="goal-box">Die Schülerinnen und Schüler besitzen die Kompetenz, Daten aus dezentralen Quellen zusammenzuführen, aufzubereiten und zur weiteren Nutzung bereitzustellen.</div>
-        <h3>📚 Was du lernst</h3>
+        <h3>Was du lernst</h3>
         <ul>
           <li>Datenquellen ermitteln und analysieren (Struktur, Zugriff, Recht)</li>
           <li>Heterogene Quellen für den Kundenauftrag auswählen</li>
@@ -94,7 +122,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🧩 Datenquellen</h3>
+        <h2>Datenquellen</h2>
         <ul>
           <li>Relationale Datenbanken</li>
           <li>Dateien (CSV, JSON, XML)</li>
@@ -103,7 +131,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔐 Informationssicherheit</h3>
+        <h2>Informationssicherheit</h2>
         <ul>
           <li>Datenminimierung</li>
           <li>Least Privilege</li>
@@ -112,14 +140,14 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Übungen</h3>
+        <h2>Übungen</h2>
         <div class="exercise"><div class="exercise-title">Übung 1</div><p>Vergleiche drei Quellen (MySQL, CSV, API) nach Struktur, Zugriff und Sicherheitsrisiko.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 2</div><p>Erstelle ein ER-Modell für ein Ticketsystem und eine JOIN-Abfrage.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 3</div><p>Baue eine einfache JSON-API und dokumentiere sie.</p></div>
         <div class="exercise"><div class="exercise-title">Übung 4</div><p>Schreibe eine kurze Benutzeranleitung für die API.</p></div>
       </div>
       <div class="card">
-        <h3>📖 Wichtige Begriffe</h3>
+        <h2>Wichtige Begriffe</h2>
         <ul>
           <li><strong>Datenquelle</strong></li>
           <li><strong>Informationssicherheit</strong></li>
@@ -131,9 +159,9 @@
 
     <div class="lang-block" data-lang="en">
       <div class="card">
-        <h3>🎯 Learning Goal</h3>
+        <h2>Learning Goal</h2>
         <div class="goal-box">Students can merge data from decentralized sources, prepare it and make it available for further use.</div>
-        <h3>📚 What you learn</h3>
+        <h3>What you learn</h3>
         <ul>
           <li>Identify and analyse data sources (structure, access, legal framework)</li>
           <li>Select heterogeneous sources for a customer order</li>
@@ -142,7 +170,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🧩 Data sources</h3>
+        <h2>Data sources</h2>
         <ul>
           <li>Relational databases</li>
           <li>Files (CSV, JSON, XML)</li>
@@ -151,7 +179,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>🔐 Information security</h3>
+        <h2>Information security</h2>
         <ul>
           <li>Data minimisation</li>
           <li>Least privilege</li>
@@ -160,14 +188,14 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✏️ Exercises</h3>
+        <h2>Exercises</h2>
         <div class="exercise"><div class="exercise-title">Exercise 1</div><p>Compare three sources (MySQL, CSV, API) by structure, access and security risk.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 2</div><p>Design an ER model for a ticket system and write a JOIN query.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 3</div><p>Build a simple JSON API and document it.</p></div>
         <div class="exercise"><div class="exercise-title">Exercise 4</div><p>Write a short user guide for that API.</p></div>
       </div>
       <div class="card">
-        <h3>📖 Key Terms</h3>
+        <h2>Key Terms</h2>
         <ul>
           <li><strong>Data source</strong></li>
           <li><strong>Information security</strong></li>
@@ -179,7 +207,15 @@
 
     <div class="card"><p class="source-note">Quelle: Lehrplanrichtlinien Bayern – Jgst. 11, Daten systemübergreifend bereitstellen (96 Std.), Mai 2020</p></div>
   </main>
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 Portal · Mujtaba Najafi · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
 </body>
 </html>

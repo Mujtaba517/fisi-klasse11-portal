@@ -1,64 +1,82 @@
 <!DOCTYPE html>
-<html lang="de" dir="ltr">
+<html lang="de" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
   <title>Benutzerverwaltung | FISI Klasse 11</title>
+  <script>
+    try {
+      var theme = localStorage.getItem('fisi-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#f3f5f7' : '#101418');
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .admin-box{max-width:700px;margin:2rem auto}
-    .admin-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
-    .admin-card h2{margin-bottom:1rem;font-size:1.2rem}
-    .user-list{display:flex;flex-direction:column;gap:.6rem}
-    .user-item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem}
-    .user-item .info{display:flex;flex-direction:column}
-    .user-item .name{font-weight:600}
-    .user-item .role{font-size:.8rem;color:var(--muted)}
-    .form-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:.6rem;align-items:end}
-    .form-row input{padding:.7rem .9rem;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:inherit;font-size:.95rem}
-    .form-row input:focus{outline:none;border-color:var(--blue)}
-    .btn-add{padding:.7rem 1.2rem;background:var(--blue);color:#0f172a;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit}
-    .btn-del{background:none;border:none;color:#ef4444;cursor:pointer;font-size:1.1rem;padding:.3rem}
-    .btn-export{margin-top:1rem;padding:.7rem 1.2rem;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px;color:var(--text);cursor:pointer;font-family:inherit;font-weight:600}
-    .export-box{margin-top:1rem;background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:10px;font-family:ui-monospace,monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-all;display:none}
-    .login-gate{max-width:360px;margin:4rem auto;text-align:center}
-    .login-gate input{width:100%;padding:.85rem;margin:.5rem 0 1rem;background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:1rem;text-align:center}
-    .login-gate button{padding:.85rem 2rem;background:var(--blue);color:#0f172a;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-family:inherit}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <a href="index.html" style="color:var(--muted);text-decoration:none;font-size:.9rem">← Zurück</a>
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">11</span>
+        <span class="brand-text">FISI<span>Klasse 11</span></span>
+      </a>
+      <a class="btn btn-soft" href="index.html">Zur Startseite</a>
     </div>
   </header>
 
-  <div id="loginGate" class="login-gate">
-    <h2 style="margin-bottom:1rem">Admin-Zugang</h2>
-    <input type="password" id="adminPass" placeholder="Admin-Passwort">
-    <button onclick="checkAdmin()">Zugang</button>
-    <p id="adminError" style="color:#ef4444;margin-top:.8rem;display:none">Falsches Passwort</p>
-  </div>
+  <main id="main" class="container">
+    <div id="loginGate" class="login-gate">
+      <h1>Admin-Zugang</h1>
+      <p class="sub">Diese Seite verwaltet die Liste in <code>users.js</code>. Die Anmeldung der Lernenden läuft über <code>login.html</code>.</p>
+      <form onsubmit="checkAdmin(); return false;">
+        <div class="form-group">
+          <label for="adminPass">Admin-Passwort</label>
+          <input type="password" id="adminPass" autocomplete="current-password" />
+        </div>
+        <button type="submit" class="btn btn-primary">Zugang</button>
+      </form>
+      <p id="adminError" class="form-status err" role="alert" hidden>Falsches Passwort</p>
+    </div>
 
-  <main class="container" id="adminPanel" style="display:none">
-    <div class="admin-box">
+    <div class="admin-box" id="adminPanel" hidden>
+      <div class="page-head" style="grid-template-columns: 1fr">
+        <div>
+          <h1>Benutzerverwaltung</h1>
+          <p class="sub">Benutzer anlegen, löschen und den Code für users.js kopieren.</p>
+        </div>
+      </div>
+
       <div class="admin-card">
         <h2>Neuen Benutzer hinzufügen</h2>
-        <div class="form-row">
-          <input type="text" id="newUser" placeholder="Benutzername">
-          <input type="text" id="newPass" placeholder="Passwort">
-          <input type="text" id="newName" placeholder="Name (optional)">
-          <button class="btn-add" onclick="addUser()">Hinzufügen</button>
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="newUser">Benutzername</label>
+            <input type="text" id="newUser" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="newPass">Passwort</label>
+            <input type="text" id="newPass" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="newName">Name (optional)</label>
+            <input type="text" id="newName" autocomplete="name" />
+          </div>
+          <button type="button" class="btn-add" onclick="addUser()">Hinzufügen</button>
         </div>
+        <p id="adminStatus" class="form-status" role="status" hidden></p>
       </div>
 
       <div class="admin-card">
         <h2>Benutzerliste</h2>
         <div class="user-list" id="userList"></div>
-        <button class="btn-export" onclick="exportUsers()">Code für users.js kopieren</button>
-        <div class="export-box" id="exportBox"></div>
+        <button type="button" class="btn btn-soft btn-export" onclick="exportUsers()">Code für users.js kopieren</button>
+        <div class="export-box" id="exportBox" hidden></div>
       </div>
     </div>
   </main>
@@ -67,29 +85,48 @@
   <script>
     let users = [...USERS];
 
+    function esc(value) {
+      return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+      });
+    }
+
+    function setStatus(message, type) {
+      const el = document.getElementById('adminStatus');
+      el.hidden = !message;
+      el.className = 'form-status ' + (type || '');
+      el.textContent = message || '';
+    }
+
     function checkAdmin() {
       const pass = document.getElementById('adminPass').value;
+      const error = document.getElementById('adminError');
       if (pass === ADMIN_PASSWORD) {
-        document.getElementById('loginGate').style.display = 'none';
-        document.getElementById('adminPanel').style.display = 'block';
+        document.getElementById('loginGate').hidden = true;
+        document.getElementById('adminPanel').hidden = false;
+        error.hidden = true;
         renderUsers();
       } else {
-        document.getElementById('adminError').style.display = 'block';
+        error.hidden = false;
       }
     }
 
     function renderUsers() {
       const list = document.getElementById('userList');
       list.innerHTML = '';
+      if (!users.length) {
+        list.innerHTML = '<p class="search-empty">Keine Benutzer</p>';
+        return;
+      }
       users.forEach((u, i) => {
         const div = document.createElement('div');
         div.className = 'user-item';
         div.innerHTML = `
           <div class="info">
-            <span class="name">${u.username}</span>
-            <span class="role">${u.name || ''} · ${u.role || 'student'}</span>
+            <span class="name">${esc(u.username)}</span>
+            <span class="role">${esc(u.name || '')} · ${esc(u.role || 'student')}</span>
           </div>
-          <button class="btn-del" onclick="deleteUser(${i})" title="Löschen">✕</button>
+          <button type="button" class="btn-del" onclick="deleteUser(${i})" aria-label="Löschen">✕</button>
         `;
         list.appendChild(div);
       });
@@ -100,27 +137,29 @@
       const password = document.getElementById('newPass').value;
       const name = document.getElementById('newName').value.trim();
       if (!username || !password) {
-        alert('Benutzername und Passwort erforderlich');
+        setStatus('Benutzername und Passwort erforderlich', 'err');
         return;
       }
       if (users.find(u => u.username === username)) {
-        alert('Benutzername existiert bereits');
+        setStatus('Benutzername existiert bereits', 'err');
         return;
       }
       users.push({ username, password, name, role: 'student' });
       document.getElementById('newUser').value = '';
       document.getElementById('newPass').value = '';
       document.getElementById('newName').value = '';
+      setStatus('Benutzer hinzugefügt. Exportiere den Code, damit er in users.js bleibt.', 'ok');
       renderUsers();
     }
 
     function deleteUser(index) {
       if (users[index].role === 'admin') {
-        alert('Admin kann nicht gelöscht werden');
+        setStatus('Admin kann nicht gelöscht werden', 'err');
         return;
       }
       if (confirm('Benutzer wirklich löschen?')) {
         users.splice(index, 1);
+        setStatus('', '');
         renderUsers();
       }
     }
@@ -129,17 +168,14 @@
       const code = `const USERS = ${JSON.stringify(users, null, 2)};\n\nconst ADMIN_PASSWORD = "${ADMIN_PASSWORD}";`;
       const box = document.getElementById('exportBox');
       box.textContent = code;
-      box.style.display = 'block';
+      box.hidden = false;
       navigator.clipboard.writeText(code).then(() => {
-        alert('Code kopiert! Füge ihn in users.js ein und committe.');
+        setStatus('Code kopiert. Füge ihn in users.js ein.', 'ok');
       }).catch(() => {
-        alert('Code angezeigt. Kopiere ihn manuell.');
+        setStatus('Code angezeigt. Kopiere ihn manuell.', 'err');
       });
     }
 
-    document.getElementById('adminPass').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') checkAdmin();
-    });
   </script>
 </body>
 </html>

@@ -3,53 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
   <title>IT-Systeme (FU-IT) | Klasse 11</title>
+  <script src="theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="auth.js"></script>
-  <style>
-    .topic-list{display:grid;gap:.8rem;margin-top:1rem}
-    .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
-    .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
-    .topic-item h3{font-size:1.05rem;margin:0}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
-      <div class="lang-menu">
-        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
-        <div class="lang-panel" id="langPanel">
-          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
-          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">11</span>
+        <span class="brand-text">FISI<span>Klasse 11</span></span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
         </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
       </div>
     </div>
-    <div class="container"><nav class="nav-scroll">
-      <a href="index.html" data-i18n="navHome">خانه</a>
-      <a href="bgwp.html">BGWP</a>
-      <a href="it-technik.html">IT-Technik</a>
-      <a href="aeup.html">AEuP</a>
-      <a href="it-systeme.html" class="active">IT-Systeme</a>
-      <a href="fachpraxis.html">Fp-Plus</a>
-      <a href="pug.html">PuG</a>
-      <a href="englisch.html">Englisch</a>
-      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
-      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
-    </nav></div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="it-systeme.html" class="active" aria-current="page">IT-Systeme</a>
+        <a href="it-technik.html">IT-Technik</a>
+        <a href="aeup.html">AEuP</a>
+        <a href="bgwp.html">BGWP</a>
+        <a href="fachpraxis.html">Fachpraxis</a>
+        <a href="pug.html">PuG</a>
+        <a href="englisch.html">Englisch</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
+    </div>
   </header>
 
   <div class="container page-head">
-    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()">←</button>
+    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></button>
     <h1>IT-Systeme (FU-IT)</h1>
     <p class="sub" data-i18n="itsSubtitle">شبکه‌ها را طراحی و پیاده‌سازی کنید</p>
   </div>
 
-  <main class="container">
+  <main id="main" class="container">
     <div id="topicListView">
-      <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
+      <h2 data-i18n="topicsTitle">موضوعات</h2>
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
@@ -57,7 +67,12 @@
     </div>
   </main>
 
-  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
   <script>
@@ -119,7 +134,7 @@
         const a = document.createElement('a');
         a.href = '#';
         a.className = 'topic-item';
-        a.innerHTML = `<h3>${t.title}</h3><span>→</span>`;
+        a.innerHTML = `<h3>${t.title}</h3><span class="chev" aria-hidden="true"></span>`;
         a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
         container.appendChild(a);
       });
@@ -181,5 +196,8 @@
     document.addEventListener('DOMContentLoaded', initFromHash);
     window.addEventListener('hashchange', initFromHash);
   </script>
+  <script src="settings.js"></script>
+  <script src="admin-panel.js"></script>
+  <script src="shell.js"></script>
 </body>
 </html>
