@@ -6,7 +6,6 @@
   <title>AEuP | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>code{font-family:ui-monospace,monospace;font-size:.85em;background:#f2f2f7;padding:.1rem .35rem;border-radius:6px}</style>
 </head>
 <body>
   <header class="topbar">
@@ -36,98 +35,70 @@
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
     <h1>AEuP – Daten systemübergreifend bereitstellen</h1>
-    <p class="sub">Datenbanken · SQL · REST API · JSON · Integration</p>
+    <p class="sub">Welt der Daten · Datenmodelle · ER-Modell · relationales Modell</p>
   </div>
   <main class="container">
     <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>این درس چه چیزی است؟</h3><div class="goal">داده‌ها را از منابع مختلف بخوانی، ترکیب کنی و به‌صورت امن در اختیار دیگر سیستم‌ها قرار دهی.</div><p><strong>مثال:</strong> فروش در MySQL، انبار در فایل CSV، سفارش آنلاین از API → یک گزارش واحد</p></div>
-
-      <div class="card"><h3>۱) منابع داده</h3>
+      <div class="card"><h3>1. جهان داده‌ها</h3>
         <ul>
-          <li><strong>پایگاه داده</strong> – جدول مشتریان در MySQL</li>
-          <li><strong>فایل</strong> – CSV حسابداری یا Excel</li>
-          <li><strong>API</strong> – داده JSON از فروشگاه آنلاین</li>
-        </ul>
-        <p>همیشه بپرس: آیا داده شخصی است؟ مجوز داریم؟ داده تازه است؟</p>
-      </div>
-
-      <div class="card"><h3>۲) مدل ER و SQL</h3>
-        <p>مثال جداول:</p>
-        <p>User (id, name)<br>Ticket (id, user_id, title, status)</p>
-        <p><strong>جمله SQL:</strong></p>
-        <pre><code>SELECT t.title
-FROM Ticket t
-JOIN User u ON t.user_id = u.id
-WHERE u.name = 'Ali' AND t.status = 'open';</code></pre>
-        <p>JOIN = چسباندن دو جدول با کلید مشترک</p>
-      </div>
-
-      <div class="card"><h3>۳) REST API و JSON</h3>
-        <ul>
-          <li><strong>GET</strong> = خواندن داده</li>
-          <li><strong>POST</strong> = ایجاد داده جدید</li>
-          <li><strong>PUT / PATCH</strong> = به‌روزرسانی</li>
-          <li><strong>DELETE</strong> = حذف</li>
-        </ul>
-        <p>مثال JSON: <code>{"id": 5, "title": "VPN down"}</code></p>
-        <p>کدهای وضعیت: 200 = موفق، 404 = پیدا نشد، 401 = بدون مجوز</p>
-      </div>
-
-      <div class="card"><h3>۴) فرمت‌های داده</h3>
-        <ul>
-          <li><strong>JSON</strong> – سبک و معمول در API</li>
-          <li><strong>CSV</strong> – ساده برای جدول</li>
-          <li><strong>XML</strong> – قدیمی‌تر ولی هنوز استفاده می‌شود</li>
+          <li><strong>داده ساختاریافته:</strong> فرمت ثابت، قابل پردازش ماشینی (پایگاه داده، Excel)</li>
+          <li><strong>داده غیرساختاریافته:</strong> بدون فرمت ثابت (ایمیل، عکس، ویدیو)</li>
+          <li><strong>Bestandsdaten:</strong> داده‌های پایه که کم تعییر می‌کنند (مشتریان، قیمت لیست)</li>
+          <li><strong>Bewegungsdaten:</strong> داده‌های ناشی از فرآیند کسب‌وکار (تعداد، مبلغ فاکتور)</li>
         </ul>
       </div>
 
-      <div class="card"><h3>۵) ETL (Extract, Transform, Load)</h3>
-        <p>فرآیند یکپارچه‌سازی داده:</p>
-        <ol>
-          <li><strong>Extract</strong> – بازیابی داده از منبع</li>
-          <li><strong>Transform</strong> – پاکسازی و تغییر فرمت</li>
-          <li><strong>Load</strong> – بارگذاری در سیستم مقصد</li>
-        </ol>
+      <div class="card"><h3>2. مدل‌های داده</h3>
+        <p>مدل‌سازی داده قبل از پیاده‌سازی پایگاه داده انجام می‌شود.</p>
       </div>
 
-      <div class="card"><h3>۶) امنیت داده</h3>
+      <div class="card"><h3>2.1 ER-Modell (Entity-Relationship)</h3>
         <ul>
-          <li>همیشه HTTPS استفاده کن (نه HTTP خام)</li>
-          <li>Least Privilege – فقط دسترسی لازم</li>
-          <li>DSGVO برای داده‌های شخصی</li>
-          <li>Authentication (API Key یا OAuth)</li>
+          <li><strong>Entität:</strong> موجودیت (مشتری، تیکت، محصول)</li>
+          <li><strong>Attribut:</strong> ویژگی موجودیت (نام، قیمت، تاریخ)</li>
+          <li><strong>Beziehung:</strong> ارتباط بین موجودیت‌ها</li>
+          <li><strong>Primärschlüssel:</strong> شناسه یکتا</li>
         </ul>
+      </div>
+
+      <div class="card"><h3>2.2 مدل رابطه‌ای (relationales Modell)</h3>
+        <p>تبدیل ER به جداول با کلیدهای اصلی و خارجی.</p>
+        <p>مثال: جدول Kunde (KundenID, Name) و Bestellung (BestellID, KundenID, Datum)</p>
       </div>
 
       <div class="card"><h3>✅ کوییز</h3><div id="quiz-aeup"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">ثبت پاسخ</button></div><div class="quiz-score" id="score-aeup" style="display:none;margin-top:1rem"></div></div>
     </div>
 
     <div class="lang-block" data-lang="de">
-      <div class="card"><h3>Worum geht es?</h3><div class="goal">Daten aus verschiedenen Quellen verstehen, kombinieren und sicher bereitstellen.</div></div>
-      <div class="card"><h3>1) Datenquellen</h3><p>Datenbank, Datei (CSV), API</p></div>
-      <div class="card"><h3>2) SQL und JOIN</h3><p>Tabellen über gemeinsame Schlüssel verbinden.</p></div>
-      <div class="card"><h3>3) REST API</h3><p>GET = lesen, POST = erstellen. Antworten im JSON-Format.</p></div>
-      <div class="card"><h3>4) Datenformate</h3><p>JSON, CSV, XML</p></div>
-      <div class="card"><h3>5) ETL</h3><p>Extract → Transform → Load</p></div>
-      <div class="card"><h3>6) Datensicherheit</h3><p>HTTPS, Least Privilege, DSGVO, Authentication</p></div>
+      <div class="card"><h3>1. Die Welt der Daten</h3>
+        <p><strong>Strukturierte Daten:</strong> festes Format (Datenbank, Excel)<br>
+        <strong>Unstrukturierte Daten:</strong> ohne festes Format (E-Mail, Bilder)<br>
+        <strong>Bestandsdaten:</strong> ändern sich selten<br>
+        <strong>Bewegungsdaten:</strong> entstehen durch Geschäftsprozesse</p>
+      </div>
+      <div class="card"><h3>2. Datenmodelle</h3><p>Modellierung vor der Implementierung der Datenbank.</p></div>
+      <div class="card"><h3>2.1 ER-Modell</h3><p>Entität – Attribut – Beziehung – Primärschlüssel</p></div>
+      <div class="card"><h3>2.2 Relationales Modell</h3><p>Überführung des ER-Modells in Tabellen mit Primär- und Fremdschlüsseln.</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Abgeben</button></div><div class="quiz-score" id="score-aeup-de" style="display:none;margin-top:1rem"></div></div>
     </div>
 
     <div class="lang-block" data-lang="en">
-      <div class="card"><h3>What is this about?</h3><div class="goal">Understand, combine and securely provide data from different sources.</div></div>
-      <div class="card"><h3>1) Data sources</h3><p>Database, file (CSV), API</p></div>
-      <div class="card"><h3>2) SQL and JOIN</h3><p>Connect tables using common keys.</p></div>
-      <div class="card"><h3>3) REST API</h3><p>GET = read, POST = create. Responses in JSON format.</p></div>
-      <div class="card"><h3>4) Data formats</h3><p>JSON, CSV, XML</p></div>
-      <div class="card"><h3>5) ETL</h3><p>Extract → Transform → Load</p></div>
-      <div class="card"><h3>6) Data security</h3><p>HTTPS, Least Privilege, GDPR, Authentication</p></div>
+      <div class="card"><h3>1. The World of Data</h3>
+        <p><strong>Structured data:</strong> fixed format (database, Excel)<br>
+        <strong>Unstructured data:</strong> no fixed format (email, images)<br>
+        <strong>Master data:</strong> changes rarely<br>
+        <strong>Transaction data:</strong> arises from business processes</p>
+      </div>
+      <div class="card"><h3>2. Data Models</h3><p>Modelling before implementing the database.</p></div>
+      <div class="card"><h3>2.1 ER Model</h3><p>Entity – Attribute – Relationship – Primary key</p></div>
+      <div class="card"><h3>2.2 Relational Model</h3><p>Converting the ER model into tables with primary and foreign keys.</p></div>
       <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Submit</button></div><div class="quiz-score" id="score-aeup-en" style="display:none;margin-top:1rem"></div></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={aeup:{fa:[{q:'JSON اغلب کجا استفاده می‌شود؟',opts:['فقط پرینتر','API مدرن','کابل'],c:1},{q:'JOIN چه کاری می‌کند؟',opts:['جدا کردن','چسباندن جداول با کلید','حذف پایگاه'],c:1},{q:'GET در REST چه می‌کند؟',opts:['حذف','خواندن','فرمت کردن'],c:1},{q:'داده شخصی با HTTP خام؟',opts:['درست است','خطرناک است','فقط عکس'],c:1},{q:'مدل ER چیست؟',opts:['کابل','مدل موجودیت-رابطه','نام روتر'],c:1}],de:[{q:'JSON wird oft verwendet bei?',opts:['nur Drucker','moderne APIs','Kabel'],c:1},{q:'Was macht JOIN?',opts:['trennen','Tabellen verknüpfen','DB löschen'],c:1},{q:'Was macht GET?',opts:['löschen','lesen','formatieren'],c:1},{q:'Personendaten mit HTTP Klartext?',opts:['ok','riskant','nur Fotos'],c:1},{q:'Was ist ein ER-Modell?',opts:['Kabel','Entity-Relationship','Routername'],c:1}],en:[{q:'JSON is commonly used in?',opts:['printers','modern APIs','cables'],c:1},{q:'What does JOIN do?',opts:['split','link tables by key','delete DB'],c:1},{q:'What does GET do?',opts:['delete','read','format'],c:1},{q:'Personal data with plain HTTP?',opts:['fine','risky','photos only'],c:1},{q:'What is an ER model?',opts:['cable','entity-relationship','router name'],c:1}]}};
+    const quizData={aeup:{fa:[{q:'داده ساختاریافته مثال؟',opts:['ایمیل','پایگاه داده یا Excel','ویدیو'],c:1},{q:'Bestandsdaten چیست؟',opts:['همیشه تغییر می‌کند','کم تعییر می‌کنند','فقط عکس'],c:1},{q:'ER یعنی؟',opts:['Error Route','Entity-Relationship','Edge Router'],c:1},{q:'Primärschlüssel چیست؟',opts:['کلید فیزیکی','شناسه یکتا رکورد','فقط وای‌فای'],c:1}],de:[{q:'Beispiel strukturierte Daten?',opts:['E-Mail','Datenbank oder Excel','Video'],c:1},{q:'Was sind Bestandsdaten?',opts:['ändern sich ständig','ändern sich selten','nur Fotos'],c:1},{q:'ER bedeutet?',opts:['Error Route','Entity-Relationship','Edge Router'],c:1},{q:'Was ist ein Primärschlüssel?',opts:['physischer Schlüssel','eindeutige Kennung','nur WLAN'],c:1}],en:[{q:'Example of structured data?',opts:['email','database or Excel','video'],c:1},{q:'What is master data?',opts:['changes constantly','changes rarely','only photos'],c:1},{q:'ER means?',opts:['Error Route','Entity-Relationship','Edge Router'],c:1},{q:'What is a primary key?',opts:['physical key','unique identifier','only WiFi'],c:1}]}};
     const answers={};let done={};
     function lang(){return localStorage.getItem('fisi-lang')||'fa'}
     function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
