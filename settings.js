@@ -12,10 +12,8 @@ function createSettingsButton() {
   const topActions = document.querySelector('.top-actions');
   if (!topActions) return;
   
-  // Remove any existing buttons
   topActions.innerHTML = '';
   
-  // Add single settings button
   const btn = document.createElement('button');
   btn.className = 'settings-btn';
   btn.innerHTML = '⚙️';
@@ -71,6 +69,7 @@ function createSettingsPanel() {
         <input type="file" id="bgUpload" accept="image/*" onchange="uploadBackground(event)" style="display:none">
         <button onclick="document.getElementById('bgUpload').click()" class="upload-btn" id="uploadBtn">Bild auswählen</button>
         <button onclick="removeBackground()" class="remove-btn" id="removeBtn" style="display:none">Entfernen</button>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:.5rem">Max 10 MB</p>
       </div>
       
       <div class="settings-section" id="adminSection" style="display:none">
@@ -85,7 +84,6 @@ function createSettingsPanel() {
   `;
   document.body.appendChild(panel);
   
-  // Show admin section if admin
   const auth = sessionStorage.getItem('fisi-auth');
   if (auth) {
     const user = JSON.parse(auth);
@@ -94,7 +92,6 @@ function createSettingsPanel() {
     }
   }
   
-  // Check if custom bg exists
   if (localStorage.getItem('fisi-custom-bg')) {
     document.getElementById('removeBtn').style.display = 'block';
   }
@@ -115,7 +112,6 @@ function changeLang(lang) {
   localStorage.setItem('fisi-lang', lang);
   updateSettingsLang();
   
-  // Update active state
   document.querySelectorAll('.lang-opt').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
@@ -146,7 +142,6 @@ function updateSettingsLang() {
   if (el('adminBtn')) el('adminBtn').textContent = t.adminBtn;
   if (el('logoutBtn')) el('logoutBtn').textContent = t.logout;
   
-  // Update active lang button
   document.querySelectorAll('.lang-opt').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
@@ -194,16 +189,25 @@ function uploadBackground(event) {
   const file = event.target.files[0];
   if (!file) return;
   
-  if (file.size > 2 * 1024 * 1024) {
-    alert('Bild zu groß (max 2MB)');
+  const maxSize = 10 * 1024 * 1024;
+  if (file.size > maxSize) {
+    const lang = localStorage.getItem('fisi-lang') || 'de';
+    const msgs = { fa: 'تصویر بزرگ است (حداکثر ۱۰ مگابایت)', de: 'Bild zu groß (max 10 MB)', en: 'Image too large (max 10 MB)' };
+    alert(msgs[lang] || msgs.de);
     return;
   }
   
   const reader = new FileReader();
   reader.onload = function(e) {
-    localStorage.setItem('fisi-custom-bg', e.target.result);
-    applyCustomBackground();
-    document.getElementById('removeBtn').style.display = 'block';
+    try {
+      localStorage.setItem('fisi-custom-bg', e.target.result);
+      applyCustomBackground();
+      document.getElementById('removeBtn').style.display = 'block';
+    } catch (err) {
+      const lang = localStorage.getItem('fisi-lang') || 'de';
+      const msgs = { fa: 'خطا در ذخیره. تصویر کوچک‌تر انتخاب کنید.', de: 'Speicherfehler. Bitte kleineres Bild wählen.', en: 'Storage error. Please choose a smaller image.' };
+      alert(msgs[lang] || msgs.de);
+    }
   };
   reader.readAsDataURL(file);
 }
@@ -226,7 +230,6 @@ function doLogout() {
   window.location.href = 'login.html';
 }
 
-// Close panel when clicking outside
 document.addEventListener('click', function(e) {
   const panel = document.getElementById('settingsPanel');
   const btn = document.querySelector('.settings-btn');
