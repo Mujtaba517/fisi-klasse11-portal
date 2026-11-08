@@ -12,9 +12,6 @@
     .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
     .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
     .topic-item h3{font-size:1.05rem;margin:0}
-    .topic-content{display:none}
-    .topic-content.active{display:block}
-    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
   </style>
 </head>
 <body>
@@ -38,27 +35,24 @@
       <a href="it-systeme.html" class="active">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
+      <a href="englisch.html">Englisch</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
   </header>
 
   <div class="container page-head">
-    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()">←</button>
     <h1>IT-Systeme (FU-IT)</h1>
     <p class="sub" data-i18n="itsSubtitle">شبکه‌ها را طراحی و پیاده‌سازی کنید</p>
   </div>
 
   <main class="container">
-    <!-- Topic List View -->
     <div id="topicListView">
       <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
       <div class="topic-list" id="topicList"></div>
     </div>
-
-    <!-- Single Topic View -->
     <div id="topicContentView" style="display:none">
-      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
       <div id="singleTopicContent"></div>
     </div>
   </main>
@@ -112,9 +106,9 @@
       ]
     };
 
-    function currentLang() {
-      return localStorage.getItem('fisi-lang') || 'fa';
-    }
+    let viewingTopic = false;
+
+    function currentLang() { return localStorage.getItem('fisi-lang') || 'fa'; }
 
     function renderTopicList() {
       const lang = currentLang();
@@ -139,28 +133,33 @@
       document.getElementById('singleTopicContent').innerHTML = topic.content;
       document.getElementById('topicListView').style.display = 'none';
       document.getElementById('topicContentView').style.display = 'block';
+      viewingTopic = true;
       window.scrollTo(0, 0);
     }
 
-    function showList(e) {
-      if (e) e.preventDefault();
+    function showList() {
       document.getElementById('topicContentView').style.display = 'none';
       document.getElementById('topicListView').style.display = 'block';
+      viewingTopic = false;
       renderTopicList();
     }
 
-    // Override setLang to also re-render the list
+    function smartBack() {
+      if (viewingTopic) {
+        showList();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
     const originalSetLang = window.setLang;
     window.setLang = function(lang) {
       originalSetLang(lang);
       renderTopicList();
-      // If currently viewing a topic, stay on list for safety
       showList();
     };
 
-    document.addEventListener('DOMContentLoaded', () => {
-      renderTopicList();
-    });
+    document.addEventListener('DOMContentLoaded', renderTopicList);
   </script>
 </body>
 </html>
