@@ -6,6 +6,13 @@
   <title>AEuP | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .topic-list{display:grid;gap:.8rem;margin-top:1rem}
+    .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
+    .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
+    .topic-item h3{font-size:1.05rem;margin:0}
+    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -28,6 +35,7 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html">PuG</a>
+      <a href="englisch.html">Englisch</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
@@ -38,76 +46,77 @@
     <p class="sub">Welt der Daten · Datenmodelle · ER-Modell · relationales Modell</p>
   </div>
   <main class="container">
-    <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>1. جهان داده‌ها</h3>
-        <ul>
-          <li><strong>داده ساختاریافته:</strong> فرمت ثابت، قابل پردازش ماشینی (پایگاه داده، Excel)</li>
-          <li><strong>داده غیرساختاریافته:</strong> بدون فرمت ثابت (ایمیل، عکس، ویدیو)</li>
-          <li><strong>Bestandsdaten:</strong> داده‌های پایه که کم تعییر می‌کنند (مشتریان، قیمت لیست)</li>
-          <li><strong>Bewegungsdaten:</strong> داده‌های ناشی از فرآیند کسب‌وکار (تعداد، مبلغ فاکتور)</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>2. مدل‌های داده</h3>
-        <p>مدل‌سازی داده قبل از پیاده‌سازی پایگاه داده انجام می‌شود.</p>
-      </div>
-
-      <div class="card"><h3>2.1 ER-Modell (Entity-Relationship)</h3>
-        <ul>
-          <li><strong>Entität:</strong> موجودیت (مشتری، تیکت، محصول)</li>
-          <li><strong>Attribut:</strong> ویژگی موجودیت (نام، قیمت، تاریخ)</li>
-          <li><strong>Beziehung:</strong> ارتباط بین موجودیت‌ها</li>
-          <li><strong>Primärschlüssel:</strong> شناسه یکتا</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>2.2 مدل رابطه‌ای (relationales Modell)</h3>
-        <p>تبدیل ER به جداول با کلیدهای اصلی و خارجی.</p>
-        <p>مثال: جدول Kunde (KundenID, Name) و Bestellung (BestellID, KundenID, Datum)</p>
-      </div>
-
-      <div class="card"><h3>✅ کوییز</h3><div id="quiz-aeup"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">ثبت پاسخ</button></div><div class="quiz-score" id="score-aeup" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicListView">
+      <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
+      <div class="topic-list" id="topicList"></div>
     </div>
-
-    <div class="lang-block" data-lang="de">
-      <div class="card"><h3>1. Die Welt der Daten</h3>
-        <p><strong>Strukturierte Daten:</strong> festes Format (Datenbank, Excel)<br>
-        <strong>Unstrukturierte Daten:</strong> ohne festes Format (E-Mail, Bilder)<br>
-        <strong>Bestandsdaten:</strong> ändern sich selten<br>
-        <strong>Bewegungsdaten:</strong> entstehen durch Geschäftsprozesse</p>
-      </div>
-      <div class="card"><h3>2. Datenmodelle</h3><p>Modellierung vor der Implementierung der Datenbank.</p></div>
-      <div class="card"><h3>2.1 ER-Modell</h3><p>Entität – Attribut – Beziehung – Primärschlüssel</p></div>
-      <div class="card"><h3>2.2 Relationales Modell</h3><p>Überführung des ER-Modells in Tabellen mit Primär- und Fremdschlüsseln.</p></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Abgeben</button></div><div class="quiz-score" id="score-aeup-de" style="display:none;margin-top:1rem"></div></div>
-    </div>
-
-    <div class="lang-block" data-lang="en">
-      <div class="card"><h3>1. The World of Data</h3>
-        <p><strong>Structured data:</strong> fixed format (database, Excel)<br>
-        <strong>Unstructured data:</strong> no fixed format (email, images)<br>
-        <strong>Master data:</strong> changes rarely<br>
-        <strong>Transaction data:</strong> arises from business processes</p>
-      </div>
-      <div class="card"><h3>2. Data Models</h3><p>Modelling before implementing the database.</p></div>
-      <div class="card"><h3>2.1 ER Model</h3><p>Entity – Attribute – Relationship – Primary key</p></div>
-      <div class="card"><h3>2.2 Relational Model</h3><p>Converting the ER model into tables with primary and foreign keys.</p></div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-aeup-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('aeup')">Submit</button></div><div class="quiz-score" id="score-aeup-en" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicContentView" style="display:none">
+      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
+      <div id="singleTopicContent"></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={aeup:{fa:[{q:'داده ساختاریافته مثال؟',opts:['ایمیل','پایگاه داده یا Excel','ویدیو'],c:1},{q:'Bestandsdaten چیست؟',opts:['همیشه تغییر می‌کند','کم تعییر می‌کنند','فقط عکس'],c:1},{q:'ER یعنی؟',opts:['Error Route','Entity-Relationship','Edge Router'],c:1},{q:'Primärschlüssel چیست؟',opts:['کلید فیزیکی','شناسه یکتا رکورد','فقط وای‌فای'],c:1}],de:[{q:'Beispiel strukturierte Daten?',opts:['E-Mail','Datenbank oder Excel','Video'],c:1},{q:'Was sind Bestandsdaten?',opts:['ändern sich ständig','ändern sich selten','nur Fotos'],c:1},{q:'ER bedeutet?',opts:['Error Route','Entity-Relationship','Edge Router'],c:1},{q:'Was ist ein Primärschlüssel?',opts:['physischer Schlüssel','eindeutige Kennung','nur WLAN'],c:1}],en:[{q:'Example of structured data?',opts:['email','database or Excel','video'],c:1},{q:'What is master data?',opts:['changes constantly','changes rarely','only photos'],c:1},{q:'ER means?',opts:['Error Route','Entity-Relationship','Edge Router'],c:1},{q:'What is a primary key?',opts:['physical key','unique identifier','only WiFi'],c:1}]}};
-    const answers={};let done={};
-    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
-    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
-    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
-    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
-    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
-    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
-    document.addEventListener('DOMContentLoaded',()=>renderMini('aeup'));
-    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.aeup){answers.aeup={};renderMini('aeup')}};
+    const topics = {
+      fa: [
+        { id:'welt', title:'1. جهان داده‌ها', content:'<div class="card"><h3>1. جهان داده‌ها</h3><ul><li><strong>داده ساختاریافته:</strong> فرمت ثابت، قابل پردازش ماشینی (پایگاه داده، Excel)</li><li><strong>داده غیرساختاریافته:</strong> بدون فرمت ثابت (ایمیل، عکس، ویدیو)</li><li><strong>Bestandsdaten:</strong> داده‌های پایه که کم تعییر می‌کنند (مشتریان، قیمت لیست)</li><li><strong>Bewegungsdaten:</strong> داده‌های ناشی از فرآیند کسب‌وکار (تعداد، مبلغ فاکتور)</li></ul></div>' },
+        { id:'modelle', title:'2. مدل‌های داده', content:'<div class="card"><h3>2. مدل‌های داده</h3><p>مدل‌سازی داده قبل از پیاده‌سازی پایگاه داده انجام می‌شود.</p></div>' },
+        { id:'er', title:'2.1 ER-Modell', content:'<div class="card"><h3>2.1 ER-Modell (Entity-Relationship)</h3><ul><li><strong>Entität:</strong> موجودیت (مشتری، تیکت، محصول)</li><li><strong>Attribut:</strong> ویژگی موجودیت (نام، قیمت، تاریخ)</li><li><strong>Beziehung:</strong> ارتباط بین موجودیت‌ها</li><li><strong>Primärschlüssel:</strong> شناسه یکتا</li></ul></div>' },
+        { id:'rel', title:'2.2 مدل رابطه‌ای', content:'<div class="card"><h3>2.2 مدل رابطه‌ای (relationales Modell)</h3><p>تبدیل ER به جداول با کلیدهای اصلی و خارجی.</p><p>مثال: جدول Kunde (KundenID, Name) و Bestellung (BestellID, KundenID, Datum)</p></div>' }
+      ],
+      de: [
+        { id:'welt', title:'1. Die Welt der Daten', content:'<div class="card"><h3>1. Die Welt der Daten</h3><p><strong>Strukturierte Daten:</strong> festes Format (Datenbank, Excel)<br><strong>Unstrukturierte Daten:</strong> ohne festes Format (E-Mail, Bilder)<br><strong>Bestandsdaten:</strong> ändern sich selten<br><strong>Bewegungsdaten:</strong> entstehen durch Geschäftsprozesse</p></div>' },
+        { id:'modelle', title:'2. Datenmodelle', content:'<div class="card"><h3>2. Datenmodelle</h3><p>Modellierung vor der Implementierung der Datenbank.</p></div>' },
+        { id:'er', title:'2.1 ER-Modell', content:'<div class="card"><h3>2.1 ER-Modell</h3><p>Entität – Attribut – Beziehung – Primärschlüssel</p></div>' },
+        { id:'rel', title:'2.2 Relationales Modell', content:'<div class="card"><h3>2.2 Relationales Modell</h3><p>Überführung des ER-Modells in Tabellen mit Primär- und Fremdschlüsseln.</p></div>' }
+      ],
+      en: [
+        { id:'welt', title:'1. The World of Data', content:'<div class="card"><h3>1. The World of Data</h3><p><strong>Structured data:</strong> fixed format (database, Excel)<br><strong>Unstructured data:</strong> no fixed format (email, images)<br><strong>Master data:</strong> changes rarely<br><strong>Transaction data:</strong> arises from business processes</p></div>' },
+        { id:'modelle', title:'2. Data Models', content:'<div class="card"><h3>2. Data Models</h3><p>Modelling before implementing the database.</p></div>' },
+        { id:'er', title:'2.1 ER Model', content:'<div class="card"><h3>2.1 ER Model</h3><p>Entity – Attribute – Relationship – Primary key</p></div>' },
+        { id:'rel', title:'2.2 Relational Model', content:'<div class="card"><h3>2.2 Relational Model</h3><p>Converting the ER model into tables with primary and foreign keys.</p></div>' }
+      ]
+    };
+
+    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
+    function renderTopicList(){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const container = document.getElementById('topicList');
+      container.innerHTML = '';
+      list.forEach(t => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'topic-item';
+        a.innerHTML = `<h3>${t.title}</h3><span>→</span>`;
+        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
+        container.appendChild(a);
+      });
+    }
+    function showTopic(id){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const topic = list.find(t => t.id === id);
+      if (!topic) return;
+      document.getElementById('singleTopicContent').innerHTML = topic.content;
+      document.getElementById('topicListView').style.display = 'none';
+      document.getElementById('topicContentView').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+    function showList(e){
+      if (e) e.preventDefault();
+      document.getElementById('topicContentView').style.display = 'none';
+      document.getElementById('topicListView').style.display = 'block';
+      renderTopicList();
+    }
+    const originalSetLang = window.setLang;
+    window.setLang = function(lang){
+      originalSetLang(lang);
+      renderTopicList();
+      showList();
+    };
+    document.addEventListener('DOMContentLoaded', renderTopicList);
   </script>
 </body>
 </html>
