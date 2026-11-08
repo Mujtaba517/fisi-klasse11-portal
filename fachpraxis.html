@@ -4,16 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fachpraxis | Klasse 11</title>
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    pre{font-family:ui-monospace,monospace;font-size:.8rem;background:#1d1d1f;color:#f5f5f7;padding:1rem;border-radius:12px;overflow-x:auto;direction:ltr;text-align:left;line-height:1.4}
     .topic-list{display:grid;gap:.8rem;margin-top:1rem}
     .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
     .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
     .topic-item h3{font-size:1.05rem;margin:0}
-    /* Ensure back button is always visible */
-    .back-btn{display:inline-flex !important;visibility:visible !important;opacity:1 !important;}
   </style>
 </head>
 <body>
@@ -43,7 +40,7 @@
     </nav></div>
   </header>
   <div class="container page-head">
-    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()" title="Zurück">←</button>
+    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()">←</button>
     <h1>Fachpraxis</h1>
     <p class="sub">Switch · Router · DHCP · Packet Tracer</p>
   </div>
