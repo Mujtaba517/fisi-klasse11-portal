@@ -59,7 +59,7 @@
   <main class="container">
     <div class="quiz-meta">
       <span id="progressText">0 / 12</span>
-      <span id="answeredCount">0 پاسخ داده شده</span>
+      <span id="answeredCount">0</span>
     </div>
     <div class="quiz-progress"><div class="quiz-progress-bar" id="progressBar"></div></div>
 
@@ -126,6 +126,12 @@
         explain:{fa:"Berichtsheft اثبات آموزش است و اغلب برای آزمون لازم است.",de:"Das Berichtsheft ist Nachweis der Ausbildung und oft Prüfungsvoraussetzung.",en:"The Berichtsheft proves training and is often required for the exam."} }
     ];
 
+    const answeredLabel = {
+      fa: 'پاسخ داده شده',
+      de: 'beantwortet',
+      en: 'answered'
+    };
+
     let answered = {};
     let submitted = false;
 
@@ -134,8 +140,9 @@
     function updateProgress(){
       const total = questions.length;
       const count = Object.keys(answered).length;
+      const lang = getLang();
       document.getElementById('progressText').textContent = count + ' / ' + total;
-      document.getElementById('answeredCount').textContent = count + ' پاسخ داده شده';
+      document.getElementById('answeredCount').textContent = count + ' ' + (answeredLabel[lang] || answeredLabel.fa);
       document.getElementById('progressBar').style.width = (count / total * 100) + '%';
     }
 
