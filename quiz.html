@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>کوییز IHK | Klasse 11</title>
+  <title>Quiz | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -35,8 +35,8 @@
 
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1 data-i18n="quizPageTitle">کوییز آمادگی IHK – صنف ۱۱</h1>
-    <p class="sub">۱۲ سؤال از BGWP، IT-Technik، AEuP، IT-Systeme و WiSo</p>
+    <h1 data-i18n="quizPageTitle">کوییز آمادگی</h1>
+    <p class="sub" data-i18n="quizPageSub">۱۲ سؤال از مضامین صنف ۱۱</p>
   </div>
 
   <main class="container" id="quizArea"></main>
@@ -51,8 +51,8 @@
   <script src="script.js"></script>
   <script>
     const questions = [
-      { q:{fa:"اولین گام منطقی در پردازش Serviceanfrage؟",de:"Erster sinnvoller Schritt bei einer Serviceanfrage?",en:"First logical step for a service request?"},
-        options:{fa:["بستن تیکت","ثبت کامل اطلاعات","ارسال فوری به Vendor","نادیده گرفتن SLA"],de:["Ticket schließen","Vollständige Aufnahme","Sofort an Vendor","SLA ignorieren"],en:["Close ticket","Full capture of information","Immediate vendor call","Ignore SLA"]},
+      { q:{fa:"اولین گام منطقی در پردازش درخواست خدمات؟",de:"Erster sinnvoller Schritt bei einer Serviceanfrage?",en:"First logical step for a service request?"},
+        options:{fa:["بستن تیکت","ثبت کامل اطلاعات","ارسال فوری به سازنده","نادیده گرفتن SLA"],de:["Ticket schließen","Vollständige Aufnahme","Sofort an Hersteller","SLA ignorieren"],en:["Close ticket","Full capture of information","Immediate vendor call","Ignore SLA"]},
         correct:1 },
       { q:{fa:"Incident در ITIL بیشتر یعنی؟",de:"Incident in ITIL bedeutet vor allem?",en:"Incident in ITIL mainly means?"},
         options:{fa:["علت ریشه‌ای","اختلال در سرویس که باید سریع برگردد","درخواست لپ‌تاپ جدید","تغییر برنامه‌ریزی‌شده"],de:["Grundursache","Störung des Services, die schnell behoben werden soll","Neuer Laptop-Antrag","Geplanter Change"],en:["Root cause","Service disruption to restore quickly","New laptop request","Planned change"]},
@@ -109,7 +109,6 @@
         card.innerHTML = `<div class="quiz-question">${idx+1}. ${item.q[lang]}</div><div class="quiz-options">${opts}</div>`;
         area.appendChild(card);
 
-        // restore previous selection if any
         if (answered[idx] !== undefined) {
           const options = card.querySelectorAll('.quiz-option');
           const oIdx = answered[idx];
@@ -123,7 +122,7 @@
     }
 
     function selectOption(qIdx, oIdx){
-      if (submitted) return; // فقط بعد از ثبت قفل شود
+      if (submitted) return;
       answered[qIdx] = oIdx;
       const options = document.querySelectorAll('#q'+qIdx+' .quiz-option');
       options.forEach(o => {
