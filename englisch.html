@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Englisch | Klasse 11</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">FISI <span>Klasse 11</span></a>
+      <div class="lang-menu">
+        <button type="button" class="lang-toggle" onclick="toggleLangPanel(event)"><span id="langLabel">زبان</span> ▾</button>
+        <div class="lang-panel" id="langPanel">
+          <button type="button" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+          <button type="button" data-lang="de" onclick="setLang('de')">Deutsch</button>
+          <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><nav class="nav-scroll">
+      <a href="index.html" data-i18n="navHome">خانه</a>
+      <a href="bgwp.html">BGWP</a>
+      <a href="it-technik.html">IT-Technik</a>
+      <a href="aeup.html">AEuP</a>
+      <a href="it-systeme.html">IT-Systeme</a>
+      <a href="fachpraxis.html">Fp-Plus</a>
+      <a href="pug.html">PuG</a>
+      <a href="englisch.html" class="active">Englisch</a>
+      <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+      <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+    </nav></div>
+  </header>
+  <div class="container page-head">
+    <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
+    <h1>Englisch – Computer Languages & Technical English</h1>
+    <p class="sub">Machine Languages · Mnemonics · Vocabulary · IT-News</p>
+  </div>
+  <main class="container">
+    <div class="lang-block" data-lang="fa">
+      <div class="card"><h3>ساختار نمره</h3>
+        <ul>
+          <li>3 نمره هم‌ارزش</li>
+          <li>حداقل 1 نمره کتبی (اعلام‌شده)</li>
+          <li>1 ارائه (Referat)</li>
+          <li>احتمالاً مشارکت کلاسی / تست</li>
+        </ul>
+        <p><strong>KMK Fremdsprachenzertifikat</strong> (B1/B2) اختیاری است. ثبت‌نام در ژانویه/فوریه، آزمون در اوریل/مه. هزینه حدود 30€.</p>
+      </div>
+
+      <div class="card"><h3>Machine Languages & Programming Languages</h3>
+        <ul>
+          <li><strong>Machine Code / Machine Language:</strong> زبان ماشین – مستقیم برای پردازنده</li>
+          <li><strong>Assembly Language:</strong> زبان سطح پایین با استفاده از منمونیک</li>
+          <li><strong>Mnemonic:</strong> مخفف برای دستورات (مثل AND، SUB، MUL)</li>
+          <li><strong>High-level languages:</strong> زبان‌های سطح بالا (قابل فهم‌تر برای انسان)</li>
+        </ul>
+        <p>زبان ماشین مستقیم اجرا می‌شود اما سخت و وابسته به ماشین است. زبان‌های سطح بالا باید به زبان ماشین ترجمه (compile) شوند.</p>
+      </div>
+
+      <div class="card"><h3>واژگان مهم (Vocabulary)</h3>
+        <ul>
+          <li><strong>mnemonic</strong> – مخفف / Eselsbrücke</li>
+          <li><strong>to assemble</strong> – مونتاژ کردن / جمع کردن</li>
+          <li><strong>to compile</strong> – ترجمه / کامپایل کردن</li>
+          <li><strong>machine dependent</strong> – وابسته به ماشین</li>
+          <li><strong>tedious</strong> – خسته‌کننده / کسل‌کننده</li>
+          <li><strong>instruction</strong> – دستور</li>
+          <li><strong>executables</strong> – فایل‌های قابل اجرا</li>
+          <li><strong>payroll program</strong> – برنامه حقوق و دستمزد</li>
+        </ul>
+      </div>
+
+      <div class="card"><h3>موضوعات کلاس</h3>
+        <ul>
+          <li>Hörverstehen و Leseverstehen</li>
+          <li>Computer & Machine Languages</li>
+          <li>واژگان فنی</li>
+          <li>IT-News (ارائه خبرهای فناوری)</li>
+        </ul>
+        <p>آزمون اول: پنجشنبه، 08.10.2026</p>
+      </div>
+
+      <div class="card"><h3>✅ کوییز</h3><div id="quiz-eng"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('eng')">ثبت</button></div><div class="quiz-score" id="score-eng" style="display:none;margin-top:1rem"></div></div>
+    </div>
+
+    <div class="lang-block" data-lang="de">
+      <div class="card"><h3>Notengebung</h3>
+        <p>3 gleichwertige Noten · mind. 1 schriftliche · 1 Referat · ggf. Unterrichtsbeitrag/Test</p>
+        <p>KMK Fremdsprachenzertifikat (B1/B2) freiwillig möglich.</p>
+      </div>
+      <div class="card"><h3>Machine Languages</h3>
+        <p>Machine Code ist direkt vom Prozessor ausführbar, aber mühsam und maschinenabhängig.<br>
+        Assembly verwendet Mnemonics (z. B. AND, SUB, MUL).<br>
+        Höhere Sprachen müssen kompiliert werden.</p>
+      </div>
+      <div class="card"><h3>Wichtige Vokabeln</h3>
+        <p>mnemonic = Eselsbrücke<br>to assemble = zusammenbauen<br>to compile = übersetzen<br>machine dependent = maschinenabhängig<br>tedious = mühsam<br>instruction = Befehl<br>executables = ausführbare Programme</p>
+      </div>
+      <div class="card"><h3>Themen</h3><p>Hör- und Leseverstehen, Computer & Machine Languages, Fachvokabular, IT-News</p></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-eng-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('eng')">Abgeben</button></div><div class="quiz-score" id="score-eng-de" style="display:none;margin-top:1rem"></div></div>
+    </div>
+
+    <div class="lang-block" data-lang="en">
+      <div class="card"><h3>Grading</h3>
+        <p>3 equal grades · at least 1 written test · 1 presentation · possibly class participation/test</p>
+        <p>KMK Foreign Language Certificate (B1/B2) is voluntary.</p>
+      </div>
+      <div class="card"><h3>Machine Languages</h3>
+        <p>Machine code is directly executable by the processor but tedious and machine-dependent.<br>
+        Assembly language uses mnemonics (e.g. AND, SUB, MUL).<br>
+        High-level languages must be compiled.</p>
+      </div>
+      <div class="card"><h3>Key Vocabulary</h3>
+        <p>mnemonic = memory aid / abbreviation<br>to assemble = to put together<br>to compile = to translate into machine code<br>machine dependent = dependent on the hardware<br>tedious = boring / laborious<br>instruction = command<br>executables = programs that can be run</p>
+      </div>
+      <div class="card"><h3>Topics</h3><p>Listening and reading comprehension, Computer & Machine Languages, technical vocabulary, IT-News</p></div>
+      <div class="card"><h3>✅ Quiz</h3><div id="quiz-eng-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('eng')">Submit</button></div><div class="quiz-score" id="score-eng-en" style="display:none;margin-top:1rem"></div></div>
+    </div>
+  </main>
+  <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
+  <script src="script.js"></script>
+  <script>
+    const quizData={eng:{fa:[{q:'Mnemonic چیست؟',opts:['زبان سطح بالا','مخفف برای دستور','فقط وای‌فای'],c:1},{q:'Machine Language چگونه است؟',opts:['آسان و مستقل از ماشین','مستقیم اجرا اما سخت و وابسته به ماشین','فقط برای وب'],c:1},{q:'to compile یعنی؟',opts:['حذف کردن','ترجمه به زبان ماشین','فقط کپی'],c:1},{q:'KMK گواهی چگونه است؟',opts:['اجباری','اختیاری','فقط برای معلمان'],c:1}],de:[{q:'Was ist ein Mnemonic?',opts:['höhere Sprache','Abkürzung für Befehl','nur WLAN'],c:1},{q:'Machine Language ist?',opts:['einfach und unabhängig','direkt ausführbar aber mühsam und maschinenabhängig','nur für Web'],c:1},{q:'to compile bedeutet?',opts:['löschen','in Maschinensprache übersetzen','nur kopieren'],c:1},{q:'KMK-Zertifikat ist?',opts:['Pflicht','freiwillig','nur für Lehrer'],c:1}],en:[{q:'What is a mnemonic?',opts:['high-level language','abbreviation for an instruction','only WiFi'],c:1},{q:'Machine language is?',opts:['easy and independent','directly executable but tedious and machine-dependent','only for web'],c:1},{q:'What does to compile mean?',opts:['delete','translate into machine code','only copy'],c:1},{q:'The KMK certificate is?',opts:['mandatory','voluntary','only for teachers'],c:1}]}};
+    const answers={};let done={};
+    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
+    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
+    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
+    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
+    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
+    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
+    document.addEventListener('DOMContentLoaded',()=>renderMini('eng'));
+    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.eng){answers.eng={};renderMini('eng')}};
+  </script>
+</body>
+</html>
