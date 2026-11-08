@@ -10,6 +10,10 @@
   <script>
     try {
       var theme = localStorage.getItem('fisi-theme') || 'dark';
+      var lang = localStorage.getItem('fisi-lang');
+      if (lang !== 'en' && lang !== 'fa') lang = 'de';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
       document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
       var meta = document.querySelector('meta[name="theme-color"]');
       if (meta) meta.setAttribute('content', theme === 'light' ? '#f3f5f7' : '#101418');
@@ -33,13 +37,14 @@
         </svg>
         <span class="brand-word">Lernova</span>
       </a>
-        <h1>Lernova</h1>
-        <p>Lernova ist eine Lernplattform für technische Wege. Der erste veröffentlichte Weg ist Fachinformatiker Systemintegration, Jahrgangsstufe 11 — mit Fächern, Lernfeldern und Übungen auf Deutsch, English und فارسی.</p>
-        <ul>
-          <li>Lernen in Lektionen, nicht nur als Stichwortliste</li>
-          <li>Quiz nach Fach und Thema, plus Karteikarten und Kurzerklärer</li>
-          <li>Aktueller Weg: IT-Systeme, IT-Technik, AEuP, BGWP, Fachpraxis, PuG, Englisch und Lernfelder 6–9</li>
-        </ul>
+        <div class="lang-switch" role="group" id="loginLang" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="setLoginLang('de')">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="setLoginLang('en')">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="setLoginLang('fa')">فا</button>
+        </div>
+        <h1 id="heroHeadline">Dein Potenzial. Dein Tempo. Deine Zukunft.</h1>
+        <p class="hero-support" id="heroSupport">Lernova gibt deiner Neugier Raum und deinem Fortschritt eine Richtung. Entdecke, was in dir steckt, wachse an neuen Herausforderungen und gestalte deinen eigenen Weg — Schritt für Schritt, mit Klarheit und Zuversicht.</p>
+        <button type="button" class="btn btn-primary" id="heroCta" onclick="startNow()">Jetzt loslegen</button>
       </section>
 
       <section class="auth-panel">
@@ -52,48 +57,58 @@
 
         <form id="loginForm" role="tabpanel" aria-labelledby="tab-login" onsubmit="return doLogin(event)">
           <div class="form-group">
-            <label for="loginUser">Benutzername</label>
+            <label for="loginUser" id="loginUserLabel">Benutzername</label>
             <input type="text" id="loginUser" name="username" autocomplete="username" required />
           </div>
           <div class="form-group">
-            <label for="loginPass">Passwort</label>
+            <div class="label-row">
+              <label for="loginPass" id="loginPassLabel">Passwort</label>
+              <button type="button" class="text-link" id="forgotLink" aria-controls="recoveryView" aria-expanded="false" onclick="showRecovery()">Passwort vergessen?</button>
+            </div>
             <input type="password" id="loginPass" name="password" autocomplete="current-password" required />
           </div>
-          <button type="submit" class="btn-submit">Anmelden</button>
+          <button type="submit" class="btn-submit" id="loginSubmit">Anmelden</button>
         </form>
+
+        <section id="recoveryView" class="recovery-view" hidden aria-labelledby="recoveryTitle">
+          <h2 id="recoveryTitle" tabindex="-1">Passwort vergessen</h2>
+          <p id="recoveryLead">Eine automatische Wiederherstellung ist noch nicht verfügbar. Lernova sendet keine E-Mail und setzt kein Passwort zurück, auch nicht nach Eingabe eines Benutzernamens.</p>
+          <p id="recoveryLimit">Im Projekt ist keine Kontaktadresse hinterlegt. Eine echte Wiederherstellung braucht einen freigegebenen Server mit E-Mail-Versand. Bis dahin kann diese Seite kein Passwort ändern.</p>
+          <button type="button" class="btn btn-primary" id="recoveryBack" onclick="hideRecovery()">Zurück zur Anmeldung</button>
+        </section>
 
         <form id="registerForm" role="tabpanel" aria-labelledby="tab-register" hidden onsubmit="return doRegister(event)">
           <div class="form-row">
             <div class="form-group">
-              <label for="regFirst">Vorname</label>
+              <label for="regFirst" id="regFirstLabel">Vorname</label>
               <input type="text" id="regFirst" name="given-name" autocomplete="given-name" required />
             </div>
             <div class="form-group">
-              <label for="regLast">Nachname</label>
+              <label for="regLast" id="regLastLabel">Nachname</label>
               <input type="text" id="regLast" name="family-name" autocomplete="family-name" required />
             </div>
           </div>
           <div class="form-group">
-            <label for="regUser">Benutzername</label>
+            <label for="regUser" id="regUserLabel">Benutzername</label>
             <input type="text" id="regUser" name="username" autocomplete="username" required />
           </div>
           <div class="form-group">
-            <label for="regEmail">E-Mail</label>
+            <label for="regEmail" id="regEmailLabel">E-Mail</label>
             <input type="email" id="regEmail" name="email" autocomplete="email" required />
           </div>
           <div class="form-group">
-            <label for="regStudent">Schülernummer</label>
+            <label for="regStudent" id="regStudentLabel">Schülernummer</label>
             <input type="text" id="regStudent" name="student-id" inputmode="numeric" required />
           </div>
           <div class="form-group">
-            <label for="regPass">Passwort</label>
+            <label for="regPass" id="regPassLabel">Passwort</label>
             <input type="password" id="regPass" name="new-password" autocomplete="new-password" required minlength="6" />
           </div>
-          <button type="submit" class="btn-submit">Registrieren</button>
-          <p class="form-hint">Das Konto wird vom Administrator freigegeben, bevor die Anmeldung möglich ist.</p>
+          <button type="submit" class="btn-submit" id="registerSubmit">Registrieren</button>
+          <p class="form-hint" id="registerHint">Das Konto wird vom Administrator freigegeben, bevor die Anmeldung möglich ist.</p>
         </form>
 
-        <p class="footer-text">Fachinformatiker Systemintegration · 2026</p>
+        <p class="footer-text">Lernova</p>
       </section>
     </div>
   </main>
@@ -126,11 +141,167 @@
     }
     initAdmin();
 
+    const loginCopy = {
+      de: {
+        headline: 'Dein Potenzial. Dein Tempo. Deine Zukunft.',
+        support: 'Lernova gibt deiner Neugier Raum und deinem Fortschritt eine Richtung. Entdecke, was in dir steckt, wachse an neuen Herausforderungen und gestalte deinen eigenen Weg — Schritt für Schritt, mit Klarheit und Zuversicht.',
+        cta: 'Jetzt loslegen',
+        loginTab: 'Anmelden',
+        registerTab: 'Registrieren',
+        user: 'Benutzername',
+        pass: 'Passwort',
+        forgot: 'Passwort vergessen?',
+        submit: 'Anmelden',
+        first: 'Vorname',
+        last: 'Nachname',
+        email: 'E-Mail',
+        student: 'Schülernummer',
+        newPass: 'Passwort',
+        register: 'Registrieren',
+        hint: 'Das Konto wird vom Administrator freigegeben, bevor die Anmeldung möglich ist.',
+        recoveryTitle: 'Passwort vergessen',
+        recoveryLead: 'Eine automatische Wiederherstellung ist noch nicht verfügbar. Lernova sendet keine E-Mail und setzt kein Passwort zurück, auch nicht nach Eingabe eines Benutzernamens.',
+        recoveryLimit: 'Im Projekt ist keine Kontaktadresse hinterlegt. Eine echte Wiederherstellung braucht einen freigegebenen Server mit E-Mail-Versand. Bis dahin kann diese Seite kein Passwort ändern.',
+        recoveryBack: 'Zurück zur Anmeldung',
+        bad: 'Benutzername oder Passwort falsch',
+        pending: 'Dein Konto wartet auf Freigabe durch den Administrator',
+        taken: 'Benutzername bereits vergeben',
+        ok: 'Registrierung erfolgreich! Warte auf Freigabe durch den Administrator.',
+        langLabel: 'Sprache'
+      },
+      en: {
+        headline: 'Your potential. Your pace. Your future.',
+        support: 'Lernova gives your curiosity room to grow and your progress a sense of direction. Discover what you are capable of, embrace new challenges, and shape your own path — one step at a time, with clarity and confidence.',
+        cta: 'Get started',
+        loginTab: 'Sign in',
+        registerTab: 'Register',
+        user: 'Username',
+        pass: 'Password',
+        forgot: 'Forgot password?',
+        submit: 'Sign in',
+        first: 'First name',
+        last: 'Last name',
+        email: 'Email',
+        student: 'Student number',
+        newPass: 'Password',
+        register: 'Register',
+        hint: 'An administrator has to approve the account before you can sign in.',
+        recoveryTitle: 'Forgot password',
+        recoveryLead: 'Automatic password recovery is not available yet. Lernova does not send email and does not reset a password, including when a username is entered.',
+        recoveryLimit: 'No contact address is configured in this project. Real recovery needs an approved server that can send email. Until then, this page cannot change a password.',
+        recoveryBack: 'Back to sign in',
+        bad: 'Username or password is wrong',
+        pending: 'Your account is waiting for an administrator to approve it',
+        taken: 'That username is already taken',
+        ok: 'Registration succeeded. Wait for an administrator to approve it.',
+        langLabel: 'Language'
+      },
+      fa: {
+        headline: 'استعداد تو، سرعت تو، آیندهٔ تو.',
+        support: 'لرنووا فضایی برای شکوفایی کنجکاوی و پیشرفت توست. توانایی‌هایت را کشف کن، با چالش‌های تازه رشد کن و مسیر خودت را با اطمینان بساز؛ قدم‌به‌قدم و با نگاه به آینده.',
+        cta: 'شروع کن',
+        loginTab: 'ورود',
+        registerTab: 'ثبت‌نام',
+        user: 'نام کاربری',
+        pass: 'رمز عبور',
+        forgot: 'رمز عبور را فراموش کرده‌اید؟',
+        submit: 'ورود',
+        first: 'نام',
+        last: 'نام خانوادگی',
+        email: 'ایمیل',
+        student: 'شماره دانش‌آموزی',
+        newPass: 'رمز عبور',
+        register: 'ثبت‌نام',
+        hint: 'پیش از ورود، مدیر باید حساب را تأیید کند.',
+        recoveryTitle: 'بازیابی رمز عبور',
+        recoveryLead: 'بازیابی خودکار رمز عبور هنوز ممکن نیست. لرنووا ایمیلی نمی‌فرستد و با وارد کردن نام کاربری رمز را عوض نمی‌کند.',
+        recoveryLimit: 'در این پروژه نشانی تماسی تنظیم نشده است. بازیابی واقعی به یک سرور تأییدشده با امکان ارسال ایمیل نیاز دارد. تا آن زمان این صفحه رمز را تغییر نمی‌دهد.',
+        recoveryBack: 'بازگشت به ورود',
+        bad: 'نام کاربری یا رمز عبور نادرست است',
+        pending: 'حساب تو منتظر تأیید مدیر است',
+        taken: 'این نام کاربری قبلاً گرفته شده',
+        ok: 'ثبت‌نام انجام شد. منتظر تأیید مدیر بمان.',
+        langLabel: 'زبان'
+      }
+    };
+
+    function loginLang() {
+      const saved = localStorage.getItem('fisi-lang');
+      return loginCopy[saved] ? saved : 'de';
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
+
+    function setLoginLang(lang) {
+      if (!loginCopy[lang]) return;
+      localStorage.setItem('fisi-lang', lang);
+      const t = loginCopy[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+      setText('heroHeadline', t.headline);
+      setText('heroSupport', t.support);
+      setText('heroCta', t.cta);
+      setText('tab-login', t.loginTab);
+      setText('tab-register', t.registerTab);
+      setText('loginUserLabel', t.user);
+      setText('loginPassLabel', t.pass);
+      setText('forgotLink', t.forgot);
+      setText('loginSubmit', t.submit);
+      setText('regFirstLabel', t.first);
+      setText('regLastLabel', t.last);
+      setText('regUserLabel', t.user);
+      setText('regEmailLabel', t.email);
+      setText('regStudentLabel', t.student);
+      setText('regPassLabel', t.newPass);
+      setText('registerSubmit', t.register);
+      setText('registerHint', t.hint);
+      setText('recoveryTitle', t.recoveryTitle);
+      setText('recoveryLead', t.recoveryLead);
+      setText('recoveryLimit', t.recoveryLimit);
+      setText('recoveryBack', t.recoveryBack);
+      const group = document.getElementById('loginLang');
+      if (group) group.setAttribute('aria-label', t.langLabel);
+      document.querySelectorAll('#loginLang .lang-opt').forEach(btn => {
+        const on = btn.dataset.lang === lang;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    function showRecovery() {
+      showTab('login');
+      document.getElementById('loginForm').hidden = true;
+      document.getElementById('tab-login').parentElement.hidden = true;
+      const view = document.getElementById('recoveryView');
+      view.hidden = false;
+      document.getElementById('forgotLink').setAttribute('aria-expanded', 'true');
+      document.getElementById('recoveryTitle').focus();
+    }
+
+    function hideRecovery() {
+      const view = document.getElementById('recoveryView');
+      view.hidden = true;
+      document.getElementById('tab-login').parentElement.hidden = false;
+      document.getElementById('forgotLink').setAttribute('aria-expanded', 'false');
+      showTab('login');
+      document.getElementById('forgotLink').focus();
+    }
+
+    function startNow() {
+      hideRecovery();
+      document.getElementById('loginUser').focus();
+    }
+
     function showTab(tab) {
       const loginTab = document.getElementById('tab-login');
       const registerTab = document.getElementById('tab-register');
       const loginForm = document.getElementById('loginForm');
       const registerForm = document.getElementById('registerForm');
+      const recovery = document.getElementById('recoveryView');
+      if (recovery && tab !== 'recovery') recovery.hidden = true;
       const showLogin = tab === 'login';
       loginTab.classList.toggle('active', showLogin);
       registerTab.classList.toggle('active', !showLogin);
@@ -138,6 +309,7 @@
       registerTab.setAttribute('aria-selected', showLogin ? 'false' : 'true');
       loginForm.hidden = !showLogin;
       registerForm.hidden = showLogin;
+      if (document.getElementById('forgotLink')) document.getElementById('forgotLink').setAttribute('aria-expanded', 'false');
       document.getElementById('msgBox').className = 'msg';
       document.getElementById('msgBox').textContent = '';
     }
@@ -158,12 +330,12 @@
       const found = users.find(u => u.username === user && u.passwordHash === hash);
 
       if (!found) {
-        showMsg('error', 'Benutzername oder Passwort falsch');
+        showMsg('error', loginCopy[loginLang()].bad);
         return false;
       }
 
       if (!found.approved && found.role !== 'admin') {
-        showMsg('pending', 'Dein Konto wartet auf Freigabe durch den Administrator');
+        showMsg('pending', loginCopy[loginLang()].pending);
         return false;
       }
 
@@ -187,7 +359,7 @@
 
       const users = getUsers();
       if (users.find(u => u.username === username)) {
-        showMsg('error', 'Benutzername bereits vergeben');
+        showMsg('error', loginCopy[loginLang()].taken);
         return false;
       }
 
@@ -205,11 +377,13 @@
       });
       saveUsers(users);
 
-      showMsg('success', 'Registrierung erfolgreich! Warte auf Freigabe durch den Administrator.');
+      showMsg('success', loginCopy[loginLang()].ok);
       document.getElementById('registerForm').reset();
       setTimeout(() => showTab('login'), 2500);
       return false;
     }
+
+    setLoginLang(loginLang());
 
     if (sessionStorage.getItem('fisi-auth')) {
       window.location.href = 'index.html';

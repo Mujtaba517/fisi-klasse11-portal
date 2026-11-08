@@ -88,6 +88,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -756,8 +757,35 @@ html[dir="rtl"] .chev { transform: rotate(-135deg); }
   overflow: hidden;
 }
 .auth-aside { padding: 2.25rem 2rem; background: var(--bg); border-inline-end: 1px solid var(--border); }
-.auth-aside h1 { font-size: var(--fs-2xl); margin: 0.2rem 0 0.7rem; }
-.auth-aside p { color: var(--muted); }
+.auth-aside h1, .page-intro h1 {
+  max-width: 16em;
+  text-wrap: balance;
+}
+.auth-aside h1 { font-size: var(--fs-2xl); margin: 0.85rem 0 0.75rem; }
+.auth-aside p, .hero-support { color: var(--muted); max-width: 36rem; }
+.auth-aside .lang-switch { margin-top: 1.1rem; }
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0.1rem;
+  border: 0;
+  background: none;
+  color: var(--primary);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.text-link:hover { color: var(--primary-hover); }
+.recovery-view h2 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+.recovery-view p { color: var(--muted); }
 .auth-aside ul { color: var(--text); padding-inline-start: 1.1rem; }
 .auth-aside li { margin-top: 0.45rem; }
 .auth-panel { padding: 2rem 1.7rem 1.4rem; }
