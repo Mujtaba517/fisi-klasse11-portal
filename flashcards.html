@@ -3,82 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>فلش‌کارت | Klasse 11</title>
+  <title>Flashcards | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     .fc-wrap { max-width: 420px; margin: 1.5rem auto; }
-    .fc-scene {
-      perspective: 1200px;
-      height: 240px;
-      cursor: pointer;
-    }
-    .fc-card {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform .55s cubic-bezier(.2,.8,.2,1);
-    }
+    .fc-scene { perspective: 1200px; height: 240px; cursor: pointer; }
+    .fc-card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.8,.2,1); }
     .fc-card.is-flipped { transform: rotateY(180deg); }
-    .fc-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-      background: var(--card);
-    }
-    .fc-front .term {
-      font-size: 1.55rem;
-      font-weight: 750;
-      color: var(--blue);
-      letter-spacing: -.02em;
-    }
-    .fc-front .hint {
-      margin-top: .65rem;
-      color: var(--muted);
-      font-size: .88rem;
-    }
-    .fc-back {
-      transform: rotateY(180deg);
-      background: #eef5ff;
-    }
-    .fc-back .meaning {
-      font-size: 1.15rem;
-      font-weight: 650;
-      color: var(--text);
-      line-height: 1.45;
-    }
-    .fc-back .meaning small {
-      display: block;
-      margin-top: .45rem;
-      color: var(--muted);
-      font-weight: 500;
-      font-size: .95rem;
-    }
-    .fc-controls {
-      display: flex;
-      gap: .55rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1.25rem;
-    }
-    .fc-progress {
-      text-align: center;
-      margin-top: .85rem;
-      color: var(--soft);
-      font-size: .9rem;
-      font-weight: 600;
-    }
+    .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 18px; border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; background: var(--card); }
+    .fc-front .term { font-size: 1.55rem; font-weight: 750; color: var(--blue); letter-spacing: -.02em; }
+    .fc-front .hint { margin-top: .65rem; color: var(--muted); font-size: .88rem; }
+    .fc-back { transform: rotateY(180deg); background: #eef5ff; }
+    .fc-back .meaning { font-size: 1.15rem; font-weight: 650; color: var(--text); line-height: 1.45; }
+    .fc-back .meaning small { display: block; margin-top: .45rem; color: var(--muted); font-weight: 500; font-size: .95rem; }
+    .fc-controls { display: flex; gap: .55rem; justify-content: center; flex-wrap: wrap; margin-top: 1.25rem; }
+    .fc-progress { text-align: center; margin-top: .85rem; color: var(--soft); font-size: .9rem; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -109,28 +49,28 @@
 
   <div class="container page-head">
     <a class="back" href="index.html" data-i18n="backHome">← بازگشت به خانه</a>
-    <h1 data-i18n="flashPageTitle">فلش‌کارت اصطلاحات آلمانی</h1>
+    <h1 data-i18n="flashPageTitle">فلش‌کارت اصطلاحات</h1>
     <p class="sub" data-i18n="flashPageSub">روی کارت بزن تا معنی را ببینی</p>
   </div>
 
   <main class="container">
     <div class="fc-wrap">
-      <div class="fc-scene" onclick="flipCard()" role="button" tabindex="0" aria-label="Flip card">
+      <div class="fc-scene" onclick="flipCard()" role="button" tabindex="0">
         <div class="fc-card" id="flashcard">
           <div class="fc-face fc-front">
             <div class="term" id="cardTerm">Serviceanfrage</div>
-            <div class="hint" id="cardHint">کلیک برای دیدن معنی</div>
+            <div class="hint" id="cardHint"></div>
           </div>
           <div class="fc-face fc-back">
-            <div class="meaning" id="cardMeaning">درخواست خدمات</div>
+            <div class="meaning" id="cardMeaning"></div>
           </div>
         </div>
       </div>
 
       <div class="fc-controls">
-        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); prevCard()">← قبلی</button>
-        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); nextCard()">بعدی →</button>
-        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); shuffleCards()" data-i18n="shuffle">بُر زدن</button>
+        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); prevCard()" id="btnPrev">← قبلی</button>
+        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); nextCard()" id="btnNext">بعدی →</button>
+        <button type="button" class="btn btn-soft" onclick="event.stopPropagation(); shuffleCards()" id="btnShuffle" data-i18n="shuffle">بُر زدن</button>
       </div>
       <div class="fc-progress" id="progress">1 / 24</div>
     </div>
@@ -166,14 +106,14 @@
       { de: 'Firewall', fa: 'فایروال', en: 'Firewall' }
     ];
 
+    const ui = {
+      fa: { prev: '← قبلی', next: 'بعدی →', shuffle: 'بُر زدن', hint: 'کلیک برای دیدن معنی' },
+      de: { prev: '← Zurück', next: 'Weiter →', shuffle: 'Mischen', hint: 'Klicken zum Umdrehen' },
+      en: { prev: '← Previous', next: 'Next →', shuffle: 'Shuffle', hint: 'Click to flip' }
+    };
+
     let current = 0;
     let flipped = false;
-
-    const hints = {
-      fa: 'کلیک برای دیدن معنی',
-      de: 'Klicken zum Umdrehen',
-      en: 'Click to flip'
-    };
 
     function lang() {
       return localStorage.getItem('fisi-lang') || 'fa';
@@ -182,18 +122,25 @@
     function renderCard() {
       const c = cards[current];
       const l = lang();
-      document.getElementById('cardTerm').textContent = c.de;
-      document.getElementById('cardHint').textContent = hints[l] || hints.fa;
+      const t = ui[l] || ui.fa;
 
+      document.getElementById('cardTerm').textContent = c.de;
+      document.getElementById('cardHint').textContent = t.hint;
+
+      // Meaning always in the selected language, with German term as small reference if not German
       if (l === 'de') {
         document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.fa + '</small>';
       } else if (l === 'en') {
-        document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.fa + '</small>';
+        document.getElementById('cardMeaning').innerHTML = c.en + '<small>' + c.de + '</small>';
       } else {
-        document.getElementById('cardMeaning').innerHTML = c.fa + '<small>' + c.en + '</small>';
+        document.getElementById('cardMeaning').innerHTML = c.fa + '<small>' + c.de + '</small>';
       }
 
+      document.getElementById('btnPrev').textContent = t.prev;
+      document.getElementById('btnNext').textContent = t.next;
+      document.getElementById('btnShuffle').textContent = t.shuffle;
       document.getElementById('progress').textContent = (current + 1) + ' / ' + cards.length;
+
       document.getElementById('flashcard').classList.remove('is-flipped');
       flipped = false;
     }
