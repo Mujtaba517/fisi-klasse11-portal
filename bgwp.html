@@ -105,25 +105,44 @@
       document.getElementById('topicListView').style.display = 'none';
       document.getElementById('topicContentView').style.display = 'block';
       viewingTopic = true;
+      history.replaceState(null, '', '#' + id);
       window.scrollTo(0, 0);
     }
     function showList(){
       document.getElementById('topicContentView').style.display = 'none';
       document.getElementById('topicListView').style.display = 'block';
       viewingTopic = false;
+      history.replaceState(null, '', location.pathname + location.search);
       renderTopicList();
     }
     function smartBack(){
       if (viewingTopic) showList();
       else window.location.href = 'index.html';
     }
+    function initFromHash() {
+      const hash = location.hash.slice(1);
+      if (hash) {
+        const lang = currentLang();
+        const list = topics[lang] || topics.fa;
+        if (list.find(t => t.id === hash)) {
+          showTopic(hash);
+          return;
+        }
+      }
+      renderTopicList();
+    }
     const originalSetLang = window.setLang;
     window.setLang = function(lang){
       originalSetLang(lang);
-      renderTopicList();
-      showList();
+      const hash = location.hash.slice(1);
+      if (hash && viewingTopic) {
+        showTopic(hash);
+      } else {
+        renderTopicList();
+      }
     };
-    document.addEventListener('DOMContentLoaded', renderTopicList);
+    document.addEventListener('DOMContentLoaded', initFromHash);
+    window.addEventListener('hashchange', initFromHash);
   </script>
 </body>
 </html>
