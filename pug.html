@@ -6,6 +6,13 @@
   <title>PuG | Klasse 11</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .topic-list{display:grid;gap:.8rem;margin-top:1rem}
+    .topic-item{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
+    .topic-item:hover{border-color:var(--blue);transform:translateY(-2px)}
+    .topic-item h3{font-size:1.05rem;margin:0}
+    .back-topics{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:var(--blue);text-decoration:none;font-weight:600}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -28,6 +35,7 @@
       <a href="it-systeme.html">IT-Systeme</a>
       <a href="fachpraxis.html">Fp-Plus</a>
       <a href="pug.html" class="active">PuG</a>
+      <a href="englisch.html">Englisch</a>
       <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
       <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
     </nav></div>
@@ -38,108 +46,77 @@
     <p class="sub">Strukturprinzipien · Volkssouveränität · Gewaltenteilung · Rechtsstaat</p>
   </div>
   <main class="container">
-    <div class="lang-block" data-lang="fa">
-      <div class="card"><h3>1. اصول ساختاری (Strukturprinzipien)</h3>
-        <ul>
-          <li><strong>Volkssouveränität:</strong> قدرت برتر از مردم ناشی می‌شود</li>
-          <li><strong>Repräsentativsystem:</strong> مردم قدرت را به نمایندگان واگذار می‌کنند (نه مستقیم)</li>
-          <li><strong>Mehrheitsprinzip:</strong> اکثریت تصمیم می‌گیرد و اقلیت می‌پذیرد</li>
-          <li><strong>Gewaltenteilung:</strong> تفکیک قوا (قانون‌گذاری، اجرایی، قضایی)</li>
-          <li><strong>Rechtsstaatlichkeit:</strong> حاکمیت قانون، برابری در برابر قانون، حمایت از خودسری</li>
-          <li><strong>Sozialstaatlichkeit:</strong> سیاست اجتماعی و عدالت اجتماعی</li>
-          <li><strong>Bundesstaatlichkeit:</strong> تقسیم وظایف بین فدرال و ایالات</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>2. اصول دموکراسی در Grundgesetz</h3>
-        <p><strong>Volkssouveränität:</strong> قدرت برتر از مردم برمی‌آید.</p>
-        <p><strong>Repräsentativsystem:</strong> مردم مستقیم حکومت نمی‌کنند، بلکه از طریق انتخاب نمایندگان.</p>
-        <p><strong>Mehrheitsprinzip:</strong> اکثریت تصمیم می‌گیرد و اقلیت آن را می‌پذیرد.</p>
-      </div>
-
-      <div class="card"><h3>دموکراسی مستقیم (Direkte Demokratie)</h3>
-        <p><strong>مزایا:</strong> تأثیر مستقیم مردم، افزایش مشروعیت، شفافیت بیشتر</p>
-        <p><strong>معایب:</strong> فقط برای مسائل ساده مناسب است، روند طولانی، اقلیت‌های متشکل ممکن است تأثیرگذار شوند</p>
-      </div>
-
-      <div class="card"><h3>تفکیک قوا</h3>
-        <ul>
-          <li><strong>قوه قانون‌گذار:</strong> Bundestag + Bundesrat</li>
-          <li><strong>قوه مجریه:</strong> Bundesregierung، اداره، پلیس، ارتش</li>
-          <li><strong>قوه قضاییه:</strong> دادگاه‌ها (کنترل)</li>
-        </ul>
-      </div>
-
-      <div class="card"><h3>✅ کوییز</h3><div id="quiz-pug"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">ثبت</button></div><div class="quiz-score" id="score-pug" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicListView">
+      <h2 data-i18n="topicsTitle" style="margin-bottom:1rem">موضوعات</h2>
+      <div class="topic-list" id="topicList"></div>
     </div>
-
-    <div class="lang-block" data-lang="de">
-      <div class="card"><h3>1. Strukturprinzipien</h3>
-        <ul>
-          <li>Volkssouveränität</li>
-          <li>Repräsentativsystem</li>
-          <li>Mehrheitsprinzip</li>
-          <li>Gewaltenteilung</li>
-          <li>Rechtsstaatlichkeit</li>
-          <li>Sozialstaatlichkeit</li>
-          <li>Bundesstaatlichkeit</li>
-        </ul>
-      </div>
-      <div class="card"><h3>2. Prinzipien der Demokratie (GG)</h3>
-        <p><strong>Volkssouveränität:</strong> Alle Staatsgewalt geht vom Volke aus.<br>
-        <strong>Repräsentativsystem:</strong> Das Volk übt die Macht nicht direkt aus, sondern durch gewählte Abgeordnete.<br>
-        <strong>Mehrheitsprinzip:</strong> Die Mehrheit entscheidet, die Minderheit erkennt an.</p>
-      </div>
-      <div class="card"><h3>Direkte Demokratie</h3>
-        <p><strong>Pro:</strong> unmittelbare Einflussnahme, höhere Legitimation, mehr Transparenz<br>
-        <strong>Contra:</strong> nur für einfache Fragen geeignet, langwierig, organisierte Minderheiten können Einfluss nehmen</p>
-      </div>
-      <div class="card"><h3>Gewaltenteilung</h3>
-        <p>Gesetzgebung (Bundestag/Bundesrat) – Ausführung (Regierung) – Rechtsprechung (Gerichte)</p>
-      </div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-pug-de"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">Abgeben</button></div><div class="quiz-score" id="score-pug-de" style="display:none;margin-top:1rem"></div></div>
-    </div>
-
-    <div class="lang-block" data-lang="en">
-      <div class="card"><h3>1. Structural Principles</h3>
-        <ul>
-          <li>Popular sovereignty (Volkssouveränität)</li>
-          <li>Representative system</li>
-          <li>Majority principle</li>
-          <li>Separation of powers</li>
-          <li>Rule of law</li>
-          <li>Welfare state</li>
-          <li>Federalism</li>
-        </ul>
-      </div>
-      <div class="card"><h3>2. Democratic Principles (Basic Law)</h3>
-        <p><strong>Popular sovereignty:</strong> All state power comes from the people.<br>
-        <strong>Representative system:</strong> The people exercise power through elected representatives, not directly.<br>
-        <strong>Majority principle:</strong> The majority decides; the minority accepts.</p>
-      </div>
-      <div class="card"><h3>Direct Democracy</h3>
-        <p><strong>Pros:</strong> direct influence, higher legitimacy, more transparency<br>
-        <strong>Cons:</strong> only suitable for simple questions, lengthy, organised minorities can exert influence</p>
-      </div>
-      <div class="card"><h3>Separation of Powers</h3>
-        <p>Legislature (Bundestag/Bundesrat) – Executive (Government) – Judiciary (Courts)</p>
-      </div>
-      <div class="card"><h3>✅ Quiz</h3><div id="quiz-pug-en"></div><div style="text-align:center;margin-top:1rem"><button class="btn btn-primary" type="button" onclick="gradeQuiz('pug')">Submit</button></div><div class="quiz-score" id="score-pug-en" style="display:none;margin-top:1rem"></div></div>
+    <div id="topicContentView" style="display:none">
+      <a href="#" class="back-topics" onclick="showList(event)" data-i18n="backTopics">← بازگشت به فهرست</a>
+      <div id="singleTopicContent"></div>
     </div>
   </main>
   <footer><div class="container"><p data-i18n="footer">FISI Klasse 11 · 2026</p></div></footer>
   <script src="script.js"></script>
   <script>
-    const quizData={pug:{fa:[{q:'Volkssouveränität چه می‌گوید؟',opts:['قدرت از پادشاه','قدرت برتر از مردم','فقط ارتش'],c:1},{q:'Repräsentativsystem چیست؟',opts:['مردم مستقیم حکومت می‌کنند','مردم از طریق نمایندگان حکومت می‌کنند','فقط دیکتاتور'],c:1},{q:'Gewaltenteilung چند قوه دارد؟',opts:['1','3','10'],c:1},{q:'Rechtsstaatlichkeit چه می‌گوید؟',opts:['حاکمیت خودسری','حاکمیت قانون و برابری','فقط پلیس'],c:1}],de:[{q:'Was bedeutet Volkssouveränität?',opts:['Macht vom König','Macht vom Volk','nur Armee'],c:1},{q:'Was ist ein Repräsentativsystem?',opts:['Volk regiert direkt','Volk regiert durch Abgeordnete','nur Diktatur'],c:1},{q:'Wie viele Gewalten?',opts:['1','3','10'],c:1},{q:'Was bedeutet Rechtsstaatlichkeit?',opts:['Willkür','Herrschaft des Rechts und Gleichheit','nur Polizei'],c:1}],en:[{q:'What does popular sovereignty mean?',opts:['power from king','power from the people','only army'],c:1},{q:'What is a representative system?',opts:['people rule directly','people rule through representatives','only dictatorship'],c:1},{q:'How many powers?',opts:['1','3','10'],c:1},{q:'What does rule of law mean?',opts:['arbitrariness','rule of law and equality','only police'],c:1}]}};
-    const answers={};let done={};
-    function lang(){return localStorage.getItem('fisi-lang')||'fa'}
-    function boxId(k){const l=lang();return l==='de'?'quiz-'+k+'-de':l==='en'?'quiz-'+k+'-en':'quiz-'+k}
-    function scoreId(k){const l=lang();return l==='de'?'score-'+k+'-de':l==='en'?'score-'+k+'-en':'score-'+k}
-    function renderMini(k){const l=lang(),host=document.getElementById(boxId(k));if(!host)return;const qs=quizData[k][l]||quizData[k].fa;host.innerHTML='';qs.forEach((item,i)=>{const card=document.createElement('div');card.className='quiz-card';card.id=k+'-q'+i;let o='';item.opts.forEach((t,j)=>o+=`<button type="button" class="quiz-option" onclick="pick('${k}',${i},${j})">${t}</button>`);card.innerHTML=`<div class="quiz-question">${i+1}. ${item.q}</div><div class="quiz-options">${o}</div>`;host.appendChild(card)})}
-    function pick(k,i,j){if(done[k])return;if(!answers[k])answers[k]={};answers[k][i]=j;const card=document.getElementById(k+'-q'+i);card.querySelectorAll('.quiz-option').forEach(b=>{b.style.borderColor='transparent';b.style.background=''});const b=card.querySelectorAll('.quiz-option')[j];b.style.borderColor='var(--blue)';b.style.background='var(--blue-soft)'}
-    function gradeQuiz(k){if(done[k])return;done[k]=true;const l=lang(),qs=quizData[k][l]||quizData[k].fa;let s=0;qs.forEach((item,i)=>{const opts=document.querySelectorAll('#'+k+'-q'+i+' .quiz-option');opts.forEach(o=>o.classList.add('disabled'));const a=answers[k]&&answers[k][i];if(a===item.c){s++;opts[item.c].classList.add('correct')}else{opts[item.c].classList.add('correct');if(a!==undefined)opts[a].classList.add('wrong')}});const box=document.getElementById(scoreId(k));if(box){box.style.display='block';box.innerHTML='<strong>'+s+' / '+qs.length+'</strong><br>'+Math.round(s/qs.length*100)+'%'}}
-    document.addEventListener('DOMContentLoaded',()=>renderMini('pug'));
-    const _sl=window.setLang;window.setLang=function(l){_sl(l);if(!done.pug){answers.pug={};renderMini('pug')}};
+    const topics = {
+      fa: [
+        { id:'struktur', title:'1. اصول ساختاری', content:'<div class="card"><h3>1. اصول ساختاری (Strukturprinzipien)</h3><ul><li><strong>Volkssouveränität:</strong> قدرت برتر از مردم ناشی می‌شود</li><li><strong>Repräsentativsystem:</strong> مردم قدرت را به نمایندگان واگذار می‌کنند (نه مستقیم)</li><li><strong>Mehrheitsprinzip:</strong> اکثریت تصمیم می‌گیرد و اقلیت می‌پذیرد</li><li><strong>Gewaltenteilung:</strong> تفکیک قوا (قانون‌گذاری، اجرایی، قضایی)</li><li><strong>Rechtsstaatlichkeit:</strong> حاکمیت قانون، برابری در برابر قانون، حمایت از خودسری</li><li><strong>Sozialstaatlichkeit:</strong> سیاست اجتماعی و عدالت اجتماعی</li><li><strong>Bundesstaatlichkeit:</strong> تقسیم وظایف بین فدرال و ایالات</li></ul></div>' },
+        { id:'demo', title:'2. اصول دموکراسی', content:'<div class="card"><h3>2. اصول دموکراسی در Grundgesetz</h3><p><strong>Volkssouveränität:</strong> قدرت برتر از مردم برمی‌آید.</p><p><strong>Repräsentativsystem:</strong> مردم مستقیم حکومت نمی‌کنند، بلکه از طریق انتخاب نمایندگان.</p><p><strong>Mehrheitsprinzip:</strong> اکثریت تصمیم می‌گیرد و اقلیت آن را می‌پذیرد.</p></div>' },
+        { id:'direkt', title:'دموکراسی مستقیم', content:'<div class="card"><h3>دموکراسی مستقیم (Direkte Demokratie)</h3><p><strong>مزایا:</strong> تأثیر مستقیم مردم، افزایش مشروعیت، شفافیت بیشتر</p><p><strong>معایب:</strong> فقط برای مسائل ساده مناسب است، روند طولانی، اقلیت‌های متشکل ممکن است تأثیرگذار شوند</p></div>' },
+        { id:'gewalt', title:'تفکیک قوا', content:'<div class="card"><h3>تفکیک قوا</h3><ul><li><strong>قوه قانون‌گذار:</strong> Bundestag + Bundesrat</li><li><strong>قوه مجریه:</strong> Bundesregierung، اداره، پلیس، ارتش</li><li><strong>قوه قضاییه:</strong> دادگاه‌ها (کنترل)</li></ul></div>' }
+      ],
+      de: [
+        { id:'struktur', title:'1. Strukturprinzipien', content:'<div class="card"><h3>1. Strukturprinzipien</h3><ul><li>Volkssouveränität</li><li>Repräsentativsystem</li><li>Mehrheitsprinzip</li><li>Gewaltenteilung</li><li>Rechtsstaatlichkeit</li><li>Sozialstaatlichkeit</li><li>Bundesstaatlichkeit</li></ul></div>' },
+        { id:'demo', title:'2. Prinzipien der Demokratie (GG)', content:'<div class="card"><h3>2. Prinzipien der Demokratie (GG)</h3><p><strong>Volkssouveränität:</strong> Alle Staatsgewalt geht vom Volke aus.<br><strong>Repräsentativsystem:</strong> Das Volk übt die Macht nicht direkt aus, sondern durch gewählte Abgeordnete.<br><strong>Mehrheitsprinzip:</strong> Die Mehrheit entscheidet, die Minderheit erkennt an.</p></div>' },
+        { id:'direkt', title:'Direkte Demokratie', content:'<div class="card"><h3>Direkte Demokratie</h3><p><strong>Pro:</strong> unmittelbare Einflussnahme, höhere Legitimation, mehr Transparenz<br><strong>Contra:</strong> nur für einfache Fragen geeignet, langwierig, organisierte Minderheiten können Einfluss nehmen</p></div>' },
+        { id:'gewalt', title:'Gewaltenteilung', content:'<div class="card"><h3>Gewaltenteilung</h3><p>Gesetzgebung (Bundestag/Bundesrat) – Ausführung (Regierung) – Rechtsprechung (Gerichte)</p></div>' }
+      ],
+      en: [
+        { id:'struktur', title:'1. Structural Principles', content:'<div class="card"><h3>1. Structural Principles</h3><ul><li>Popular sovereignty (Volkssouveränität)</li><li>Representative system</li><li>Majority principle</li><li>Separation of powers</li><li>Rule of law</li><li>Welfare state</li><li>Federalism</li></ul></div>' },
+        { id:'demo', title:'2. Democratic Principles (Basic Law)', content:'<div class="card"><h3>2. Democratic Principles (Basic Law)</h3><p><strong>Popular sovereignty:</strong> All state power comes from the people.<br><strong>Representative system:</strong> The people exercise power through elected representatives, not directly.<br><strong>Majority principle:</strong> The majority decides; the minority accepts.</p></div>' },
+        { id:'direkt', title:'Direct Democracy', content:'<div class="card"><h3>Direct Democracy</h3><p><strong>Pros:</strong> direct influence, higher legitimacy, more transparency<br><strong>Cons:</strong> only suitable for simple questions, lengthy, organised minorities can exert influence</p></div>' },
+        { id:'gewalt', title:'Separation of Powers', content:'<div class="card"><h3>Separation of Powers</h3><p>Legislature (Bundestag/Bundesrat) – Executive (Government) – Judiciary (Courts)</p></div>' }
+      ]
+    };
+
+    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
+    function renderTopicList(){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const container = document.getElementById('topicList');
+      container.innerHTML = '';
+      list.forEach(t => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'topic-item';
+        a.innerHTML = `<h3>${t.title}</h3><span>→</span>`;
+        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
+        container.appendChild(a);
+      });
+    }
+    function showTopic(id){
+      const lang = currentLang();
+      const list = topics[lang] || topics.fa;
+      const topic = list.find(t => t.id === id);
+      if (!topic) return;
+      document.getElementById('singleTopicContent').innerHTML = topic.content;
+      document.getElementById('topicListView').style.display = 'none';
+      document.getElementById('topicContentView').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+    function showList(e){
+      if (e) e.preventDefault();
+      document.getElementById('topicContentView').style.display = 'none';
+      document.getElementById('topicListView').style.display = 'block';
+      renderTopicList();
+    }
+    const originalSetLang = window.setLang;
+    window.setLang = function(lang){
+      originalSetLang(lang);
+      renderTopicList();
+      showList();
+    };
+    document.addEventListener('DOMContentLoaded', renderTopicList);
   </script>
 </body>
 </html>
