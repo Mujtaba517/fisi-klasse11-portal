@@ -1,38 +1,4 @@
-// Admin panel — shown only to admin users
-(function() {
-  document.addEventListener('DOMContentLoaded', function() {
-    const auth = sessionStorage.getItem('fisi-auth');
-    if (!auth) return;
-    const user = JSON.parse(auth);
-    if (user.role !== 'admin') return;
-
-    // Create admin button in header
-    const topActions = document.querySelector('.top-actions');
-    if (topActions) {
-      const btn = document.createElement('button');
-      btn.className = 'theme-toggle';
-      btn.textContent = '👤 Benutzer';
-      btn.onclick = openAdminPanel;
-      topActions.insertBefore(btn, topActions.firstChild);
-    }
-
-    // Create admin modal
-    const modal = document.createElement('div');
-    modal.id = 'adminModal';
-    modal.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;overflow:auto;padding:2rem';
-    modal.innerHTML = `
-      <div style="max-width:800px;margin:0 auto;background:var(--card,#1e293b);border-radius:20px;padding:1.5rem;color:var(--text,#f1f5f9)">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
-          <h2 style="margin:0">Benutzerverwaltung</h2>
-          <button onclick="closeAdminPanel()" style="background:none;border:none;color:inherit;font-size:1.5rem;cursor:pointer">✕</button>
-        </div>
-        <div id="adminContent"></div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-  });
-})();
-
+// Admin panel — shown only inside settings
 function getUsers() {
   const stored = localStorage.getItem('fisi-users');
   return stored ? JSON.parse(stored) : [];
@@ -50,12 +16,34 @@ async function sha256(text) {
 }
 
 function openAdminPanel() {
-  document.getElementById('adminModal').style.display = 'block';
+  // Close settings first
+  const settingsPanel = document.getElementById('settingsPanel');
+  if (settingsPanel) settingsPanel.classList.remove('open');
+  
+  // Create or show admin modal
+  let modal = document.getElementById('adminModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'adminModal';
+    modal.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;overflow:auto;padding:2rem';
+    modal.innerHTML = `
+      <div style="max-width:800px;margin:0 auto;background:var(--card,#1e293b);border-radius:20px;padding:1.5rem;color:var(--text,#f1f5f9);border:1px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+          <h2 style="margin:0">Benutzerverwaltung</h2>
+          <button onclick="closeAdminPanel()" style="background:none;border:none;color:inherit;font-size:1.5rem;cursor:pointer">✕</button>
+        </div>
+        <div id="adminContent"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+  modal.style.display = 'block';
   renderAdminPanel();
 }
 
 function closeAdminPanel() {
-  document.getElementById('adminModal').style.display = 'none';
+  const modal = document.getElementById('adminModal');
+  if (modal) modal.style.display = 'none';
 }
 
 function renderAdminPanel() {
@@ -65,12 +53,11 @@ function renderAdminPanel() {
 
   let html = '';
 
-  // Pending users
   html += '<h3 style="margin-bottom:1rem;color:#fbbf24">Ausstehende Freigaben (' + pending.length + ')</h3>';
   if (pending.length === 0) {
     html += '<p style="color:var(--muted,#94a3b8);margin-bottom:1.5rem">Keine ausstehenden Anfragen</p>';
   } else {
-    pending.forEach((u, i) => {
+    pending.forEach((u) => {
       const idx = users.findIndex(x => x.username === u.username);
       html += `
         <div style="background:var(--bg-soft,#0f172a);border:1px solid var(--border,#334155);border-radius:12px;padding:1rem;margin-bottom:.8rem">
@@ -91,7 +78,6 @@ function renderAdminPanel() {
     });
   }
 
-  // Approved users
   html += '<h3 style="margin:1.5rem 0 1rem">Freigegebene Benutzer (' + approved.length + ')</h3>';
   if (approved.length === 0) {
     html += '<p style="color:var(--muted,#94a3b8)">Noch keine freigegebenen Benutzer</p>';
@@ -110,7 +96,6 @@ function renderAdminPanel() {
     });
   }
 
-  // Change admin password
   html += `
     <h3 style="margin:1.5rem 0 1rem">Admin-Passwort ändern</h3>
     <div style="display:flex;gap:.5rem;flex-wrap:wrap">
