@@ -105,6 +105,25 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="grade-switch-label">
+      <p class="eyebrow" id="grade-switch-label" data-i18n="gradeSwitch">انتخاب کلاس</p>
+      <div class="grade-switch" role="group" aria-labelledby="grade-switch-label">
+        <button type="button" data-grade="11" data-i18n="grade11" aria-pressed="true">Klasse 11</button>
+        <button type="button" data-grade="10" data-i18n="grade10" aria-pressed="false">Klasse 10</button>
+      </div>
+    </section>
+
+    <div id="grade10Panel" hidden>
+      <section class="section">
+        <div class="empty-grade card">
+          <h2 data-i18n="grade10Title">کلاس ۱۰ هنوز خالی است</h2>
+          <p data-i18n="grade10Body">برای کلاس ۱۰ هنوز درسی اینجا نیست. مطالب واقعی بعداً از پوشهٔ Drive می‌آید. این صفحه موضوعی نمی‌سازد.</p>
+          <p class="related"><a href="klasse-10.html" data-i18n="grade10Link">صفحهٔ کلاس ۱۰</a></p>
+        </div>
+      </section>
+    </div>
+
+    <div id="grade11Panel">
     <section id="subjects" class="section" data-search-group aria-labelledby="subjects-title">
       <div class="section-head">
         <div>
@@ -185,6 +204,7 @@
         </a>
       </div>
     </section>
+    </div>
 
     <p id="portalEmpty" class="search-empty" hidden data-i18n="searchEmpty">موردی پیدا نشد.</p>
   </main>
@@ -196,6 +216,7 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script src="grades.js"></script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
 </body>

@@ -233,17 +233,17 @@ const EXPLAINERS = {
     blurb:{fa:'عیب‌یابی لایه به لایه',de:'Schicht für Schicht prüfen',en:'Troubleshoot layer by layer'},
     steps:{
       fa:[
-        {t:'از پایین شروع کن',x:'کابل و لینک قبل از نرم‌افزار.',e:'لینک سوئیچ خاموش است؟'},
+        {t:'از پایین شروع کن',x:'کابل و چراغ Link پیش از نرم‌افزار. خود سوئیچ لایه ۲ است.',e:'چراغ Link پورت خاموش است؟'},
         {t:'IP و Gateway',x:'لایه ۳: آدرس و مسیر خروجی.',e:'ping به Gateway'},
         {t:'برنامه',x:'اگر شبکه اوکی است، سرویس/DNS/پورت را چک کن.',e:'سایت باز نمی‌شود ولی ping اوکی → DNS'}
       ],
       de:[
-        {t:'Von unten starten',x:'Kabel und Link vor Software.',e:'Switch-Link aus?'},
+        {t:'Von unten starten',x:'Kabel und Link-LED vor der Software. Der Switch selbst ist Schicht 2.',e:'Link-LED am Port aus?'},
         {t:'IP und Gateway',x:'Schicht 3: Adresse und Ausgang.',e:'Ping zum Gateway'},
         {t:'Anwendung',x:'Wenn Netz ok: Dienst/DNS/Port.',e:'Website nein, Ping ja → DNS'}
       ],
       en:[
-        {t:'Start at the bottom',x:'Cable and link before software.',e:'Is the switch link down?'},
+        {t:'Start at the bottom',x:'Cable and link LED before software. The switch itself is layer 2.',e:'Is the port link LED off?'},
         {t:'IP and gateway',x:'Layer 3: address and exit path.',e:'Ping the gateway'},
         {t:'Application',x:'If the network is fine, check service/DNS/port.',e:'Site fails but ping works → DNS'}
       ]

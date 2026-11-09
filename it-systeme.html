@@ -67,6 +67,7 @@
   <main id="main" class="container">
     <div id="topicListView">
       <h2 data-i18n="topicsTitle">موضوعات</h2>
+      <p class="section-lead" data-i18n="lessonSource">Jahrgangsstufe 11, Lehrplanrichtlinien Bayern, Fachinformatiker, Mai 2020. Das sind Lerntexte, keine IHK-Prüfungsaufgaben.</p>
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
@@ -82,131 +83,10 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    const topics = {
-      fa: [
-        { id: 'osi', title: 'مدل OSI', content: '<div class="card"><h3>مدل OSI (ساده‌شده)</h3><ul><li><strong>L1 فیزیکی:</strong> کابل، سوئیچ، نور</li><li><strong>L2 لینک دیتا:</strong> MAC، Switch، VLAN</li><li><strong>L3 شبکه:</strong> IP، Gateway، Router</li><li><strong>L4–7:</strong> TCP/UDP، پورت، برنامه‌ها</li></ul><p><strong>مثال:</strong> Ping به Gateway کار می‌کند ولی سایت باز نمی‌شود → اغلب مشکل در DNS یا Firewall است.</p></div>' },
-        { id: 'ip', title: 'آدرس‌دهی IP و Gateway', content: '<div class="card"><h3>آدرس‌دهی IP و Gateway</h3><ul><li>IP کامپیوتر: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code> (معمولاً روتر)</li></ul><p>بدون Gateway فقط همان شبکه محلی قابل دسترس است.</p></div>' },
-        { id: 'subnet', title: 'Subnetting', content: '<div class="card"><h3>Subnetting</h3><p><code>192.168.50.0/24</code> را به دو شبکه /25 تقسیم کنید:</p><ul><li>شبکه ۱: <code>192.168.50.0 – 192.168.50.127</code></li><li>شبکه ۲: <code>192.168.50.128 – 192.168.50.255</code></li></ul><p>/24 ≈ 254 Host &nbsp;|&nbsp; /26 ≈ 62 Host &nbsp;|&nbsp; /27 ≈ 30 Host</p></div>' },
-        { id: 'vlan', title: 'VLAN', content: '<div class="card"><h3>VLAN (Virtual LAN)</h3><ul><li>VLAN 10 = اداری</li><li>VLAN 20 = فنی</li><li>VLAN 30 = مهمان</li></ul><p><strong>Access Port:</strong> یک VLAN برای کامپیوتر<br><strong>Trunk Port:</strong> چند VLAN بین سوئیچ و روتر</p><p><strong>مثال:</strong> مهمان نمی‌تواند به File Server اداری دسترسی داشته باشد.</p></div>' },
-        { id: 'dhcp', title: 'DHCP', content: '<div class="card"><h3>DHCP</h3><p>فرآیند <strong>DORA</strong>:</p><ol><li><strong>Discover</strong> – کلاینت دنبال سرور می‌گردد</li><li><strong>Offer</strong> – سرور IP پیشنهاد می‌کند</li><li><strong>Request</strong> – کلاینت قبول می‌کند</li><li><strong>Ack</strong> – سرور تأیید می‌کند</li></ol><p>مثال Pool: <code>192.168.10.100 – 192.168.10.200</code></p></div>' },
-        { id: 'dns', title: 'DNS', content: '<div class="card"><h3>DNS</h3><p>تبدیل نام به IP:</p><p><code>fileserver.firma.local</code> → <code>192.168.10.10</code></p><p><strong>مشکل معمول:</strong> IP پینگ می‌شود ولی نام باز نمی‌شود → مشکل DNS.</p></div>' },
-        { id: 'routing', title: 'Routing پایه', content: '<div class="card"><h3>Routing پایه</h3><p>روتر تصمیم می‌گیرد پکت به کجا برود.</p><ul><li><strong>Static Route</strong> – مسیر دستی</li><li><strong>Default Gateway</strong> – مسیر پیش‌فرض</li></ul><p><strong>مثال:</strong> اگر کامپیوتر در VLAN 10 باشد و بخواهد به VLAN 20 برسد، روتر باید مسیر داشته باشد.</p></div>' },
-        { id: 'nat', title: 'NAT', content: '<div class="card"><h3>NAT</h3><p>تبدیل آدرس خصوصی به آدرس عمومی برای خروج به اینترنت.</p><p><strong>مثال:</strong> کامپیوتر با <code>192.168.10.50</code> به اینترنت می‌رود. روتر آدرس را به <code>203.0.113.5</code> تبدیل می‌کند.</p></div>' },
-        { id: 'ipv6', title: 'IPv6', content: '<div class="card"><h3>IPv6</h3><p>نسخه جدید IP با آدرس طولانی‌تر (۱۲۸ بیت).</p><p>مثال: <code>2001:0db8:85a3::8a2e:0370:7334</code></p></div>' },
-        { id: 'topo', title: 'توپولوژی شبکه', content: '<div class="card"><h3>توپولوژی شبکه</h3><ul><li><strong>Star</strong> – همه به یک سوئیچ مرکزی</li><li><strong>Bus</strong> – همه روی یک کابل</li><li><strong>Mesh</strong> – هر دستگاه به چند دستگاه دیگر</li></ul><p>شرکت‌ها معمولاً از Star استفاده می‌کنند.</p></div>' },
-        { id: 'troubleshoot', title: 'عیب‌یابی', content: '<div class="card"><h3>عیب‌یابی شبکه</h3><ol><li>کابل و لینک فیزیکی را چک کن</li><li><code>ipconfig</code> / <code>ip addr</code> – IP داری؟</li><li>Ping به Gateway</li><li>Ping به ۸.۸.۸.۸</li><li>DNS را تست کن</li></ol><p><strong>مثال:</strong> اگر Gateway پینگ می‌شود ولی اینترنت نه → مشکل در DNS یا Firewall.</p></div>' },
-        { id: 'security', title: 'امنیت پایه', content: '<div class="card"><h3>امنیت پایه</h3><ul><li>فقط پورت‌های لازم باز باشد</li><li>Least Privilege</li><li>VLAN مهمان جدا</li><li>Backup و Update منظم</li><li>Firewall بین VLAN‌ها</li></ul></div>' }
-      ],
-      de: [
-        { id: 'osi', title: 'OSI-Modell', content: '<div class="card"><h3>OSI-Modell (vereinfacht)</h3><ul><li><strong>L1 Physical:</strong> Kabel, Switch, Licht</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, Ports, Anwendungen</li></ul><p><strong>Beispiel:</strong> Ping zum Gateway funktioniert, Website nicht → meist DNS oder Firewall.</p></div>' },
-        { id: 'ip', title: 'IP-Adressierung und Gateway', content: '<div class="card"><h3>IP-Adressierung und Gateway</h3><ul><li>PC-IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code></li></ul><p>Ohne Gateway nur das lokale Netz erreichbar.</p></div>' },
-        { id: 'subnet', title: 'Subnetting', content: '<div class="card"><h3>Subnetting</h3><p><code>192.168.50.0/24</code> in zwei /25-Netze aufteilen:</p><ul><li>Netz 1: <code>192.168.50.0 – 192.168.50.127</code></li><li>Netz 2: <code>192.168.50.128 – 192.168.50.255</code></li></ul></div>' },
-        { id: 'vlan', title: 'VLAN', content: '<div class="card"><h3>VLAN</h3><ul><li>VLAN 10 = Büro</li><li>VLAN 20 = Technik</li><li>VLAN 30 = Gäste</li></ul><p><strong>Access-Port</strong> und <strong>Trunk-Port</strong>.</p></div>' },
-        { id: 'dhcp', title: 'DHCP', content: '<div class="card"><h3>DHCP</h3><p>Prozess <strong>DORA</strong>: Discover → Offer → Request → Acknowledge</p></div>' },
-        { id: 'dns', title: 'DNS', content: '<div class="card"><h3>DNS</h3><p>Name zu IP auflösen: <code>fileserver.firma.local</code> → <code>192.168.10.10</code></p></div>' },
-        { id: 'routing', title: 'Routing', content: '<div class="card"><h3>Routing</h3><p>Router entscheidet, wohin Pakete gehen.</p></div>' },
-        { id: 'nat', title: 'NAT', content: '<div class="card"><h3>NAT</h3><p>Übersetzt private IPs in eine öffentliche IP.</p></div>' },
-        { id: 'ipv6', title: 'IPv6', content: '<div class="card"><h3>IPv6</h3><p>Neue IP-Version mit längeren Adressen.</p></div>' },
-        { id: 'topo', title: 'Topologien', content: '<div class="card"><h3>Topologien</h3><p>Star, Bus, Mesh. Unternehmen nutzen meist Stern.</p></div>' },
-        { id: 'troubleshoot', title: 'Fehlersuche', content: '<div class="card"><h3>Fehlersuche</h3><ol><li>Kabel prüfen</li><li>IP prüfen</li><li>Gateway pingen</li><li>DNS testen</li></ol></div>' },
-        { id: 'security', title: 'Sicherheit', content: '<div class="card"><h3>Sicherheit</h3><ul><li>Nur notwendige Ports öffnen</li><li>Least Privilege</li><li>Gäste-VLAN getrennt</li></ul></div>' }
-      ],
-      en: [
-        { id: 'osi', title: 'OSI Model', content: '<div class="card"><h3>OSI Model (simplified)</h3><ul><li><strong>L1 Physical:</strong> Cable, switch, light</li><li><strong>L2 Data Link:</strong> MAC, Switch, VLAN</li><li><strong>L3 Network:</strong> IP, Gateway, Router</li><li><strong>L4–7:</strong> TCP/UDP, ports, applications</li></ul><p><strong>Example:</strong> Gateway ping works, website does not → usually DNS or firewall.</p></div>' },
-        { id: 'ip', title: 'IP Addressing and Gateway', content: '<div class="card"><h3>IP Addressing and Gateway</h3><ul><li>PC IP: <code>192.168.10.50</code></li><li>Subnet Mask: <code>255.255.255.0</code> (/24)</li><li>Gateway: <code>192.168.10.1</code></li></ul><p>Without a gateway you can only reach the local network.</p></div>' },
-        { id: 'subnet', title: 'Subnetting', content: '<div class="card"><h3>Subnetting</h3><p>Split <code>192.168.50.0/24</code> into two /25 networks.</p></div>' },
-        { id: 'vlan', title: 'VLAN', content: '<div class="card"><h3>VLAN</h3><ul><li>VLAN 10 = Office</li><li>VLAN 20 = Technical</li><li>VLAN 30 = Guest</li></ul><p><strong>Access Port</strong> and <strong>Trunk Port</strong>.</p></div>' },
-        { id: 'dhcp', title: 'DHCP', content: '<div class="card"><h3>DHCP</h3><p><strong>DORA</strong> process: Discover → Offer → Request → Acknowledge</p></div>' },
-        { id: 'dns', title: 'DNS', content: '<div class="card"><h3>DNS</h3><p>Resolve name to IP: <code>fileserver.firma.local</code> → <code>192.168.10.10</code></p></div>' },
-        { id: 'routing', title: 'Basic Routing', content: '<div class="card"><h3>Basic Routing</h3><p>The router decides where packets go.</p></div>' },
-        { id: 'nat', title: 'NAT', content: '<div class="card"><h3>NAT</h3><p>Translates private IPs to a public IP for internet access.</p></div>' },
-        { id: 'ipv6', title: 'IPv6', content: '<div class="card"><h3>IPv6</h3><p>Newer IP version with longer addresses.</p></div>' },
-        { id: 'topo', title: 'Network Topologies', content: '<div class="card"><h3>Network Topologies</h3><p>Star, Bus, Mesh. Companies usually use star topology.</p></div>' },
-        { id: 'troubleshoot', title: 'Troubleshooting', content: '<div class="card"><h3>Troubleshooting</h3><ol><li>Check cable</li><li>Check IP</li><li>Ping gateway</li><li>Test DNS</li></ol></div>' },
-        { id: 'security', title: 'Security Basics', content: '<div class="card"><h3>Security Basics</h3><ul><li>Open only necessary ports</li><li>Least privilege</li><li>Separate guest VLAN</li></ul></div>' }
-      ]
-    };
-
-    let viewingTopic = false;
-
-    function currentLang() { return localStorage.getItem('fisi-lang') || 'fa'; }
-
-    function renderTopicList() {
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const container = document.getElementById('topicList');
-      container.innerHTML = '';
-      list.forEach(t => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.className = 'topic-item';
-        a.innerHTML = `<h3>${t.title}</h3><span class="chev" aria-hidden="true"></span>`;
-        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
-        container.appendChild(a);
-      });
-    }
-
-    function showTopic(id) {
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const topic = list.find(t => t.id === id);
-      if (!topic) return;
-      document.getElementById('singleTopicContent').innerHTML = (typeof lessonHtml === 'function' && lessonHtml(id)) || topic.content;
-      document.getElementById('topicListView').style.display = 'none';
-      document.getElementById('topicContentView').style.display = 'block';
-      viewingTopic = true;
-      history.replaceState(null, '', '#' + id);
-      window.scrollTo(0, 0);
-    }
-
-    function showList() {
-      document.getElementById('topicContentView').style.display = 'none';
-      document.getElementById('topicListView').style.display = 'block';
-      viewingTopic = false;
-      history.replaceState(null, '', location.pathname + location.search);
-      renderTopicList();
-    }
-
-    function smartBack() {
-      if (viewingTopic) {
-        showList();
-      } else {
-        window.location.href = 'index.html';
-      }
-    }
-
-    function initFromHash() {
-      const hash = location.hash.slice(1);
-      if (hash) {
-        const lang = currentLang();
-        const list = topics[lang] || topics.fa;
-        if (list.find(t => t.id === hash)) {
-          showTopic(hash);
-          return;
-        }
-      }
-      renderTopicList();
-    }
-
-    const originalSetLang = window.setLang;
-    window.setLang = function(lang) {
-      originalSetLang(lang);
-      const hash = location.hash.slice(1);
-      if (hash && viewingTopic) {
-        showTopic(hash);
-      } else {
-        renderTopicList();
-      }
-    };
-
-    window.initFromHash = initFromHash;
-    window.addEventListener('hashchange', initFromHash);
-  </script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
   <script src="lessons/it-systeme.js"></script>
   <script src="lesson.js"></script>
-  <script>if (window.initFromHash) initFromHash();</script>
+  <script>bootSubjectPage("it-systeme.html");</script>
 </body>
 </html>

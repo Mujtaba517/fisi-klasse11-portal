@@ -218,7 +218,8 @@
     const root = document.getElementById('quizRoot');
     if (!root) return;
     const L = t();
-    const selSubject = (root.querySelector('#qSubject') || {}).value || 'mixed';
+    const preset = new URLSearchParams(location.search).get('subject');
+    const selSubject = (root.querySelector('#qSubject') || {}).value || preset || 'mixed';
     const subject = subjectById(selSubject);
     const topics = subject ? subject.topics : [];
     let currentTopic = (root.querySelector('#qTopic') || {}).value || 'all';

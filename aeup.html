@@ -64,6 +64,7 @@
   <main id="main" class="container">
     <div id="topicListView">
       <h2 data-i18n="topicsTitle">موضوعات</h2>
+      <p class="section-lead" data-i18n="lessonSource">Jahrgangsstufe 11, Lehrplanrichtlinien Bayern, Fachinformatiker, Mai 2020. Das sind Lerntexte, keine IHK-Prüfungsaufgaben.</p>
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
@@ -77,96 +78,10 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-    const topics = {
-      fa: [
-        { id:'welt', title:'1. جهان داده‌ها', content:'<div class="card"><h3>1. جهان داده‌ها</h3><ul><li><strong>داده ساختاریافته:</strong> فرمت ثابت، قابل پردازش ماشینی (پایگاه داده، Excel)</li><li><strong>داده غیرساختاریافته:</strong> بدون فرمت ثابت (ایمیل، عکس، ویدیو)</li><li><strong>Bestandsdaten:</strong> داده‌های پایه که کم تعییر می‌کنند (مشتریان، قیمت لیست)</li><li><strong>Bewegungsdaten:</strong> داده‌های ناشی از فرآیند کسب‌وکار (تعداد، مبلغ فاکتور)</li></ul></div>' },
-        { id:'modelle', title:'2. مدل‌های داده', content:'<div class="card"><h3>2. مدل‌های داده</h3><p>مدل‌سازی داده قبل از پیاده‌سازی پایگاه داده انجام می‌شود.</p></div>' },
-        { id:'er', title:'2.1 ER-Modell', content:'<div class="card"><h3>2.1 ER-Modell (Entity-Relationship)</h3><ul><li><strong>Entität:</strong> موجودیت (مشتری، تیکت، محصول)</li><li><strong>Attribut:</strong> ویژگی موجودیت (نام، قیمت، تاریخ)</li><li><strong>Beziehung:</strong> ارتباط بین موجودیت‌ها</li><li><strong>Primärschlüssel:</strong> شناسه یکتا</li></ul></div>' },
-        { id:'rel', title:'2.2 مدل رابطه‌ای', content:'<div class="card"><h3>2.2 مدل رابطه‌ای (relationales Modell)</h3><p>تبدیل ER به جداول با کلیدهای اصلی و خارجی.</p><p>مثال: جدول Kunde (KundenID, Name) و Bestellung (BestellID, KundenID, Datum)</p></div>' }
-      ],
-      de: [
-        { id:'welt', title:'1. Die Welt der Daten', content:'<div class="card"><h3>1. Die Welt der Daten</h3><p><strong>Strukturierte Daten:</strong> festes Format (Datenbank, Excel)<br><strong>Unstrukturierte Daten:</strong> ohne festes Format (E-Mail, Bilder)<br><strong>Bestandsdaten:</strong> ändern sich selten<br><strong>Bewegungsdaten:</strong> entstehen durch Geschäftsprozesse</p></div>' },
-        { id:'modelle', title:'2. Datenmodelle', content:'<div class="card"><h3>2. Datenmodelle</h3><p>Modellierung vor der Implementierung der Datenbank.</p></div>' },
-        { id:'er', title:'2.1 ER-Modell', content:'<div class="card"><h3>2.1 ER-Modell</h3><p>Entität – Attribut – Beziehung – Primärschlüssel</p></div>' },
-        { id:'rel', title:'2.2 Relationales Modell', content:'<div class="card"><h3>2.2 Relationales Modell</h3><p>Überführung des ER-Modells in Tabellen mit Primär- und Fremdschlüsseln.</p></div>' }
-      ],
-      en: [
-        { id:'welt', title:'1. The World of Data', content:'<div class="card"><h3>1. The World of Data</h3><p><strong>Structured data:</strong> fixed format (database, Excel)<br><strong>Unstructured data:</strong> no fixed format (email, images)<br><strong>Master data:</strong> changes rarely<br><strong>Transaction data:</strong> arises from business processes</p></div>' },
-        { id:'modelle', title:'2. Data Models', content:'<div class="card"><h3>2. Data Models</h3><p>Modelling before implementing the database.</p></div>' },
-        { id:'er', title:'2.1 ER Model', content:'<div class="card"><h3>2.1 ER Model</h3><p>Entity – Attribute – Relationship – Primary key</p></div>' },
-        { id:'rel', title:'2.2 Relational Model', content:'<div class="card"><h3>2.2 Relational Model</h3><p>Converting the ER model into tables with primary and foreign keys.</p></div>' }
-      ]
-    };
-
-    let viewingTopic = false;
-    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
-    function renderTopicList(){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const container = document.getElementById('topicList');
-      container.innerHTML = '';
-      list.forEach(t => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.className = 'topic-item';
-        a.innerHTML = `<h3>${t.title}</h3><span class="chev" aria-hidden="true"></span>`;
-        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
-        container.appendChild(a);
-      });
-    }
-    function showTopic(id){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const topic = list.find(t => t.id === id);
-      if (!topic) return;
-      document.getElementById('singleTopicContent').innerHTML = (typeof lessonHtml === 'function' && lessonHtml(id)) || topic.content;
-      document.getElementById('topicListView').style.display = 'none';
-      document.getElementById('topicContentView').style.display = 'block';
-      viewingTopic = true;
-      history.replaceState(null, '', '#' + id);
-      window.scrollTo(0, 0);
-    }
-    function showList(){
-      document.getElementById('topicContentView').style.display = 'none';
-      document.getElementById('topicListView').style.display = 'block';
-      viewingTopic = false;
-      history.replaceState(null, '', location.pathname + location.search);
-      renderTopicList();
-    }
-    function smartBack(){
-      if (viewingTopic) showList();
-      else window.location.href = 'index.html';
-    }
-    function initFromHash() {
-      const hash = location.hash.slice(1);
-      if (hash) {
-        const lang = currentLang();
-        const list = topics[lang] || topics.fa;
-        if (list.find(t => t.id === hash)) {
-          showTopic(hash);
-          return;
-        }
-      }
-      renderTopicList();
-    }
-    const originalSetLang = window.setLang;
-    window.setLang = function(lang){
-      originalSetLang(lang);
-      const hash = location.hash.slice(1);
-      if (hash && viewingTopic) {
-        showTopic(hash);
-      } else {
-        renderTopicList();
-      }
-    };
-    window.initFromHash = initFromHash;
-    window.addEventListener('hashchange', initFromHash);
-  </script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
   <script src="lessons/aeup.js"></script>
   <script src="lesson.js"></script>
-  <script>if (window.initFromHash) initFromHash();</script>
+  <script>bootSubjectPage("aeup.html");</script>
 </body>
 </html>

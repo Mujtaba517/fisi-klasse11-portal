@@ -64,6 +64,7 @@
   <main id="main" class="container">
     <div id="topicListView">
       <h2 data-i18n="topicsTitle">موضوعات</h2>
+      <p class="section-lead" data-i18n="lessonSource">Jahrgangsstufe 11, Lehrplanrichtlinien Bayern, Fachinformatiker, Mai 2020. Das sind Lerntexte, keine IHK-Prüfungsaufgaben.</p>
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
@@ -77,102 +78,10 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-    const topics = {
-      fa: [
-        { id:'ziel', title:'هدف', content:'<div class="card"><h3>هدف</h3><p>VLAN، روتر، DHCP و ping را خودت در Packet Tracer یا آزمایشگاه پیاده کنی.</p></div>' },
-        { id:'szenario', title:'1) سناریو', content:'<div class="card"><h3>1) سناریو</h3><ul><li>VLAN 10: 192.168.10.0/24 · GW .1</li><li>VLAN 20: 192.168.20.0/24 · GW .1</li><li>1 سوئیچ · 1 روتر · 2 PC</li></ul></div>' },
-        { id:'switch', title:'2) سوئیچ', content:'<div class="card"><h3>2) سوئیچ</h3><pre>vlan 10\n name BUERO\nvlan 20\n name TECHNIK\ninterface fa0/1\n switchport mode access\n switchport access vlan 10\ninterface fa0/2\n switchport mode access\n switchport access vlan 20\ninterface fa0/24\n switchport mode trunk</pre><p>Access برای PC · Trunk به روتر.</p></div>' },
-        { id:'router', title:'3) روتر', content:'<div class="card"><h3>3) روتر</h3><pre>interface g0/0.10\n encapsulation dot1Q 10\n ip address 192.168.10.1 255.255.255.0\ninterface g0/0.20\n encapsulation dot1Q 20\n ip address 192.168.20.1 255.255.255.0\ninterface g0/0\n no shutdown</pre></div>' },
-        { id:'dhcp', title:'4) DHCP', content:'<div class="card"><h3>4) DHCP</h3><pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99\nip dhcp pool BUERO\n network 192.168.10.0 255.255.255.0\n default-router 192.168.10.1\n dns-server 8.8.8.8</pre></div>' },
-        { id:'test', title:'5) تست', content:'<div class="card"><h3>5) تست</h3><ol><li>ipconfig → IP درست؟</li><li>ping Gateway</li><li>ping VLAN دیگر</li></ol></div>' }
-      ],
-      de: [
-        { id:'ziel', title:'Ziel', content:'<div class="card"><h3>Ziel</h3><p>VLAN, Router, DHCP und Ping selbst in Packet Tracer oder Labor umsetzen.</p></div>' },
-        { id:'szenario', title:'1) Szenario', content:'<div class="card"><h3>1) Szenario</h3><ul><li>VLAN 10: 192.168.10.0/24 · GW .1</li><li>VLAN 20: 192.168.20.0/24 · GW .1</li><li>1 Switch · 1 Router · 2 PCs</li></ul></div>' },
-        { id:'switch', title:'2) Switch', content:'<div class="card"><h3>2) Switch</h3><pre>vlan 10\n name BUERO\nvlan 20\n name TECHNIK\ninterface fa0/1\n switchport mode access\n switchport access vlan 10\ninterface fa0/2\n switchport mode access\n switchport access vlan 20\ninterface fa0/24\n switchport mode trunk</pre><p>Access für PC · Trunk zum Router.</p></div>' },
-        { id:'router', title:'3) Router', content:'<div class="card"><h3>3) Router</h3><pre>interface g0/0.10\n encapsulation dot1Q 10\n ip address 192.168.10.1 255.255.255.0\ninterface g0/0.20\n encapsulation dot1Q 20\n ip address 192.168.20.1 255.255.255.0\ninterface g0/0\n no shutdown</pre></div>' },
-        { id:'dhcp', title:'4) DHCP', content:'<div class="card"><h3>4) DHCP</h3><pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99\nip dhcp pool BUERO\n network 192.168.10.0 255.255.255.0\n default-router 192.168.10.1\n dns-server 8.8.8.8</pre></div>' },
-        { id:'test', title:'5) Test', content:'<div class="card"><h3>5) Test</h3><ol><li>ipconfig → richtige IP?</li><li>ping Gateway</li><li>ping anderes VLAN</li></ol></div>' }
-      ],
-      en: [
-        { id:'ziel', title:'Goal', content:'<div class="card"><h3>Goal</h3><p>Build VLAN, router, DHCP and ping yourself in Packet Tracer or the lab.</p></div>' },
-        { id:'szenario', title:'1) Scenario', content:'<div class="card"><h3>1) Scenario</h3><ul><li>VLAN 10: 192.168.10.0/24 · GW .1</li><li>VLAN 20: 192.168.20.0/24 · GW .1</li><li>1 switch · 1 router · 2 PCs</li></ul></div>' },
-        { id:'switch', title:'2) Switch', content:'<div class="card"><h3>2) Switch</h3><pre>vlan 10\n name BUERO\nvlan 20\n name TECHNIK\ninterface fa0/1\n switchport mode access\n switchport access vlan 10\ninterface fa0/2\n switchport mode access\n switchport access vlan 20\ninterface fa0/24\n switchport mode trunk</pre><p>Access for PC · Trunk to router.</p></div>' },
-        { id:'router', title:'3) Router', content:'<div class="card"><h3>3) Router</h3><pre>interface g0/0.10\n encapsulation dot1Q 10\n ip address 192.168.10.1 255.255.255.0\ninterface g0/0.20\n encapsulation dot1Q 20\n ip address 192.168.20.1 255.255.255.0\ninterface g0/0\n no shutdown</pre></div>' },
-        { id:'dhcp', title:'4) DHCP', content:'<div class="card"><h3>4) DHCP</h3><pre>ip dhcp excluded-address 192.168.10.1 192.168.10.99\nip dhcp pool BUERO\n network 192.168.10.0 255.255.255.0\n default-router 192.168.10.1\n dns-server 8.8.8.8</pre></div>' },
-        { id:'test', title:'5) Test', content:'<div class="card"><h3>5) Test</h3><ol><li>ipconfig → correct IP?</li><li>ping gateway</li><li>ping other VLAN</li></ol></div>' }
-      ]
-    };
-
-    let viewingTopic = false;
-    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
-    function renderTopicList(){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const container = document.getElementById('topicList');
-      container.innerHTML = '';
-      list.forEach(t => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.className = 'topic-item';
-        a.innerHTML = `<h3>${t.title}</h3><span class="chev" aria-hidden="true"></span>`;
-        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
-        container.appendChild(a);
-      });
-    }
-    function showTopic(id){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const topic = list.find(t => t.id === id);
-      if (!topic) return;
-      document.getElementById('singleTopicContent').innerHTML = (typeof lessonHtml === 'function' && lessonHtml(id)) || topic.content;
-      document.getElementById('topicListView').style.display = 'none';
-      document.getElementById('topicContentView').style.display = 'block';
-      viewingTopic = true;
-      history.replaceState(null, '', '#' + id);
-      window.scrollTo(0, 0);
-    }
-    function showList(){
-      document.getElementById('topicContentView').style.display = 'none';
-      document.getElementById('topicListView').style.display = 'block';
-      viewingTopic = false;
-      history.replaceState(null, '', location.pathname + location.search);
-      renderTopicList();
-    }
-    function smartBack(){
-      if (viewingTopic) showList();
-      else window.location.href = 'index.html';
-    }
-    function initFromHash() {
-      const hash = location.hash.slice(1);
-      if (hash) {
-        const lang = currentLang();
-        const list = topics[lang] || topics.fa;
-        if (list.find(t => t.id === hash)) {
-          showTopic(hash);
-          return;
-        }
-      }
-      renderTopicList();
-    }
-    const originalSetLang = window.setLang;
-    window.setLang = function(lang){
-      originalSetLang(lang);
-      const hash = location.hash.slice(1);
-      if (hash && viewingTopic) {
-        showTopic(hash);
-      } else {
-        renderTopicList();
-      }
-    };
-    window.initFromHash = initFromHash;
-    window.addEventListener('hashchange', initFromHash);
-  </script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
   <script src="lessons/fachpraxis.js"></script>
   <script src="lesson.js"></script>
-  <script>if (window.initFromHash) initFromHash();</script>
+  <script>bootSubjectPage("fachpraxis.html");</script>
 </body>
 </html>

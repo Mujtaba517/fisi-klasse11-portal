@@ -95,78 +95,37 @@
   <script src="script.js"></script>
   <script>
     const cards = [
-      { de: 'Serviceanfrage', 
-        fa: 'درخواست خدمات: هر درخواستی که کاربر از بخش IT دارد (مثل نصب نرم‌افزار یا خرابی پرینتر).', 
-        en: 'Service request: Any request a user makes to the IT department (e.g. software installation or printer issue).' },
-      { de: 'Störungsmeldung', 
-        fa: 'گزارش اختلال: اعلام خرابی یک سرویس یا دستگاه به پشتیبانی.', 
-        en: 'Incident report: Reporting a disruption of a service or device to support.' },
-      { de: 'Eskalation', 
-        fa: 'ارجاع به سطح بالاتر: وقتی که مشکل در سطح اول حل نشود و به متخصص بالاتر ارجاع می‌شود.', 
-        en: 'Escalation: Passing a problem to a higher support level when it cannot be solved at the first level.' },
-      { de: 'Deeskalation', 
-        fa: 'آرام‌سازی: آرام کردن کاربر عصبانی و جلوگیری از افزایش تنش.', 
-        en: 'De-escalation: Calming an angry user and preventing the situation from getting worse.' },
-      { de: 'First-Level-Support', 
-        fa: 'پشتیبانی سطح اول: اولین نقطه تماس که مشکلات ساده را حل می‌کند (ریست رمز، راهنمایی اولیه).', 
-        en: 'First-level support: The first contact point that handles simple issues (password reset, basic guidance).' },
-      { de: 'Incident', 
-        fa: 'اختلال فعلی سرویس: چیزی الان خراب است و باید سریع برگردانده شود.', 
-        en: 'Incident: Something is currently broken and needs to be restored quickly.' },
-      { de: 'Problem', 
-        fa: 'علت ریشه‌ای: علت اصلی که باعث تکرار اختلالات می‌شود.', 
-        en: 'Problem: The root cause that leads to recurring incidents.' },
-      { de: 'SLA', 
-        fa: 'توافق سطح خدمات: قول کتبی درباره زمان پاسخ و زمان حل مشکل.', 
-        en: 'Service Level Agreement: Written promise about response time and resolution time.' },
-      { de: 'Cyber-physisches System', 
-        fa: 'سیستم سایبر-فیزیکی: ترکیب دنیای فیزیکی (سنسور، موتور) با دنیای IT.', 
-        en: 'Cyber-physical system: Combination of the physical world (sensors, motors) with IT.' },
-      { de: 'Sensor', 
-        fa: 'سنسور: دستگاهی که مقدار فیزیکی (دما، رطوبت، حرکت) را اندازه می‌گیرد.', 
-        en: 'Sensor: A device that measures a physical value (temperature, humidity, motion).' },
-      { de: 'Aktor', 
-        fa: 'عملگر: دستگاهی که کار فیزیکی انجام می‌دهد (رله، فن، موتور).', 
-        en: 'Actuator: A device that performs a physical action (relay, fan, motor).' },
-      { de: 'Mikrocontroller', 
-        fa: 'میکروکنترلر: مغز کوچک سیستم (مثل ESP32) که سنسورها را می‌خواند و اکتورها را کنترل می‌کند.', 
-        en: 'Microcontroller: Small brain of the system (e.g. ESP32) that reads sensors and controls actuators.' },
-      { de: 'MQTT-Broker', 
-        fa: 'واسط پیام MQTT: سرور مرکزی که پیام‌ها را بین دستگاه‌ها منتقل می‌کند.', 
-        en: 'MQTT Broker: Central server that forwards messages between devices.' },
-      { de: 'Topic', 
-        fa: 'موضوع پیام: نام کانالی که پیام‌ها روی آن منتشر می‌شوند (مثل lager/temp).', 
-        en: 'Topic: The channel name on which messages are published (e.g. lager/temp).' },
-      { de: 'QoS', 
-        fa: 'کیفیت تحویل پیام: سطح تضمین رسیدن پیام در MQTT (0 = ممکن است گم شود، 1 = حداقل یک بار).', 
-        en: 'Quality of Service: Delivery guarantee level in MQTT (0 = may be lost, 1 = at least once).' },
-      { de: 'Datenmodellierung', 
-        fa: 'مدل‌سازی داده: طراحی ساختار داده‌ها قبل از پیاده‌سازی پایگاه داده.', 
-        en: 'Data modelling: Designing the structure of data before implementing a database.' },
-      { de: 'Entität', 
-        fa: 'موجودیت: شیء یا مفهومی که در پایگاه داده ذخیره می‌شود (مثل مشتری یا تیکت).', 
-        en: 'Entity: A thing or concept that is stored in a database (e.g. customer or ticket).' },
-      { de: 'Primärschlüssel', 
-        fa: 'کلید اصلی: شناسه یکتا برای هر رکورد در جدول (مثل id).', 
-        en: 'Primary key: Unique identifier for each record in a table (e.g. id).' },
-      { de: 'Schnittstelle / API', 
-        fa: 'رابط برنامه‌نویسی: راه ارتباط بین دو سیستم برای تبادل داده.', 
-        en: 'Interface / API: A way for two systems to communicate and exchange data.' },
-      { de: 'JSON', 
-        fa: 'فرمت داده سبک: فرمت متنی رایج برای ارسال داده در APIها.', 
-        en: 'Lightweight data format: Common text format for sending data in APIs.' },
-      { de: 'Teilnetz / Subnetz', 
-        fa: 'زیرشبکه: تقسیم یک شبکه بزرگ به چند شبکه کوچک‌تر.', 
-        en: 'Subnet: Dividing a large network into smaller networks.' },
-      { de: 'VLAN', 
-        fa: 'شبکه مجازی محلی: جدا کردن منطقی شبکه روی یک سوئیچ فیزیکی.', 
-        en: 'Virtual LAN: Logically separating networks on the same physical switch.' },
-      { de: 'Standardgateway', 
-        fa: 'دروازه پیش‌فرض: آدرس روتر که پکت‌ها را به خارج از شبکه محلی می‌فرستد.', 
-        en: 'Default gateway: The router address that forwards packets outside the local network.' },
-      { de: 'Firewall', 
-        fa: 'فایروال: دستگاه یا نرم‌افزاری که ترافیک شبکه را کنترل و فیلتر می‌کند.', 
-        en: 'Firewall: Device or software that controls and filters network traffic.' }
+      {"de": "Serviceanfrage", "def": {"de": "Jede Bitte einer Person an die IT, zum Beispiel Software installieren oder einen Drucker reparieren.", "en": "Any request a person makes to IT, for example installing software or repairing a printer.", "fa": "هر درخواست یک شخص از IT، مثلاً نصب نرم‌افزار یا تعمیر چاپگر."}},
+      {"de": "Störungsmeldung", "def": {"de": "Meldung, dass ein Dienst oder ein Gerät gerade nicht richtig arbeitet.", "en": "A report that a service or a device is not working properly right now.", "fa": "گزارش اینکه یک خدمت یا دستگاه همین حالا درست کار نمی‌کند."}},
+      {"de": "Eskalation", "def": {"de": "Der Fall geht mit den bisherigen Notizen an eine höhere Support-Stufe.", "en": "The case goes to a higher support level together with the notes already taken.", "fa": "پرونده با یادداشت‌های تا اینجا به سطح بالاتر پشتیبانی می‌رود."}},
+      {"de": "Deeskalation", "def": {"de": "Ein aufgebrachtes Gespräch beruhigen. Das ist kein Ticketstatus und ersetzt keine technische Eskalation.", "en": "Calming an upset conversation. This is not a ticket status and does not replace technical escalation.", "fa": "آرام کردن یک گفتگوی ناراحت. این وضعیت تیکت نیست و جای ارجاع فنی را نمی‌گیرد."}},
+      {"de": "First-Level-Support", "def": {"de": "Die erste Anlaufstelle. Sie löst Standardfälle, zum Beispiel ein Passwort, und dokumentiert sie.", "en": "The first contact. It solves standard cases, for example a password, and documents them.", "fa": "اولین تماس. موارد استاندارد را حل می‌کند، مثلاً گذرواژه، و ثبت می‌کند."}},
+      {"de": "Incident", "def": {"de": "Die Störung jetzt. Ziel ist, den Dienst schnell wieder benutzbar zu machen.", "en": "The fault right now. The goal is to make the service usable again quickly.", "fa": "اختلال همین حالا. هدف این است که خدمت سریع دوباره قابل استفاده شود."}},
+      {"de": "Problem", "def": {"de": "Die Ursache, die Störungen wiederholt erzeugt. Nicht dasselbe wie die einzelne Störung.", "en": "The cause that creates faults again and again. Not the same as the single fault.", "fa": "علتی که اختلال را بارها می‌سازد. همان اختلال تنها نیست."}},
+      {"de": "SLA", "def": {"de": "Schriftliche Zusage mit zwei Uhren: Reaktionszeit bis zur ersten fachlichen Antwort und Lösungszeit bis der Dienst wieder da ist.", "en": "A written promise with two clocks: response time until the first professional reply, and resolution time until the service is back.", "fa": "قول کتبی با دو ساعت: زمان واکنش تا اولین پاسخ تخصصی، و زمان حل تا بازگشت خدمت."}},
+      {"de": "Cyber-physisches System", "def": {"de": "Software und Physik im Kreis: messen, entscheiden, handeln, wieder messen. Eine reine Netzverbindung reicht nicht.", "en": "Software and physics in a loop: measure, decide, act, measure again. A network connection alone is not enough.", "fa": "نرم‌افزار و فیزیک در یک حلقه: اندازه بگیر، تصمیم بگیر، عمل کن، دوباره اندازه بگیر. اتصال شبکه به‌تنهایی کافی نیست."}},
+      {"de": "Sensor", "def": {"de": "Wandelt eine physikalische Größe in ein Signal für die Software. Die Information kommt aus der Welt.", "en": "Turns a physical quantity into a signal for the software. The information comes from the world.", "fa": "یک کمیت فیزیکی را به سیگنال برای نرم‌افزار تبدیل می‌کند. اطلاعات از جهان می‌آید."}},
+      {"de": "Aktor", "def": {"de": "Wandelt ein Signal in eine Wirkung in der Welt, zum Beispiel Relais, Lampe oder Motor. Eine LED ist ein Aktor, kein Sensor.", "en": "Turns a signal into an effect in the world, for example a relay, lamp or motor. An LED is an actuator, not a sensor.", "fa": "یک سیگنال را به اثر در جهان تبدیل می‌کند، مثلاً رله، لامپ یا موتور. LED عملگر است، نه سنسور."}},
+      {"de": "Mikrocontroller", "def": {"de": "Kleiner Rechner, der Sensoren liest und Aktoren steuert. Ein ESP32 ist ein Beispiel, mit WLAN und 3,3-V-Logik.", "en": "A small computer that reads sensors and controls actuators. An ESP32 is an example, with Wi-Fi and 3.3 V logic.", "fa": "رایانه کوچک که سنسور می‌خواند و عملگر را کنترل می‌کند. ESP32 یک مثال است، با وای‌فای و منطق ۳٫۳ ولت."}},
+      {"de": "MQTT-Broker", "def": {"de": "Vermittler für MQTT. Die Geräte schicken Nachrichten an ihn, nicht jeder direkt an jeden.", "en": "The MQTT intermediary. Devices send messages to it, not everyone directly to everyone.", "fa": "واسط MQTT. دستگاه‌ها پیام را به او می‌فرستند، نه هر کدام مستقیم به هر کدام."}},
+      {"de": "Topic", "def": {"de": "Name des MQTT-Kanals, zum Beispiel lager/temp. Wer ihn abonniert hat, bekommt die Nachrichten.", "en": "Name of the MQTT channel, for example lager/temp. Whoever subscribed receives the messages.", "fa": "نام کانال MQTT، مثلاً lager/temp. هر کس مشترک شده باشد پیام را می‌گیرد."}},
+      {"de": "QoS", "def": {"de": "Zustellgarantie bei MQTT. 0 = höchstens einmal, 1 = mindestens einmal, 2 = genau einmal.", "en": "Delivery promise in MQTT. 0 = at most once, 1 = at least once, 2 = exactly once.", "fa": "قول تحویل در MQTT. ۰ = حداکثر یک بار، ۱ = حداقل یک بار، ۲ = دقیقاً یک بار."}},
+      {"de": "Datenmodellierung", "def": {"de": "Der Plan, welche Dinge es gibt und wie sie zusammenhängen, bevor eine Tabelle angelegt wird.", "en": "The plan of which things exist and how they belong together, before a table is created.", "fa": "نقشه اینکه چه چیزهایی هستند و چطور به هم‌اند، پیش از ساختن جدول."}},
+      {"de": "Entität", "def": {"de": "Ein Ding, das gespeichert wird, zum Beispiel ein Kunde oder ein Ticket.", "en": "A thing that is stored, for example a customer or a ticket.", "fa": "چیزی که ذخیره می‌شود، مثلاً مشتری یا تیکت."}},
+      {"de": "Primärschlüssel", "def": {"de": "Die eindeutige ID einer Zeile. Ein Name ist dafür schlecht, weil er sich wiederholen kann.", "en": "The unique ID of a row. A name is a poor key because it can repeat.", "fa": "شناسه یکتای یک ردیف. نام برای این کار بد است چون می‌تواند تکرار شود."}},
+      {"de": "Schnittstelle / API", "def": {"de": "Eine vereinbarte Grenze, über die zwei Systeme Daten tauschen.", "en": "An agreed boundary through which two systems exchange data.", "fa": "مرز توافق‌شده‌ای که دو سیستم از آن داده عوض می‌کنند."}},
+      {"de": "JSON", "def": {"de": "Ein Textformat mit Feldern und Werten. Bei REST üblich, aber nicht vorgeschrieben.", "en": "A text format with fields and values. Common with REST, but not required.", "fa": "یک قالب متنی با فیلد و مقدار. با REST معمول است، ولی اجباری نیست."}},
+      {"de": "Teilnetz / Subnetz", "def": {"de": "Ein großes Netz in kleinere Netze teilen. Bei /24 bleiben 254 nutzbare Hosts, nicht 256.", "en": "Splitting a large network into smaller ones. A /24 leaves 254 usable hosts, not 256.", "fa": "تقسیم یک شبکه بزرگ به شبکه‌های کوچک‌تر. در /24، ۲۵۴ میزبان قابل استفاده می‌ماند، نه ۲۵۶."}},
+      {"de": "VLAN", "def": {"de": "Ein logisches Netz auf einem physischen Switch. Verschiedene VLANs sprechen nicht direkt miteinander.", "en": "A logical network on one physical switch. Different VLANs do not talk directly.", "fa": "یک شبکه منطقی روی یک سوئیچ فیزیکی. VLANهای مختلف مستقیم حرف نمی‌زنند."}},
+      {"de": "Standardgateway", "def": {"de": "Die Routeradresse für Ziele außerhalb des eigenen Netzes. Sie steht in der IP-Anzeige und ist nicht automatisch .1.", "en": "The router address for targets outside your own network. It is on the IP screen and is not automatically .1.", "fa": "آدرس روتر برای هدف‌های بیرون شبکه خودت. در صفحه IP است و خودکار .1 نیست."}},
+      {"de": "Firewall", "def": {"de": "Filtert Verkehr nach Regeln. NAT übersetzt nur Adressen und ist keine Firewall.", "en": "Filters traffic by rules. NAT only translates addresses and is not a firewall.", "fa": "ترافیک را با قانون فیلتر می‌کند. NAT فقط آدرس را ترجمه می‌کند و فایروال نیست."}},
+      {"de": "OSI-Schicht", "def": {"de": "Ein Denkmodell. Schicht 1 ist das Signal, nicht der Switch. Schicht 2 ist MAC, Switch und VLAN.", "en": "A thinking model. Layer 1 is the signal, not the switch. Layer 2 is MAC, switch and VLAN.", "fa": "یک مدل فکری. لایه ۱ سیگنال است، نه سوئیچ. لایه ۲ یعنی MAC، سوئیچ و VLAN."}},
+      {"de": "DHCP", "def": {"de": "Vergibt Adresse, Maske, Gateway und oft DNS. Die Reihenfolge ist Discover, Offer, Request, Acknowledge.", "en": "Assigns address, mask, gateway and often DNS. The order is Discover, Offer, Request, Acknowledge.", "fa": "آدرس، ماسک، Gateway و اغلب DNS می‌دهد. ترتیب Discover، Offer، Request، Acknowledge است."}},
+      {"de": "DNS", "def": {"de": "Übersetzt einen Namen in eine IP-Adresse. Antwortet die IP und der Name nicht, liegt es an der Übersetzung.", "en": "Translates a name into an IP address. If the IP answers and the name does not, the translation is the fault.", "fa": "یک نام را به آدرس IP ترجمه می‌کند. اگر IP جواب بدهد و نام نه، اشکال از ترجمه است."}},
+      {"de": "NAT", "def": {"de": "Übersetzt private Adressen in eine öffentliche. Es filtert nicht und ersetzt keine Firewall.", "en": "Translates private addresses into a public one. It does not filter and does not replace a firewall.", "fa": "آدرس خصوصی را به یک آدرس عمومی ترجمه می‌کند. فیلتر نمی‌کند و جای فایروال را نمی‌گیرد."}},
+      {"de": "Access-Port", "def": {"de": "Ein Switch-Port mit genau einem VLAN, für einen PC, ohne VLAN-Tag.", "en": "A switch port with exactly one VLAN, for a PC, without a VLAN tag.", "fa": "یک پورت سوئیچ با دقیقاً یک VLAN، برای رایانه، بدون برچسب VLAN."}},
+      {"de": "Trunk", "def": {"de": "Ein Switch-Port mit mehreren VLANs und Tags, typisch zwischen Switch und Router.", "en": "A switch port with several VLANs and tags, typically between switch and router.", "fa": "یک پورت سوئیچ با چند VLAN و برچسب، معمولاً بین سوئیچ و روتر."}},
+      {"de": "Berichtsheft", "def": {"de": "Nachweis, was in Betrieb und Schule gelernt wurde. Regelmäßig schreiben, nicht am Ende erfinden.", "en": "A record of what was learned in the company and at school. Write it regularly. Do not invent it at the end.", "fa": "ثبت آنچه در شرکت و مدرسه یاد گرفته شد. مرتب بنویس، در پایان نساز."}},
     ];
 
     const ui = {
@@ -189,16 +148,8 @@
 
       document.getElementById('cardTerm').textContent = c.de;
       document.getElementById('cardHint').textContent = t.hint;
-
-      let html = '';
-      if (l === 'fa') {
-        html = c.fa + '<span class="trans">EN: ' + c.en + '</span>';
-      } else if (l === 'de') {
-        html = c.en + '<span class="trans">FA: ' + c.fa.split(':')[0] + '</span>';
-      } else {
-        html = c.en + '<span class="trans">DE: ' + c.de + '</span>';
-      }
-      document.getElementById('cardMeaning').innerHTML = html;
+      const meaning = (c.def && (c.def[l] || c.def.de)) || '';
+      document.getElementById('cardMeaning').textContent = meaning;
 
       document.getElementById('btnPrev').textContent = t.prev;
       document.getElementById('btnNext').textContent = t.next;
