@@ -13,6 +13,6 @@
       meta.setAttribute('name', 'theme-color');
       document.head.appendChild(meta);
     }
-    meta.setAttribute('content', theme === 'light' ? '#f3f5f7' : '#101418');
+    meta.setAttribute('content', theme === 'light' ? '#f4efe6' : '#171410');
   } catch (e) {}
 })();

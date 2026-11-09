@@ -58,8 +58,33 @@ document.addEventListener('click', function (e) {
   applyGrade(btn.getAttribute('data-grade'));
 });
 
+function renderContinue() {
+  var card = document.getElementById('continueCard');
+  if (!card || typeof latestActivity !== 'function') return;
+  var latest = latestActivity();
+  card.replaceChildren();
+  if (!latest) {
+    card.hidden = true;
+    return;
+  }
+  var lang = document.documentElement.lang || 'fa';
+  var t = (window.translations && translations[lang]) || translations.de;
+  var title = document.createElement('h2');
+  title.textContent = t.continueTitle || 'Continue';
+  var line = document.createElement('p');
+  line.textContent = latest.title;
+  var link = document.createElement('a');
+  link.className = 'btn btn-primary';
+  link.href = latest.page + '#' + latest.id;
+  link.textContent = t.continueOpen || 'Open';
+  card.hidden = false;
+  card.append(title, line, link);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('grade11Panel') || document.getElementById('grade10Panel')) {
     applyGrade(selectedGrade());
   }
+  renderContinue();
 });
+document.addEventListener('fisi-lang', renderContinue);

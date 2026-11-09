@@ -40,7 +40,7 @@
       multi: 'چندگزینه‌ای',
       order: 'مرتب‌سازی',
       short: 'پاسخ کوتاه',
-      note: 'این‌ها سؤال رسمی IHK نیستند و فقط پایه ۱۱ را می‌پوشانند، نه سال ۱۲ یا AP2. بانک سؤال هنوز ناقص است و به ۵۰ سؤال در هر مضمون نرسیده؛ شمارش دقیق در docs/QUIZ-COVERAGE.md است.',
+      note: 'این‌ها سؤال رسمی IHK نیستند. عدد کنار هر مضمون، تعداد سؤال همان پرونده است و صنف ۱۰ را هم شامل می‌شود اگر انتخاب شده باشد. بانک هنوز ناقص است و به ۵۰ سؤال در هر مضمون نرسیده. سال ۱۲ و AP2 این‌جا نیستند.',
       of: 'از'
     },
     de: {
@@ -82,7 +82,7 @@
       multi: 'Mehrfachauswahl',
       order: 'Reihenfolge',
       short: 'Kurzantwort',
-      note: 'Keine offiziellen IHK-Aufgaben. Abgedeckt ist nur die Jahrgangsstufe 11, nicht Jahrgangsstufe 12 oder AP2. Der Fragenbestand ist unvollständig und erreicht nicht 50 Fragen je Fach. Die genauen Zahlen stehen in docs/QUIZ-COVERAGE.md.',
+      note: 'Keine offiziellen IHK-Aufgaben. Die Zahl am Fach ist die Anzahl in dieser Datei. Die gemischte Auswahl zählt auch die vorhandenen Klasse-10-Fächer mit. Der Bestand ist unvollständig und erreicht nicht 50 Fragen je Fach. Jahrgangsstufe 12 und AP2 fehlen.',
       of: 'von'
     },
     en: {
@@ -124,7 +124,7 @@
       multi: 'Multiple answers',
       order: 'Ordering',
       short: 'Short answer',
-      note: 'Not official IHK questions. Coverage is year 11 only, not year 12 or AP2. The bank is incomplete and does not reach 50 questions per subject. Exact counts are in docs/QUIZ-COVERAGE.md.',
+      note: 'Not official IHK questions. The number next to a subject is the count in that file. Mixed review also includes the Klasse 10 subjects that exist. The bank is incomplete and does not reach 50 questions per subject. Year 12 and AP2 are not here.',
       of: 'of'
     }
   };

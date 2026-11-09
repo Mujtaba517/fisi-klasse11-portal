@@ -42,6 +42,29 @@ var translations = {
     btnQuiz: 'آزمون',
     btnNetwork: 'شبکه و VLAN',
     pathwayLead: 'این بخش فقط مسیر فعلی است، نه کل Lernova.',
+    pathway11: 'پایه ۱۱ · یکپارچه‌سازی سیستم',
+    pathField9: 'حوزه یادگیری ۹ · فراهم کردن شبکه و سرویس‌ها',
+    pathway10: 'پایه ۱۰ · سال اول آموزش',
+    countLessons: 'درس',
+    countQuestions: 'سؤال',
+    browserOnly: 'پیشرفت فقط در همین مرورگر ذخیره می‌شود.',
+    continueTitle: 'ادامه از جایی که ماندی',
+    continueOpen: 'باز کردن',
+    statusAvailable: 'آماده',
+    statusPrep: 'در حال آماده‌سازی',
+    pathPractice: 'تمرین',
+    pathOpen: 'درس',
+    placeholderBanner: 'این چیدمان با متن فعلی IT-Systeme آزمایش می‌شود. درس نمونه از جزوه مدرسه هنوز نوشته نشده است.',
+    stepOf: 'از',
+    nextStep: 'گام بعد',
+    prevStep: 'گام قبل',
+    checkAnswer: 'بررسی',
+    tryAgain: 'دوباره تلاش کن',
+    showAnswer: 'نمایش پاسخ',
+    practiceRight: 'درست است.',
+    practiceWrong: 'این بار نه. توضیح را بخوان و دوباره انتخاب کن.',
+    noPractice: 'برای این موضوع هنوز سؤال تمرینی در بانک نیست.',
+    answerLabel: 'پاسخ',
     sectionSubjects: 'مضامین این مسیر',
     sectionTools: 'ابزارهای یادگیری',
     toolsLead: 'برای مرور کوتاه از همین‌جا شروع کن.',
@@ -124,6 +147,29 @@ var translations = {
     btnQuiz: 'Quiz öffnen',
     btnNetwork: 'Netzwerk & VLAN',
     pathwayLead: 'Dieser Block ist der aktuelle Lernweg, nicht die ganze Plattform.',
+    pathway11: 'Jahrgangsstufe 11 · Systemintegration',
+    pathField9: 'Lernfeld 9 · Netzwerke und Dienste bereitstellen',
+    pathway10: 'Jahrgangsstufe 10 · erstes Ausbildungsjahr',
+    countLessons: 'Lektionen',
+    countQuestions: 'Fragen',
+    browserOnly: 'Fortschritt bleibt nur in diesem Browser gespeichert.',
+    continueTitle: 'Weiter dort, wo du warst',
+    continueOpen: 'Öffnen',
+    statusAvailable: 'Verfügbar',
+    statusPrep: 'In Vorbereitung',
+    pathPractice: 'Üben',
+    pathOpen: 'Lektion',
+    placeholderBanner: 'Dieses Layout nutzt den vorhandenen IT-Systeme-Text, damit die Seite geprüft werden kann. Die Musterlektion aus dem Schulmaterial ist noch nicht geschrieben.',
+    stepOf: 'von',
+    nextStep: 'Nächster Schritt',
+    prevStep: 'Vorheriger Schritt',
+    checkAnswer: 'Prüfen',
+    tryAgain: 'Nochmal versuchen',
+    showAnswer: 'Antwort zeigen',
+    practiceRight: 'Richtig.',
+    practiceWrong: 'Noch nicht. Lies die Erklärung und wähle erneut.',
+    noPractice: 'Für dieses Thema liegen noch keine Übungsfragen in der Sammlung.',
+    answerLabel: 'Antwort',
     sectionSubjects: 'Fächer in diesem Weg',
     sectionTools: 'Lernwerkzeuge',
     toolsLead: 'Zum Wiederholen direkt hier starten.',
@@ -206,6 +252,29 @@ var translations = {
     btnQuiz: 'Open quiz',
     btnNetwork: 'Network & VLAN',
     pathwayLead: 'This block is the current pathway, not the whole platform.',
+    pathway11: 'Year 11 · systems integration',
+    pathField9: 'Learning field 9 · provide networks and services',
+    pathway10: 'Year 10 · first training year',
+    countLessons: 'lessons',
+    countQuestions: 'questions',
+    browserOnly: 'Progress is stored only in this browser.',
+    continueTitle: 'Continue where you left off',
+    continueOpen: 'Open',
+    statusAvailable: 'Available',
+    statusPrep: 'In preparation',
+    pathPractice: 'Practice',
+    pathOpen: 'Lesson',
+    placeholderBanner: 'This layout uses the current IT-Systeme text so the page can be tested. The sample lesson from the school handout is not written yet.',
+    stepOf: 'of',
+    nextStep: 'Next step',
+    prevStep: 'Previous step',
+    checkAnswer: 'Check',
+    tryAgain: 'Try again',
+    showAnswer: 'Show the answer',
+    practiceRight: 'Correct.',
+    practiceWrong: 'Not yet. Read the explanation and choose again.',
+    noPractice: 'This topic does not have practice questions in the bank yet.',
+    answerLabel: 'Answer',
     sectionSubjects: 'Subjects on this pathway',
     sectionTools: 'Study tools',
     toolsLead: 'Start here when you want to review.',
@@ -311,6 +380,39 @@ function toggleTheme() {
   html.setAttribute('data-theme', next);
   localStorage.setItem('fisi-theme', next);
   updateThemeButton();
+}
+
+var ACTIVITY_KEY = 'fisi-activity';
+
+function readActivity() {
+  try { return JSON.parse(localStorage.getItem(ACTIVITY_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+
+function recordActivity(page, id, extra) {
+  var all = readActivity();
+  if (!all[page]) all[page] = {};
+  var row = all[page][id] || {};
+  if (extra) Object.keys(extra).forEach(function (key) { row[key] = extra[key]; });
+  row.opened = true;
+  row.updated = Date.now();
+  all[page][id] = row;
+  localStorage.setItem(ACTIVITY_KEY, JSON.stringify(all));
+}
+
+function latestActivity() {
+  var all = readActivity();
+  var best = null;
+  Object.keys(all).forEach(function (page) {
+    Object.keys(all[page] || {}).forEach(function (id) {
+      var row = all[page][id];
+      if (!row || !row.updated) return;
+      if (!best || row.updated > best.updated) {
+        best = { page: page, id: id, title: row.title || id, updated: row.updated };
+      }
+    });
+  });
+  return best;
 }
 
 function applySavedPreferences() {
