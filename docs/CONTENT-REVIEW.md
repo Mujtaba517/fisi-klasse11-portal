@@ -30,4 +30,5 @@ This note records factual corrections and what was removed. It does not add Klas
 
 - Quiz coverage is still the partial bank from before (73 questions, not 50 per subject). Explanations were corrected where they were wrong or easy to misread. Not every explanation was rewritten into a long paragraph.
 - Lernfeld pages (`lf6.html` to `lf9.html`) stay as the existing outlines. The subject lessons are the structured texts.
-- Klasse 10 has no topics. The folder `lessons/grade-10/` is empty on purpose.
+- Klasse 10 now has lessons from the readable class materials: networks, computers, Python, economics, English, projects and training law. Scanned pages were not transcribed, and no worksheet answers were invented.
+- The Klasse 11 lesson packs were replaced with the reviewed definition, explanation, example and key points. Older quiz questions were kept, and one checked question per lesson was added when that question was not already there.

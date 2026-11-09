@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
+  <title>Betriebs- und Gesamtwirtschaft | Lernova</title>
+  <script src="theme-init.js"></script>
+  <script src="auth.js"></script>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
+        </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="k10-fuit.html">FU-IT</a>
+        <a href="k10-ittechnik.html">IT-Technik</a>
+        <a href="k10-aeup.html">AEuP</a>
+        <a href="k10-bgwp.html" class="active" aria-current="page">BGWP</a>
+        <a href="k10-englisch.html">Englisch</a>
+        <a href="k10-projekt.html">Projekt</a>
+        <a href="k10-pug.html">PuG</a>
+<span class="nav-sep" aria-hidden="true"></span>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container page-head">
+    <button type="button" class="back-btn" id="smartBack" onclick="smartBack()" data-i18n-aria="backHome" aria-label="بازگشت به خانه"><svg class="chevron-back" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 9 12l6 6"/></svg></button>
+    <h1>Betriebs- und Gesamtwirtschaft</h1>
+    <p class="pathway">Klasse 10 · BGWP</p>
+    <p class="sub">Erweiterter Wirtschaftskreislauf · Marktformen · Eine Firma gründen · Rechtsformen · Prokura und Handlungsvollmacht</p>
+  </div>
+  <main id="main" class="container">
+    <div id="topicListView">
+      <h2 data-i18n="topicsTitle">موضوعات</h2>
+      <p class="section-lead" data-i18n="lessonSource10">Ein Teil der Klassenunterlagen liegt nur als Scan vor. Diese Lektionen folgen den lesbaren Überschriften und dem üblichen Stoff. Sie sind keine Abschrift der Arbeitsblätter und enthalten keine ausgedachten Lösungen. Zugangsdaten aus den Dateien stehen hier nicht.</p>
+      <div class="topic-list" id="topicList"></div>
+    </div>
+    <div id="topicContentView" style="display:none">
+      <div id="singleTopicContent"></div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Fachinformatiker Systemintegration · Klasse 11 · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="shell.js"></script>
+  <script>try { localStorage.setItem("fisi-grade", "10"); } catch (e) {}</script>
+  <script src="lessons/grade-10/bgwp.js"></script>
+  <script src="lesson.js"></script>
+  <script>bootSubjectPage('k10-bgwp.html');</script>
+</body>
+</html>

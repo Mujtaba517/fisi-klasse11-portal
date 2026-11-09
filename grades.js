@@ -1,5 +1,5 @@
 /* Grade catalog. Klasse 11 keeps the existing page URLs.
-   Klasse 10 is an empty scaffold: no invented subjects or lessons. */
+   Klasse 10 uses the reviewed lessons from the readable class materials. */
 var GRADE_CATALOG = {
   '11': {
     id: '11',
@@ -18,10 +18,18 @@ var GRADE_CATALOG = {
   },
   '10': {
     id: '10',
-    status: 'empty',
+    status: 'ready',
     home: 'klasse-10.html',
     lessonDir: 'lessons/grade-10/',
-    subjects: []
+    subjects: [
+      'k10-fuit.html',
+      'k10-ittechnik.html',
+      'k10-aeup.html',
+      'k10-bgwp.html',
+      'k10-englisch.html',
+      'k10-projekt.html',
+      'k10-pug.html'
+    ]
   }
 };
 

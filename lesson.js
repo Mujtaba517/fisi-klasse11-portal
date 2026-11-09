@@ -63,14 +63,19 @@ function renderLessonBody(entry) {
   var points = (entry.remember || []).map(function (item) {
     return '<li>' + richText(item) + '</li>';
   }).join('');
-  return ''
-    + '<p class="lesson-kicker">' + escapeLesson(lessonLabel('lessonGoal')) + '</p>'
-    + '<p class="lesson-goal">' + richText(entry.goal) + '</p>'
-    + '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonDefinition')) + '</h3>' + paragraphs(entry.definition) + '</section>'
+  var html = '';
+  if (entry.goal && entry.goal !== entry.definition) {
+    html += '<p class="lesson-kicker">' + escapeLesson(lessonLabel('lessonGoal')) + '</p>'
+      + '<p class="lesson-goal">' + richText(entry.goal) + '</p>';
+  }
+  html += '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonDefinition')) + '</h3>' + paragraphs(entry.definition) + '</section>'
     + '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonExplain')) + '</h3>' + paragraphs(entry.explanation) + '</section>'
     + '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonExample')) + '</h3>' + paragraphs(entry.example) + '</section>'
-    + '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonRemember')) + '</h3><ul>' + points + '</ul></section>'
-    + '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonSummary')) + '</h3><p class="lesson-summary">' + richText(entry.summary) + '</p></section>';
+    + '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonRemember')) + '</h3><ul>' + points + '</ul></section>';
+  if (entry.summary) {
+    html += '<section class="lesson-section"><h3>' + escapeLesson(lessonLabel('lessonSummary')) + '</h3><p class="lesson-summary">' + richText(entry.summary) + '</p></section>';
+  }
+  return html;
 }
 
 function renderLessonDocument(page, id, list) {
@@ -82,6 +87,7 @@ function renderLessonDocument(page, id, list) {
   var prev = index > 0 ? list[index - 1] : null;
   var next = index >= 0 && index < list.length - 1 ? list[index + 1] : null;
   var subject = pack && pack.subject ? (pack.subject[lessonLang()] || pack.subject.de) : page;
+  var gradeKey = pack && pack.grade === '10' ? 'grade10' : 'grade11';
   var quiz = (pack && pack.quiz) || 'quiz.html';
   var cards = (pack && pack.cards) || 'flashcards.html';
   var nav = '<nav class="lesson-nav" aria-label="' + escapeLesson(subject) + '">';
@@ -96,7 +102,7 @@ function renderLessonDocument(page, id, list) {
     + '<nav class="breadcrumb" aria-label="Breadcrumb">'
     + '<a href="index.html">' + escapeLesson(lessonLabel('navHome')) + '</a>'
     + ' <span aria-hidden="true">/</span> '
-    + '<span>' + escapeLesson(lessonLabel('grade11')) + '</span>'
+    + '<span>' + escapeLesson(lessonLabel(gradeKey)) + '</span>'
     + ' <span aria-hidden="true">/</span> '
     + '<button type="button" class="lesson-jump" data-nav="list">' + escapeLesson(subject) + '</button>'
     + ' <span aria-hidden="true">/</span> '
@@ -181,7 +187,11 @@ function bootSubjectPage(page) {
 
   window.smartBack = function () {
     if (viewing) showList();
-    else window.location.href = 'index.html';
+    else {
+      var pack = lessonPack(page);
+      if (pack && pack.grade) localStorage.setItem('fisi-grade', String(pack.grade));
+      window.location.href = 'index.html';
+    }
   };
   window.initFromHash = initFromHash;
   var previous = window.setLang;

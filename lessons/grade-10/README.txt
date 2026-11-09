@@ -1,1 +1,1 @@
-Grade 10 lesson files will live in this folder. Do not add subjects until the Drive materials arrive.
+Grade 10 lessons live in this folder. Scanned worksheet pages were not transcribed.
