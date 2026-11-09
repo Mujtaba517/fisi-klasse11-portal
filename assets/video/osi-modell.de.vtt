@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:04.932
+Wie gelangen Daten von deinem Computer
+zu einem Webserver?
+
+2
+00:00:05.112 --> 00:00:10.704
+Das OSI-Modell erklärt die
+Netzwerkkommunikation in sieben Schichten.
+
+3
+00:00:11.024 --> 00:00:16.616
+Stellt Netzwerkdienste für
+Anwendungen bereit, zum Beispiel HTTP.
+
+4
+00:00:16.796 --> 00:00:21.572
+Beschreibt Datenformate, Kompression
+und Verschlüsselung.
+
+5
+00:00:21.752 --> 00:00:25.328
+Organisiert Kommunikationssitzungen.
+
+6
+00:00:25.611 --> 00:00:28.150
+Verbindet Anwendungen über Ports;
+
+7
+00:00:28.150 --> 00:00:32.660
+TCP überträgt Daten zuverlässig
+und geordnet.
+
+8
+00:00:32.840 --> 00:00:37.616
+Leitet IP-Pakete über verschiedene
+Netzwerke zum Ziel.
+
+9
+00:00:37.899 --> 00:00:40.412
+Überträgt Frames im lokalen Netzwerk,
+
+10
+00:00:40.412 --> 00:00:44.180
+bei Ethernet mithilfe von MAC-Adressen.
+
+11
+00:00:44.360 --> 00:00:49.712
+Überträgt Bits als elektrische,
+optische oder Funksignale.
+
+12
+00:00:50.032 --> 00:00:54.952
+Beim Senden wird die HTTP-Anfrage
+Schritt für Schritt verpackt:
+
+13
+00:00:55.215 --> 00:00:57.596
+TCP macht daraus ein Segment,
+
+14
+00:00:57.596 --> 00:01:01.112
+IP ein Paket, Ethernet einen Frame.
+
+15
+00:01:01.272 --> 00:01:04.536
+Auf dem Kabel werden daraus Signale.
+
+16
+00:01:04.736 --> 00:01:09.968
+Der Empfänger packt die Daten
+in umgekehrter Reihenfolge wieder aus.
+
+17
+00:01:10.431 --> 00:01:13.339
+Das OSI-Modell ist ein Referenzmodell:
+
+18
+00:01:13.339 --> 00:01:18.632
+Es hilft, Netzwerke zu verstehen
+und Fehler systematisch zu suchen.
+
+19
+00:01:18.852 --> 00:01:24.492
+Reale Internetprotokolle passen nicht
+immer exakt in diese sieben Schichten.
+

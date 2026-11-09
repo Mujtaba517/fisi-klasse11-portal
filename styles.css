@@ -1091,6 +1091,21 @@ body.has-custom-bg .ex-pick {
 .lesson-code, code, .bdi-ltr { unicode-bidi: isolate; }
 .osi-figure { margin: 0.6rem 0 0; max-width: 16rem; }
 .osi-figure svg { width: 100%; height: auto; display: block; }
+.lesson-video { margin: 1rem 0 0; }
+.lesson-video h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.lesson-video figcaption p { margin: 0 0 0.7rem; color: var(--muted); }
+.lesson-video-frame { max-width: 40rem; }
+.lesson-video video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  background: #111;
+  border-radius: 0.9rem;
+}
+.lesson-transcript { margin-top: 0.7rem; }
+.lesson-transcript summary { cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; }
+.lesson-transcript p { margin: 0.35rem 0; }
 .practice-options { display: flex; flex-direction: column; gap: 0.45rem; margin: 0.7rem 0; }
 .practice-options button {
   text-align: start;

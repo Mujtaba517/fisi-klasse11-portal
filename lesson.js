@@ -95,6 +95,45 @@ function osiFigure() {
   return '<figure class="osi-figure"><svg viewBox="0 0 196 156" role="img" aria-label="OSI">' + bands + '</svg></figure>';
 }
 
+var OSI_TRANSCRIPT = [
+  'Wie gelangen Daten von deinem Computer\nzu einem Webserver?',
+  'Das OSI-Modell erklärt die\nNetzwerkkommunikation in sieben Schichten.',
+  'Stellt Netzwerkdienste für\nAnwendungen bereit, zum Beispiel HTTP.',
+  'Beschreibt Datenformate, Kompression\nund Verschlüsselung.',
+  'Organisiert Kommunikationssitzungen.',
+  'Verbindet Anwendungen über Ports;',
+  'TCP überträgt Daten zuverlässig\nund geordnet.',
+  'Leitet IP-Pakete über verschiedene\nNetzwerke zum Ziel.',
+  'Überträgt Frames im lokalen Netzwerk,',
+  'bei Ethernet mithilfe von MAC-Adressen.',
+  'Überträgt Bits als elektrische,\noptische oder Funksignale.',
+  'Beim Senden wird die HTTP-Anfrage\nSchritt für Schritt verpackt:',
+  'TCP macht daraus ein Segment,',
+  'IP ein Paket, Ethernet einen Frame.',
+  'Auf dem Kabel werden daraus Signale.',
+  'Der Empfänger packt die Daten\nin umgekehrter Reihenfolge wieder aus.',
+  'Das OSI-Modell ist ein Referenzmodell:',
+  'Es hilft, Netzwerke zu verstehen\nund Fehler systematisch zu suchen.',
+  'Reale Internetprotokolle passen nicht\nimmer exakt in diese sieben Schichten.'
+];
+
+function osiVideo() {
+  var transcript = OSI_TRANSCRIPT.map(function (cue) {
+    return '<p>' + escapeLesson(cue).replace(/\n/g, '<br>') + '</p>';
+  }).join('');
+  return '<figure class="lesson-video">'
+    + '<figcaption><h3>' + escapeLesson(lessonLabel('videoOsiTitle')) + '</h3>'
+    + '<p>' + escapeLesson(lessonLabel('videoOsiNote')) + '</p></figcaption>'
+    + '<div class="lesson-video-frame" dir="ltr">'
+    + '<video controls preload="none" playsinline poster="assets/video/osi-modell.webp" width="1920" height="1080">'
+    + '<source src="assets/video/osi-modell.mp4" type="video/mp4">'
+    + '<track kind="captions" src="assets/video/osi-modell.de.vtt" srclang="de" label="Deutsch">'
+    + '</video></div>'
+    + '<details class="lesson-transcript"><summary>' + escapeLesson(lessonLabel('videoTranscript')) + ' · ' + escapeLesson(lessonLabel('videoTranscriptLang')) + '</summary>'
+    + '<div lang="de" dir="ltr">' + transcript + '</div></details>'
+    + '</figure>';
+}
+
 function termList(terms) {
   return '<dl class="term-list">' + (terms || []).map(function (item) {
     return '<dt>' + richText(item.t) + '</dt><dd>' + richText(item.d) + '</dd>';
@@ -126,7 +165,7 @@ function lessonSteps(entry, page, id) {
     ];
   }
   var steps = [
-    { key: 'lessonDefinition', html: paragraphs(entry.definition) },
+    { key: 'lessonDefinition', html: paragraphs(entry.definition) + (id === 'osi' ? osiVideo() : '') },
     { key: 'lessonExplain', html: paragraphs(entry.explanation) + (id === 'osi' ? osiFigure() : '') },
     { key: 'lessonExample', html: paragraphs(entry.example) },
     { key: 'lessonRemember', html: '<ul>' + (entry.remember || []).map(function (item) { return '<li>' + richText(item) + '</li>'; }).join('') + '</ul>' },
