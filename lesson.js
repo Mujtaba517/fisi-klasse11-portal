@@ -95,13 +95,42 @@ function osiFigure() {
   return '<figure class="osi-figure"><svg viewBox="0 0 196 156" role="img" aria-label="OSI">' + bands + '</svg></figure>';
 }
 
+function termList(terms) {
+  return '<dl class="term-list">' + (terms || []).map(function (item) {
+    return '<dt>' + richText(item.t) + '</dt><dd>' + richText(item.d) + '</dd>';
+  }).join('') + '</dl>';
+}
+
+function tableHtml(table) {
+  if (!table) return '';
+  var head = (table.headers || []).map(function (cell) { return '<th>' + richText(cell) + '</th>'; }).join('');
+  var body = (table.rows || []).map(function (row) {
+    return '<tr>' + row.map(function (cell) { return '<td>' + richText(cell) + '</td>'; }).join('') + '</tr>';
+  }).join('');
+  return '<table class="term-table"><caption>' + richText(table.caption || '') + '</caption><thead><tr>' + head + '</tr></thead><tbody>' + body + '</tbody></table>';
+}
+
 function lessonSteps(entry, page, id) {
+  if (entry.full) {
+    return [
+      { key: 'objTitle', html: paragraphs(entry.goal) },
+      { key: 'priorTitle', html: paragraphs(entry.prior) },
+      { key: 'whyTitle', html: paragraphs(entry.why) },
+      { key: 'termsTitle', html: termList(entry.terms) },
+      { key: 'stepsTitle', html: '<ol class="plain-steps">' + (entry.steps || []).map(function (step) { return '<li>' + richText(step) + '</li>'; }).join('') + '</ol>' },
+      { key: 'exampleTitle', html: paragraphs(entry.example) + '<div id="erPlayer"></div>' + (window.lernovaErStatic ? lernovaErStatic() : '') },
+      { key: 'tableTitle', html: tableHtml(entry.table) },
+      { key: 'mistakeTitle', html: '<ul>' + (entry.mistakes || []).map(function (item) { return '<li>' + richText(item) + '</li>'; }).join('') + '</ul>' },
+      { key: 'lessonSummary', html: '<p>' + richText(entry.summary) + '</p><p class="source-note"><strong>' + escapeLesson(lessonLabel('sourcesTitle')) + '</strong> <bdi dir="ltr">' + escapeLesson(entry.sources || '') + '</bdi></p><p class="source-note"><a href="' + escapeLesson((lessonPack(page) && lessonPack(page).quiz) || 'quiz.html') + '">' + escapeLesson(lessonLabel('openQuiz')) + '</a> · <a href="' + escapeLesson((lessonPack(page) && lessonPack(page).cards) || 'flashcards.html') + '">' + escapeLesson(lessonLabel('openCards')) + '</a></p>' },
+      { key: 'pathPractice', html: '<div id="practiceMount"><div class="skeleton"></div><div class="skeleton"></div></div>' }
+    ];
+  }
   var steps = [
     { key: 'lessonDefinition', html: paragraphs(entry.definition) },
     { key: 'lessonExplain', html: paragraphs(entry.explanation) + (id === 'osi' ? osiFigure() : '') },
     { key: 'lessonExample', html: paragraphs(entry.example) },
     { key: 'lessonRemember', html: '<ul>' + (entry.remember || []).map(function (item) { return '<li>' + richText(item) + '</li>'; }).join('') + '</ul>' },
-    { key: 'pathPractice', html: '<div id="practiceMount"></div>' }
+    { key: 'pathPractice', html: '<div id="practiceMount"><div class="skeleton"></div><div class="skeleton"></div></div>' }
   ];
   return steps;
 }
@@ -155,7 +184,9 @@ function mountPractice(page, topicId, mount) {
   loadQuiz(page).then(function (list) {
     var pool = (list || []).filter(function (q) { return q.topic === topicId && q.type === 'single'; });
     if (!pool.length) pool = (list || []).filter(function (q) { return q.topic === topicId; });
-    var question = pool[0];
+    var preferred = pool.filter(function (q) { return q.id === 'aeup-er-card-side'; });
+    var fresh = pool.filter(function (q) { return !q.legacy; });
+    var question = preferred[0] || fresh[0] || pool[0];
     if (!question) {
       mount.innerHTML = '<p>' + escapeLesson(lessonLabel('noPractice')) + '</p>';
       return;
@@ -174,8 +205,7 @@ function mountPractice(page, topicId, mount) {
         var on = picked === c.key ? ' aria-pressed="true"' : ' aria-pressed="false"';
         return '<button type="button" data-choice="' + escapeLesson(c.key) + '"' + on + '><bdi dir="ltr">' + escapeLesson(c.text) + '</bdi></button>';
       }).join('');
-      mount.innerHTML = '<h3>' + escapeLesson(lessonLabel('pathPractice')) + '</h3>'
-        + '<p>' + richText(txField(question.q)) + '</p>'
+      mount.innerHTML = '<p>' + richText(txField(question.q)) + '</p>'
         + '<div class="practice-options">' + buttons + '</div>'
         + '<div class="practice-actions"><button type="button" class="btn btn-primary" data-check>' + escapeLesson(lessonLabel('checkAnswer')) + '</button></div>'
         + '<div class="practice-feedback" hidden></div>';
@@ -197,13 +227,17 @@ function mountPractice(page, topicId, mount) {
       var box = mount.querySelector('.practice-feedback');
       box.hidden = false;
       var explain = richText(txField(question.explain));
+      box.innerHTML = '';
+      box.classList.remove('is-right', 'is-wrong');
+      box.classList.add(ok ? 'is-right' : 'is-wrong');
+      if (window.lernovaGuide) lernovaGuide(box, ok ? 'celebrate' : 'encourage');
       if (ok) {
-        box.innerHTML = '<p><strong>' + escapeLesson(lessonLabel('practiceRight')) + '</strong> ' + explain + '</p>';
+        box.insertAdjacentHTML('beforeend', '<p><strong>' + escapeLesson(lessonLabel('practiceRight')) + '</strong> ' + explain + '</p>');
         if (typeof recordActivity === 'function') recordActivity(page, topicId, { title: topicId, checked: true });
       } else {
-        box.innerHTML = '<p><strong>' + escapeLesson(lessonLabel('practiceWrong')) + '</strong> ' + explain + '</p>'
+        box.insertAdjacentHTML('beforeend', '<p><strong>' + escapeLesson(lessonLabel('practiceWrong')) + '</strong> ' + explain + '</p>'
           + '<div class="practice-actions"><button type="button" class="btn btn-soft" data-retry>' + escapeLesson(lessonLabel('tryAgain')) + '</button>'
-          + '<button type="button" class="btn btn-primary" data-reveal>' + escapeLesson(lessonLabel('showAnswer')) + '</button></div>';
+          + '<button type="button" class="btn btn-primary" data-reveal>' + escapeLesson(lessonLabel('showAnswer')) + '</button></div>');
         box.querySelector('[data-retry]').addEventListener('click', function () {
           picked = null;
           draw();
@@ -222,13 +256,19 @@ function mountPractice(page, topicId, mount) {
   });
 }
 
+var stepMemory = {};
+
 function mountSteps(root, page, id, entry) {
   var steps = lessonSteps(entry, page, id);
-  var index = root.getAttribute('data-open-practice') === '1' ? steps.length - 1 : 0;
+  var remembered = stepMemory[id];
+  var index = root.getAttribute('data-open-practice') === '1'
+    ? steps.length - 1
+    : (typeof remembered === 'number' ? Math.min(remembered, steps.length - 1) : 0);
   var rail = root.querySelector('.step-rail');
   var stage = root.querySelector('.step-stage');
   function show(next) {
     index = next;
+    stepMemory[id] = next;
     rail.querySelectorAll('button').forEach(function (btn, i) {
       btn.setAttribute('aria-current', i === index ? 'step' : 'false');
     });
@@ -246,6 +286,11 @@ function mountSteps(root, page, id, entry) {
     if (nextBtn) nextBtn.addEventListener('click', function () { show(index + 1); });
     var practice = stage.querySelector('#practiceMount');
     if (practice) mountPractice(page, id, practice);
+    var player = stage.querySelector('#erPlayer');
+    if (player && window.lernovaErPlayer) lernovaErPlayer(player, entry.anim || []);
+    if (window.lernovaGuide && (index === 0 || step.key === 'lessonSummary')) {
+      lernovaGuide(stage, step.key === 'lessonSummary' ? 'celebrate' : 'explain');
+    }
   }
   rail.innerHTML = steps.map(function (step, i) {
     return '<li><button type="button" data-step="' + i + '">' + escapeLesson(lessonLabel(step.key)) + '</button></li>';
@@ -310,9 +355,46 @@ function bootSubjectPage(page) {
     });
   }
 
+  function renderOverview(container, overview) {
+    var list = document.createElement('ol');
+    list.className = 'path-list';
+    var lang = lessonLang();
+    overview.forEach(function (item, index) {
+      var lesson = item.id ? lessonEntry(page, item.id) : null;
+      var title = lesson ? lesson.title : ((item.title && (item.title[lang] || item.title.de)) || '');
+      var teach = item.teaches ? (item.teaches[lang] || item.teaches.de || '') : (lesson ? String(lesson.definition || '').split('. ')[0] : '');
+      var ready = item.status === 'available' && !!lesson;
+      var row = document.createElement('li');
+      row.className = 'path-step' + (ready ? '' : ' is-prep');
+      var actions = ready
+        ? '<a href="#' + encodeURIComponent(item.id) + '" data-open="' + escapeLesson(item.id) + '">' + escapeLesson(lessonLabel('pathOpen')) + '</a><a href="#' + encodeURIComponent(item.id) + '" data-practice="' + escapeLesson(item.id) + '">' + escapeLesson(lessonLabel('pathPractice')) + '</a>'
+        : '';
+      row.innerHTML = '<span class="path-index"><bdi dir="ltr">' + (index + 1) + '</bdi></span><div><h3>' + escapeLesson(title) + '</h3><p class="path-teach">' + richText(teach) + '</p><div class="path-meta"><span class="path-pages"><bdi dir="ltr">' + escapeLesson(item.pages || '') + '</bdi></span><span class="path-status">' + escapeLesson(lessonLabel(ready ? 'statusAvailable' : 'statusPrep')) + '</span>' + actions + '</div></div>';
+      list.appendChild(row);
+    });
+    container.replaceChildren(list);
+    container.querySelectorAll('[data-open]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        showTopic(link.getAttribute('data-open'), false);
+      });
+    });
+    container.querySelectorAll('[data-practice]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        showTopic(link.getAttribute('data-practice'), true);
+      });
+    });
+  }
+
   function renderList() {
     var container = document.getElementById('topicList');
     if (!container) return;
+    var pack = lessonPack(page);
+    if (pack && pack.overview) {
+      renderOverview(container, pack.overview);
+      return;
+    }
     var list = document.createElement('ol');
     list.className = 'path-list';
     entries().forEach(function (topic, index) {

@@ -1,4 +1,6 @@
 /* Subject quiz. Choice order is shuffled; grading uses stable choice keys. */
+var QUIZ_PARTS = window.QUIZ_PARTS || {};
+window.QUIZ_PARTS = QUIZ_PARTS;
 (function () {
   const ui = {
     fa: {
@@ -19,7 +21,7 @@
       next: 'بعدی',
       back: 'بازگشت به انتخاب',
       correct: 'درست',
-      wrong: 'نادرست',
+      wrong: 'این بار نه — توضیح را بخوان',
       self: 'خودارزیابی، بدون نمره خودکار',
       summary: 'نتیجه',
       graded: 'نمره سؤال‌های قابل تصحیح',
@@ -61,7 +63,7 @@
       next: 'Weiter',
       back: 'Zurück zur Auswahl',
       correct: 'Richtig',
-      wrong: 'Falsch',
+      wrong: 'Noch nicht — lies die Erklärung',
       self: 'Selbstkontrolle, keine automatische Note',
       summary: 'Ergebnis',
       graded: 'Punkte bei automatisch prüfbaren Fragen',
@@ -103,7 +105,7 @@
       next: 'Next',
       back: 'Back to setup',
       correct: 'Correct',
-      wrong: 'Incorrect',
+      wrong: 'Not yet — read the explanation',
       self: 'Self-check, not auto-scored',
       summary: 'Result',
       graded: 'Score on auto-graded questions',
@@ -259,6 +261,11 @@
       const count = Number(root.querySelector('#qCount').value);
       const button = e.target.querySelector('button[type="submit"]');
       if (button) button.disabled = true;
+      const loading = document.createElement('div');
+      loading.className = 'quiz-loading';
+      loading.setAttribute('aria-hidden', 'true');
+      loading.innerHTML = '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
+      root.appendChild(loading);
       ensureQuestions(filters).then(list => {
         const items = shuffle(list).slice(0, count).map(prepare);
         if (!items.length) {
@@ -364,12 +371,15 @@
       answers[index] = { ok: ok, picked: item.picked.slice() };
     }
     const title = self ? L.self : (ok ? L.correct : L.wrong);
+    box.classList.remove('is-right', 'is-wrong');
+    if (!self) box.classList.add(ok ? 'is-right' : 'is-wrong');
     let html = '<h2>' + title + '</h2><p><strong>' + L.why + '</strong> ' + tx(q.explain) + '</p>';
     if (q.worked) html += '<p><strong>' + L.worked + '</strong> ' + tx(q.worked) + '</p>';
     if (self) html += '<p><strong>' + L.model + '</strong> ' + tx(q.guidance) + '</p>';
     if (!self && !ok) html += correctText(item);
     box.hidden = false;
     box.innerHTML = html + '<div class="quiz-actions"><button type="button" class="btn btn-primary" id="qNext">' + (index + 1 === session.items.length ? L.summary : L.next) + '</button></div>';
+    if (!self && window.lernovaGuide) lernovaGuide(box, ok ? 'celebrate' : 'encourage');
     document.getElementById('qCheck').disabled = true;
     box.querySelector('#qNext').addEventListener('click', function () {
       if (index + 1 === session.items.length) { mode = 'review'; renderReview(); }
