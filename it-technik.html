@@ -64,6 +64,7 @@
   <main id="main" class="container">
     <div id="topicListView">
       <h2 data-i18n="topicsTitle">موضوعات</h2>
+      <p class="section-lead" data-i18n="lessonSource">Jahrgangsstufe 11, Lehrplanrichtlinien Bayern, Fachinformatiker, Mai 2020. Das sind Lerntexte, keine IHK-Prüfungsaufgaben.</p>
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
@@ -77,105 +78,10 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-    const topics = {
-      fa: [
-        { id:'iotcps', title:'IoT در مقابل CPS', content:'<div class="card"><h3>IoT در مقابل CPS</h3><p><strong>IoT:</strong> تمرکز بر اتصال و انتقال داده از طریق اینترنت.</p><p><strong>CPS (Cyber-Physical System):</strong> ارتباط عمیق و حلقه بسته بین نرم‌افزار (Cyber) و سخت‌افزار (فیزیکی).</p></div>' },
-        { id:'sensor', title:'سنسور و اکتور', content:'<div class="card"><h3>سنسور و اکتور</h3><ul><li><strong>Sensor:</strong> مقدار فیزیکی (دما، فشار هوا) را اندازه می‌گیرد و به سیستم می‌فرستد.</li><li><strong>Aktor:</strong> ورودی از دنیای Cyber می‌گیرد و در دنیای فیزیکی عمل می‌کند (رله، فن، موتور).</li></ul></div>' },
-        { id:'esp32', title:'ESP32 و Arduino Framework', content:'<div class="card"><h3>ESP32 و Arduino Framework</h3><ul><li><strong>setup():</strong> تنظیمات اولیه (یک بار اجرا می‌شود)</li><li><strong>loop():</strong> حلقه اصلی که مدام تکرار می‌شود</li><li><strong>void:</strong> تابع بدون مقدار بازگشتی</li><li>ESP32 داخلی با <strong>3.3V</strong> کار می‌کند. از USB می‌تواند 5V خروجی بدهد.</li><li><strong>Hard Reset:</strong> وقتی پایه EN به GND کشیده شود.</li></ul></div>' },
-        { id:'pull', title:'Pullup و Pulldown', content:'<div class="card"><h3>Pullup و Pulldown</h3><p>ورودی باز میکروکنترلر مانند آنتن عمل می‌کند و حالت تصادفی (Float) دارد.</p><ul><li><strong>Pulldown:</strong> پایه را با مقاومت به GND می‌کشد → باز = LOW، فشرده = HIGH</li><li><strong>Pullup:</strong> پایه را به VCC می‌کشد → باز = HIGH، فشرده = LOW (Active Low)</li></ul><p>بسیاری از میکروکنترلرها Pullup داخلی دارند.</p></div>' },
-        { id:'prellen', title:'Prellen (Debouncing)', content:'<div class="card"><h3>Prellen (Debouncing)</h3><p>وقتی تاستر فشرده می‌شود، کنتاکت‌ها چندین بار سریع وصل و قطع می‌شوند. ESP32 چون سریع است، این را چندین فشار جداگانه می‌بیند.</p><p><strong>راه‌حل نرم‌افزاری:</strong> پس از اولین تغییر، ۱۰ تا ۵۰ میلی‌ثانیه صبر کن و حالت را دوباره چک کن.</p></div>' },
-        { id:'baud', title:'Baudrate و Serial Monitor', content:'<div class="card"><h3>Baudrate و Serial Monitor</h3><p>Baudrate تعداد تغییر سیگنال در ثانیه است. فرستنده و گیرنده باید <strong>دقیقاً یکسان</strong> باشند (مثل 115200).</p><p>در ارتباط سریال ساده: 1 Baud = 1 Bit/s</p></div>' },
-        { id:'wlan', title:'اتصال WLAN با ESP32', content:'<div class="card"><h3>اتصال WLAN با ESP32</h3><p>مثال کلاس: اتصال به روتر و نمایش IP و MAC از طریق Serial Monitor، سپس Ping به google.de</p></div>' }
-      ],
-      de: [
-        { id:'iotcps', title:'IoT vs. CPS', content:'<div class="card"><h3>IoT vs. CPS</h3><p><strong>IoT:</strong> Fokus auf Vernetzung und Datenübertragung über das Internet.</p><p><strong>CPS:</strong> Tiefe Verknüpfung und geschlossene Regelkreise zwischen Software (Cyber) und Hardware (Physisch).</p></div>' },
-        { id:'sensor', title:'Sensor und Aktor', content:'<div class="card"><h3>Sensor und Aktor</h3><p><strong>Sensor:</strong> Misst physikalische Werte und gibt sie weiter.<br><strong>Aktor:</strong> Empfängt Input aus der Cyber-Welt und wirkt in der physischen Welt.</p></div>' },
-        { id:'esp32', title:'ESP32 + Arduino', content:'<div class="card"><h3>ESP32 + Arduino</h3><p>setup() = einmalige Konfiguration<br>loop() = Hauptschleife<br>ESP32 arbeitet intern mit 3,3 V. Hard Reset durch Ziehen von EN auf GND.</p></div>' },
-        { id:'pull', title:'Pullup / Pulldown & Prellen', content:'<div class="card"><h3>Pullup / Pulldown & Prellen</h3><p>Pull-Widerstände verhindern Floating. Prellen = mechanisches Kontaktprellen beim Taster – im Code mit kurzer Sperrzeit (10–50 ms) entprellen.</p></div>' },
-        { id:'prellen', title:'Prellen (Debouncing)', content:'<div class="card"><h3>Prellen (Debouncing)</h3><p>Mechanisches Kontaktprellen beim Taster. Im Code nach dem ersten Flankenwechsel 10–50 ms warten und Zustand erneut prüfen.</p></div>' },
-        { id:'baud', title:'Baudrate', content:'<div class="card"><h3>Baudrate</h3><p>Sender und Empfänger müssen exakt dieselbe Baudrate haben (z. B. 115200).</p></div>' },
-        { id:'wlan', title:'WLAN mit ESP32', content:'<div class="card"><h3>WLAN mit ESP32</h3><p>Beispiel: Verbindung zum Router, Ausgabe von IP und MAC über den seriellen Monitor, danach Ping auf google.de.</p></div>' }
-      ],
-      en: [
-        { id:'iotcps', title:'IoT vs CPS', content:'<div class="card"><h3>IoT vs CPS</h3><p><strong>IoT:</strong> Focus on networking and data transfer over the internet.<br><strong>CPS:</strong> Deep coupling and closed control loops between software and physical hardware.</p></div>' },
-        { id:'sensor', title:'Sensor & Actuator', content:'<div class="card"><h3>Sensor & Actuator</h3><p><strong>Sensor:</strong> Measures physical values.<br><strong>Actuator:</strong> Receives cyber input and acts in the physical world.</p></div>' },
-        { id:'esp32', title:'ESP32 + Arduino', content:'<div class="card"><h3>ESP32 + Arduino</h3><p>setup() = one-time configuration<br>loop() = main loop<br>ESP32 runs internally on 3.3 V. Hard reset by pulling EN to GND.</p></div>' },
-        { id:'pull', title:'Pullup / Pulldown', content:'<div class="card"><h3>Pullup / Pulldown</h3><p>Pull resistors prevent floating inputs. Pullup is often built-in.</p></div>' },
-        { id:'prellen', title:'Debouncing', content:'<div class="card"><h3>Debouncing</h3><p>Mechanical contact bounce of a button. In code, wait 10–50 ms after the first edge and check the state again.</p></div>' },
-        { id:'baud', title:'Baudrate', content:'<div class="card"><h3>Baudrate</h3><p>Sender and receiver must use exactly the same baudrate (e.g. 115200).</p></div>' },
-        { id:'wlan', title:'WLAN with ESP32', content:'<div class="card"><h3>WLAN with ESP32</h3><p>Example: Connect to router, print IP and MAC via serial monitor, then ping google.de.</p></div>' }
-      ]
-    };
-
-    let viewingTopic = false;
-    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
-    function renderTopicList(){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const container = document.getElementById('topicList');
-      container.innerHTML = '';
-      list.forEach(t => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.className = 'topic-item';
-        a.innerHTML = `<h3>${t.title}</h3><span class="chev" aria-hidden="true"></span>`;
-        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
-        container.appendChild(a);
-      });
-    }
-    function showTopic(id){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const topic = list.find(t => t.id === id);
-      if (!topic) return;
-      document.getElementById('singleTopicContent').innerHTML = (typeof lessonHtml === 'function' && lessonHtml(id)) || topic.content;
-      document.getElementById('topicListView').style.display = 'none';
-      document.getElementById('topicContentView').style.display = 'block';
-      viewingTopic = true;
-      history.replaceState(null, '', '#' + id);
-      window.scrollTo(0, 0);
-    }
-    function showList(){
-      document.getElementById('topicContentView').style.display = 'none';
-      document.getElementById('topicListView').style.display = 'block';
-      viewingTopic = false;
-      history.replaceState(null, '', location.pathname + location.search);
-      renderTopicList();
-    }
-    function smartBack(){
-      if (viewingTopic) showList();
-      else window.location.href = 'index.html';
-    }
-    function initFromHash() {
-      const hash = location.hash.slice(1);
-      if (hash) {
-        const lang = currentLang();
-        const list = topics[lang] || topics.fa;
-        if (list.find(t => t.id === hash)) {
-          showTopic(hash);
-          return;
-        }
-      }
-      renderTopicList();
-    }
-    const originalSetLang = window.setLang;
-    window.setLang = function(lang){
-      originalSetLang(lang);
-      const hash = location.hash.slice(1);
-      if (hash && viewingTopic) {
-        showTopic(hash);
-      } else {
-        renderTopicList();
-      }
-    };
-    window.initFromHash = initFromHash;
-    window.addEventListener('hashchange', initFromHash);
-  </script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
   <script src="lessons/it-technik.js"></script>
   <script src="lesson.js"></script>
-  <script>if (window.initFromHash) initFromHash();</script>
+  <script>bootSubjectPage("it-technik.html");</script>
 </body>
 </html>

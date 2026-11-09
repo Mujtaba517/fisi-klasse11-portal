@@ -583,6 +583,57 @@ textarea { padding: 0.7rem 0.8rem; min-height: 6rem; }
 .exercise-title { font-size: var(--fs-sm); font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; }
 .source-note { color: var(--muted); font-size: var(--fs-sm); }
 .lesson-block { margin: 0.8rem 0 1rem; }
+.lesson-kicker { margin: 0 0 0.35rem; color: var(--muted); font-size: var(--fs-sm); font-weight: 650; }
+.lesson-goal, .lesson-summary {
+  border-inline-start: 3px solid var(--primary);
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0.8rem 0 1rem;
+}
+html[dir="rtl"] .lesson-goal, html[dir="rtl"] .lesson-summary { padding: 0.15rem 0.9rem 0.15rem 0; }
+.lesson-section { margin: 0 0 1rem; }
+.lesson-section h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.lesson-section p { margin: 0.35rem 0; }
+.lesson-code {
+  margin: 0.4rem 0 0;
+  padding: 0.75rem 0.9rem;
+  overflow-x: auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.lesson-nav a, .lesson-jump {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface);
+}
+.grade-switch { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.8rem; }
+.grade-switch button {
+  min-height: 44px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+}
+.grade-switch button[aria-pressed="true"] { background: var(--primary-strong); color: var(--on-primary); border-color: transparent; }
+.empty-grade { border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.empty-grade h2 { margin-top: 0; }
 .lesson-block h3 { margin: 0 0 0.35rem; font-size: 0.98rem; }
 .term-table { width: 100%; border-collapse: collapse; margin: 0.4rem 0 0.8rem; font-size: var(--fs-sm); }
 .term-table th, .term-table td { border-bottom: 1px solid var(--border); text-align: start; padding: 0.45rem 0.4rem; vertical-align: top; }

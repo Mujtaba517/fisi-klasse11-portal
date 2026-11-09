@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101418" />
+  <title>Klasse 10 | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+        </svg>
+        <span class="brand-word">Lernova</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Sprache">
+          <button type="button" class="lang-opt" data-lang="de" onclick="changeLang('de')" aria-pressed="false">DE</button>
+          <button type="button" class="lang-opt" data-lang="en" onclick="changeLang('en')" aria-pressed="false">EN</button>
+          <button type="button" class="lang-opt" data-lang="fa" onclick="changeLang('fa')" aria-pressed="false">فا</button>
+        </div>
+        <div class="top-actions"></div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span class="sr-only" data-i18n="navMenu">منو</span>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="index.html" data-i18n="navHome">خانه</a>
+        <a href="explainers.html" data-i18n="navExplain">توضیح‌گر</a>
+        <a href="flashcards.html" data-i18n="navFlash">فلش‌کارت</a>
+        <a href="quiz.html" data-i18n="navQuiz">کوییز</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container">
+    <section class="page-intro">
+      <p class="eyebrow">Lernova</p>
+      <h1 data-i18n="grade10Title">کلاس ۱۰ هنوز خالی است</h1>
+      <p class="lede" data-i18n="grade10Body">برای کلاس ۱۰ هنوز درسی اینجا نیست. مطالب واقعی بعداً از پوشهٔ Drive می‌آید. این صفحه موضوعی نمی‌سازد.</p>
+      <div class="grade-switch" role="group" aria-labelledby="grade-switch-label">
+        <p class="sr-only" id="grade-switch-label" data-i18n="gradeSwitch">انتخاب کلاس</p>
+        <button type="button" data-grade="11" data-i18n="grade11">Klasse 11</button>
+        <button type="button" data-grade="10" data-i18n="grade10" aria-pressed="true">Klasse 10</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="empty-grade card">
+        <h2 data-i18n="grade10Title">کلاس ۱۰ هنوز خالی است</h2>
+        <p data-i18n="grade10Body">برای کلاس ۱۰ هنوز درسی اینجا نیست. مطالب واقعی بعداً از پوشهٔ Drive می‌آید. این صفحه موضوعی نمی‌سازد.</p>
+        <p class="related"><a href="index.html" data-i18n="grade11">Klasse 11</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer">Lernova · 2026</p>
+      <p class="footer-credit">Mujtaba Najafi</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="grades.js"></script>
+  <script src="settings.js"></script>
+  <script src="shell.js"></script>
+  <script>
+    document.querySelector('[data-grade="11"]').addEventListener('click', function () {
+      localStorage.setItem('fisi-grade', '11');
+      location.href = 'index.html';
+    });
+    document.querySelector('.related a').addEventListener('click', function () {
+      localStorage.setItem('fisi-grade', '11');
+    });
+  </script>
+</body>
+</html>

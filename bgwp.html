@@ -64,6 +64,7 @@
   <main id="main" class="container">
     <div id="topicListView">
       <h2 data-i18n="topicsTitle">موضوعات</h2>
+      <p class="section-lead" data-i18n="lessonSource">Jahrgangsstufe 11, Lehrplanrichtlinien Bayern, Fachinformatiker, Mai 2020. Das sind Lerntexte, keine IHK-Prüfungsaufgaben.</p>
       <div class="topic-list" id="topicList"></div>
     </div>
     <div id="topicContentView" style="display:none">
@@ -77,99 +78,10 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-    const topics = {
-      fa: [
-        { id:'itsm', title:'1. مقدمه ITSM', content:'<div class="card"><h3>1. مقدمه ITSM</h3><p>IT Service Management = مدیریت خدمات فناوری اطلاعات بر اساس ITIL.</p><p>هدف: ارائه خدمات باکیفیت به کاربران با رعایت SLA.</p></div>' },
-        { id:'org', title:'2. Aufbau- و Ablauforganisation', content:'<div class="card"><h3>2. Aufbau- و Ablauforganisation</h3><p><strong>Aufbauorganisation:</strong> ساختار سازمانی (چه کسی چه مسئولیتی دارد)</p><p><strong>Ablauforganisation:</strong> فرآیندها و نحوه انجام کارها (چگونه تیکت پردازش می‌شود)</p></div>' },
-        { id:'eepk', title:'3. eEPK', content:'<div class="card"><h3>3. eEPK (زنجیره فرآیند توسعه‌یافته)</h3><p>Erweiterte ereignisgesteuerte Prozesskette = روش نمایش فرآیندها با:</p><ul><li><strong>Ereignis</strong> (رویداد)</li><li><strong>Funktion</strong> (فعالیت)</li><li><strong>Organisationseinheit</strong> (واحد سازمانی)</li><li><strong>Informationsobjekt</strong> (شیء اطلاعاتی)</li></ul></div>' },
-        { id:'sla', title:'Serviceanfrage و SLA', content:'<div class="card"><h3>Serviceanfrage و SLA</h3><p>هر درخواست کاربر از IT = Serviceanfrage</p><ul><li><strong>Reaktionszeit:</strong> زمان تا اولین پاسخ</li><li><strong>Lösungszeit:</strong> زمان تا حل کامل</li></ul></div>' },
-        { id:'incident', title:'Incident در مقابل Problem', content:'<div class="card"><h3>Incident در مقابل Problem</h3><ul><li><strong>Incident:</strong> اختلال فعلی → باید سریع برگردانده شود</li><li><strong>Problem:</strong> علت ریشه‌ای تکرار اختلالات</li></ul></div>' }
-      ],
-      de: [
-        { id:'itsm', title:'1. Einführung in das ITSM', content:'<div class="card"><h3>1. Einführung in das ITSM</h3><p>IT Service Management auf Basis von ITIL. Ziel: qualitätsgesicherte Services unter Einhaltung von SLAs.</p></div>' },
-        { id:'org', title:'2. Aufbau- und Ablauforganisation', content:'<div class="card"><h3>2. Aufbau- und Ablauforganisation</h3><p><strong>Aufbauorganisation:</strong> Wer ist für was verantwortlich?<br><strong>Ablauforganisation:</strong> Wie laufen die Prozesse ab?</p></div>' },
-        { id:'eepk', title:'3. eEPK', content:'<div class="card"><h3>3. eEPK</h3><p>Erweiterte ereignisgesteuerte Prozesskette: Ereignis → Funktion → Organisationseinheit → Informationsobjekt</p></div>' },
-        { id:'sla', title:'Serviceanfrage & SLA', content:'<div class="card"><h3>Serviceanfrage & SLA</h3><p>Reaktionszeit und Lösungszeit sind vertraglich festgelegt.</p></div>' },
-        { id:'incident', title:'Incident vs. Problem', content:'<div class="card"><h3>Incident vs. Problem</h3><p>Incident = aktuelle Störung. Problem = Ursache wiederkehrender Störungen.</p></div>' }
-      ],
-      en: [
-        { id:'itsm', title:'1. Introduction to ITSM', content:'<div class="card"><h3>1. Introduction to ITSM</h3><p>IT Service Management based on ITIL. Goal: quality services while meeting SLAs.</p></div>' },
-        { id:'org', title:'2. Structural and Process Organisation', content:'<div class="card"><h3>2. Structural and Process Organisation</h3><p><strong>Aufbauorganisation:</strong> Who is responsible for what?<br><strong>Ablauforganisation:</strong> How do the processes run?</p></div>' },
-        { id:'eepk', title:'3. eEPK', content:'<div class="card"><h3>3. eEPK</h3><p>Extended event-driven process chain: Event → Function → Organisational unit → Information object</p></div>' },
-        { id:'sla', title:'Service Request & SLA', content:'<div class="card"><h3>Service Request & SLA</h3><p>Response time and resolution time are contractually defined.</p></div>' },
-        { id:'incident', title:'Incident vs Problem', content:'<div class="card"><h3>Incident vs Problem</h3><p>Incident = current disruption. Problem = root cause of recurring issues.</p></div>' }
-      ]
-    };
-
-    let viewingTopic = false;
-    function currentLang(){ return localStorage.getItem('fisi-lang') || 'fa'; }
-    function renderTopicList(){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const container = document.getElementById('topicList');
-      container.innerHTML = '';
-      list.forEach(t => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.className = 'topic-item';
-        a.innerHTML = `<h3>${t.title}</h3><span class="chev" aria-hidden="true"></span>`;
-        a.onclick = (e) => { e.preventDefault(); showTopic(t.id); };
-        container.appendChild(a);
-      });
-    }
-    function showTopic(id){
-      const lang = currentLang();
-      const list = topics[lang] || topics.fa;
-      const topic = list.find(t => t.id === id);
-      if (!topic) return;
-      document.getElementById('singleTopicContent').innerHTML = (typeof lessonHtml === 'function' && lessonHtml(id)) || topic.content;
-      document.getElementById('topicListView').style.display = 'none';
-      document.getElementById('topicContentView').style.display = 'block';
-      viewingTopic = true;
-      history.replaceState(null, '', '#' + id);
-      window.scrollTo(0, 0);
-    }
-    function showList(){
-      document.getElementById('topicContentView').style.display = 'none';
-      document.getElementById('topicListView').style.display = 'block';
-      viewingTopic = false;
-      history.replaceState(null, '', location.pathname + location.search);
-      renderTopicList();
-    }
-    function smartBack(){
-      if (viewingTopic) showList();
-      else window.location.href = 'index.html';
-    }
-    function initFromHash() {
-      const hash = location.hash.slice(1);
-      if (hash) {
-        const lang = currentLang();
-        const list = topics[lang] || topics.fa;
-        if (list.find(t => t.id === hash)) {
-          showTopic(hash);
-          return;
-        }
-      }
-      renderTopicList();
-    }
-    const originalSetLang = window.setLang;
-    window.setLang = function(lang){
-      originalSetLang(lang);
-      const hash = location.hash.slice(1);
-      if (hash && viewingTopic) {
-        showTopic(hash);
-      } else {
-        renderTopicList();
-      }
-    };
-    window.initFromHash = initFromHash;
-    window.addEventListener('hashchange', initFromHash);
-  </script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
   <script src="lessons/bgwp.js"></script>
   <script src="lesson.js"></script>
-  <script>if (window.initFromHash) initFromHash();</script>
+  <script>bootSubjectPage("bgwp.html");</script>
 </body>
 </html>
