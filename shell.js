@@ -185,7 +185,7 @@
     sidebar.id = 'sidebar';
     sidebar.setAttribute('aria-label', 'Lernova');
     sidebar.innerHTML = ''
-      + '<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">' + icon('home').replace('viewBox="0 0 24 24"', 'viewBox="0 0 24 24" width="28" height="28"') + '</span>'
+      + '<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M4 13.2 16 7l12 6.2-12 6.3L4 13.2Z" fill="#1a5fd6"/><path d="M8.2 15.4v5.1c0 .4.3 1.2 1.4 2 1.2.8 3.4 1.7 6.4 1.7s5.2-.9 6.4-1.7c1.1-.8 1.4-1.6 1.4-2v-5.1" fill="none" stroke="#1a5fd6" stroke-width="1.8" stroke-linecap="round"/><path d="M26.4 14.6V21" fill="none" stroke="#1a5fd6" stroke-width="1.8" stroke-linecap="round"/></svg></span>'
       + '<span class="brand-text"><span class="brand-name">Lernova</span><span class="brand-tagline" data-i18n="tagline">Lernen. Weiter. Du.</span></span></a>'
       + '<nav class="sidenav">'
       + navItem('index.html', 'navDashboard', 'dashboard', section, 'home')
@@ -196,7 +196,7 @@
       + users
       + navItem('settings.html', 'navSettings', 'settings', section, 'gear')
       + '</nav>'
-      + '<aside class="promo"><span class="promo-icon" aria-hidden="true">' + icon('crown') + '</span>'
+      + '<aside class="promo"><span class="promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 16 3 6l5.5 3L12 4l3.5 5L21 6l-2 10H5zm0 0h14v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2z" fill="#7c3aed"/></svg></span>'
       + '<span class="promo-title" data-i18n="promoTitle">Wissen schafft Möglichkeiten.</span>'
       + '<span class="promo-body" data-i18n="promoBody">Heute lernen.<br>Morgen mehr erreichen.</span></aside>'
       + '<div class="profile"><span class="avatar" aria-hidden="true">' + esc(initials(name)) + '</span>'
@@ -216,7 +216,7 @@
     var header = document.createElement('header');
     header.className = 'page-header';
     var titleKey = section === 'dashboard' ? 'navDashboard' : section === 'aufgaben' ? 'navTasks' : section === 'stats' ? 'navStats' : section === 'settings' ? 'navSettings' : section === 'users' ? 'navUsers' : '';
-    var subKey = section === 'dashboard' ? 'homeLead' : section === 'aufgaben' ? 'tasksLead' : section === 'stats' ? 'statsLead' : section === 'settings' ? 'settingsLead' : section === 'users' ? 'usersLead' : 'coursesLead';
+    var subKey = section === 'dashboard' ? 'homeLead' : section === 'aufgaben' ? 'tasksLead' : section === 'stats' ? 'statsLead' : section === 'settings' ? 'settingsPageLead' : section === 'users' ? 'usersLead' : 'coursesLead';
     var titleHtml = titleKey
       ? '<h1 data-i18n="' + titleKey + '">' + titleKey + '</h1>'
       : '<h1>' + esc(oldTitle ? oldTitle.textContent.trim() : document.title) + '</h1>';
