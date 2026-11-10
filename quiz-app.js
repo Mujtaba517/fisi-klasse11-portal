@@ -371,6 +371,14 @@ window.QUIZ_PARTS = QUIZ_PARTS;
       answers[index] = { ok: ok, picked: item.picked.slice() };
     }
     const title = self ? L.self : (ok ? L.correct : L.wrong);
+    try {
+      var who = JSON.parse(sessionStorage.getItem('fisi-auth') || '{}');
+      if (!self && who.role !== 'guest') {
+        var log = JSON.parse(localStorage.getItem('fisi-quiz-log') || '[]');
+        log.push({ subject: q.subject || '', topic: q.topic || '', ok: !!ok, at: Date.now(), user: who.username || '' });
+        localStorage.setItem('fisi-quiz-log', JSON.stringify(log.slice(-200)));
+      }
+    } catch (err) {}
     box.classList.remove('is-right', 'is-wrong');
     if (!self) box.classList.add(ok ? 'is-right' : 'is-wrong');
     let html = '<h2>' + title + '</h2><p><strong>' + L.why + '</strong> ' + tx(q.explain) + '</p>';

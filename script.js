@@ -1,3 +1,5 @@
+var LERNOVA_VERSION = 'v2.5.0';
+
 var translations = {
   fa: {
     langLabel: 'زبان',
@@ -9,6 +11,10 @@ var translations = {
     navTasks: 'تمرین‌ها',
     navStats: 'آمار',
     navSettings: 'تنظیمات',
+    navCalendar: 'تقویم',
+    navApp: 'مدیریت برنامه',
+    roleGuest: 'مهمان',
+    settingsSearch: 'جستجو در تنظیمات ...',
     navUsers: 'کاربران',
     navMenu: 'منو',
     coursesLead: 'درس‌های صنف ۱۰ و ۱۱.',
@@ -164,7 +170,7 @@ var translations = {
     retryQuiz: 'دوباره',
     explainTitle: 'توضیح‌گر کوتاه',
     explainDesc: 'درس‌های ۱ دقیقه‌ای',
-    footer: 'Lernova | Eine bessere Lernwelt – für alle.'
+    footer: 'Lernova v2.5.0 | Eine bessere Lernwelt – für alle.'
   },
   de: {
     langLabel: 'Sprache',
@@ -176,6 +182,10 @@ var translations = {
     navTasks: 'Aufgaben',
     navStats: 'Statistiken',
     navSettings: 'Einstellungen',
+    navCalendar: 'Kalender',
+    navApp: 'App-Verwaltung',
+    roleGuest: 'Gast',
+    settingsSearch: 'Einstellungen suchen ...',
     navUsers: 'Benutzer',
     coursesLead: 'Fächer der Klasse 10 und 11.',
     tasksLead: 'Quiz und Karteikarten. Eine Note bleibt nur in diesem Browser.',
@@ -329,7 +339,7 @@ var translations = {
     retryQuiz: 'Nochmal',
     explainTitle: 'Kurzerklärer',
     explainDesc: '1-Minuten-Lektionen',
-    footer: 'Lernova | Eine bessere Lernwelt – für alle.'
+    footer: 'Lernova v2.5.0 | Eine bessere Lernwelt – für alle.'
   },
   en: {
     langLabel: 'Language',
@@ -341,6 +351,10 @@ var translations = {
     navTasks: 'Practice',
     navStats: 'Statistics',
     navSettings: 'Settings',
+    navCalendar: 'Calendar',
+    navApp: 'App management',
+    roleGuest: 'Guest',
+    settingsSearch: 'Search settings ...',
     navUsers: 'Users',
     coursesLead: 'Subjects for grade 10 and 11.',
     tasksLead: 'Quiz and flashcards. A score stays only in this browser.',
@@ -494,7 +508,7 @@ var translations = {
     retryQuiz: 'Retry',
     explainTitle: 'Short Explainers',
     explainDesc: '1-minute lessons',
-    footer: 'Lernova | Eine bessere Lernwelt – für alle.'
+    footer: 'Lernova v2.5.0 | Eine bessere Lernwelt – für alle.'
   }
 };
 
@@ -572,6 +586,10 @@ function readActivity() {
 }
 
 function recordActivity(page, id, extra) {
+  try {
+    var who = JSON.parse(sessionStorage.getItem('fisi-auth') || '{}');
+    if (who.role === 'guest') return;
+  } catch (e) { return; }
   var all = readActivity();
   if (!all[page]) all[page] = {};
   var row = all[page][id] || {};

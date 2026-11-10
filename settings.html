@@ -10,138 +10,169 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="auth.js"></script>
 </head>
-<body>
+<body class="page-settings">
   <a class="skip-link" href="#main" data-i18n="skipLink">Zum Inhalt</a>
   <main id="main">
     <div id="settingsPage">
-      <div class="tabbar" role="tablist">
-        <button type="button" class="tab is-active" role="tab" id="tab-general" aria-selected="true" aria-controls="panel-general" data-tab="general">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>
-          <span data-i18n="tabGeneral">Allgemein</span>
-        </button>
-        <button type="button" class="tab" role="tab" id="tab-design" aria-selected="false" aria-controls="panel-design" data-tab="design" tabindex="-1">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2"/></svg>
-          <span data-i18n="tabDesign">Design</span>
-        </button>
+      <div class="tabbar" role="tablist" aria-label="Einstellungen">
+        <button type="button" class="tab is-active" data-tab="card-allgemein"><span>Allgemein</span></button>
+        <button type="button" class="tab" data-tab="card-app"><span>App-Verwaltung</span></button>
+        <button type="button" class="tab" data-tab="card-users"><span>Benutzerverwaltung</span></button>
+        <button type="button" class="tab" data-tab="card-roles"><span>Rollen &amp; Rechte</span></button>
+        <button type="button" class="tab" data-tab="card-ki"><span>KI &amp; Lernen</span></button>
+        <button type="button" class="tab" data-tab="card-design"><span>Design</span></button>
       </div>
-      <div class="tab-panel" id="panel-general" role="tabpanel" aria-labelledby="tab-general">
-        <section class="settings-card">
-          <h2 data-i18n="cardGeneralTitle">Allgemeine Einstellungen</h2>
-          <p class="card-sub" data-i18n="cardGeneralSub">Grundlegende Einstellungen der App.</p>
-          <div class="setting-row">
-            <span class="row-label">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-              <span data-i18n="settingsLang">Sprache</span>
-            </span>
-            <select id="langSelect" class="ref-select">
+      <div class="cards-top">
+        <article class="card" id="card-allgemein" data-search-block>
+          <h2>Allgemeine Einstellungen</h2>
+          <p class="card-sub">Grundlegende Einstellungen der App.</p>
+          <div class="setting-row" data-search="sprache deutsch english فارسی">
+            <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Sprache</span>
+            <select id="setting-language" class="ref-select">
               <option value="de">Deutsch</option>
               <option value="en">English</option>
               <option value="fa">فارسی</option>
             </select>
           </div>
-          <div class="setting-row setting-row-stack">
+          <div class="setting-row" data-search="zeitzone berlin tehran utc">
+            <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Zeitzone</span>
+            <select id="setting-timezone" class="select-wide ref-select">
+              <option value="Europe/Berlin">(GMT+01:00) Berlin</option>
+              <option value="Europe/Vienna">(GMT+01:00) Wien</option>
+              <option value="Asia/Tehran">(GMT+03:30) Tehran</option>
+              <option value="UTC">(GMT+00:00) UTC</option>
+            </select>
+          </div>
+          <div class="setting-row setting-row-stack" data-search="benachrichtigungen glocke">
             <div class="row-main">
-              <span class="row-label">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 14.5z"/></svg>
-                <span data-i18n="settingsTheme">Dark Mode</span>
-              </span>
-              <button type="button" class="toggle" id="darkToggle" role="switch" aria-checked="false"></button>
+              <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Benachrichtigungen</span>
+              <button type="button" class="toggle is-on" id="toggle-notify" role="switch" aria-checked="true" aria-label="Benachrichtigungen"></button>
             </div>
-            <p class="row-desc" data-i18n="darkHint">Hell oder dunkel.</p>
+            <p class="row-desc">Zeigt neue Einträge aus dem Änderungsprotokoll in der Glocke. Nur in diesem Browser.</p>
           </div>
-        </section>
-      </div>
-      <div class="tab-panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design" hidden>
-        <section class="settings-card">
-          <h2 data-i18n="cardDesignTitle">Design</h2>
-          <p class="card-sub" data-i18n="cardDesignSub">Fläche und Hintergrund, nur in diesem Browser.</p>
-          <div class="setting-row">
-            <label class="row-label" for="glassOpacity" data-i18n="settingsGlass">Transparenz</label>
-            <input type="range" id="glassOpacity" min="0" max="80" value="0">
-          </div>
-          <div class="setting-row">
-            <label class="row-label" for="glassBlur">Unschärfe</label>
-            <input type="range" id="glassBlur" min="0" max="50" value="0">
-          </div>
-          <div class="setting-row setting-row-stack">
+          <div class="setting-row setting-row-stack" id="row-darkmode" data-search="dark mode">
             <div class="row-main">
-              <span class="row-label" data-i18n="settingsBg">Hintergrundbild</span>
-              <button type="button" class="btn btn-soft" id="pickImage" data-i18n="pickImage">Bild wählen</button>
+              <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>Dark Mode</span>
+              <button type="button" class="toggle" id="toggle-dark" role="switch" aria-checked="false" aria-label="Dark Mode"></button>
             </div>
-            <p class="row-desc" id="bgName" data-i18n="noImage">Kein Bild gewählt</p>
-            <input type="file" id="bgUpload" accept="image/*" class="sr-only">
-            <button type="button" class="btn btn-soft" id="removeBtn" hidden data-i18n="removeBg">Entfernen</button>
+            <p class="row-desc">Schont deine Augen.</p>
           </div>
-        </section>
+        </article>
+        <article class="card" id="card-app" data-search-block>
+          <h2>App-Verwaltung</h2>
+          <p class="card-sub">Verwalte deine Anwendung.</p>
+          <div class="setting-row" data-search="app-name lernova">
+            <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>App-Name</span>
+            <input class="readonly-input" id="setting-appname" value="Lernova" readonly />
+          </div>
+          <div class="setting-row" data-search="version">
+            <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Version</span>
+            <input class="readonly-input" id="setting-version" readonly />
+          </div>
+          <div class="setting-row setting-row-stack" data-search="automatische updates">
+            <div class="row-main">
+              <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg>Automatische Updates</span>
+              <button type="button" class="toggle" id="toggle-updates" role="switch" aria-checked="false" aria-label="Automatische Updates"></button>
+            </div>
+            <p class="row-desc">Prüft version.json ohne Cache. Kein stilles Installieren. Nur in diesem Browser.</p>
+          </div>
+          <div class="setting-row setting-row-stack" data-search="backup synchronisation datei">
+            <div class="row-main">
+              <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13V3"/><path d="m8 7 4-4 4 4"/><path d="M20 16.5A3.5 3.5 0 0 0 16.5 13H16a6 6 0 0 0-11.7 1.7A3.5 3.5 0 0 0 5.5 21H19a3 3 0 0 0 1-5.8"/></svg>Backup &amp; Synchronisation</span>
+              <button type="button" class="toggle" id="toggle-backup" role="switch" aria-checked="false" aria-label="Backup und Synchronisation"></button>
+            </div>
+            <p class="row-desc">Sicherung als JSON-Datei auf diesem Gerät. Keine Cloud.</p>
+            <label class="btn btn-secondary" id="importLabel" hidden>Datei laden<input type="file" id="importFile" accept="application/json" class="sr-only"></label>
+          </div>
+          <div class="setting-row" data-search="daten exportieren export starten">
+            <span class="row-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>Daten exportieren</span>
+            <button type="button" class="btn btn-secondary" id="exportBtn">Export starten</button>
+          </div>
+        </article>
+        <article class="card" id="card-ki" data-search-block>
+          <h2>KI-Lernassistent</h2>
+          <p class="card-sub">Läuft lokal im Browser, ohne externen KI-Dienst. Es wird nur im Text dieser Lektionen gesucht.</p>
+          <div class="setting-row setting-row-stack has-ki" data-search="ki-assistent lernhilfe">
+            <div class="row-main"><span class="row-label">KI-Assistent aktivieren</span><button type="button" class="toggle" id="toggle-ki" role="switch" aria-checked="false"></button></div>
+            <p class="row-desc">Lernhilfe auf der Lektionsseite durchsucht den sichtbaren Text.</p>
+          </div>
+          <div class="setting-row setting-row-stack has-ki" data-search="lernpläne">
+            <div class="row-main"><span class="row-label">Automatische Lernpläne</span><button type="button" class="toggle" id="toggle-plans" role="switch" aria-checked="false"></button></div>
+            <p class="row-desc">Wochenplan aus noch nicht geöffneten Lektionen. Nur in diesem Browser.</p>
+          </div>
+          <div class="setting-row setting-row-stack has-ki" data-search="empfehlungen">
+            <div class="row-main"><span class="row-label">Intelligente Empfehlungen</span><button type="button" class="toggle" id="toggle-reco" role="switch" aria-checked="false"></button></div>
+            <p class="row-desc">„Als Nächstes“ auf dem Dashboard aus offenen Lektionen.</p>
+          </div>
+          <div class="setting-row setting-row-stack has-ki" data-search="lernfortschritt">
+            <div class="row-main"><span class="row-label">Lernfortschritt analysieren</span><button type="button" class="toggle" id="toggle-progress" role="switch" aria-checked="false"></button></div>
+            <p class="row-desc">Stärken und Lücken aus deinen eigenen Quiz-Antworten.</p>
+          </div>
+        </article>
       </div>
+      <div class="cards-bottom">
+        <article class="card card-users" id="card-users" data-search-block>
+          <div class="card-head">
+            <div>
+              <h2>Benutzerverwaltung</h2>
+              <p class="card-sub" id="userCardSub">Konten aus diesem Browser. Keine erfundenen Personen.</p>
+            </div>
+            <button type="button" class="btn btn-primary" id="createUserBtn">+ Benutzer erstellen</button>
+          </div>
+          <p id="userNote" hidden>Nur Administratoren ändern Konten. Lehrer/innen sehen die Liste nur lesend.</p>
+          <label class="search search-users"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="userSearch" placeholder="Benutzer suchen ..." autocomplete="off" /></label>
+          <div class="table-wrap">
+            <table class="user-table">
+              <thead><tr><th>Name</th><th>Rolle</th><th>Letzte Anmeldung</th><th>Status</th><th>Aktionen</th></tr></thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card card-roles" id="card-roles" data-search-block>
+          <h2>Rollen &amp; Berechtigungen</h2>
+          <p class="card-sub">Was die Rolle in diesem Programm wirklich darf.</p>
+          <ul class="role-list" id="roleList"></ul>
+          <div class="role-info">
+            <div>
+              <p class="role-info-title">Berechtigungen individuell anpassen</p>
+              <p>Nur in diesem Browser. Kein Server speichert die Matrix.</p>
+              <button type="button" class="btn btn-outline" id="manageRolesBtn">Rollen verwalten</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <article class="card" id="card-design" data-search-block>
+        <h2>Design</h2>
+        <p class="card-sub">Transparenz, Unschärfe und Hintergrund bleiben nur in diesem Browser.</p>
+        <div class="setting-row" data-search="transparenz"><label class="row-label" for="glassOpacity">Transparenz</label><input type="range" id="glassOpacity" min="0" max="80" value="0"></div>
+        <div class="setting-row" data-search="unschärfe blur"><label class="row-label" for="glassBlur">Unschärfe</label><input type="range" id="glassBlur" min="0" max="50" value="0"></div>
+        <div class="setting-row" data-search="hintergrundbild">
+          <span class="row-label">Hintergrundbild</span>
+          <button type="button" class="btn btn-secondary" id="pickImage">Bild wählen</button>
+          <span id="bgName">Kein Bild gewählt</span>
+          <input type="file" id="bgUpload" accept="image/*" class="sr-only">
+          <button type="button" class="btn btn-secondary" id="removeBtn" hidden>Entfernen</button>
+        </div>
+      </article>
+      <p id="updateBanner" class="update-banner" hidden>Neue Version – <button type="button" id="reloadVersion">neu laden</button></p>
     </div>
+    <dialog class="modal" id="userDialog"><form class="modal-form" id="userForm">
+      <h3>Benutzer erstellen</h3>
+      <label>Name <input name="name" required maxlength="60"></label>
+      <label>Benutzername <input name="username" required maxlength="40"></label>
+      <label>Passwort <input name="password" type="password" required minlength="4"></label>
+      <label>Rolle <select name="role"><option value="student">Schüler/in</option><option value="teacher">Lehrer/in</option><option value="guest">Gast</option><option value="admin">Administrator</option></select></label>
+      <div class="modal-actions"><button class="btn btn-primary" type="submit">+ Benutzer erstellen</button><button class="btn btn-secondary" type="button" id="userDialogCancel">Schließen</button></div>
+    </form></dialog>
+    <dialog class="modal" id="roleDialog"><div class="modal-form">
+      <h3>Rollen verwalten</h3>
+      <ul class="perm-list" id="permList"></ul>
+      <button type="button" class="btn btn-secondary" id="roleDialogClose">Schließen</button>
+    </div></dialog>
   </main>
   <script src="script.js"></script>
   <script src="settings.js"></script>
   <script src="shell.js"></script>
-  <script>
-    document.querySelectorAll('.tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.tab').forEach(function (other) {
-          var on = other === tab;
-          other.classList.toggle('is-active', on);
-          other.setAttribute('aria-selected', on ? 'true' : 'false');
-          other.tabIndex = on ? 0 : -1;
-        });
-        document.querySelectorAll('.tab-panel').forEach(function (panel) {
-          panel.hidden = panel.id !== 'panel-' + tab.getAttribute('data-tab');
-        });
-      });
-    });
-    var langSelect = document.getElementById('langSelect');
-    langSelect.value = localStorage.getItem('fisi-lang') || 'de';
-    langSelect.addEventListener('change', function () {
-      if (typeof changeLang === 'function') changeLang(langSelect.value);
-    });
-    var dark = document.getElementById('darkToggle');
-    function syncDark() {
-      var on = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark';
-      dark.classList.toggle('is-on', on);
-      dark.setAttribute('aria-checked', on ? 'true' : 'false');
-    }
-    syncDark();
-    dark.addEventListener('click', function () {
-      var next = dark.classList.contains('is-on') ? 'light' : 'dark';
-      if (typeof setThemeMode === 'function') setThemeMode(next);
-      syncDark();
-    });
-    var opacity = document.getElementById('glassOpacity');
-    var blur = document.getElementById('glassBlur');
-    opacity.value = localStorage.getItem('fisi-glass-opacity') || 0;
-    blur.value = localStorage.getItem('fisi-glass-blur') || 0;
-    opacity.addEventListener('input', function () { if (typeof updateGlass === 'function') updateGlass(); });
-    blur.addEventListener('input', function () { if (typeof updateGlass === 'function') updateGlass(); });
-    var upload = document.getElementById('bgUpload');
-    var nameEl = document.getElementById('bgName');
-    document.getElementById('pickImage').addEventListener('click', function () { upload.click(); });
-    function labelFor(key) {
-      var lang = localStorage.getItem('fisi-lang') || 'de';
-      var table = (window.translations && (translations[lang] || translations.de)) || {};
-      return table[key] || key;
-    }
-    function showName(text) { nameEl.textContent = text; nameEl.removeAttribute('data-i18n'); }
-    if (localStorage.getItem('fisi-custom-bg')) {
-      showName(labelFor('savedImage'));
-      document.getElementById('removeBtn').hidden = false;
-    }
-    upload.addEventListener('change', function (event) {
-      var file = event.target.files && event.target.files[0];
-      if (file) showName(file.name);
-      if (typeof uploadBackground === 'function') uploadBackground(event);
-      if (localStorage.getItem('fisi-custom-bg')) document.getElementById('removeBtn').hidden = false;
-    });
-    document.getElementById('removeBtn').addEventListener('click', function () {
-      if (typeof removeBackground === 'function') removeBackground();
-      this.hidden = true;
-      upload.value = '';
-      nameEl.setAttribute('data-i18n', 'noImage');
-      if (typeof setLang === 'function') setLang(localStorage.getItem('fisi-lang') || 'de');
-    });
-  </script>
+  <script src="settings-app.js"></script>
 </body>
 </html>
