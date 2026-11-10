@@ -1,0 +1,150 @@
+{
+  "results": [
+    {
+      "name": "H1 is Einstellungen",
+      "ok": true,
+      "detail": "Einstellungen"
+    },
+    {
+      "name": "Active nav is Einstellungen",
+      "ok": true,
+      "detail": "Einstellungen"
+    },
+    {
+      "name": "Six tabs in order",
+      "ok": true,
+      "detail": "Allgemein|App-Verwaltung|Benutzerverwaltung|Rollen & Rechte|KI & Lernen|Design"
+    },
+    {
+      "name": "Active tab is Allgemein",
+      "ok": true,
+      "detail": "Allgemein"
+    },
+    {
+      "name": "Five users rendered",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "First user is Mujtaba Najafi",
+      "ok": true,
+      "detail": "MN Mujtaba Najafi mujtaba@schule.de Administrator Heute, 10:24 Online "
+    },
+    {
+      "name": "App-Verwaltung tab highlights card",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Design tab highlights Dark Mode row",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Design tab focuses Dark Mode toggle",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Allgemein tab highlights Allgemeine Einstellungen",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Dark Mode toggle applies theme",
+      "ok": true,
+      "detail": "false → true, theme=dark"
+    },
+    {
+      "name": "Language select is Deutsch",
+      "ok": true,
+      "detail": "Deutsch"
+    },
+    {
+      "name": "Timezone is (GMT+01:00) Berlin",
+      "ok": true,
+      "detail": "(GMT+01:00) Berlin"
+    },
+    {
+      "name": "Bell opens notification panel",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Opening bell hides red dot",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Create user adds a table row",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "User search filters table",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "Rollen verwalten opens dialog",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Escape closes role dialog",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Export shows toast",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Keyboard Space toggles switch",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "Kurse nav shows Kurse heading",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Einstellungen nav returns",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Table has Letzte Anmeldung and Aktionen",
+      "ok": true,
+      "detail": "|Name|Rolle|Letzte Anmeldung|Status|Aktionen"
+    },
+    {
+      "name": "No horizontal scroll at 1024",
+      "ok": true,
+      "detail": "{\"clientWidth\":1024,\"scrollWidth\":1024,\"overflow\":false}"
+    },
+    {
+      "name": "No horizontal scroll at 768",
+      "ok": true,
+      "detail": "{\"clientWidth\":768,\"scrollWidth\":768,\"overflow\":false}"
+    },
+    {
+      "name": "Hamburger visible at 768",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "No horizontal scroll at 390",
+      "ok": true,
+      "detail": "{\"clientWidth\":390,\"scrollWidth\":390,\"overflow\":false}"
+    },
+    {
+      "name": "Mobile menu opens sidebar",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "failed": 0
+}

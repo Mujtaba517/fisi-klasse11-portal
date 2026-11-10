@@ -1,0 +1,13 @@
+{
+  "name": "learnify-settings",
+  "private": true,
+  "version": "2.4.1",
+  "description": "Learnify Einstellungen UI recreation",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "test": "node tests/interactions.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}
