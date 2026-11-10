@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3f5fa" />
+  <title>Einstellungen | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Zum Inhalt</a>
+  <main id="main">
+    <div id="settingsPage">
+      <div class="tabbar" role="tablist">
+        <button type="button" class="tab is-active" role="tab" id="tab-general" aria-selected="true" aria-controls="panel-general" data-tab="general">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>
+          <span data-i18n="tabGeneral">Allgemein</span>
+        </button>
+        <button type="button" class="tab" role="tab" id="tab-design" aria-selected="false" aria-controls="panel-design" data-tab="design" tabindex="-1">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2"/></svg>
+          <span data-i18n="tabDesign">Design</span>
+        </button>
+      </div>
+      <div class="tab-panel" id="panel-general" role="tabpanel" aria-labelledby="tab-general">
+        <section class="settings-card">
+          <h2 data-i18n="cardGeneralTitle">Allgemeine Einstellungen</h2>
+          <p class="card-sub" data-i18n="cardGeneralSub">Grundlegende Einstellungen der App.</p>
+          <div class="setting-row">
+            <span class="row-label">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+              <span data-i18n="settingsLang">Sprache</span>
+            </span>
+            <select id="langSelect" class="ref-select">
+              <option value="de">Deutsch</option>
+              <option value="en">English</option>
+              <option value="fa">فارسی</option>
+            </select>
+          </div>
+          <div class="setting-row setting-row-stack">
+            <div class="row-main">
+              <span class="row-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 14.5z"/></svg>
+                <span data-i18n="settingsTheme">Dark Mode</span>
+              </span>
+              <button type="button" class="toggle" id="darkToggle" role="switch" aria-checked="false"></button>
+            </div>
+            <p class="row-desc" data-i18n="darkHint">Hell oder dunkel.</p>
+          </div>
+        </section>
+      </div>
+      <div class="tab-panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design" hidden>
+        <section class="settings-card">
+          <h2 data-i18n="cardDesignTitle">Design</h2>
+          <p class="card-sub" data-i18n="cardDesignSub">Fläche und Hintergrund, nur in diesem Browser.</p>
+          <div class="setting-row">
+            <label class="row-label" for="glassOpacity" data-i18n="settingsGlass">Transparenz</label>
+            <input type="range" id="glassOpacity" min="0" max="80" value="0">
+          </div>
+          <div class="setting-row">
+            <label class="row-label" for="glassBlur">Unschärfe</label>
+            <input type="range" id="glassBlur" min="0" max="50" value="0">
+          </div>
+          <div class="setting-row setting-row-stack">
+            <div class="row-main">
+              <span class="row-label" data-i18n="settingsBg">Hintergrundbild</span>
+              <button type="button" class="btn btn-soft" id="pickImage" data-i18n="pickImage">Bild wählen</button>
+            </div>
+            <p class="row-desc" id="bgName" data-i18n="noImage">Kein Bild gewählt</p>
+            <input type="file" id="bgUpload" accept="image/*" class="sr-only">
+            <button type="button" class="btn btn-soft" id="removeBtn" hidden data-i18n="removeBg">Entfernen</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="shell.js"></script>
+  <script>
+    document.querySelectorAll('.tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (other) {
+          var on = other === tab;
+          other.classList.toggle('is-active', on);
+          other.setAttribute('aria-selected', on ? 'true' : 'false');
+          other.tabIndex = on ? 0 : -1;
+        });
+        document.querySelectorAll('.tab-panel').forEach(function (panel) {
+          panel.hidden = panel.id !== 'panel-' + tab.getAttribute('data-tab');
+        });
+      });
+    });
+    var langSelect = document.getElementById('langSelect');
+    langSelect.value = localStorage.getItem('fisi-lang') || 'de';
+    langSelect.addEventListener('change', function () {
+      if (typeof changeLang === 'function') changeLang(langSelect.value);
+    });
+    var dark = document.getElementById('darkToggle');
+    function syncDark() {
+      var on = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark';
+      dark.classList.toggle('is-on', on);
+      dark.setAttribute('aria-checked', on ? 'true' : 'false');
+    }
+    syncDark();
+    dark.addEventListener('click', function () {
+      var next = dark.classList.contains('is-on') ? 'light' : 'dark';
+      if (typeof setThemeMode === 'function') setThemeMode(next);
+      syncDark();
+    });
+    var opacity = document.getElementById('glassOpacity');
+    var blur = document.getElementById('glassBlur');
+    opacity.value = localStorage.getItem('fisi-glass-opacity') || 0;
+    blur.value = localStorage.getItem('fisi-glass-blur') || 0;
+    opacity.addEventListener('input', function () { if (typeof updateGlass === 'function') updateGlass(); });
+    blur.addEventListener('input', function () { if (typeof updateGlass === 'function') updateGlass(); });
+    var upload = document.getElementById('bgUpload');
+    var nameEl = document.getElementById('bgName');
+    document.getElementById('pickImage').addEventListener('click', function () { upload.click(); });
+    function labelFor(key) {
+      var lang = localStorage.getItem('fisi-lang') || 'de';
+      var table = (window.translations && (translations[lang] || translations.de)) || {};
+      return table[key] || key;
+    }
+    function showName(text) { nameEl.textContent = text; nameEl.removeAttribute('data-i18n'); }
+    if (localStorage.getItem('fisi-custom-bg')) {
+      showName(labelFor('savedImage'));
+      document.getElementById('removeBtn').hidden = false;
+    }
+    upload.addEventListener('change', function (event) {
+      var file = event.target.files && event.target.files[0];
+      if (file) showName(file.name);
+      if (typeof uploadBackground === 'function') uploadBackground(event);
+      if (localStorage.getItem('fisi-custom-bg')) document.getElementById('removeBtn').hidden = false;
+    });
+    document.getElementById('removeBtn').addEventListener('click', function () {
+      if (typeof removeBackground === 'function') removeBackground();
+      this.hidden = true;
+      upload.value = '';
+      nameEl.setAttribute('data-i18n', 'noImage');
+      if (typeof setLang === 'function') setLang(localStorage.getItem('fisi-lang') || 'de');
+    });
+  </script>
+</body>
+</html>
