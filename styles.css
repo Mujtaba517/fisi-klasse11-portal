@@ -1197,7 +1197,7 @@ body.has-custom-bg .ex-pick {
 }
 
 /* App shell in the Learnify layout, branded Lernova. */
-body.has-shell { background: var(--bg); overflow-x: clip; }
+html:has(body.has-shell), body.has-shell { background: var(--bg); overflow-x: clip; max-width: 100%; }
 body.has-shell .site-header,
 body.has-shell .site-footer { display: none !important; }
 body.has-shell .app { min-height: 100vh; }
@@ -1310,9 +1310,10 @@ body.has-shell .step-card {
 }
 body.has-shell .step-rail button { font-size: 13px; font-weight: 500; border-radius: 10px; min-height: 34px; }
 body.has-shell .tabbar {
-  margin: 8px 0 14px; display: flex; gap: 4px; padding: 4px; max-width: 420px;
+  margin: 8px 0 14px; display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; max-width: 100%;
   border: 1px solid #e5e7eb; border-radius: 10px; background: var(--card);
 }
+body.page-settings .tab { flex: 1 1 120px; min-width: 0; }
 body.has-shell .tab {
   flex: 1; min-height: 31px; border: 0; border-radius: 8px; background: transparent;
   color: #4b5563; font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -1372,6 +1373,25 @@ body.has-shell .stats-table th { background: color-mix(in srgb, var(--muted) 8%,
   body.has-shell .sidebar.is-open { transform: none; }
   body.has-shell .shell-menu { display: inline-flex; }
   body.has-shell .header-tools { width: 100%; }
-  body.has-shell .search-global { flex: 1; }
+  body.has-shell .search-global { flex: 1; width: auto; }
   body.has-shell .search-global input { width: 100%; }
+}
+body.page-settings .cards-top,
+body.page-settings .cards-bottom { display: grid; gap: 12px; margin-top: 14px; }
+body.page-settings .cards-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.page-settings .cards-bottom { grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr); }
+body.page-settings #card-design { margin-top: 12px; max-width: 520px; }
+body.page-settings .user-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+body.page-settings .user-table th, body.page-settings .user-table td { text-align: start; padding: 8px; border-bottom: 1px solid #e6e9ef; vertical-align: top; }
+body.page-settings .pill { border-radius: 999px; padding: 2px 8px; font-size: 11px; }
+body.page-settings .pill-admin { background: #f1e8ff; color: #7c3aed; }
+body.page-settings .pill-teacher { background: #e8f0fe; color: #1a5fd6; }
+body.page-settings .pill-student { background: #e6f7ec; color: #15803d; }
+body.page-settings .pill-guest { background: #eef0f3; color: #6b7280; }
+body.page-settings .status.on { background: #e6f7ec; color: #15803d; border-radius: 999px; padding: 2px 8px; }
+body.page-settings .update-banner { margin-top: 12px; padding: 10px 12px; border-radius: 8px; background: #e8f0fe; }
+body.page-settings .role-row { display: flex; flex-direction: column; align-items: flex-start; width: 100%; text-align: start; background: transparent; border: 0; padding: 8px 0; }
+body.page-settings .card-head { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+@media (max-width: 900px) {
+  body.page-settings .cards-top, body.page-settings .cards-bottom { grid-template-columns: 1fr; }
 }

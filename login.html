@@ -338,9 +338,12 @@
         return false;
       }
 
+      found.lastLogin = Date.now();
+      saveUsers(users);
+      var display = ((found.firstName || '') + ' ' + (found.lastName || '')).trim() || found.username;
       sessionStorage.setItem('fisi-auth', JSON.stringify({
         username: found.username,
-        name: found.firstName + ' ' + found.lastName,
+        name: display,
         role: found.role
       }));
       window.location.href = 'index.html';

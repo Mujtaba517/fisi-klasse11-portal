@@ -137,6 +137,7 @@
   function sectionFor(file) {
     if (file === 'index.html') return 'dashboard';
     if (file === 'quiz.html' || file === 'flashcards.html' || file === 'explainers.html') return 'aufgaben';
+    if (file === 'calendar.html') return 'calendar';
     if (file === 'progress.html') return 'stats';
     if (file === 'settings.html') return 'settings';
     if (file === 'admin.html') return 'users';
@@ -155,6 +156,8 @@
       book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
       task: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/>',
       chart: '<path d="M18 20V10M12 20V4M6 20v-6"/>',
+      cal: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+      box: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>',
       gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
       user: '<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/>',
       search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
@@ -178,8 +181,9 @@
     var section = sectionFor(file);
     var user = currentUser() || {};
     var name = (user.name || user.username || '').trim();
-    var roleKey = user.role === 'admin' ? 'roleAdmin' : user.role === 'teacher' ? 'roleTeacher' : user.role === 'student' ? 'roleStudent' : 'roleSignedIn';
-    var users = user.role === 'admin' ? navItem('admin.html', 'navUsers', 'users', section, 'user') : '';
+    var roleKey = user.role === 'admin' ? 'roleAdmin' : user.role === 'teacher' ? 'roleTeacher' : user.role === 'guest' ? 'roleGuest' : user.role === 'student' ? 'roleStudent' : 'roleSignedIn';
+    var users = (user.role === 'admin' || user.role === 'teacher') ? navItem('settings.html#card-users', 'navUsers', 'users', section, 'user') : '';
+    var appLink = user.role === 'admin' ? navItem('settings.html#card-app', 'navApp', 'app', section, 'box') : '';
     var sidebar = document.createElement('aside');
     sidebar.className = 'sidebar';
     sidebar.id = 'sidebar';
@@ -191,9 +195,11 @@
       + navItem('index.html', 'navDashboard', 'dashboard', section, 'home')
       + navItem('index.html#subjects', 'navCourses', 'courses', section, 'book')
       + navItem('quiz.html', 'navTasks', 'aufgaben', section, 'task')
+      + navItem('calendar.html', 'navCalendar', 'calendar', section, 'cal')
       + navItem('progress.html', 'navStats', 'stats', section, 'chart')
       + '<div class="nav-divider" role="separator"></div>'
       + users
+      + appLink
       + navItem('settings.html', 'navSettings', 'settings', section, 'gear')
       + '</nav>'
       + '<aside class="promo"><span class="promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 16 3 6l5.5 3L12 4l3.5 5L21 6l-2 10H5zm0 0h14v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2z" fill="#7c3aed"/></svg></span>'
@@ -282,7 +288,14 @@
         if (panel) panel.hidden = true;
       }
     });
+    if (file === 'settings.html') {
+      document.body.classList.add('page-settings');
+      if (search) search.setAttribute('data-i18n-placeholder', 'settingsSearch');
+    }
     if (typeof setLang === 'function') setLang(lang());
+    var feat = document.createElement('script');
+    feat.src = 'portal-features.js';
+    document.body.appendChild(feat);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
