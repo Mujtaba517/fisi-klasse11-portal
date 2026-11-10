@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Einstellungen · Learnify</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a5fd6'%3E%3Cpath d='M12 3 1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3Cpath d='M11 12.84 4.26 9.16 3 9.85 11 14.3l8-4.45-1.26-.69L13 12.84V20h-2v-7.16z'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Einstellungen</a>
+
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar" aria-label="Learnify">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <path d="M4 13.2 16 7l12 6.2-12 6.3L4 13.2Z" fill="#1a5fd6"/>
+            <path d="M8.2 15.4v5.1c0 .4.3 1.2 1.4 2 1.2.8 3.4 1.7 6.4 1.7s5.2-.9 6.4-1.7c1.1-.8 1.4-1.6 1.4-2v-5.1" stroke="#1a5fd6" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M26.4 14.6V21" stroke="#1a5fd6" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M16 21.8c-2.4 0-4.4-.4-5.6-1" stroke="#dbe7ff" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Learnify</span>
+          <span class="brand-tagline">Lernen. Weiter. Du.</span>
+        </span>
+      </div>
+
+      <nav class="sidenav">
+        <a class="nav-item" href="#dashboard" data-nav="dashboard">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-item" href="#kurse" data-nav="kurse">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Kurse</span>
+        </a>
+        <a class="nav-item" href="#aufgaben" data-nav="aufgaben">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg>
+          <span>Aufgaben</span>
+        </a>
+        <a class="nav-item" href="#kalender" data-nav="kalender">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Kalender</span>
+        </a>
+        <a class="nav-item" href="#statistiken" data-nav="statistiken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          <span>Statistiken</span>
+        </a>
+        <div class="nav-divider" role="separator"></div>
+        <a class="nav-item" href="#benutzer" data-nav="benutzer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Benutzer</span>
+        </a>
+        <a class="nav-item" href="#app-verwaltung" data-nav="app-verwaltung">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.7 1 1.1 1.7 1.1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span>App-Verwaltung</span>
+        </a>
+        <a class="nav-item is-active" href="#einstellungen" data-nav="einstellungen" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.7 1 1.1 1.7 1.1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span>Einstellungen</span>
+        </a>
+      </nav>
+
+      <button type="button" class="promo" id="promoCard">
+        <span class="promo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 16 3 6l5.5 3L12 4l3.5 5L21 6l-2 10H5zm0 0h14v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2z" fill="#7c3aed"/></svg>
+        </span>
+        <span class="promo-title">Wissen schafft Möglichkeiten.</span>
+        <span class="promo-body">Heute lernen.<br>Morgen mehr erreichen.</span>
+      </button>
+
+      <div class="profile-divider"></div>
+      <div class="profile">
+        <span class="avatar avatar-lg avatar-blue" aria-hidden="true">MN</span>
+        <span class="profile-meta">
+          <span class="profile-name">Mujtaba Najafi</span>
+          <span class="profile-role">Administrator</span>
+        </span>
+        <button type="button" class="icon-btn logout-btn" id="logoutBtn" aria-label="Mujtaba Najafi">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <main class="panel" id="main" tabindex="-1">
+      <section class="view view-settings is-visible" id="view-einstellungen">
+        <header class="page-header">
+          <div class="page-heading">
+            <h1>Einstellungen</h1>
+            <p class="subtitle">Passe die App an deine Bedürfnisse an.</p>
+          </div>
+          <div class="header-tools">
+            <label class="search search-global">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input type="search" id="globalSearch" placeholder="Einstellungen suchen ..." autocomplete="off" />
+            </label>
+            <button type="button" class="icon-btn bell-btn" id="bellBtn" aria-label="Benachrichtigungen" aria-expanded="false" aria-controls="notifPanel">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="bell-dot" id="bellDot" aria-hidden="true"></span>
+            </button>
+            <div class="notif-panel" id="notifPanel" hidden role="region" aria-label="Benachrichtigungen">
+              <div class="notif-head"><strong>Benachrichtigungen</strong></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="tabbar" role="tablist" aria-label="Einstellungen">
+          <button type="button" class="tab is-active" role="tab" id="tab-allgemein" aria-selected="true" aria-controls="card-allgemein" data-tab="allgemein">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.7 1 1.1 1.7 1.1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+            <span>Allgemein</span>
+          </button>
+          <button type="button" class="tab" role="tab" id="tab-app" aria-selected="false" aria-controls="card-app" data-tab="app" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg>
+            <span>App-Verwaltung</span>
+          </button>
+          <button type="button" class="tab" role="tab" id="tab-users" aria-selected="false" aria-controls="card-users" data-tab="users" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Benutzerverwaltung</span>
+          </button>
+          <button type="button" class="tab" role="tab" id="tab-roles" aria-selected="false" aria-controls="card-roles" data-tab="roles" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Rollen &amp; Rechte</span>
+          </button>
+          <button type="button" class="tab" role="tab" id="tab-ki" aria-selected="false" aria-controls="card-ki" data-tab="ki" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 13.5 8.5 19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3z"/><path d="M19 15 19.8 17.2 22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>
+            <span>KI &amp; Lernen</span>
+          </button>
+          <button type="button" class="tab" role="tab" id="tab-design" aria-selected="false" aria-controls="row-darkmode" data-tab="design" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 6 6 0 0 1 0 12 4 4 0 0 0 0 8z"/><circle cx="7.5" cy="10" r="1.2" fill="currentColor" stroke="none"/><circle cx="10.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg>
+            <span>Design</span>
+          </button>
+        </div>
+
+        <div class="cards-top">
+          <article class="card" id="card-allgemein" data-search-block>
+            <h2>Allgemeine Einstellungen</h2>
+            <p class="card-sub">Grundlegende Einstellungen der App.</p>
+            <div class="setting-row" data-search="sprache deutsch">
+              <span class="row-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+                Sprache
+              </span>
+              <label class="sr-only" for="setting-language">Sprache</label>
+              <select id="setting-language">
+                <option selected>Deutsch</option>
+              </select>
+            </div>
+            <div class="setting-row" data-search="zeitzone berlin">
+              <span class="row-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                Zeitzone
+              </span>
+              <label class="sr-only" for="setting-timezone">Zeitzone</label>
+              <select id="setting-timezone" class="select-wide">
+                <option selected>(GMT+01:00) Berlin</option>
+              </select>
+            </div>
+            <div class="setting-row setting-row-stack" data-search="benachrichtigungen updates erinnerungen">
+              <div class="row-main">
+                <span class="row-label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                  Benachrichtigungen
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-notify" role="switch" aria-checked="true" aria-label="Benachrichtigungen"></button>
+              </div>
+              <p class="row-desc">Erhalte wichtige Updates und Erinnerungen.</p>
+            </div>
+            <div class="setting-row setting-row-stack" id="row-darkmode" data-search="dark mode">
+              <div class="row-main">
+                <span class="row-label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+                  Dark Mode
+                </span>
+                <button type="button" class="toggle" id="toggle-dark" role="switch" aria-checked="false" aria-label="Dark Mode"></button>
+              </div>
+              <p class="row-desc">Schont deine Augen.</p>
+            </div>
+          </article>
+
+          <article class="card" id="card-app" data-search-block>
+            <h2>App-Verwaltung</h2>
+            <p class="card-sub">Verwalte deine Anwendung.</p>
+            <div class="setting-row" data-search="app-name learnify">
+              <span class="row-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                App-Name
+              </span>
+              <label class="sr-only" for="setting-appname">App-Name</label>
+              <input class="readonly-input" id="setting-appname" value="Learnify" readonly />
+            </div>
+            <div class="setting-row" data-search="version v2.4.1">
+              <span class="row-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Version
+              </span>
+              <label class="sr-only" for="setting-version">Version</label>
+              <input class="readonly-input" id="setting-version" value="v2.4.1" readonly />
+            </div>
+            <div class="setting-row setting-row-stack" data-search="automatische updates">
+              <div class="row-main">
+                <span class="row-label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg>
+                  Automatische Updates
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-updates" role="switch" aria-checked="true" aria-label="Automatische Updates"></button>
+              </div>
+              <p class="row-desc">Neue Versionen automatisch installieren.</p>
+            </div>
+            <div class="setting-row setting-row-stack" data-search="backup synchronisation">
+              <div class="row-main">
+                <span class="row-label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13V3"/><path d="m8 7 4-4 4 4"/><path d="M20 16.5A3.5 3.5 0 0 0 16.5 13H16a6 6 0 0 0-11.7 1.7A3.5 3.5 0 0 0 5.5 21H19a3 3 0 0 0 1-5.8"/></svg>
+                  Backup &amp; Synchronisation
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-backup" role="switch" aria-checked="true" aria-label="Backup &amp; Synchronisation"></button>
+              </div>
+              <p class="row-desc">Daten sicher in der Cloud speichern.</p>
+            </div>
+            <div class="setting-row" data-search="daten exportieren export starten">
+              <span class="row-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                Daten exportieren
+              </span>
+              <button type="button" class="btn btn-secondary" id="exportBtn">Export starten</button>
+            </div>
+          </article>
+
+          <article class="card" id="card-ki" data-search-block>
+            <h2>KI-Lernassistent</h2>
+            <p class="card-sub">Intelligentes Lernen für bessere Ergebnisse.</p>
+            <div class="setting-row setting-row-stack has-ki" data-search="ki-assistent">
+              <div class="row-main">
+                <span class="row-label">
+                  <span class="ki-icon ki-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 8.5v7l6-3.5-6-3.5z" fill="currentColor" stroke="none"/></svg>
+                  </span>
+                  KI-Assistent aktivieren
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-ki" role="switch" aria-checked="true" aria-label="KI-Assistent aktivieren"></button>
+              </div>
+              <p class="row-desc">Erhalte personalisierte Hilfe beim Lernen.</p>
+            </div>
+            <div class="setting-row setting-row-stack has-ki" data-search="lernpläne">
+              <div class="row-main">
+                <span class="row-label">
+                  <span class="ki-icon ki-refresh" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M21 3v6h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  Automatische Lernpläne
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-plans" role="switch" aria-checked="true" aria-label="Automatische Lernpläne"></button>
+              </div>
+              <p class="row-desc">Lernpläne basierend auf deinen Zielen.</p>
+            </div>
+            <div class="setting-row setting-row-stack has-ki" data-search="empfehlungen">
+              <div class="row-main">
+                <span class="row-label">
+                  <span class="ki-icon ki-bulb" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3 11.2V16h6v-1.8A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                  </span>
+                  Intelligente Empfehlungen
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-reco" role="switch" aria-checked="true" aria-label="Intelligente Empfehlungen"></button>
+              </div>
+              <p class="row-desc">Vorschläge für passende Inhalte.</p>
+            </div>
+            <div class="setting-row setting-row-stack has-ki" data-search="lernfortschritt">
+              <div class="row-main">
+                <span class="row-label">
+                  <span class="ki-icon ki-gauge" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 19a9 9 0 1 1 14 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 13l4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="13" r="1.3" fill="currentColor" stroke="none"/></svg>
+                  </span>
+                  Lernfortschritt analysieren
+                </span>
+                <button type="button" class="toggle is-on" id="toggle-progress" role="switch" aria-checked="true" aria-label="Lernfortschritt analysieren"></button>
+              </div>
+              <p class="row-desc">KI analysiert deine Stärken und Schwächen.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cards-bottom">
+          <article class="card card-users" id="card-users">
+            <div class="card-head">
+              <div>
+                <h2>Benutzerverwaltung</h2>
+                <p class="card-sub">Verwalte alle Benutzer der Plattform.</p>
+              </div>
+              <button type="button" class="btn btn-primary" id="createUserBtn">+ Benutzer erstellen</button>
+            </div>
+            <label class="search search-users">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input type="search" id="userSearch" placeholder="Benutzer suchen ..." autocomplete="off" />
+            </label>
+            <div class="table-wrap">
+              <table class="user-table">
+                <thead>
+                  <tr>
+                    <th class="col-icon"></th>
+                    <th class="col-name">Name</th>
+                    <th class="col-role">Rolle</th>
+                    <th class="col-login">Letzte Anmeldung</th>
+                    <th class="col-status">Status</th>
+                    <th class="col-actions">Aktionen</th>
+                  </tr>
+                </thead>
+                <tbody id="userTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card card-roles" id="card-roles">
+            <h2>Rollen &amp; Berechtigungen</h2>
+            <p class="card-sub">Lege fest, wer was darf.</p>
+            <ul class="role-list">
+              <li>
+                <div class="role-row" role="button" tabindex="0" data-role="Administrator">
+                  <span class="role-icon role-icon-admin" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 16 3 6l5.5 3L12 4l3.5 5L21 6l-2 10H5z" fill="#d97706"/></svg>
+                  </span>
+                  <span class="role-meta">
+                    <span class="role-name">Administrator</span>
+                    <span class="role-desc">Vollzugriff auf alle Funktionen</span>
+                  </span>
+                  <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+              </li>
+              <li>
+                <div class="role-row" role="button" tabindex="0" data-role="Lehrer/in">
+                  <span class="role-icon role-icon-teacher" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 10 12 5l9 5-9 5-9-5z" fill="#1a5fd6"/><path d="M7 12.2v3.3c0 1.5 2.2 2.7 5 2.7s5-1.2 5-2.7v-3.3" stroke="#1a5fd6" stroke-width="1.6"/></svg>
+                  </span>
+                  <span class="role-meta">
+                    <span class="role-name">Lehrer/in</span>
+                    <span class="role-desc">Kurse erstellen und verwalten</span>
+                  </span>
+                  <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+              </li>
+              <li>
+                <div class="role-row" role="button" tabindex="0" data-role="Schüler/in">
+                  <span class="role-icon role-icon-student" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 21a8 8 0 0 0-16 0" stroke="#2563eb" stroke-width="1.8"/><circle cx="12" cy="8" r="3.2" stroke="#2563eb" stroke-width="1.8"/></svg>
+                  </span>
+                  <span class="role-meta">
+                    <span class="role-name">Schüler/in</span>
+                    <span class="role-desc">Kurse besuchen und Aufgaben bearbeiten.</span>
+                  </span>
+                  <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+              </li>
+              <li>
+                <div class="role-row" role="button" tabindex="0" data-role="Gast">
+                  <span class="role-icon role-icon-guest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="#7c3aed" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="#7c3aed" stroke-width="1.7"/></svg>
+                  </span>
+                  <span class="role-meta">
+                    <span class="role-name">Gast</span>
+                    <span class="role-desc">Nur Leserechte</span>
+                  </span>
+                  <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+              </li>
+            </ul>
+            <div class="role-info">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#1a5fd6" stroke-width="1.7"/><path d="M12 11v5M12 8h.01" stroke="#1a5fd6" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <div>
+                <p class="role-info-title">Berechtigungen individuell anpassen</p>
+                <p>Erstelle eigene Rollen und definiere spezifische Rechte.</p>
+                <button type="button" class="btn btn-outline" id="manageRolesBtn">Rollen verwalten</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view view-placeholder" id="view-placeholder" hidden>
+        <header class="page-header">
+          <div class="page-heading">
+            <h1 id="placeholderTitle"></h1>
+          </div>
+        </header>
+      </section>
+    </main>
+
+    <footer class="app-footer">Learnify&nbsp;&nbsp;v2.4.1 | Eine bessere Lernwelt – für alle.</footer>
+  </div>
+
+  <button type="button" class="menu-toggle" id="menuToggle" aria-label="Learnify" aria-expanded="false" aria-controls="sidebar">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <div class="toast-region" id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <dialog class="modal" id="userDialog" aria-labelledby="userDialogTitle">
+    <form method="dialog" class="modal-form" id="userForm">
+      <h3 id="userDialogTitle">Benutzer erstellen</h3>
+      <label>Name <input type="text" name="name" required maxlength="60" /></label>
+      <input type="email" name="email" required aria-label="mujtaba@schule.de" />
+      <label>Rolle
+        <select name="role" required>
+          <option value="Administrator">Administrator</option>
+          <option value="Lehrerin">Lehrerin</option>
+          <option value="Schüler">Schüler</option>
+          <option value="Schülerin">Schülerin</option>
+          <option value="Gast">Gast</option>
+        </select>
+      </label>
+      <label>Status
+        <select name="status">
+          <option value="Online">Online</option>
+          <option value="Offline" selected>Offline</option>
+        </select>
+      </label>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary" value="save">+ Benutzer erstellen</button>
+        <button type="button" class="btn btn-secondary" id="userDialogCancel">×</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="roleDialog" aria-labelledby="roleDialogTitle">
+    <div class="modal-form">
+      <h3 id="roleDialogTitle">Rollen verwalten</h3>
+      <ul class="perm-list" id="permList"></ul>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="roleDialogClose">×</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="promoDialog" aria-labelledby="promoDialogTitle">
+    <div class="modal-form">
+      <h3 id="promoDialogTitle">Wissen schafft Möglichkeiten.</h3>
+      <p>Heute lernen.</p>
+      <p>Morgen mehr erreichen.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="promoDialogClose">×</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="logoutDialog" aria-labelledby="logoutDialogTitle">
+    <div class="modal-form">
+      <h3 id="logoutDialogTitle">Mujtaba Najafi</h3>
+      <p>Administrator</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="logoutConfirm">Administrator</button>
+        <button type="button" class="btn btn-secondary" id="logoutCancel">×</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
