@@ -1,0 +1,71 @@
+1
+00:00:00,300 --> 00:00:02,172
+NAT.
+
+2
+00:00:02,392 --> 00:00:07,705
+NAT übersetzt viele private Adressen in
+wenige öffentliche, damit das Firmennetz
+
+3
+00:00:07,718 --> 00:00:09,832
+ins Internet kann.
+
+4
+00:00:10,052 --> 00:00:18,524
+Bereiche wie 192.168.0.0/16 sind privat.
+
+5
+00:00:18,744 --> 00:00:22,426
+Dieselbe Zahl darf in vielen Firmen
+vorkommen und wird im
+
+6
+00:00:22,439 --> 00:00:24,912
+Internet nicht geroutet.
+
+7
+00:00:25,132 --> 00:00:29,116
+Der PC sendet mit seiner privaten Adresse.
+
+8
+00:00:29,336 --> 00:00:32,649
+Der Router merkt sich die Übersetzung und
+zeigt nach außen
+
+9
+00:00:32,662 --> 00:00:35,192
+seine öffentliche Adresse.
+
+10
+00:00:35,412 --> 00:00:38,412
+Antworten übersetzt er zurück.
+
+11
+00:00:38,632 --> 00:00:48,040
+Ein Server im Internet kann deshalb nicht
+von sich aus 192.168.10.50 anrufen.
+
+12
+00:00:48,260 --> 00:00:58,844
+192.168.10.50 wird am
+Router zu 203.0.113.5.
+
+13
+00:00:59,064 --> 00:01:04,920
+Das Internet sieht nur 203.0.113.5.
+
+14
+00:01:05,300 --> 00:01:10,076
+Privat innen, NAT an der
+Grenze, öffentlich außen.
+
+15
+00:01:10,296 --> 00:01:18,168
+192.168.10.50 ist
+nicht weltweit eindeutig.
+
+16
+00:01:18,388 --> 00:01:21,532
+NAT ist keine Namensauflösung.
+

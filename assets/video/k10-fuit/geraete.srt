@@ -1,0 +1,84 @@
+1
+00:00:00,300 --> 00:00:02,700
+Geräte und Server.
+
+2
+00:00:02,920 --> 00:00:06,760
+Ein Switch verbindet Geräte
+im lokalen Netz.
+
+3
+00:00:06,980 --> 00:00:11,324
+Ein Access Point hängt WLAN-Geräte
+an dieses Netz.
+
+4
+00:00:11,544 --> 00:00:15,360
+Ein Router
+verbindet verschiedene IP-Netze.
+
+5
+00:00:15,580 --> 00:00:19,372
+Server sind Rechner mit
+einer festen Aufgabe.
+
+6
+00:00:19,592 --> 00:00:23,312
+Ein Verzeichnisdienst hält
+Konten und Rechte.
+
+7
+00:00:23,532 --> 00:00:26,628
+DHCP verteilt Adressen.
+
+8
+00:00:26,848 --> 00:00:30,448
+DNS übersetzt Namen in Adressen.
+
+9
+00:00:30,668 --> 00:00:34,580
+Ein SQL-Server speichert abgefragte Daten.
+
+10
+00:00:34,800 --> 00:00:38,232
+Ein Mailserver nimmt und stellt Post zu.
+
+11
+00:00:38,452 --> 00:00:41,428
+Ein Webserver liefert Seiten.
+
+12
+00:00:41,648 --> 00:00:45,895
+Diese Rollen können auf getrennten
+Maschinen liegen oder zusammen, sie
+
+13
+00:00:45,909 --> 00:00:48,968
+bleiben aber verschiedene Aufgaben.
+
+14
+00:00:49,188 --> 00:00:53,076
+Der Access Point im Klassenraum gibt WLAN.
+
+15
+00:00:53,296 --> 00:00:58,360
+Der Router am Standort verbindet dieses
+LAN mit einem anderen Netz.
+
+16
+00:00:58,580 --> 00:01:04,988
+Der DHCP-Server verteilt die Adressen, der
+Access Point tut das nicht von allein.
+
+17
+00:01:05,368 --> 00:01:10,408
+Switch: ein Netz. Router: mehrere Netze.
+
+18
+00:01:10,628 --> 00:01:14,204
+Access Point ist der Übergang ins WLAN.
+
+19
+00:01:14,424 --> 00:01:18,264
+Jede Serverrolle hat genau eine Aufgabe.
+

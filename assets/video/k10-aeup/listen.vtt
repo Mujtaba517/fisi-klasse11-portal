@@ -1,0 +1,75 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+Listen.
+
+2
+00:00:02.392 --> 00:00:07.384
+Eine Liste speichert mehrere Werte in
+einer festen Reihenfolge.
+
+3
+00:00:07.604 --> 00:00:10.460
+Der erste Index ist 0.
+
+4
+00:00:10.680 --> 00:00:14.208
+Du kannst Werte anhängen oder ersetzen.
+
+5
+00:00:14.428 --> 00:00:19.156
+lager = ["Mutter", "Schraube"]
+hat zwei Einträge.
+
+6
+00:00:19.376 --> 00:00:23.552
+lager[0] ist Mutter,
+lager[1] ist Schraube.
+
+7
+00:00:23.772 --> 00:00:28.428
+lager[2] gibt es nicht und
+erzeugt einen Laufzeitfehler.
+
+8
+00:00:28.648 --> 00:00:31.288
+append fügt hinten an.
+
+9
+00:00:31.508 --> 00:00:35.996
+Eine Liste ist veränderbar, ein
+einzelner int nicht.
+
+10
+00:00:36.216 --> 00:00:41.980
+Die Länge holst du mit len(lager), du
+zählst nicht von 1, wenn du
+
+11
+00:00:41.980 --> 00:00:43.488
+den Index meinst.
+
+12
+00:00:43.708 --> 00:00:47.932
+Drei Artikel: Index 0, 1 und 2.
+
+13
+00:00:48.152 --> 00:00:52.832
+Der dritte Artikel ist Index 2,
+nicht Index 3.
+
+14
+00:00:53.212 --> 00:00:56.284
+Der Index beginnt bei 0.
+
+15
+00:00:56.504 --> 00:01:00.968
+len liefert die Anzahl, nicht
+den letzten Index.
+
+16
+00:01:01.188 --> 00:01:04.908
+Ein fehlender Index
+ist ein Laufzeitfehler.
+

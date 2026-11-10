@@ -1,0 +1,65 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.676
+Pull-up und Pull-down.
+
+2
+00:00:02.896 --> 00:00:06.184
+Ein unbeschalteter Eingang schwebt.
+
+3
+00:00:06.404 --> 00:00:09.284
+Er liest zufällig HIGH oder LOW.
+
+4
+00:00:09.504 --> 00:00:15.384
+Ein Widerstand zieht ihn auf einen festen
+Pegel, solange der Taster offen ist.
+
+5
+00:00:15.604 --> 00:00:20.260
+Pull-down: Ruhe ist LOW, gedrückt gegen
+Plus ist HIGH.
+
+6
+00:00:20.480 --> 00:00:25.136
+Pull-up: Ruhe ist HIGH, gedrückt gegen
+Masse ist LOW.
+
+7
+00:00:25.356 --> 00:00:27.924
+Das nennt man Active Low.
+
+8
+00:00:28.144 --> 00:00:31.912
+Viele Controller haben
+einen internen Pull-up.
+
+9
+00:00:32.132 --> 00:00:36.958
+Ohne Zugwiderstand wunderst du dich über
+zufällige Werte, obwohl der Taster
+
+10
+00:00:36.971 --> 00:00:38.948
+in Ordnung ist.
+
+11
+00:00:39.168 --> 00:00:45.120
+Interner Pull-up, Taster nach GND:
+losgelassen HIGH, gedrückt LOW.
+
+12
+00:00:45.500 --> 00:00:49.388
+Float bedeutet: kein definierter Pegel.
+
+13
+00:00:49.608 --> 00:00:53.568
+Pull-up kehrt die Logik um:
+gedrückt ist LOW.
+
+14
+00:00:53.788 --> 00:00:56.668
+Ohne Widerstand schwebt der Pin.
+

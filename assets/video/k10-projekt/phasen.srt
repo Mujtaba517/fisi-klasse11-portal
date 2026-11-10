@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:02,172
+Phasen.
+
+2
+00:00:02,392 --> 00:00:07,168
+Das Projekt läuft in Vorbereitung,
+Planung und Steuerung.
+
+3
+00:00:07,388 --> 00:00:11,852
+Zur Steuerung gehören
+Kontrolle und Dokumentation.
+
+4
+00:00:12,072 --> 00:00:16,296
+Vorbereitung klärt Ziel,
+Auftrag und Rahmen.
+
+5
+00:00:16,516 --> 00:00:23,284
+Planung zerlegt das Ziel in Arbeitspakete,
+Termine, Kosten und Zuständige.
+
+6
+00:00:23,504 --> 00:00:27,992
+Steuerung setzt den Plan um und vergleicht
+Ist und Soll.
+
+7
+00:00:28,212 --> 00:00:32,628
+Dokumentation schreibt Abweichung
+und Entscheidung auf.
+
+8
+00:00:32,848 --> 00:00:37,792
+Kontrolle ohne Schreiben vergisst, warum
+etwas geändert wurde.
+
+9
+00:00:38,012 --> 00:00:44,108
+Du springst nicht mit dem Lötkolben in die
+Steuerung, solange das Ziel unklar ist.
+
+10
+00:00:44,328 --> 00:00:50,664
+Vorbereitung: „Access Points in Gebäude B,
+Abnahme am 30. April.“
+
+11
+00:00:50,884 --> 00:00:54,892
+Planung: Liste der Räume und der Termine.
+
+12
+00:00:55,112 --> 00:00:58,808
+Steuerung: jede Woche Soll gegen Ist.
+
+13
+00:00:59,188 --> 00:01:03,148
+Erst Ziel, dann Plan, dann Steuerung.
+
+14
+00:01:03,368 --> 00:01:05,936
+Ist und Soll vergleichen.
+
+15
+00:01:06,156 --> 00:01:08,844
+Abweichungen aufschreiben.
+

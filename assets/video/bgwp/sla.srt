@@ -1,0 +1,68 @@
+1
+00:00:00,300 --> 00:00:02,172
+SLA.
+
+2
+00:00:02,392 --> 00:00:07,508
+Ein Service Level Agreement ist eine
+schriftliche Zusage über Reaktionszeit und
+
+3
+00:00:07,521 --> 00:00:10,864
+Wiederherstellungszeit eines Dienstes.
+
+4
+00:00:11,084 --> 00:00:15,788
+Reaktionszeit ist, wann jemand
+die Meldung anfängt.
+
+5
+00:00:16,008 --> 00:00:21,072
+Wiederherstellungszeit ist, wann der
+Dienst wieder nutzbar ist.
+
+6
+00:00:21,292 --> 00:00:24,028
+Beides ist nicht dasselbe.
+
+7
+00:00:24,248 --> 00:00:28,856
+Die Priorität bestimmt,
+welches Zeitfenster gilt.
+
+8
+00:00:29,076 --> 00:00:33,588
+Ein SLA ist kein Schmuck
+und keine Steuererklärung.
+
+9
+00:00:33,808 --> 00:00:37,450
+Wer es ignoriert, kann die Zusage
+verfehlen, auch wenn
+
+10
+00:00:37,463 --> 00:00:40,024
+irgendwann repariert wird.
+
+11
+00:00:40,244 --> 00:00:46,628
+Priorität hoch: Reaktion in einer Stunde,
+Wiederherstellung in vier Stunden.
+
+12
+00:00:46,848 --> 00:00:51,696
+Priorität niedrig: Reaktion
+am nächsten Arbeitstag.
+
+13
+00:00:52,076 --> 00:00:55,484
+Reaktion ist nicht Wiederherstellung.
+
+14
+00:00:55,704 --> 00:00:58,608
+Die Zusage steht schriftlich.
+
+15
+00:00:58,828 --> 00:01:02,068
+Priorität wählt das Zeitfenster.
+

@@ -1,0 +1,76 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.724
+DHCP je VLAN.
+
+2
+00:00:02.944 --> 00:00:08.440
+DHCP vergibt Adresse, Maske,
+Gateway und DNS.
+
+3
+00:00:08.660 --> 00:00:12.999
+Adressen für Router, Switch und Server
+schließt du aus, damit sie nicht
+
+4
+00:00:13.013 --> 00:00:15.284
+doppelt vergeben werden.
+
+5
+00:00:15.504 --> 00:00:20.640
+Jedes VLAN ist ein eigenes Netz und
+braucht einen eigenen Pool.
+
+6
+00:00:20.860 --> 00:00:26.884
+Der Pool nennt das Netz, die Maske und das
+Gateway genau dieses VLANs.
+
+7
+00:00:27.104 --> 00:00:32.504
+Die ausgeschlossenen Adressen legst du
+fest, bevor der Pool verteilt.
+
+8
+00:00:32.724 --> 00:00:37.092
+Sonst kann ein PC die Adresse
+des Routers bekommen.
+
+9
+00:00:37.312 --> 00:00:42.441
+Das ist kein Cisco-Geheimnis: erst fest
+vergebene Adressen schützen, dann den
+
+10
+00:00:42.454 --> 00:00:45.184
+Rest automatisch verteilen.
+
+11
+00:00:45.404 --> 00:00:56.732
+Für VLAN 10 sperrst du
+192.168.10.1 bis 192.168.10.10.
+
+12
+00:00:56.952 --> 00:01:09.864
+Der Pool nutzt 192.168.10.0/24 und
+das Gateway 192.168.10.1.
+
+13
+00:01:10.084 --> 00:01:15.220
+Für VLAN 20 gibt es einen zweiten
+Pool, nicht denselben.
+
+14
+00:01:15.600 --> 00:01:17.904
+Ein Pool pro Netz.
+
+15
+00:01:18.124 --> 00:01:21.532
+Feste Adressen zuerst ausschließen.
+
+16
+00:01:21.752 --> 00:01:25.184
+Gateway und DNS gehören in den Pool.
+

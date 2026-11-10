@@ -1,0 +1,68 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:03.012
+Prüfung in drei Schritten.
+
+2
+00:00:03.232 --> 00:00:08.111
+Du prüfst von nah nach fern: eigenes
+Gateway, Gateway des anderen Netzes,
+
+3
+00:00:08.321 --> 00:00:11.320
+danach ein Host im anderen Netz.
+
+4
+00:00:11.540 --> 00:00:17.852
+Schritt 1 zeigt, ob Adresse, Maske und der
+Weg zum eigenen Router stimmen.
+
+5
+00:00:18.072 --> 00:00:23.208
+Schritt 2 zeigt, ob der Router zwischen
+den Netzen weiterleitet.
+
+6
+00:00:23.428 --> 00:00:27.892
+Schritt 3 zeigt, ob das
+Ziel selbst antwortet.
+
+7
+00:00:28.112 --> 00:00:33.800
+Fällt nur Schritt 3 aus, suchst du am
+Ziel, nicht an der eigenen Karte.
+
+8
+00:00:34.020 --> 00:00:39.084
+Fällt schon Schritt 1 aus, bringt eine
+Route weiter hinten nichts.
+
+9
+00:00:39.304 --> 00:00:43.648
+Schreib das Ergebnis auf, bevor
+du etwas änderst.
+
+10
+00:00:43.868 --> 00:00:59.060
+192.168.10.50 erreicht 192.168.10.1,
+aber nicht 192.168.20.1.
+
+11
+00:00:59.280 --> 00:01:03.864
+Der Fehler liegt am Routing, nicht
+an der Netzwerkkarte.
+
+12
+00:01:04.244 --> 00:01:06.356
+Immer nah vor fern.
+
+13
+00:01:06.576 --> 00:01:10.224
+Ein Timeout am Ende nennt
+nicht die Stelle.
+
+14
+00:01:10.444 --> 00:01:13.900
+Ergebnis notieren, dann ändern.
+

@@ -1,0 +1,62 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+Baudrate.
+
+2
+00:00:02.392 --> 00:00:05.126
+Die Baudrate ist die
+Schrittgeschwindigkeit der
+
+3
+00:00:05.139 --> 00:00:07.288
+seriellen Leitung.
+
+4
+00:00:07.508 --> 00:00:11.828
+Sender und Empfänger müssen
+dieselbe Zahl verwenden.
+
+5
+00:00:12.048 --> 00:00:17.808
+Im Sketch steht Serial.begin(115200).
+
+6
+00:00:18.028 --> 00:00:21.892
+Im Serial Monitor muss
+dieselbe Zahl stehen.
+
+7
+00:00:22.112 --> 00:00:28.040
+115200 ist am ESP32 üblich.
+
+8
+00:00:28.260 --> 00:00:35.892
+Steht der Monitor auf 9600, siehst du
+Buchstabensalat, obwohl das Kabel stimmt.
+
+9
+00:00:36.112 --> 00:00:40.144
+Es reicht nicht, nur
+eine Seite umzustellen.
+
+10
+00:00:40.364 --> 00:00:49.436
+Sketch 115200, Monitor 9600: Müll auf dem
+Schirm, kein Kabeldefekt.
+
+11
+00:00:49.816 --> 00:00:52.624
+Beide Seiten dieselbe Zahl.
+
+12
+00:00:52.844 --> 00:00:57.524
+Wirre Zeichen bei gutem
+Kabel: Baudrate vergleichen.
+
+13
+00:00:57.744 --> 00:01:06.432
+115200 ist ein üblicher ESP32-Wert, keine
+Pflicht für jedes Gerät.
+

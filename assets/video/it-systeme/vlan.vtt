@@ -1,0 +1,72 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+VLAN.
+
+2
+00:00:02.392 --> 00:00:07.048
+Ein VLAN ist ein logisches Netz auf
+einem physischen Switch.
+
+3
+00:00:07.268 --> 00:00:11.765
+Geräte in verschiedenen VLANs sprechen
+nicht miteinander, bis
+
+4
+00:00:11.779 --> 00:00:14.036
+ein Router vermittelt.
+
+5
+00:00:14.256 --> 00:00:19.344
+Ein Access-Port trägt genau ein VLAN und
+gehört an einen PC.
+
+6
+00:00:19.564 --> 00:00:23.917
+Ein Trunk-Port trägt mehrere VLANs mit
+Tags und gehört zwischen
+
+7
+00:00:23.930 --> 00:00:25.924
+Switch und Router.
+
+8
+00:00:26.144 --> 00:00:32.552
+Typisch: VLAN 10 Büro, VLAN 20 Technik,
+VLAN 30 Gäste.
+
+9
+00:00:32.772 --> 00:00:36.677
+Der Gast sieht den Dateiserver nicht,
+solange keine Route und
+
+10
+00:00:36.690 --> 00:00:39.492
+keine Freigabe existieren.
+
+11
+00:00:39.712 --> 00:00:43.720
+Der Uplink zum Router-on-a-Stick muss
+ein Trunk sein.
+
+12
+00:00:43.940 --> 00:00:47.852
+Als Access käme nur ein VLAN am Router an.
+
+13
+00:00:48.232 --> 00:00:53.272
+Access für Endgeräte, Trunk
+für mehrere VLANs.
+
+14
+00:00:53.492 --> 00:00:58.604
+Ein VLAN trennt logisch. Es
+ersetzt keinen Router.
+
+15
+00:00:58.824 --> 00:01:02.976
+Gäste und Dateiserver gehören nicht
+ins selbe VLAN.
+

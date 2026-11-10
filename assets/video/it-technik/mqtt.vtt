@@ -1,0 +1,80 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.220
+MQTT.
+
+2
+00:00:02.440 --> 00:00:07.528
+MQTT ist ein leichtes
+Nachrichtenprotokoll für Geräte.
+
+3
+00:00:07.748 --> 00:00:12.716
+Ein Broker nimmt Nachrichten an und gibt
+sie an Abonnenten weiter.
+
+4
+00:00:12.936 --> 00:00:18.120
+Ein Gerät veröffentlicht auf einem Topic,
+zum Beispiel lager/temp.
+
+5
+00:00:18.340 --> 00:00:22.732
+Wer dieses Topic abonniert hat,
+bekommt die Zahl.
+
+6
+00:00:22.952 --> 00:00:27.608
+Das Topic ist der
+Kanalname, kein OSI-Thema.
+
+7
+00:00:27.828 --> 00:00:33.372
+QoS 0 heißt höchstens einmal: die
+Nachricht darf verloren gehen.
+
+8
+00:00:33.592 --> 00:00:38.602
+QoS 1 heißt mindestens einmal: sie kann
+doppelt ankommen, geht aber
+
+9
+00:00:38.616 --> 00:00:40.960
+nicht still verloren.
+
+10
+00:00:41.180 --> 00:00:45.692
+MQTT transportiert keine 4K-Videos.
+
+11
+00:00:45.912 --> 00:00:48.480
+Es trägt kurze Werte.
+
+12
+00:00:48.700 --> 00:00:54.844
+Der ESP32 veröffentlicht
+21.5 auf lager/temp.
+
+13
+00:00:55.064 --> 00:01:02.555
+Ein Rechner, der lager/temp abonniert hat,
+zeigt 21.5, ohne den ESP32
+
+14
+00:01:02.555 --> 00:01:04.400
+direkt zu kennen.
+
+15
+00:01:04.780 --> 00:01:08.548
+Broker in der Mitte, Topic als Kanal.
+
+16
+00:01:08.768 --> 00:01:15.632
+QoS 0: höchstens einmal. QoS
+1: mindestens einmal.
+
+17
+00:01:15.852 --> 00:01:20.172
+MQTT ist kein DNS und kein DHCP.
+

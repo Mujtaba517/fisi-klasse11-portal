@@ -1,0 +1,52 @@
+1
+00:00:00,300 --> 00:00:03,420
+Vom Relais zum Mikroprozessor.
+
+2
+00:00:03,640 --> 00:00:08,966
+Rechner wurden kleiner und dichter: von
+elektromechanischen Teilen über Röhren und
+
+3
+00:00:08,979 --> 00:00:13,936
+Transistoren zu integrierten Schaltungen
+und zum Mikroprozessor.
+
+4
+00:00:14,156 --> 00:00:19,868
+Jede Stufe packt mehr Schalter auf weniger
+Raum und braucht weniger Energie.
+
+5
+00:00:20,088 --> 00:00:24,480
+Der Mikroprozessor legt die Rechenwerke
+auf einen Chip.
+
+6
+00:00:24,700 --> 00:00:28,732
+Daraus werden PCs
+in verschiedenen Gehäusen.
+
+7
+00:00:28,952 --> 00:00:32,672
+Ein Tischrechner von früher
+füllt einen Raum.
+
+8
+00:00:32,892 --> 00:00:37,692
+Dieselbe Idee steckt heute in einem Chip
+auf dem Mainboard.
+
+9
+00:00:38,072 --> 00:00:41,888
+Dichter, kleiner, weniger Energie.
+
+10
+00:00:42,108 --> 00:00:46,428
+Der Mikroprozessor ist die Recheneinheit
+auf einem Chip.
+
+11
+00:00:46,648 --> 00:00:49,768
+Keine erfundenen Jahreszahlen.
+

@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+DHCP.
+
+2
+00:00:02.392 --> 00:00:09.760
+DHCP vergibt IP-Adresse, Maske, Gateway
+und oft den DNS-Server automatisch.
+
+3
+00:00:09.980 --> 00:00:14.756
+Die vergebene Adresse ist eine Miete auf
+Zeit, ein Lease.
+
+4
+00:00:14.976 --> 00:00:17.520
+Der Ablauf heißt DORA.
+
+5
+00:00:17.740 --> 00:00:23.020
+Discover: der Client sucht einen Server,
+weil er ihn noch nicht kennt.
+
+6
+00:00:23.240 --> 00:00:27.968
+Offer: der Server bietet eine Adresse aus
+dem Pool an.
+
+7
+00:00:28.188 --> 00:00:32.604
+Request: der Client will
+genau dieses Angebot.
+
+8
+00:00:32.824 --> 00:00:36.736
+Acknowledge: der Server
+bestätigt die Miete.
+
+9
+00:00:36.956 --> 00:00:41.809
+Feste Geräte wie der Router liegen
+außerhalb des Pools, sonst gibt es zwei
+
+10
+00:00:41.822 --> 00:00:44.564
+Besitzer derselben Adresse.
+
+11
+00:00:44.784 --> 00:00:56.088
+Pool 192.168.10.100 bis 192.168.10.200.
+
+12
+00:00:56.308 --> 00:01:03.124
+Der Router 192.168.10.1 darf nicht
+im Pool liegen.
+
+13
+00:01:03.504 --> 00:01:08.664
+Reihenfolge: Discover,
+Offer, Request, Acknowledge.
+
+14
+00:01:08.884 --> 00:01:13.804
+Discover ist die Suche. Request
+ist die Annahme.
+
+15
+00:01:14.024 --> 00:01:19.760
+DHCP verteilt Adressen. Es
+übersetzt keine Namen.
+

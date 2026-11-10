@@ -1,0 +1,72 @@
+1
+00:00:00,300 --> 00:00:03,108
+Übersetzen und Ausführen.
+
+2
+00:00:03,328 --> 00:00:07,744
+Ein Compiler übersetzt das ganze Programm
+vor dem Lauf.
+
+3
+00:00:07,964 --> 00:00:12,356
+Ein Interpreter führt es anweisung
+für Anweisung aus.
+
+4
+00:00:12,576 --> 00:00:18,152
+Der Compiler findet manche Fehler, bevor
+etwas startet, und liefert eine startbare
+
+5
+00:00:18,165 --> 00:00:20,880
+Datei oder Objektcode.
+
+6
+00:00:21,100 --> 00:00:25,295
+Der Interpreter startet sofort und meldet
+den Fehler an der Stelle,
+
+7
+00:00:25,439 --> 00:00:27,532
+die gerade läuft.
+
+8
+00:00:27,752 --> 00:00:32,815
+Python liegt dazwischen: Der Quelltext
+wird in Bytecode übersetzt und dieser
+
+9
+00:00:32,828 --> 00:00:35,504
+Bytecode wird ausgeführt.
+
+10
+00:00:35,724 --> 00:00:40,708
+Für die Klasse reicht: Du lieferst eine
+.py-Datei ab, kein von
+
+11
+00:00:40,721 --> 00:00:43,620
+Hand gebautes Maschinenprogramm.
+
+12
+00:00:43,840 --> 00:00:47,776
+Ein Tippfehler in print wird
+beim Start gemeldet.
+
+13
+00:00:47,996 --> 00:00:51,716
+Du musst nicht zuerst
+eine exe-Datei bauen.
+
+14
+00:00:52,096 --> 00:00:55,480
+Compiler: vorher übersetzen.
+
+15
+00:00:55,700 --> 00:00:59,252
+Interpreter: beim Lauf ausführen.
+
+16
+00:00:59,472 --> 00:01:03,240
+Python nutzt Bytecode als Zwischenschritt.
+

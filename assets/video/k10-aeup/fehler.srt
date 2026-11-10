@@ -1,0 +1,78 @@
+1
+00:00:00,300 --> 00:00:02,916
+Drei Arten von Fehlern.
+
+2
+00:00:03,136 --> 00:00:07,168
+Ein Syntaxfehler
+ist ungültige Schreibweise.
+
+3
+00:00:07,388 --> 00:00:11,468
+Ein Laufzeitfehler bricht während
+der Ausführung ab.
+
+4
+00:00:11,688 --> 00:00:16,368
+Ein Logikfehler läuft durch und liefert
+das falsche Ergebnis.
+
+5
+00:00:16,588 --> 00:00:21,676
+Syntax: eine vergessene Klammer oder
+ein falsches Einrücken.
+
+6
+00:00:21,896 --> 00:00:24,584
+Das Programm startet nicht.
+
+7
+00:00:24,804 --> 00:00:30,108
+Laufzeit: Teilen durch null oder ein Name,
+den es nicht gibt.
+
+8
+00:00:30,328 --> 00:00:34,408
+Das Programm startet und stürzt an
+der Stelle ab.
+
+9
+00:00:34,628 --> 00:00:39,533
+Logik: du rechnest den Rabatt mit dem
+falschen Faktor, es kommt eine Zahl,
+
+10
+00:00:39,796 --> 00:00:41,660
+nur die falsche.
+
+11
+00:00:41,880 --> 00:00:47,328
+Tests finden Logikfehler nur, wenn du das
+erwartete Ergebnis kennst.
+
+12
+00:00:47,548 --> 00:00:51,724
+gesamt = netto + steuer
+ist richtig gedacht.
+
+13
+00:00:51,944 --> 00:00:57,393
+gesamt = netto - steuer läuft auch, ist
+aber logisch falsch, wenn die
+
+14
+00:00:57,393 --> 00:00:59,288
+Steuer hinzukommen soll.
+
+15
+00:00:59,668 --> 00:01:02,644
+Syntax: startet nicht.
+
+16
+00:01:02,864 --> 00:01:05,624
+Laufzeit: stürzt ab.
+
+17
+00:01:05,844 --> 00:01:09,996
+Logik: falsches Ergebnis ohne Absturz.
+

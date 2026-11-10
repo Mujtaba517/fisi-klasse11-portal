@@ -1,0 +1,69 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.532
+Switch und VLAN.
+
+2
+00:00:02.752 --> 00:00:07.744
+Ein Switch leitet einen Rahmen an den
+Port der Ziel-MAC-Adresse.
+
+3
+00:00:07.964 --> 00:00:12.659
+Ein Access-Port trägt genau ein VLAN, ein
+Trunk-Port trägt mehrere
+
+4
+00:00:12.672 --> 00:00:15.596
+VLANs mit Markierung.
+
+5
+00:00:15.816 --> 00:00:20.304
+Ohne VLAN liegen alle Ports
+in einer Broadcast-Domäne.
+
+6
+00:00:20.524 --> 00:00:24.772
+Mit VLAN trennst du Abteilungen
+auf demselben Gerät.
+
+7
+00:00:24.992 --> 00:00:29.831
+Zum PC hin nimmt der Access-Port die
+Markierung ab, weil ein normaler PC
+
+8
+00:00:29.845 --> 00:00:32.000
+sie nicht erwartet.
+
+9
+00:00:32.220 --> 00:00:37.007
+Zum nächsten Switch oder zum Router bleibt
+sie auf dem Trunk, sonst vermischen sich
+
+10
+00:00:37.020 --> 00:00:38.940
+die Netze wieder.
+
+11
+00:00:39.160 --> 00:00:43.456
+Die Ports 1 bis 8 sind Access in VLAN 10.
+
+12
+00:00:43.676 --> 00:00:48.620
+Der Uplink ist Trunk und lässt VLAN 10 und
+VLAN 20 durch.
+
+13
+00:00:49.000 --> 00:00:52.672
+Access: ein Endgerät, ein VLAN.
+
+14
+00:00:52.892 --> 00:00:57.524
+Trunk: mehrere VLANs, mit Markierung.
+
+15
+00:00:57.744 --> 00:01:00.768
+Ein PC-Port ist kein Trunk.
+

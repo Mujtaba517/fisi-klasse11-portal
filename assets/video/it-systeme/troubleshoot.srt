@@ -1,0 +1,77 @@
+1
+00:00:00,300 --> 00:00:02,172
+Fehlersuche.
+
+2
+00:00:02,392 --> 00:00:07,271
+Eine Netzstörung prüfst du in fester
+Reihenfolge, nicht bei der Firewall, wenn
+
+3
+00:00:07,284 --> 00:00:09,640
+das Kabel lose ist.
+
+4
+00:00:09,860 --> 00:00:12,236
+Erst Link und Kabel.
+
+5
+00:00:12,456 --> 00:00:18,072
+Dann ipconfig unter Windows oder ip addr
+unter Linux: Hast du IP,
+
+6
+00:00:18,295 --> 00:00:20,376
+Maske und Gateway?
+
+7
+00:00:20,596 --> 00:00:23,644
+Dann Ping an das eigene Gateway.
+
+8
+00:00:23,864 --> 00:00:29,888
+Dann Ping an 8.8.8.8, das
+braucht keinen Namen.
+
+9
+00:00:30,108 --> 00:00:33,012
+Erst danach den Namen prüfen.
+
+10
+00:00:33,232 --> 00:00:39,976
+Wenn das Gateway antwortet und 8.8.8.8
+nicht, liegt es eher an der Route nach
+
+11
+00:00:39,976 --> 00:00:43,216
+außen, an NAT oder an einer Firewall.
+
+12
+00:00:43,436 --> 00:00:47,780
+Wenn schon das Gateway schweigt, suchst du
+im eigenen Netz.
+
+13
+00:00:48,000 --> 00:00:55,320
+Ping an 8.8.8.8
+klappt, www.example.com nicht.
+
+14
+00:00:55,540 --> 00:00:59,572
+Die Verbindung nach außen
+steht, DNS nicht.
+
+15
+00:00:59,952 --> 00:01:05,688
+Reihenfolge: Link, IP,
+Gateway, außen, Name.
+
+16
+00:01:05,908 --> 00:01:11,764
+8.8.8.8 prüft die
+IP-Verbindung, nicht DNS.
+
+17
+00:01:11,984 --> 00:01:14,864
+Nicht mit dem Namen anfangen.
+

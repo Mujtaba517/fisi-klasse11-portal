@@ -1,0 +1,72 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.436
+if und elif.
+
+2
+00:00:02.656 --> 00:00:07.984
+Eine Verzweigung führt einen Block nur
+aus, wenn eine Bedingung wahr ist.
+
+3
+00:00:08.204 --> 00:00:12.404
+elif prüft die nächste Bedingung,
+else den Rest.
+
+4
+00:00:12.624 --> 00:00:18.192
+In Python entscheidet die Einrückung,
+welcher Block zur Bedingung gehört.
+
+5
+00:00:18.412 --> 00:00:24.532
+if, elif und else gehören zusammen und
+werden von oben nach unten geprüft.
+
+6
+00:00:24.752 --> 00:00:29.672
+Die erste wahre Bedingung gewinnt, der
+Rest wird übersprungen.
+
+7
+00:00:29.892 --> 00:00:34.596
+Ein Vergleich nutzt ==, nicht
+ein einzelnes =.
+
+8
+00:00:34.816 --> 00:00:37.000
+Das = weist zu.
+
+9
+00:00:37.220 --> 00:00:43.436
+Im Aktivitätsdiagramm ist die Raute die
+Entscheidung, die Pfeile sind ja und nein.
+
+10
+00:00:43.656 --> 00:00:47.712
+Die Raute rechnet nicht, sie wählt
+nur den Weg.
+
+11
+00:00:47.932 --> 00:00:53.380
+Wenn der Bestand unter 5 liegt, wird
+nachbestellt, sonst nicht.
+
+12
+00:00:53.600 --> 00:00:58.448
+Die Raute trägt „Bestand < 5“, die Zweige
+„ja“ und „nein“.
+
+13
+00:00:58.828 --> 00:01:01.492
+Einrückung zeigt den Block.
+
+14
+00:01:01.712 --> 00:01:05.288
+== vergleicht, = weist zu.
+
+15
+00:01:05.508 --> 00:01:08.316
+Die Raute ist die Entscheidung.
+

@@ -1,0 +1,58 @@
+1
+00:00:00,300 --> 00:00:03,780
+WLAN am ESP32.
+
+2
+00:00:04,000 --> 00:00:09,760
+Der ESP32 tritt einem Funknetz mit SSID
+und Passwort bei.
+
+3
+00:00:09,980 --> 00:00:15,860
+Erfolg siehst du an einer IP-Adresse im
+Serial Monitor, nicht nur an einer Lampe.
+
+4
+00:00:16,080 --> 00:00:21,792
+SSID und Passwort müssen exakt
+stimmen, einschließlich Großbuchstaben.
+
+5
+00:00:22,012 --> 00:00:27,916
+Danach wartest du auf WL_CONNECTED und
+gibst IP und MAC aus.
+
+6
+00:00:28,136 --> 00:00:31,688
+Ohne IP war der Beitritt nicht fertig.
+
+7
+00:00:31,908 --> 00:00:36,252
+Viele Boards funken nur auf 2,4 Gigahertz.
+
+8
+00:00:36,472 --> 00:00:43,264
+Ein Name wie google.de klappt danach nur,
+wenn auch DNS und das Gateway stimmen.
+
+9
+00:00:43,484 --> 00:00:49,772
+Der Monitor zeigt 192.168.4.12.
+
+10
+00:00:49,992 --> 00:00:54,384
+Der Router hat den ESP32 aufgenommen.
+
+11
+00:00:54,764 --> 00:00:59,492
+IP im Monitor ist der Beleg, nicht
+die LED allein.
+
+12
+00:00:59,712 --> 00:01:04,896
+Zuerst SSID, Passwort und 2,4 GHz prüfen.
+
+13
+00:01:05,116 --> 00:01:08,884
+MAC ist die feste Adresse des Funkmoduls.
+

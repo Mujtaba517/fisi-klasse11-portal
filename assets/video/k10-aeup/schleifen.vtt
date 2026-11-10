@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.340
+for und while.
+
+2
+00:00:02.560 --> 00:00:05.608
+Eine Schleife wiederholt einen Block.
+
+3
+00:00:05.828 --> 00:00:09.068
+for geht eine bekannte Folge durch.
+
+4
+00:00:09.288 --> 00:00:13.608
+while wiederholt, solange eine
+Bedingung wahr ist.
+
+5
+00:00:13.828 --> 00:00:18.028
+for eignet sich für Listen und für
+eine feste Anzahl.
+
+6
+00:00:18.248 --> 00:00:24.656
+while eignet sich, wenn du vorher nicht
+weißt, wie oft, aber wann Schluss ist.
+
+7
+00:00:24.876 --> 00:00:29.628
+Die Bedingung muss sich im Block ändern,
+sonst endet while nie.
+
+8
+00:00:29.848 --> 00:00:33.160
+Die Einrückung zeigt wieder den Körper.
+
+9
+00:00:33.380 --> 00:00:37.917
+Eine Schleife ist keine Verzweigung: if
+läuft höchstens einmal, die
+
+10
+00:00:37.930 --> 00:00:40.124
+Schleife läuft wieder.
+
+11
+00:00:40.344 --> 00:00:45.096
+for artikel in lager: gibt jeden
+Artikel einmal aus.
+
+12
+00:00:45.316 --> 00:00:49.889
+while menge > 0: muss menge im Block
+verringern, sonst bleibt
+
+13
+00:00:49.889 --> 00:00:51.388
+die Schleife stehen.
+
+14
+00:00:51.768 --> 00:00:54.648
+for: bekannte Folge.
+
+15
+00:00:54.868 --> 00:00:58.180
+while: bis die Bedingung fällt.
+
+16
+00:00:58.400 --> 00:01:01.208
+Die Bedingung muss sich ändern.
+

@@ -1,0 +1,68 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+Topologie.
+
+2
+00:00:02.392 --> 00:00:06.808
+Die Topologie beschreibt, wer mit
+wem verbunden ist.
+
+3
+00:00:07.028 --> 00:00:11.372
+Im Stern hängt jedes Gerät an
+einem zentralen Switch.
+
+4
+00:00:11.592 --> 00:00:15.744
+Fällt ein Kabel aus, arbeitet
+der Rest weiter.
+
+5
+00:00:15.964 --> 00:00:19.396
+Fällt der Switch aus, steht alles.
+
+6
+00:00:19.616 --> 00:00:24.008
+Der Bus ist ein gemeinsames Kabel
+und heute selten.
+
+7
+00:00:24.228 --> 00:00:29.412
+Die Masche hat mehrere Wege und ist
+teurer, aber ausfallsicherer.
+
+8
+00:00:29.632 --> 00:00:32.560
+Büros nutzen meist den Stern.
+
+9
+00:00:32.780 --> 00:00:37.772
+Zwei Core-Switches mit Querverbindung
+nähern sich einer kleinen Masche.
+
+10
+00:00:37.992 --> 00:00:42.480
+Zwanzig PCs an einem Etagen-Switch
+sind ein Stern.
+
+11
+00:00:42.700 --> 00:00:47.020
+Ein defektes PC-Kabel legt nur
+diesen PC lahm.
+
+12
+00:00:47.400 --> 00:00:52.176
+Der zentrale Switch ist der einzelne
+Ausfallpunkt im Stern.
+
+13
+00:00:52.396 --> 00:00:57.052
+Ein Stern hat keinen Schutz, wenn
+der Mittelpunkt ausfällt.
+
+14
+00:00:57.272 --> 00:01:01.232
+Mehrere Wege sind eine Masche, kein Stern.
+

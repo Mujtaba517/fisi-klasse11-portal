@@ -1,0 +1,79 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.916
+PCIe und USB.
+
+2
+00:00:03.136 --> 00:00:07.912
+PCIe verbindet schnelle Karten
+punktgenau mit Lanes.
+
+3
+00:00:08.132 --> 00:00:12.236
+USB verbindet Geräte am Rand des Rechners.
+
+4
+00:00:12.456 --> 00:00:17.208
+Die Form der Buchse sagt nicht
+automatisch die Geschwindigkeit.
+
+5
+00:00:17.428 --> 00:00:21.916
+PCIe ist
+eine serielle Punkt-zu-Punkt-Verbindung.
+
+6
+00:00:22.136 --> 00:00:29.360
+Eine Karte bekommt eine oder mehrere
+Lanes, etwa x1, x4 oder x16.
+
+7
+00:00:29.580 --> 00:00:35.820
+Eine Grafikkarte braucht viele Lanes, eine
+einfache Schnittstellenkarte weniger.
+
+8
+00:00:36.040 --> 00:00:40.240
+Das alte parallele PCI ist nicht dasselbe.
+
+9
+00:00:40.460 --> 00:00:47.180
+USB ist für Tastatur, Speicherstick,
+Drucker und viele andere Geräte gedacht.
+
+10
+00:00:47.400 --> 00:00:51.624
+Versionen unterscheiden sich
+in der Geschwindigkeit.
+
+11
+00:00:51.844 --> 00:00:58.228
+USB versorgt kleine Geräte, es ersetzt
+nicht das Netzteil des ganzen PCs.
+
+12
+00:00:58.448 --> 00:01:02.936
+Eine Grafikkarte sitzt in PCIe x16.
+
+13
+00:01:03.156 --> 00:01:06.924
+Ein USB-Stick steckt außen in USB.
+
+14
+00:01:07.144 --> 00:01:11.584
+Beides sind Anschlüsse, aber
+nicht dieselbe Busart.
+
+15
+00:01:11.964 --> 00:01:16.188
+PCIe: Lanes, innen, für Karten.
+
+16
+00:01:16.408 --> 00:01:19.624
+USB: Geräte am Rand.
+
+17
+00:01:19.844 --> 00:01:23.348
+Buchsenform ist nicht die Geschwindigkeit.
+

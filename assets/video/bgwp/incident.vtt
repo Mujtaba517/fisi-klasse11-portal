@@ -1,0 +1,67 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.772
+Incident und Problem.
+
+2
+00:00:02.992 --> 00:00:07.552
+Ein Incident ist eine aktuelle
+Störung eines Dienstes.
+
+3
+00:00:07.772 --> 00:00:13.148
+Ein Problem ist die Ursache, die solche
+Störungen wiederkehren lässt.
+
+4
+00:00:13.368 --> 00:00:17.280
+Beim Incident zählt
+die schnelle Wiederherstellung.
+
+5
+00:00:17.500 --> 00:00:20.572
+Die Ursache darf später folgen.
+
+6
+00:00:20.792 --> 00:00:26.197
+Das Problem sucht diese Ursache, zum
+Beispiel ein defektes Netzteil, das jeden
+
+7
+00:00:26.210 --> 00:00:29.504
+Montag denselben Ausfall erzeugt.
+
+8
+00:00:29.724 --> 00:00:34.140
+Ein Antrag auf einen neuen Laptop
+ist kein Incident.
+
+9
+00:00:34.360 --> 00:00:38.848
+Ein geplanter Wechsel ist ein
+Change, keine Störung.
+
+10
+00:00:39.068 --> 00:00:43.868
+Der Drucker steht jetzt. Das
+ist der Incident.
+
+11
+00:00:44.088 --> 00:00:48.744
+Dass das Netzteil jede Woche ausfällt,
+ist das Problem.
+
+12
+00:00:49.124 --> 00:00:53.036
+Incident: jetzt kaputt, schnell zurück.
+
+13
+00:00:53.256 --> 00:00:57.552
+Problem: die Ursache
+hinter den Wiederholungen.
+
+14
+00:00:57.772 --> 00:01:01.300
+Change ist geplant, Incident nicht.
+

@@ -1,0 +1,57 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+Prellen.
+
+2
+00:00:02.392 --> 00:00:05.080
+Metallkontakte federn.
+
+3
+00:00:05.300 --> 00:00:09.524
+Ein Tastendruck ist elektrisch
+mehrere schnelle Wechsel.
+
+4
+00:00:09.744 --> 00:00:14.280
+Der Controller zählt sonst jeden Wechsel
+als eigenen Druck.
+
+5
+00:00:14.500 --> 00:00:21.580
+Entprellen in Software: den ersten Wechsel
+erkennen, 10 bis 50 Millisekunden warten,
+
+6
+00:00:21.800 --> 00:00:26.672
+den Pegel noch einmal lesen und nur den
+stabilen Wert zählen.
+
+7
+00:00:26.892 --> 00:00:32.484
+Eine ganze Sekunde Wartezeit ist zu lang,
+der Taster wirkt dann tot.
+
+8
+00:00:32.704 --> 00:00:37.864
+Ohne Filter kann ein Druck den Zähler von
+0 auf 4 springen lassen.
+
+9
+00:00:38.084 --> 00:00:44.492
+Mit 20 Millisekunden Pause bleibt von drei
+elektrischen Wechseln ein Druck übrig.
+
+10
+00:00:44.872 --> 00:00:48.784
+Prellen ist mechanisch, kein WLAN-Fehler.
+
+11
+00:00:49.004 --> 00:00:52.508
+Kurz warten, dann noch einmal lesen.
+
+12
+00:00:52.728 --> 00:00:56.448
+Eine Sekunde ist kein gutes Entprellen.
+
