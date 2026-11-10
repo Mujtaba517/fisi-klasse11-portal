@@ -370,6 +370,11 @@ html[dir="rtl"] .settings-panel.open {
   visibility: visible;
   pointer-events: auto;
 }
+@media (min-width: 980px) {
+  body.settings-open { padding-inline-end: 22rem; }
+  body.settings-open .grid,
+  body.settings-open .tool-grid { grid-template-columns: 1fr 1fr; }
+}
 .settings-content { padding: 1.25rem 1.25rem 2rem; }
 .settings-header { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
 .settings-content { max-width: 100%; box-sizing: border-box; }

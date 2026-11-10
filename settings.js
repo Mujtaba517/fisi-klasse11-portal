@@ -132,6 +132,7 @@ function setSettingsOpen(open) {
   var btn = document.getElementById('settingsBtn');
   if (!panel) return;
   panel.classList.toggle('open', open);
+  document.body.classList.toggle('settings-open', open);
   if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
     var close = document.getElementById('settingsClose');
