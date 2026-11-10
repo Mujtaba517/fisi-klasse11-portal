@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:02,868
+IoT und CPS.
+
+2
+00:00:03,088 --> 00:00:07,600
+IoT bedeutet: Dinge senden Daten
+über ein Netz.
+
+3
+00:00:07,820 --> 00:00:12,409
+Ein cyber-physisches System koppelt
+Software und Physik in einem Kreis aus
+
+4
+00:00:12,423 --> 00:00:15,452
+Messen, Entscheiden und Handeln.
+
+5
+00:00:15,672 --> 00:00:23,448
+Der Sensor misst die Welt. Die Software
+entscheidet. Der Aktor verändert die Welt.
+
+6
+00:00:23,668 --> 00:00:26,308
+Danach wird wieder gemessen.
+
+7
+00:00:26,528 --> 00:00:32,840
+Eine Lampe, die nur ihren Status in eine
+Cloud schreibt, ist vor allem IoT.
+
+8
+00:00:33,060 --> 00:00:39,108
+Schaltet sie bei Bewegung selbst, ist der
+Kreis geschlossen und es ist ein CPS.
+
+9
+00:00:39,328 --> 00:00:45,167
+Lernfeld 7 ergänzt ein bestehendes System
+im Kundenauftrag, es baut nicht zwingend
+
+10
+00:00:45,181 --> 00:00:47,344
+eine neue Fabrik.
+
+11
+00:00:47,564 --> 00:00:53,036
+Ein Thermostat misst die Temperatur,
+schaltet die Heizung und misst wieder.
+
+12
+00:00:53,256 --> 00:00:57,576
+Das ist ein CPS, nicht
+nur eine Netzverbindung.
+
+13
+00:00:57,956 --> 00:01:01,508
+Ohne Wirkung auf die Physik
+fehlt der Kreis.
+
+14
+00:01:01,728 --> 00:01:05,088
+WLAN allein macht kein CPS.
+
+15
+00:01:05,308 --> 00:01:08,692
+Messen, handeln, wieder messen.
+

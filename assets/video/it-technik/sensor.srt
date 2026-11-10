@@ -1,0 +1,58 @@
+1
+00:00:00,300 --> 00:00:02,868
+Sensor und Aktor.
+
+2
+00:00:03,088 --> 00:00:08,824
+Ein Sensor wandelt eine physikalische
+Größe in ein Signal für die Software.
+
+3
+00:00:09,044 --> 00:00:13,940
+Ein Aktor wandelt ein Signal in
+eine physikalische Wirkung.
+
+4
+00:00:14,160 --> 00:00:16,776
+Die Frage ist die Richtung.
+
+5
+00:00:16,996 --> 00:00:24,268
+Kommt Information aus der Welt, ist es ein
+Sensor: Temperatur, Bewegung, Taster.
+
+6
+00:00:24,488 --> 00:00:31,472
+Geht Wirkung in die Welt, ist es ein
+Aktor: Relais, Lampe, Motor, Ventil.
+
+7
+00:00:31,692 --> 00:00:38,580
+Eine LED zeigt etwas, sie wirkt nach außen
+und ist deshalb ein Aktor, kein Sensor.
+
+8
+00:00:38,800 --> 00:00:41,776
+Im Regelkreis brauchst du beide.
+
+9
+00:00:41,996 --> 00:00:45,476
+Ein Temperatursensor am Lager misst.
+
+10
+00:00:45,696 --> 00:00:48,696
+Der Lüfter daneben ist der Aktor.
+
+11
+00:00:49,076 --> 00:00:55,220
+Sensor: Welt nach Signal. Aktor:
+Signal nach Welt.
+
+12
+00:00:55,440 --> 00:00:59,952
+Ein Taster am ESP32 ist ein Sensor.
+
+13
+00:01:00,172 --> 00:01:03,076
+Eine LED ist ein Aktor.
+

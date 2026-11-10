@@ -1,0 +1,81 @@
+1
+00:00:00,300 --> 00:00:03,852
+Repeater, Hub, Bridge, Switch.
+
+2
+00:00:04,072 --> 00:00:07,288
+Ein Repeater frischt das Signal auf.
+
+3
+00:00:07,508 --> 00:00:11,276
+Ein Hub ist ein Repeater
+mit mehreren Ports.
+
+4
+00:00:11,496 --> 00:00:15,024
+Eine Bridge trennt anhand der MAC-Adresse.
+
+5
+00:00:15,244 --> 00:00:18,868
+Ein Switch ist eine Bridge
+mit vielen Ports.
+
+6
+00:00:19,088 --> 00:00:22,832
+Hub und Repeater verstehen keine Adressen.
+
+7
+00:00:23,052 --> 00:00:27,444
+Jedes Signal geht an
+alle angeschlossenen Segmente.
+
+8
+00:00:27,664 --> 00:00:30,184
+Das teilt die Last nicht.
+
+9
+00:00:30,404 --> 00:00:35,480
+Bridge und Switch lernen, hinter welchem
+Port eine MAC-Adresse liegt, und schicken
+
+10
+00:00:35,493 --> 00:00:37,820
+den Rahmen nur dorthin.
+
+11
+00:00:38,040 --> 00:00:42,240
+Unbekanntes oder ein Broadcast geht
+weiter an alle.
+
+12
+00:00:42,460 --> 00:00:48,100
+Der Router kommt erst dazu, wenn ein
+anderes IP-Netz erreicht werden soll.
+
+13
+00:00:48,320 --> 00:00:51,128
+Er ist keine schnellere Bridge.
+
+14
+00:00:51,348 --> 00:00:55,860
+Ein Hub im Klassenraum schickt jeden
+Rahmen an jeden Port.
+
+15
+00:00:56,080 --> 00:00:59,992
+Ein Switch schickt den Rahmen an den
+Port des Ziels.
+
+16
+00:01:00,372 --> 00:01:03,036
+Hub: alle hören mit.
+
+17
+00:01:03,256 --> 00:01:07,696
+Switch: nur der Zielport,
+außer bei Broadcast.
+
+18
+00:01:07,916 --> 00:01:11,924
+Router ist die Grenze zum anderen IP-Netz.
+

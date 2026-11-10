@@ -1,0 +1,83 @@
+1
+00:00:00,300 --> 00:00:03,036
+OSI als Landkarte.
+
+2
+00:00:03,256 --> 00:00:08,701
+Das OSI-Modell teilt die Kommunikation in
+sieben Schichten, damit jede Schicht nur
+
+3
+00:00:08,714 --> 00:00:11,368
+ihre eigene Aufgabe hat.
+
+4
+00:00:11,588 --> 00:00:16,638
+Von oben nach unten: Anwendung,
+Darstellung, Sitzung, Transport,
+
+5
+00:00:16,862 --> 00:00:20,684
+Vermittlung, Sicherung, Bitübertragung.
+
+6
+00:00:20,904 --> 00:00:24,120
+Die Anwendung spricht mit dem Programm.
+
+7
+00:00:24,340 --> 00:00:28,324
+Die Darstellung kümmert sich um die
+Form der Daten.
+
+8
+00:00:28,544 --> 00:00:31,400
+Die Sitzung hält den Dialog.
+
+9
+00:00:31,620 --> 00:00:36,876
+Der Transport bringt die Daten zum
+richtigen Dienst auf dem Zielrechner.
+
+10
+00:00:37,096 --> 00:00:40,864
+Die Vermittlung wählt den
+Weg über IP-Netze.
+
+11
+00:00:41,084 --> 00:00:45,092
+Die Sicherung bringt den Rahmen
+zum nächsten Gerät.
+
+12
+00:00:45,312 --> 00:00:49,656
+Die Bitübertragung schickt Signale
+über das Medium.
+
+13
+00:00:49,876 --> 00:00:53,212
+Eine Merkhilfe ersetzt die Namen nicht.
+
+14
+00:00:53,432 --> 00:00:56,816
+Eine IP-Adresse gehört zur Vermittlung.
+
+15
+00:00:57,036 --> 00:01:00,300
+Die MAC-Adresse gehört zur Sicherung.
+
+16
+00:01:00,520 --> 00:01:04,000
+Das Kabel gehört zur Bitübertragung.
+
+17
+00:01:04,380 --> 00:01:08,076
+Sieben Schichten, jede mit einer Aufgabe.
+
+18
+00:01:08,296 --> 00:01:12,064
+IP sucht den Weg, MAC den nächsten Hop.
+
+19
+00:01:12,284 --> 00:01:16,412
+Das Modell ist eine Landkarte, kein Gerät.
+

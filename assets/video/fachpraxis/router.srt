@@ -1,0 +1,68 @@
+1
+00:00:00,300 --> 00:00:02,652
+Router und Gateway.
+
+2
+00:00:02,872 --> 00:00:05,944
+Ein Router verbindet IP-Netze.
+
+3
+00:00:06,164 --> 00:00:11,468
+Das Standard-Gateway ist die
+Router-Adresse im eigenen Netz des PCs.
+
+4
+00:00:11,688 --> 00:00:15,816
+Der PC vergleicht das Ziel mit
+der eigenen Maske.
+
+5
+00:00:16,036 --> 00:00:20,548
+Liegt es außerhalb, schickt er das Paket
+an das Gateway.
+
+6
+00:00:20,768 --> 00:00:24,607
+Der Router braucht in jedem
+angeschlossenen VLAN eine Adresse
+
+7
+00:00:24,621 --> 00:00:26,528
+aus diesem Netz.
+
+8
+00:00:26,748 --> 00:00:32,868
+Fehlt die Route zum Ziel, verwirft er das
+Paket, auch wenn das Kabel steckt.
+
+9
+00:00:33,088 --> 00:00:37,072
+Direkt angeschlossene Netze
+kennt er selbst.
+
+10
+00:00:37,292 --> 00:00:41,204
+Entferntere Netze brauchen
+eine weitere Route.
+
+11
+00:00:41,424 --> 00:00:53,736
+VLAN 10 nutzt 192.168.10.1 als Gateway,
+VLAN 20 nutzt 192.168.20.1.
+
+12
+00:00:53,956 --> 00:00:57,148
+Beide Adressen liegen auf dem Router.
+
+13
+00:00:57,528 --> 00:01:01,032
+Das Gateway muss im eigenen Netz liegen.
+
+14
+00:01:01,252 --> 00:01:04,180
+Pro Netz eine Router-Adresse.
+
+15
+00:01:04,400 --> 00:01:07,472
+Ein Kabel ersetzt keine Route.
+

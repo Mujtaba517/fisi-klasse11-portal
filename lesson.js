@@ -149,10 +149,75 @@ function tableHtml(table) {
   return '<table class="term-table"><caption>' + richText(table.caption || '') + '</caption><thead><tr>' + head + '</tr></thead><tbody>' + body + '</tbody></table>';
 }
 
+var VIDEO_SUBJECTS = {
+  'aeup.html': 'aeup',
+  'bgwp.html': 'bgwp',
+  'fachpraxis.html': 'fachpraxis',
+  'it-systeme.html': 'it-systeme',
+  'it-technik.html': 'it-technik',
+  'pug.html': 'pug',
+  'k10-aeup.html': 'k10-aeup',
+  'k10-bgwp.html': 'k10-bgwp',
+  'k10-fuit.html': 'k10-fuit',
+  'k10-ittechnik.html': 'k10-ittechnik',
+  'k10-projekt.html': 'k10-projekt',
+  'k10-pug.html': 'k10-pug'
+};
+
+function srtHtml(text) {
+  return String(text || '').replace(/\r\n/g, '\n').trim().split(/\n\n+/).map(function (block) {
+    var lines = block.split('\n');
+    if (lines.length < 3) return '';
+    return '<p>' + escapeLesson(lines.slice(2).join('\n')).replace(/\n/g, '<br>') + '</p>';
+  }).join('');
+}
+
+function lessonVideo(page, id) {
+  if (page === 'it-systeme.html' && id === 'osi') return osiVideo();
+  var subject = VIDEO_SUBJECTS[page];
+  if (!subject) return '';
+  var base = 'assets/video/' + subject + '/' + id;
+  return '<figure class="lesson-video">'
+    + '<figcaption><h3>' + escapeLesson(lessonLabel('videoLessonTitle')) + '</h3>'
+    + '<p>' + escapeLesson(lessonLabel('videoLessonNote')) + '</p></figcaption>'
+    + '<div class="lesson-video-frame" dir="ltr">'
+    + '<video controls preload="none" playsinline poster="' + base + '.webp" width="1920" height="1080">'
+    + '<source src="' + base + '.mp4" type="video/mp4">'
+    + '<track kind="subtitles" src="' + base + '.vtt" srclang="de" label="Deutsch" default>'
+    + '</video></div>'
+    + '<details class="lesson-transcript"><summary>' + escapeLesson(lessonLabel('videoTranscript')) + ' · ' + escapeLesson(lessonLabel('videoTranscriptLang')) + '</summary>'
+    + '<div lang="de" dir="ltr" data-transcript="' + base + '.srt"></div></details>'
+    + '</figure>';
+}
+
+function holdReducedMotion(stage) {
+  if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  stage.querySelectorAll('video').forEach(function (video) {
+    video.autoplay = false;
+    video.pause();
+  });
+}
+
+document.addEventListener('toggle', function (e) {
+  var details = e.target;
+  if (!details.classList || !details.classList.contains('lesson-transcript') || !details.open) return;
+  var box = details.querySelector('[data-transcript]');
+  if (!box || box.getAttribute('data-loaded')) return;
+  box.setAttribute('data-loaded', '1');
+  fetch(box.getAttribute('data-transcript')).then(function (res) {
+    if (!res.ok) throw new Error('transcript');
+    return res.text();
+  }).then(function (text) {
+    box.innerHTML = srtHtml(text);
+  }).catch(function () {
+    box.textContent = lessonLabel('videoTranscriptMissing');
+  });
+}, true);
+
 function lessonSteps(entry, page, id) {
   if (entry.full) {
     return [
-      { key: 'objTitle', html: paragraphs(entry.goal) },
+      { key: 'objTitle', html: paragraphs(entry.goal) + lessonVideo(page, id) },
       { key: 'priorTitle', html: paragraphs(entry.prior) },
       { key: 'whyTitle', html: paragraphs(entry.why) },
       { key: 'termsTitle', html: termList(entry.terms) },
@@ -165,7 +230,7 @@ function lessonSteps(entry, page, id) {
     ];
   }
   var steps = [
-    { key: 'lessonDefinition', html: paragraphs(entry.definition) + (id === 'osi' ? osiVideo() : '') },
+    { key: 'lessonDefinition', html: paragraphs(entry.definition) + lessonVideo(page, id) },
     { key: 'lessonExplain', html: paragraphs(entry.explanation) + (id === 'osi' ? osiFigure() : '') },
     { key: 'lessonExample', html: paragraphs(entry.example) },
     { key: 'lessonRemember', html: '<ul>' + (entry.remember || []).map(function (item) { return '<li>' + richText(item) + '</li>'; }).join('') + '</ul>' },
@@ -330,6 +395,7 @@ function mountSteps(root, page, id, entry) {
     if (window.lernovaGuide && (index === 0 || step.key === 'lessonSummary')) {
       lernovaGuide(stage, step.key === 'lessonSummary' ? 'celebrate' : 'explain');
     }
+    holdReducedMotion(stage);
   }
   rail.innerHTML = steps.map(function (step, i) {
     return '<li><button type="button" data-step="' + i + '">' + escapeLesson(lessonLabel(step.key)) + '</button></li>';

@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:02,892
+IT-Servicemanagement.
+
+2
+00:00:03,112 --> 00:00:08,701
+IT-Servicemanagement organisiert, wie eine
+IT-Abteilung Aufträge und Störungen
+
+3
+00:00:08,715 --> 00:00:12,184
+annimmt, bearbeitet und abschließt.
+
+4
+00:00:12,404 --> 00:00:16,940
+Der erste sinnvolle Schritt ist
+die vollständige Aufnahme:
+
+5
+00:00:17,160 --> 00:00:22,776
+Wer meldet, was funktioniert nicht, seit
+wann, welches Gerät.
+
+6
+00:00:22,996 --> 00:00:27,748
+Erst danach kommen Priorität und
+der vereinbarte Zeitraum.
+
+7
+00:00:27,968 --> 00:00:32,584
+Ein Ticket sofort schließen oder den
+Hersteller anrufen, bevor die Daten
+
+8
+00:00:32,597 --> 00:00:35,168
+stehen, vermischt Schritte.
+
+9
+00:00:35,388 --> 00:00:40,149
+Lernfeld 6 heißt Serviceanfragen
+bearbeiten und liegt vor der gestreckten
+
+10
+00:00:40,162 --> 00:00:42,828
+Abschlussprüfung Teil 1.
+
+11
+00:00:43,048 --> 00:00:49,648
+Eine Meldung „Drucker druckt nicht, seit 8
+Uhr, Raum 12“ ist eine Aufnahme.
+
+12
+00:00:49,868 --> 00:00:53,444
+„Ticket zu“ ohne diese Sätze ist keine.
+
+13
+00:00:53,824 --> 00:00:57,592
+Zuerst aufnehmen, dann priorisieren.
+
+14
+00:00:57,812 --> 00:01:01,700
+Ohne Gerät und Zeitpunkt
+fehlt die Bearbeitung.
+
+15
+00:01:01,920 --> 00:01:05,880
+Schließen ist der letzte Schritt,
+nicht der erste.
+

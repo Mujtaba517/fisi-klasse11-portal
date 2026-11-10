@@ -1,0 +1,72 @@
+1
+00:00:00,300 --> 00:00:02,748
+Was ein Projekt ist.
+
+2
+00:00:02,968 --> 00:00:09,031
+Ein Projekt ist einmalig, hat ein klares
+Ergebnis, Meilensteine, begrenzte Mittel
+
+3
+00:00:09,044 --> 00:00:12,520
+und ist von der laufenden Arbeit getrennt.
+
+4
+00:00:12,740 --> 00:00:18,356
+Einmalig heißt: es ist kein Dauerauftrag
+wie der tägliche Backup-Lauf.
+
+5
+00:00:18,576 --> 00:00:23,016
+Das Ergebnis ist benannt, nicht
+„irgendwas mit Netz“.
+
+6
+00:00:23,236 --> 00:00:29,068
+Meilensteine sind Prüfpunkte auf dem Weg,
+nicht das Endergebnis selbst.
+
+7
+00:00:29,288 --> 00:00:32,912
+Zeit, Geld und Leute sind begrenzt.
+
+8
+00:00:33,132 --> 00:00:37,393
+Das Projekt hat eigene Zuständige und ist
+organisatorisch vom
+
+9
+00:00:37,406 --> 00:00:39,948
+Tagesgeschäft getrennt.
+
+10
+00:00:40,168 --> 00:00:45,688
+Fehlt eines davon, ist es eine Aufgabe,
+aber noch kein Projekt.
+
+11
+00:00:45,908 --> 00:00:53,065
+„WLAN in Gebäude B bis zum 30. April,
+eigenes Team, Abnahme als Meilenstein“
+
+12
+00:00:53,065 --> 00:00:54,572
+ist ein Projekt.
+
+13
+00:00:54,792 --> 00:00:58,848
+„Jeden Montag Druckerpapier
+holen“ ist keins.
+
+14
+00:00:59,228 --> 00:01:02,252
+Einmalig und klar begrenzt.
+
+15
+00:01:02,472 --> 00:01:05,568
+Meilenstein ist ein Prüfpunkt.
+
+16
+00:01:05,788 --> 00:01:09,028
+Tagesgeschäft ist kein Projekt.
+

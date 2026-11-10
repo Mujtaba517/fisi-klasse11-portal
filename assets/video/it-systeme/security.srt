@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:03,012
+Sicherheit im kleinen Netz.
+
+2
+00:00:03,232 --> 00:00:08,940
+Sicherheit heißt hier Begrenzung: nur
+nötige Ports, nur nötige Rechte, getrennte
+
+3
+00:00:08,953 --> 00:00:13,744
+Gäste, aktuelle Systeme und eine
+Kopie der Daten.
+
+4
+00:00:13,964 --> 00:00:17,612
+Schließe Ports, die kein Dienst braucht.
+
+5
+00:00:17,832 --> 00:00:23,496
+Least Privilege bedeutet: jedes Konto darf
+nur seine eigene Aufgabe.
+
+6
+00:00:23,716 --> 00:00:28,876
+Gäste kommen in ein eigenes VLAN und
+dürfen nicht blind ins Datennetz.
+
+7
+00:00:29,096 --> 00:00:33,440
+Updates und Backups planst du, du
+hoffst sie nicht.
+
+8
+00:00:33,660 --> 00:00:37,308
+Zwischen VLANs steht eine Firewall.
+
+9
+00:00:37,528 --> 00:00:40,920
+Offen lassen, weil dann alles
+funktioniert, macht auch
+
+10
+00:00:40,933 --> 00:00:43,168
+den Angriff leichter.
+
+11
+00:00:43,388 --> 00:00:48,572
+Das Gast-WLAN darf ins Internet, aber
+nicht auf den Dateiserver.
+
+12
+00:00:48,792 --> 00:00:54,096
+Das ist VLAN plus eine Firewall-Regel,
+nicht ein offenes Routing.
+
+13
+00:00:54,476 --> 00:00:58,844
+Weniger Fläche: Ports, Rechte, Netze.
+
+14
+00:00:59,064 --> 00:01:03,312
+Backup ist die Kopie, bevor
+etwas verloren geht.
+
+15
+00:01:03,532 --> 00:01:06,748
+Gäste nicht ins interne Netz routen.
+

@@ -1,0 +1,76 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.364
+Datenarten.
+
+2
+00:00:02.584 --> 00:00:06.280
+Strukturierte Daten haben feste Felder.
+
+3
+00:00:06.500 --> 00:00:10.556
+Unstrukturierte Daten haben
+kein festes Schema.
+
+4
+00:00:10.776 --> 00:00:14.918
+Bestandsdaten ändern sich selten,
+Bewegungsdaten entstehen
+
+5
+00:00:14.931 --> 00:00:17.064
+durch einen Vorgang.
+
+6
+00:00:17.284 --> 00:00:22.060
+Frage zuerst: festes Feld
+oder freier Inhalt?
+
+7
+00:00:22.280 --> 00:00:26.600
+Danach: ändert es sich selten oder
+mit jedem Vorgang?
+
+8
+00:00:26.820 --> 00:00:29.700
+Ein Kundenname ist Bestand.
+
+9
+00:00:29.920 --> 00:00:34.912
+Jede neue Bestellung ist Bewegung und
+verweist auf den Kunden.
+
+10
+00:00:35.132 --> 00:00:40.340
+Ein Foto bleibt unstrukturiert, auch wenn
+es in einem Ordner liegt.
+
+11
+00:00:40.560 --> 00:00:44.760
+Die Pixel haben keine Spalten wie
+Name und Menge.
+
+12
+00:00:44.980 --> 00:00:49.730
+Die Anzahl auf einem Lieferschein ist
+Bewegung. Sie entsteht durch
+
+13
+00:00:49.743 --> 00:00:51.988
+diesen einen Vorgang.
+
+14
+00:00:52.368 --> 00:00:58.008
+Bestand: Kundenstamm.
+Bewegung: Bestellmenge.
+
+15
+00:00:58.228 --> 00:01:02.020
+Ein Ordner macht ein
+Foto nicht strukturiert.
+
+16
+00:01:02.240 --> 00:01:06.032
+Erst sortieren, dann die Tabelle bauen.
+

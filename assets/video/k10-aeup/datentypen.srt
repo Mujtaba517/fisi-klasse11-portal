@@ -1,0 +1,79 @@
+1
+00:00:00,300 --> 00:00:03,828
+int, float, str, bool.
+
+2
+00:00:04,048 --> 00:00:09,295
+int ist eine ganze Zahl, float eine
+Kommazahl, str ein Text, bool ein
+
+3
+00:00:09,309 --> 00:00:12,064
+Wahrheitswert wahr oder falsch.
+
+4
+00:00:12,284 --> 00:00:18,260
+Python ist dynamisch typisiert: Der Typ
+zeigt sich am Wert zur Laufzeit.
+
+5
+00:00:18,480 --> 00:00:24,504
+Es ist trotzdem streng: "3" + 1 ist ein
+Fehler, keine 4.
+
+6
+00:00:24,724 --> 00:00:29,274
+Eine schwache Typisierung würde heimlich
+umwandeln, wie JavaScript es bei
+
+7
+00:00:29,287 --> 00:00:32,020
+manchen Operatoren tut.
+
+8
+00:00:32,240 --> 00:00:36,776
+Du wandelst ausdrücklich um,
+etwa mit int("3").
+
+9
+00:00:36,996 --> 00:00:40,428
+Rechnen mit Geld in float ist ungenau.
+
+10
+00:00:40,648 --> 00:00:46,066
+Für die Klasse reicht: Kommazahl und
+Ganzzahl sind nicht austauschbar, nur weil
+
+11
+00:00:46,080 --> 00:00:48,592
+beide Zahlen aussehen.
+
+12
+00:00:48,812 --> 00:00:51,980
+bestand = 5 ist int.
+
+13
+00:00:52,200 --> 00:00:55,680
+preis = 1.5 ist float.
+
+14
+00:00:55,900 --> 00:00:59,428
+name = "Schraube" ist str.
+
+15
+00:00:59,648 --> 00:01:02,456
+lieferbar = True ist bool.
+
+16
+00:01:02,836 --> 00:01:08,140
+Vier Grundtypen: ganz,
+Komma, Text, wahr/falsch.
+
+17
+00:01:08,360 --> 00:01:11,912
+Streng heißt: keine stille Mischung.
+
+18
+00:01:12,132 --> 00:01:14,676
+Umwandeln schreibst du hin.
+

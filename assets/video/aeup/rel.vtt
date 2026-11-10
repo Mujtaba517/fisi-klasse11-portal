@@ -1,0 +1,71 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.796
+Relationales Modell.
+
+2
+00:00:03.016 --> 00:00:07.816
+Das relationale Modell speichert
+Entitäten als Tabellen.
+
+3
+00:00:08.036 --> 00:00:11.915
+Eine Beziehung eins-zu-viele wird zum
+Fremdschlüssel auf der Seite mit
+
+4
+00:00:11.928 --> 00:00:14.108
+den vielen Zeilen.
+
+5
+00:00:14.328 --> 00:00:19.944
+Jede Entität wird eine Tabelle.
+Der Primärschlüssel bleibt.
+
+6
+00:00:20.164 --> 00:00:23.908
+Die Ticket-Tabelle merkt
+sich die KundenID.
+
+7
+00:00:24.128 --> 00:00:29.192
+Diese KundenID ist der Fremdschlüssel und
+zeigt auf den Kunden.
+
+8
+00:00:29.412 --> 00:00:33.444
+Ein JOIN verbindet die Zeilen
+über diesen Schlüssel.
+
+9
+00:00:33.664 --> 00:00:38.359
+Die KundenID nur in den Kopf zu schreiben
+und im Ticket zu vergessen, macht
+
+10
+00:00:38.372 --> 00:00:40.792
+die Beziehung unsichtbar.
+
+11
+00:00:41.012 --> 00:00:49.714
+Kunde(KundenID, Name), Ticket(TicketID,
+KundenID, Datum). Die KundenID im Ticket
+
+12
+00:00:49.714 --> 00:00:52.868
+zeigt auf genau einen Kunden.
+
+13
+00:00:53.248 --> 00:00:56.608
+Fremdschlüssel steht auf der Viele-Seite.
+
+14
+00:00:56.828 --> 00:01:00.956
+1:n heißt ein Kunde, viele Tickets.
+
+15
+00:01:01.176 --> 00:01:05.688
+JOIN ohne gemeinsamen Schlüssel
+verbindet nichts Sinnvolles.
+

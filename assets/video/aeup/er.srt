@@ -1,0 +1,87 @@
+1
+00:00:00,300 --> 00:00:02,172
+ER-Modell.
+
+2
+00:00:02,392 --> 00:00:06,666
+Eine Entität ist ein Rechteck, ein
+Attribut ein Oval, eine
+
+3
+00:00:06,679 --> 00:00:08,968
+Beziehung eine Raute.
+
+4
+00:00:09,188 --> 00:00:13,436
+Die Zahl steht neben der Entität,
+die sie zählt.
+
+5
+00:00:13,656 --> 00:00:17,376
+Entitäten sind Rechtecke ohne Methoden.
+
+6
+00:00:17,596 --> 00:00:20,452
+Der Schlüssel ist unterstrichen.
+
+7
+00:00:20,672 --> 00:00:25,688
+Die Kardinalität steht neben der Entität,
+die gezählt wird.
+
+8
+00:00:25,908 --> 00:00:29,964
+Auftrag und Rechnung: neben
+beiden steht 1.
+
+9
+00:00:30,184 --> 00:00:34,760
+Zu jedem Auftrag gehört genau eine
+Rechnung, und jede Rechnung gehört zu
+
+10
+00:00:34,773 --> 00:00:39,544
+genau einem Auftrag. Das ist 1:1.
+
+11
+00:00:39,764 --> 00:00:46,436
+Abteilung und Mitarbeiter: neben Abteilung
+steht 1, neben Mitarbeiter steht n.
+
+12
+00:00:46,656 --> 00:00:54,537
+Eine Abteilung hat mehrere Mitarbeiter.
+Jeder Mitarbeiter gehört zu genau einer
+
+13
+00:00:54,537 --> 00:00:56,832
+Abteilung. Das ist 1:n.
+
+14
+00:00:57,052 --> 00:01:03,172
+Artikel und Lieferant: neben Artikel steht
+n, neben Lieferant steht m.
+
+15
+00:01:03,392 --> 00:01:09,990
+Ein Artikel kommt von mehreren
+Lieferanten, ein Lieferant liefert mehrere
+
+16
+00:01:09,990 --> 00:01:11,888
+Artikel. Das ist n:m.
+
+17
+00:01:12,268 --> 00:01:18,316
+Rechteck = Entität, Oval = Attribut,
+Raute = Beziehung.
+
+18
+00:01:18,536 --> 00:01:21,104
+Schlüssel unterstreichen.
+
+19
+00:01:21,324 --> 00:01:25,524
+Die Zahl zählt die Entität, neben
+der sie steht.
+

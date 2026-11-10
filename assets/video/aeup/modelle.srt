@@ -1,0 +1,64 @@
+1
+00:00:00,300 --> 00:00:02,172
+Datenmodell.
+
+2
+00:00:02,392 --> 00:00:07,508
+Ein Datenmodell ist die Absprache, welche
+Dinge es gibt und wie sie zusammenhängen,
+
+3
+00:00:07,705 --> 00:00:10,936
+bevor jemand eine Tabelle anlegt.
+
+4
+00:00:11,156 --> 00:00:14,324
+Nenne zuerst Dinge und Vorgänge.
+
+5
+00:00:14,544 --> 00:00:17,592
+Skizziere danach die Beziehungen.
+
+6
+00:00:17,812 --> 00:00:20,956
+Erst dann kommen Tabellen und Schlüssel.
+
+7
+00:00:21,176 --> 00:00:26,744
+Wer sofort CREATE TABLE schreibt, merkt
+fehlende Felder erst im Betrieb.
+
+8
+00:00:26,964 --> 00:00:31,692
+Lernfeld 8 stellt
+Daten systemübergreifend bereit.
+
+9
+00:00:31,912 --> 00:00:37,576
+Der Plan muss zum Auftrag passen, nicht
+zur ersten Idee einer Spalte.
+
+10
+00:00:37,796 --> 00:00:42,846
+Für ein Ticketsystem zeichnest du Nutzer,
+Ticket und Techniker, bevor die
+
+11
+00:00:42,859 --> 00:00:45,308
+erste Tabelle entsteht.
+
+12
+00:00:45,688 --> 00:00:50,848
+Modell ist der Plan. Die Tabelle
+ist die Umsetzung.
+
+13
+00:00:51,068 --> 00:00:55,436
+Die erste Tabelle ist nicht
+automatisch die Wahrheit.
+
+14
+00:00:55,656 --> 00:01:00,192
+Beziehungen gehören in den Plan,
+nicht nur Spalten.
+

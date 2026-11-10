@@ -1,0 +1,63 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:03.372
+IP, Maske und Gateway.
+
+2
+00:00:03.592 --> 00:00:07.360
+Die IPv4-Adresse nennt den Rechner.
+
+3
+00:00:07.580 --> 00:00:12.068
+Die Subnetzmaske sagt, welcher Teil
+das Netz ist.
+
+4
+00:00:12.288 --> 00:00:16.776
+Das Gateway ist die Tür aus diesem Netz,
+meist der Router.
+
+5
+00:00:16.996 --> 00:00:23.404
+Gleiche Netz-ID bedeutet: der Partner ist
+direkt erreichbar, ein Switch reicht.
+
+6
+00:00:23.624 --> 00:00:28.640
+Eine andere Netz-ID bedeutet: das Paket
+muss zum Gateway.
+
+7
+00:00:28.860 --> 00:00:34.716
+Ohne Gateway bleibt der Rechner in seinem
+eigenen Netz, auch wenn das Kabel steckt.
+
+8
+00:00:34.936 --> 00:00:44.536
+Die Maske /24 ist 255.255.255.0.
+
+9
+00:00:44.756 --> 00:00:48.260
+Dann sind die ersten drei Zahlen das Netz.
+
+10
+00:00:48.480 --> 00:01:02.064
+Der PC 192.168.10.50/24
+erreicht 192.168.10.10 direkt.
+
+11
+00:01:02.284 --> 00:01:13.732
+192.168.20.10 erreicht er nur über
+das Gateway 192.168.10.1.
+
+12
+00:01:14.112 --> 00:01:20.184
+Gleiche Netz-ID: direkt.
+Andere Netz-ID: Gateway.
+
+13
+00:01:20.404 --> 00:01:26.308
+Das Gateway muss im eigenen Netz liegen,
+sonst findet der PC die Tür nicht.
+

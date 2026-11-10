@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:03,252
+Name, Typ, Wert.
+
+2
+00:00:03,472 --> 00:00:08,440
+Eine Variable hat einen Namen, einen Typ
+und einen Wert.
+
+3
+00:00:08,660 --> 00:00:13,292
+Der Name ist die Beschriftung, der Wert
+ist der Inhalt.
+
+4
+00:00:13,512 --> 00:00:18,220
+Python unterscheidet Groß- und
+Kleinschreibung: anzahl und Anzahl
+
+5
+00:00:18,233 --> 00:00:20,280
+sind zwei Namen.
+
+6
+00:00:20,500 --> 00:00:25,660
+Die PowerShell ist bei Befehlen oft
+großzügig, Python nicht.
+
+7
+00:00:25,880 --> 00:00:30,224
+Der Typ sagt, welche
+Operationen erlaubt sind.
+
+8
+00:00:30,444 --> 00:00:36,372
+In Python wird der Typ beim Lauf an den
+Wert gebunden, nicht starr an den Namen.
+
+9
+00:00:36,592 --> 00:00:41,224
+Trotzdem darfst du Text und Zahl
+nicht stillschweigend addieren.
+
+10
+00:00:41,444 --> 00:00:45,980
+Gute Namen beschreiben den Inhalt:
+menge statt x.
+
+11
+00:00:46,200 --> 00:00:52,608
+menge = 12 legt den Namen menge, den Typ
+Ganzzahl und den Wert 12 an.
+
+12
+00:00:52,828 --> 00:00:57,124
+menge = "12" ist Text, keine Zahl.
+
+13
+00:00:57,504 --> 00:01:01,440
+Name, Typ und Wert gehören zusammen.
+
+14
+00:01:01,660 --> 00:01:05,212
+Python unterscheidet Groß und Klein.
+
+15
+00:01:05,432 --> 00:01:09,248
+Text in Anführungszeichen ist keine Zahl.
+

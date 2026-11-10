@@ -1,0 +1,81 @@
+1
+00:00:00,300 --> 00:00:02,748
+Gelingen und Scheitern.
+
+2
+00:00:02,968 --> 00:00:07,729
+Projekte scheitern an schweigsamer
+Abstimmung, offenen Kosten und Zeiten,
+
+3
+00:00:07,979 --> 00:00:13,720
+fehlender Dokumentation, am Kunden vorbei
+und an der falschen Besetzung.
+
+4
+00:00:13,940 --> 00:00:17,996
+Erfolg ist dieselbe Liste in
+der anderen Richtung.
+
+5
+00:00:18,216 --> 00:00:22,272
+Ihr sprecht den Stand aus, nicht nur
+in der Pause.
+
+6
+00:00:22,492 --> 00:00:27,436
+Kosten und Termine werden nachgehalten,
+nicht erst am Ende.
+
+7
+00:00:27,656 --> 00:00:32,984
+Dokumentation hält Entscheidungen fest,
+damit niemand raten muss.
+
+8
+00:00:33,204 --> 00:00:38,532
+Der Kunde bestätigt, ob das Ergebnis noch
+das vereinbarte ist.
+
+9
+00:00:38,752 --> 00:00:41,752
+Die Leute passen zur Aufgabe.
+
+10
+00:00:41,972 --> 00:00:45,188
+Ein einzelner Held ersetzt das nicht.
+
+11
+00:00:45,408 --> 00:00:49,787
+Wenn nur die Technik stimmt und der Kunde
+etwas anderes erwartet, ist das
+
+12
+00:00:49,800 --> 00:00:52,440
+Projekt trotzdem daneben.
+
+13
+00:00:52,660 --> 00:00:57,302
+Das Team baut VLAN 30, der Kunde wollte
+nur neue Access Points
+
+14
+00:00:57,315 --> 00:00:59,428
+im bestehenden Netz.
+
+15
+00:00:59,648 --> 00:01:03,296
+Ohne Abstimmung ist die Technik umsonst.
+
+16
+00:01:03,676 --> 00:01:07,180
+Reden, nachhalten, aufschreiben.
+
+17
+00:01:07,400 --> 00:01:10,472
+Der Kunde bestätigt das Ziel.
+
+18
+00:01:10,692 --> 00:01:14,100
+Die Besetzung muss zur Aufgabe passen.
+

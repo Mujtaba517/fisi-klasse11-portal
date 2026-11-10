@@ -1,0 +1,71 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:03.108
+Warum es Hochsprachen gibt.
+
+2
+00:00:03.328 --> 00:00:08.080
+Nahe an der Maschine schreibst du, was
+der Prozessor tut.
+
+3
+00:00:08.300 --> 00:00:12.836
+Eine Hochsprache beschreibt, was das
+Programm tun soll.
+
+4
+00:00:13.056 --> 00:00:16.056
+Python ist so eine Sprache.
+
+5
+00:00:16.276 --> 00:00:21.292
+Maschinencode und Assembler bleiben an
+den Prozessor gebunden.
+
+6
+00:00:21.512 --> 00:00:26.624
+Hochsprachen wie Python legen die Aufgabe
+in lesbare Anweisungen.
+
+7
+00:00:26.844 --> 00:00:32.210
+Im Unterricht arbeitest du mit Python, dem
+Editor VS Code und der PowerShell als
+
+8
+00:00:32.223 --> 00:00:34.692
+Konsole unter Windows.
+
+9
+00:00:34.912 --> 00:00:40.312
+Python übersetzt den Text zuerst in
+Bytecode und führt den dann aus.
+
+10
+00:00:40.532 --> 00:00:45.212
+Du startest die Datei, du schreibst nicht
+die Bytes von Hand.
+
+11
+00:00:45.432 --> 00:00:49.200
+print("Lager") beschreibt die Ausgabe.
+
+12
+00:00:49.420 --> 00:00:54.436
+Den dazu passenden Maschinencode
+erzeugt das Laufzeitsystem.
+
+13
+00:00:54.816 --> 00:00:57.864
+Python ist eine Hochsprache.
+
+14
+00:00:58.084 --> 00:01:02.044
+VS Code schreibt, PowerShell startet.
+
+15
+00:01:02.264 --> 00:01:06.776
+Bytecode ist der Zwischenschritt,
+nicht dein Arbeitsblatt.
+

@@ -1,0 +1,74 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+DNS.
+
+2
+00:00:02.392 --> 00:00:06.808
+DNS übersetzt einen Namen
+in eine IP-Adresse.
+
+3
+00:00:07.028 --> 00:00:11.804
+Menschen merken sich den Namen, Pakete
+brauchen die Zahl.
+
+4
+00:00:12.024 --> 00:00:17.208
+Ein A-Record zeigt von einem Namen
+auf eine IPv4-Adresse.
+
+5
+00:00:17.428 --> 00:00:21.604
+Der Resolver ist der Dienst, den
+der PC fragt.
+
+6
+00:00:21.824 --> 00:00:24.848
+Prüfe zuerst die nackte IP.
+
+7
+00:00:25.068 --> 00:00:29.763
+Wenn die IP antwortet und der Name nicht,
+ist die Leitung in Ordnung und
+
+8
+00:00:29.776 --> 00:00:32.580
+die Namensauflösung kaputt.
+
+9
+00:00:32.800 --> 00:00:38.955
+DNS und DHCP sind verschiedene Dienste:
+DHCP gibt die Adresse, DNS
+
+10
+00:00:38.968 --> 00:00:41.128
+übersetzt den Namen.
+
+11
+00:00:41.348 --> 00:00:49.460
+fileserver.firma.local soll
+192.168.10.10 sein.
+
+12
+00:00:49.680 --> 00:00:53.612
+Ping auf die Zahl klappt, Ping auf den
+Namen nicht: Eintrag
+
+13
+00:00:53.625 --> 00:00:56.400
+oder DNS-Server prüfen.
+
+14
+00:00:56.780 --> 00:01:00.524
+IP geht, Name nicht: DNS.
+
+15
+00:01:00.744 --> 00:01:03.816
+DHCP ist nicht DNS.
+
+16
+00:01:04.036 --> 00:01:08.020
+Zuerst die IP pingen, danach den Namen.
+

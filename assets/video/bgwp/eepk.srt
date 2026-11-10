@@ -1,0 +1,63 @@
+1
+00:00:00,300 --> 00:00:02,172
+eEPK.
+
+2
+00:00:02,392 --> 00:00:07,113
+Eine ereignisgesteuerte Prozesskette zeigt
+einen Ablauf als Wechsel von
+
+3
+00:00:07,126 --> 00:00:09,616
+Ereignis und Funktion.
+
+4
+00:00:09,836 --> 00:00:14,492
+Ein Ereignis ist ein Zustand, zum Beispiel
+„Meldung ist da“.
+
+5
+00:00:14,712 --> 00:00:20,136
+Eine Funktion ist eine Tätigkeit, zum
+Beispiel „Daten aufnehmen“.
+
+6
+00:00:20,356 --> 00:00:25,924
+Es beginnt und endet mit einem Ereignis,
+nicht mit einer Tätigkeit.
+
+7
+00:00:26,144 --> 00:00:32,072
+Verzweigungen brauchen eine Regel: und,
+oder, exklusives oder.
+
+8
+00:00:32,292 --> 00:00:37,118
+Operatoren und Funktionen direkt
+hintereinander ohne Ereignis dazwischen
+
+9
+00:00:37,131 --> 00:00:39,588
+sind falsch gezeichnet.
+
+10
+00:00:39,808 --> 00:00:43,726
+Ereignis „Ticket angelegt“, Funktion
+„Priorität setzen“,
+
+11
+00:00:43,950 --> 00:00:46,792
+Ereignis „Priorität steht“.
+
+12
+00:00:47,172 --> 00:00:50,700
+Ereignis und Funktion wechseln sich ab.
+
+13
+00:00:50,920 --> 00:00:54,136
+Start und Ende sind Ereignisse.
+
+14
+00:00:54,356 --> 00:00:57,668
+Eine Verzweigung braucht eine Regel.
+

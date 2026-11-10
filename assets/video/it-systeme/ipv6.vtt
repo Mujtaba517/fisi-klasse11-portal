@@ -1,0 +1,51 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.484
+IPv6.
+
+2
+00:00:02.704 --> 00:00:08.128
+IPv6 ist die neuere Adresse mit 128 Bit.
+
+3
+00:00:08.348 --> 00:00:13.532
+IPv4 hat nur 32 Bit, der Vorrat ist knapp.
+
+4
+00:00:13.752 --> 00:00:19.320
+Die Schreibweise ist hexadezimal,
+Doppelpunkte trennen die Gruppen.
+
+5
+00:00:19.540 --> 00:00:24.292
+:: darf eine zusammenhängende Nullfolge
+genau einmal kürzen.
+
+6
+00:00:24.512 --> 00:00:30.944
+Zweimal :: in derselben Adresse ist
+ungültig, weil die Länge sonst unklar ist.
+
+7
+00:00:31.164 --> 00:00:40.500
+2001:db8::/32 ist für Beispiele reserviert
+und kein echtes Firmennetz.
+
+8
+00:00:40.720 --> 00:00:56.344
+2001:0db8:85a3::8a2e:0370:7334 ist eine
+gekürzte IPv6-Adresse, kein IPv4-Wert.
+
+9
+00:00:56.724 --> 00:01:03.252
+IPv6 hat 128 Bit, IPv4 hat 32.
+
+10
+00:01:03.472 --> 00:01:06.040
+:: nur einmal pro Adresse.
+
+11
+00:01:06.260 --> 00:01:14.036
+Dokumentationspräfix: 2001:db8::/32.
+

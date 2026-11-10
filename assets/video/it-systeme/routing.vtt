@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.172
+Routing.
+
+2
+00:00:02.392 --> 00:00:06.139
+Routing ist die Entscheidung, in welches
+Netz ein Paket als
+
+3
+00:00:06.153 --> 00:00:08.512
+Nächstes geschickt wird.
+
+4
+00:00:08.732 --> 00:00:13.028
+Liegt das Ziel im eigenen Netz,
+reicht der Switch.
+
+5
+00:00:13.248 --> 00:00:17.114
+Liegt es in einem anderen Netz oder VLAN,
+brauchst du einen Router
+
+6
+00:00:17.127 --> 00:00:19.224
+mit passender Route.
+
+7
+00:00:19.444 --> 00:00:23.620
+Eine statische Route trägt der Admin
+von Hand ein.
+
+8
+00:00:23.840 --> 00:00:28.880
+Die Default-Route ist der Weg für alles,
+was nicht genauer passt.
+
+9
+00:00:29.100 --> 00:00:34.548
+Ein normaler Layer-2-Switch routet
+nicht zwischen VLANs.
+
+10
+00:00:34.768 --> 00:00:38.848
+Ohne passende Route verwirft der
+Router das Paket.
+
+11
+00:00:39.068 --> 00:00:45.277
+Ein PC in VLAN 10 erreicht VLAN 20 nicht,
+solange der Router keine Route zwischen
+
+12
+00:00:45.277 --> 00:00:46.964
+den beiden Netzen hat.
+
+13
+00:00:47.344 --> 00:00:52.768
+Gleiches Netz: Switch.
+Anderes Netz: Router.
+
+14
+00:00:52.988 --> 00:00:57.788
+Inter-VLAN-Routing ist die
+Verbindung zwischen VLANs.
+
+15
+00:00:58.008 --> 00:01:04.344
+Ein L2-Switch trennt VLANs. Er
+verbindet sie nicht.
+

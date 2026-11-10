@@ -1,0 +1,65 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:02.196
+Subnetting.
+
+2
+00:00:02.416 --> 00:00:06.952
+Subnetting schneidet ein großes Netz
+in kleinere Blöcke.
+
+3
+00:00:07.172 --> 00:00:11.852
+Die Präfixlänge sagt, wie viele Bits
+zum Netz gehören.
+
+4
+00:00:12.072 --> 00:00:17.232
+Die Blockgröße ist 2 hoch
+(32 minus Präfix).
+
+5
+00:00:17.452 --> 00:00:23.028
+Nutzbare Hosts sind Blockgröße minus 2,
+weil die erste Adresse das Netz und die
+
+6
+00:00:23.041 --> 00:00:25.612
+letzte der Broadcast ist.
+
+7
+00:00:25.832 --> 00:00:32.744
+/24 hat 256 Adressen und 254 Hosts.
+
+8
+00:00:32.964 --> 00:00:39.468
+/25 hat 128 Adressen und 126 Hosts.
+
+9
+00:00:39.688 --> 00:00:45.088
+/26 hat 64 Adressen und 62 Hosts.
+
+10
+00:00:45.308 --> 00:00:48.956
+Ein höheres Präfix macht
+den Block kleiner.
+
+11
+00:00:49.176 --> 00:01:05.568
+192.168.50.0/24 wird zu 192.168.50.0/25
+(0 bis 127)
+
+12
+00:01:05.788 --> 00:01:18.052
+und 192.168.50.128/25 (128 bis 255).
+
+13
+00:01:18.432 --> 00:01:24.360
+/26 hat 62 nutzbare Hosts, nicht 64.
+
+14
+00:01:24.580 --> 00:01:28.852
+Netzadresse und Broadcast darfst du
+keinem Host geben.
+

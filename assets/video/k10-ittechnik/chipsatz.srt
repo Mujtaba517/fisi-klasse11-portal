@@ -1,0 +1,77 @@
+1
+00:00:00,300 --> 00:00:02,172
+Chipsatz.
+
+2
+00:00:02,392 --> 00:00:06,508
+Der Chipsatz steuert, wie der Prozessor
+mit Speicher, Karten
+
+3
+00:00:06,521 --> 00:00:08,848
+und Anschlüssen spricht.
+
+4
+00:00:09,068 --> 00:00:13,484
+Früher teilte man das oft in
+Northbridge und Southbridge.
+
+5
+00:00:13,704 --> 00:00:17,780
+Der eine lag näher am Speicher und an der
+Grafik, der andere
+
+6
+00:00:17,793 --> 00:00:20,400
+an langsameren Anschlüssen.
+
+7
+00:00:20,620 --> 00:00:24,484
+Heute steckt viel davon
+im Prozessor selbst.
+
+8
+00:00:24,704 --> 00:00:29,267
+Der verbleibende Chipsatz auf dem Board
+bindet den Rest an, etwa weitere
+
+9
+00:00:29,280 --> 00:00:32,096
+PCIe-Lanes und USB.
+
+10
+00:00:32,316 --> 00:00:36,892
+Du musst den Chipsatz nicht sehen, um zu
+verstehen: ohne diese Vermittlung
+
+11
+00:00:36,905 --> 00:00:40,548
+erreichen Daten den
+Prozessor nicht geordnet.
+
+12
+00:00:40,768 --> 00:00:45,331
+Eine USB-Buchse am Gehäuse führt über das
+Board zum Chipsatz und von
+
+13
+00:00:45,344 --> 00:00:47,464
+dort zum Prozessor.
+
+14
+00:00:47,684 --> 00:00:50,852
+Sie steckt nicht direkt im Rechenwerk.
+
+15
+00:00:51,232 --> 00:00:55,216
+Er vermittelt, er ersetzt
+den Prozessor nicht.
+
+16
+00:00:55,436 --> 00:00:58,748
+Alt: Northbridge und Southbridge.
+
+17
+00:00:58,968 --> 00:01:02,376
+Heute liegt viel davon in der CPU.
+

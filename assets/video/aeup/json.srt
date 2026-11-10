@@ -1,0 +1,70 @@
+1
+00:00:00,300 --> 00:00:02,412
+JSON und API.
+
+2
+00:00:02,632 --> 00:00:07,648
+Eine API ist eine vereinbarte Tür
+zwischen zwei Systemen.
+
+3
+00:00:07,868 --> 00:00:13,676
+JSON ist das heute übliche Textformat, in
+dem diese Tür Daten trägt.
+
+4
+00:00:13,896 --> 00:00:17,933
+JSON besteht aus Namen und Werten, zum
+Beispiel {"ticket":
+
+5
+00:00:18,143 --> 00:00:21,264
+17, "status": "offen"}.
+
+6
+00:00:21,484 --> 00:00:26,260
+Es ist Text, kein ausführbares Programm
+und kein Bild.
+
+7
+00:00:26,480 --> 00:00:31,544
+Ein REST-Aufruf holt oder ändert eine
+Ressource über eine Adresse.
+
+8
+00:00:31,764 --> 00:00:36,420
+Das empfangende System muss
+dieselben Feldnamen erwarten.
+
+9
+00:00:36,640 --> 00:00:42,952
+Ein Binärformat oder eine MP3-Datei ist
+hier nicht das Austauschformat.
+
+10
+00:00:43,172 --> 00:00:48,788
+Das Ticketsystem liefert {"id":
+17, "kunde": 4}.
+
+11
+00:00:49,008 --> 00:00:53,163
+Das zweite System legt damit keine neue
+Tabelle an, es liest
+
+12
+00:00:53,176 --> 00:00:55,584
+die vereinbarten Felder.
+
+13
+00:00:55,964 --> 00:00:59,444
+JSON ist Text mit Namen und Werten.
+
+14
+00:00:59,664 --> 00:01:03,600
+API ist die Tür, JSON oft der Inhalt.
+
+15
+00:01:03,820 --> 00:01:08,092
+Feldnamen müssen auf beiden Seiten
+gleich gemeint sein.
+
