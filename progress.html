@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3f5fa" />
+  <title>Statistiken | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Zum Inhalt</a>
+  <main id="main">
+    <p data-i18n="statsLocal"></p>
+    <div class="settings-card">
+      <table class="stats-table">
+        <thead>
+          <tr><th>Seite</th><th>Thema</th><th></th></tr>
+        </thead>
+        <tbody id="statsBody"></tbody>
+      </table>
+      <p id="statsEmpty" data-i18n="statsEmpty" hidden></p>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="shell.js"></script>
+  <script>
+    var body = document.getElementById('statsBody');
+    var all = typeof readActivity === 'function' ? readActivity() : {};
+    var rows = [];
+    Object.keys(all).forEach(function (page) {
+      Object.keys(all[page] || {}).forEach(function (id) {
+        var row = all[page][id];
+        if (!row) return;
+        rows.push({ page: page, id: id, title: row.title || id, updated: row.updated || 0, checked: !!row.checked });
+      });
+    });
+    rows.sort(function (a, b) { return b.updated - a.updated; });
+    if (!rows.length) document.getElementById('statsEmpty').hidden = false;
+    body.innerHTML = rows.map(function (row) {
+      var href = row.page + (row.id ? '#' + encodeURIComponent(row.id) : '');
+      var when = row.updated ? new Date(row.updated).toLocaleString() : '';
+      return '<tr><td><a href="' + href.replace(/"/g, '') + '">' + row.page.replace(/</g, '') + '</a></td><td>' + String(row.title).replace(/[&<>]/g, '') + '</td><td><bdi dir="ltr">' + when + (row.checked ? ' · ✓' : '') + '</bdi></td></tr>';
+    }).join('');
+  </script>
+</body>
+</html>

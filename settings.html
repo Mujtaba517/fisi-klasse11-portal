@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3f5fa" />
+  <title>Einstellungen | Lernova</title>
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Zum Inhalt</a>
+  <main id="main">
+    <div id="settingsPage" class="settings-grid">
+      <section class="settings-card">
+        <h2 data-i18n="settingsLang">Sprache</h2>
+        <p class="subtitle" data-i18n="settingsLead"></p>
+        <div class="setting-row">
+          <label for="langSelect" data-i18n="settingsLang">Sprache</label>
+          <select id="langSelect">
+            <option value="de">Deutsch</option>
+            <option value="en">English</option>
+            <option value="fa">فارسی</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div>
+            <strong data-i18n="settingsTheme">Dark Mode</strong>
+            <p class="subtitle" data-i18n="settingsThemeHint"></p>
+          </div>
+          <label class="switch"><input type="checkbox" id="darkToggle"><i></i></label>
+        </div>
+      </section>
+      <section class="settings-card">
+        <h2 data-i18n="settingsGlass">Flächentransparenz</h2>
+        <div class="setting-row">
+          <label for="glassOpacity">Transparenz</label>
+          <input type="range" id="glassOpacity" min="0" max="80" value="0">
+        </div>
+        <div class="setting-row">
+          <label for="glassBlur">Unschärfe</label>
+          <input type="range" id="glassBlur" min="0" max="50" value="0">
+        </div>
+      </section>
+      <section class="settings-card">
+        <h2 data-i18n="settingsBg">Hintergrundbild</h2>
+        <p class="subtitle" data-i18n="settingsBgHint"></p>
+        <div class="setting-row">
+          <input type="file" id="bgUpload" accept="image/*">
+          <button type="button" class="btn btn-soft" id="removeBtn" hidden>Entfernen</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="settings.js"></script>
+  <script src="shell.js"></script>
+  <script>
+    document.getElementById('langSelect').value = localStorage.getItem('fisi-lang') || 'de';
+    document.getElementById('langSelect').addEventListener('change', function () {
+      if (typeof changeLang === 'function') changeLang(this.value);
+    });
+    var dark = document.getElementById('darkToggle');
+    dark.checked = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark';
+    dark.addEventListener('change', function () {
+      if (typeof setThemeMode === 'function') setThemeMode(dark.checked ? 'dark' : 'light');
+    });
+    var opacity = document.getElementById('glassOpacity');
+    var blur = document.getElementById('glassBlur');
+    opacity.value = localStorage.getItem('fisi-glass-opacity') || 0;
+    blur.value = localStorage.getItem('fisi-glass-blur') || 0;
+    opacity.addEventListener('input', function () { if (typeof updateGlass === 'function') updateGlass(); });
+    blur.addEventListener('input', function () { if (typeof updateGlass === 'function') updateGlass(); });
+    document.getElementById('bgUpload').addEventListener('change', function (event) {
+      if (typeof uploadBackground === 'function') uploadBackground(event);
+    });
+    var remove = document.getElementById('removeBtn');
+    if (localStorage.getItem('fisi-custom-bg')) remove.hidden = false;
+    remove.addEventListener('click', function () {
+      if (typeof removeBackground === 'function') removeBackground();
+      remove.hidden = true;
+    });
+  </script>
+</body>
+</html>

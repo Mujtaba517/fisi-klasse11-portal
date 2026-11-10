@@ -1,7 +1,7 @@
 /* Apply saved theme and language before first paint. */
 (function () {
   try {
-    var theme = localStorage.getItem('fisi-theme') || 'dark';
+    var theme = localStorage.getItem('fisi-theme') || 'light';
     var lang = localStorage.getItem('fisi-lang') || 'fa';
     var root = document.documentElement;
     root.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
@@ -13,6 +13,6 @@
       meta.setAttribute('name', 'theme-color');
       document.head.appendChild(meta);
     }
-    meta.setAttribute('content', theme === 'light' ? '#f4efe6' : '#171410');
+    meta.setAttribute('content', theme === 'light' ? '#f3f5fa' : '#0f172a');
   } catch (e) {}
 })();
