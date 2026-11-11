@@ -27,6 +27,8 @@
       out += '<link rel="stylesheet" href="lumo.css"><script src="lumo.js" defer><\/script>';
     }
     out += '<link rel="stylesheet" href="appearance.css"><script src="appearance.js"><\/script>';
+    out += '<style>html.lumo-site body .sidebar a.nav-item[href="admin.html"]{display:none!important}</style>';
+    if (/settings(\.html)?$/.test(location.pathname)) out += '<script src="users-tab.js"><\/script>';
     document.write(out);
   } catch (e) {}
 })();
