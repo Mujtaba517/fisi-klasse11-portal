@@ -1,15 +1,24 @@
-// Auth check — include this in all protected pages
+// Auth check: include this in all protected pages.
+// Signed-in state lives in sessionStorage ('fisi-auth'). If only the saved Supabase session exists
+// (new tab, phone), the session is restored first and the page reloads.
 (function() {
-  // Skip check on login page
   if (window.location.pathname.endsWith('login.html')) return;
 
   const auth = sessionStorage.getItem('fisi-auth');
   if (!auth) {
-    window.location.href = 'login.html';
+    const saved = localStorage.getItem('lernova-sb-session');
+    if (saved && window.LernovaSB) {
+      document.documentElement.style.visibility = 'hidden';
+      window.LernovaSB.restore().then(function(ok) {
+        if (ok && sessionStorage.getItem('fisi-auth')) window.location.reload();
+        else window.location.href = 'login.html';
+      });
+    } else {
+      window.location.href = 'login.html';
+    }
     return;
   }
 
-  // Optional: show logout button
   document.addEventListener('DOMContentLoaded', function() {
     const topActions = document.querySelector('.top-actions');
     if (topActions && !document.getElementById('logoutBtn')) {
@@ -18,6 +27,7 @@
       btn.className = 'theme-toggle';
       btn.textContent = 'Abmelden';
       btn.onclick = function() {
+        if (window.LernovaSB) window.LernovaSB.signOutLocal();
         sessionStorage.removeItem('fisi-auth');
         window.location.href = 'login.html';
       };

@@ -51,6 +51,7 @@
     .pf-meter span{display:block;height:100%;width:0;border-radius:999px;transition:width .4s,background .3s}
     .pf-btn{justify-self:start;border:0;border-radius:14px;padding:.7rem 1.3rem;font:inherit;font-weight:800;cursor:pointer;background:var(--primary-strong);color:var(--on-primary);transition:transform .2s,filter .2s}
     .pf-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .pf-btn:disabled{opacity:.6;cursor:wait;transform:none}
     .pf-btn.soft{background:var(--blue-soft);color:var(--text)}
     .pf-btn.danger{background:#fde3dc;color:#8a2a14}
     html[data-theme=dark] .pf-btn.danger{background:rgba(255,143,112,.18);color:#ffb3a0}
@@ -115,7 +116,7 @@
               <div><label for="pfFirst" data-p="first"></label><input type="text" id="pfFirst" autocomplete="given-name" /></div>
               <div><label for="pfLast" data-p="last"></label><input type="text" id="pfLast" autocomplete="family-name" /></div>
             </div>
-            <div style="margin-top:.8rem"><label for="pfEmail" data-p="email"></label><input type="email" id="pfEmail" dir="ltr" autocomplete="email" /></div>
+            <div style="margin-top:.8rem"><label for="pfEmail" data-p="email"></label><input type="email" id="pfEmail" dir="ltr" readonly /><span class="pf-hint" data-p="emailHint"></span></div>
             <div class="pf-row" style="margin-top:.8rem">
               <div><label for="pfStudent" data-p="student"></label><input type="text" id="pfStudent" dir="ltr" inputmode="numeric" /></div>
               <div><label for="pfUsername" data-p="username"></label><input type="text" id="pfUsername" dir="ltr" readonly /><span class="pf-hint" data-p="usernameHint"></span></div>
@@ -181,6 +182,7 @@
   <script>
   (function () {
     'use strict';
+    var SB = window.LernovaSB;
     var LV = [
       { min: 0, ic: '🌱', de: 'Neuling', en: 'Newcomer', fa: 'تازه‌کار' },
       { min: 3, ic: '🧭', de: 'Entdecker', en: 'Explorer', fa: 'کاشف' },
@@ -193,22 +195,15 @@
     ];
     var ICONS = ['🦊', '🐼', '🦉', '🐱', '🐶', '🦄', '🐧', '🐸', '🦁', '🚀', '🎓', '💻', '🎮', '🔥', '⭐', '🌈'];
     var T = {
-      de: { title: 'Profil', personal: 'Persönliche Daten', personalSub: 'Name, E-Mail und Schülernummer ändern.', first: 'Vorname', last: 'Nachname', email: 'E-Mail', student: 'Schülernummer', username: 'Benutzername', usernameHint: 'Der Benutzername kann nicht geändert werden.', save: 'Speichern', saved: 'Profil gespeichert.', needName: 'Bitte gib einen Namen ein.', emailBad: 'Die E-Mail-Adresse ist ungültig.', avatar: 'Avatar & Foto', avatarSub: 'Lade ein Foto hoch oder wähle ein Symbol und eine Farbe.', photo: 'Profilfoto', photoPick: 'Foto wählen', photoRemove: 'Foto entfernen', photoBad: 'Diese Datei ist kein Bild.', photoOk: 'Foto gespeichert.', icons: 'Avatar-Symbol', colors: 'Farbe', password: 'Passwort ändern', passwordSub: 'Gib zuerst dein aktuelles Passwort ein.', cur: 'Aktuelles Passwort', new: 'Neues Passwort', rep: 'Neues Passwort wiederholen', change: 'Passwort ändern', show: 'Zeigen', hide: 'Verbergen', weak: 'Schwach', ok: 'Mittel', strong: 'Stark', pwHint: 'Mindestens 6 Zeichen. Länger und gemischt ist besser.', pwWrong: 'Das aktuelle Passwort ist falsch.', pwShort: 'Das neue Passwort braucht mindestens 6 Zeichen.', pwMismatch: 'Die beiden neuen Passwörter sind verschieden.', pwSame: 'Das neue Passwort muss anders sein.', pwDone: 'Passwort geändert.', pwFill: 'Bitte alle Felder ausfüllen.', learn: 'Dein Lernstand', topicsDone: 'Themen erledigt', lastActive: 'Zuletzt aktiv', level: 'Level', toNext: 'Noch {n} Themen bis {name}', maxLevel: 'Höchstes Level erreicht!', logout: 'Abmelden', localNote: 'Deine Daten bleiben in diesem Browser. Es gibt keinen Server und keine automatische Passwort-Wiederherstellung.', notFound: 'Konto in diesem Browser nicht gefunden. Bitte melde dich neu an.', roleadmin: 'Administrator', roleteacher: 'Lehrkraft', rolestudent: 'Lernende/r', since: 'Seit ', unknown: 'Mitglied' },
-      en: { title: 'Profile', personal: 'Personal details', personalSub: 'Change your name, email and student number.', first: 'First name', last: 'Last name', email: 'Email', student: 'Student number', username: 'Username', usernameHint: 'The username cannot be changed.', save: 'Save', saved: 'Profile saved.', needName: 'Please enter a name.', emailBad: 'The email address is not valid.', avatar: 'Avatar & photo', avatarSub: 'Upload a photo, or pick an icon and a color.', photo: 'Profile photo', photoPick: 'Choose photo', photoRemove: 'Remove photo', photoBad: 'This file is not an image.', photoOk: 'Photo saved.', icons: 'Avatar icon', colors: 'Color', password: 'Change password', passwordSub: 'Enter your current password first.', cur: 'Current password', new: 'New password', rep: 'Repeat new password', change: 'Change password', show: 'Show', hide: 'Hide', weak: 'Weak', ok: 'Medium', strong: 'Strong', pwHint: 'At least 6 characters. Longer and mixed is better.', pwWrong: 'The current password is wrong.', pwShort: 'The new password needs at least 6 characters.', pwMismatch: 'The two new passwords do not match.', pwSame: 'The new password must be different.', pwDone: 'Password changed.', pwFill: 'Please fill in all fields.', learn: 'Your progress', topicsDone: 'Topics done', lastActive: 'Last active', level: 'Level', toNext: '{n} more topics to {name}', maxLevel: 'Highest level reached!', logout: 'Sign out', localNote: 'Your data stays in this browser. There is no server and no automatic password recovery.', notFound: 'Account not found in this browser. Please sign in again.', roleadmin: 'Administrator', roleteacher: 'Teacher', rolestudent: 'Learner', since: 'Since ', unknown: 'Member' },
-      fa: { title: 'پروفایل', personal: 'اطلاعات شخصی', personalSub: 'نام، ایمیل و شمارهٔ دانش‌آموزی را تغییر بده.', first: 'نام', last: 'نام خانوادگی', email: 'ایمیل', student: 'شمارهٔ دانش‌آموزی', username: 'نام کاربری', usernameHint: 'نام کاربری قابل تغییر نیست.', save: 'ذخیره', saved: 'پروفایل ذخیره شد.', needName: 'لطفاً یک نام وارد کن.', emailBad: 'نشانی ایمیل معتبر نیست.', avatar: 'آواتار و عکس', avatarSub: 'یک عکس آپلود کن یا یک نماد و رنگ انتخاب کن.', photo: 'عکس پروفایل', photoPick: 'انتخاب عکس', photoRemove: 'حذف عکس', photoBad: 'این فایل عکس نیست.', photoOk: 'عکس ذخیره شد.', icons: 'نماد آواتار', colors: 'رنگ', password: 'تغییر رمز عبور', passwordSub: 'اول رمز فعلی‌ات را وارد کن.', cur: 'رمز فعلی', new: 'رمز جدید', rep: 'تکرار رمز جدید', change: 'تغییر رمز', show: 'نمایش', hide: 'پنهان', weak: 'ضعیف', ok: 'متوسط', strong: 'قوی', pwHint: 'دست‌کم ۶ نویسه. طولانی‌تر و ترکیبی بهتر است.', pwWrong: 'رمز فعلی نادرست است.', pwShort: 'رمز جدید دست‌کم ۶ نویسه می‌خواهد.', pwMismatch: 'دو رمز جدید یکی نیستند.', pwSame: 'رمز جدید باید متفاوت باشد.', pwDone: 'رمز عبور تغییر کرد.', pwFill: 'لطفاً همهٔ فیلدها را پر کن.', learn: 'پیشرفت تو', topicsDone: 'موضوع انجام‌شده', lastActive: 'آخرین فعالیت', level: 'لول', toNext: '{n} موضوع تا «{name}»', maxLevel: 'به بالاترین لول رسیدی!', logout: 'خروج', localNote: 'داده‌هایت فقط در همین مرورگر می‌ماند. سروری وجود ندارد و بازیابی خودکار رمز هم نیست.', notFound: 'حساب در این مرورگر پیدا نشد. دوباره وارد شو.', roleadmin: 'مدیر', roleteacher: 'معلم', rolestudent: 'دانش‌آموز', since: 'از ', unknown: 'عضو' }
+      de: { title: 'Profil', personal: 'Persönliche Daten', personalSub: 'Name und Schülernummer ändern. Alles wird online in deinem Konto gespeichert.', first: 'Vorname', last: 'Nachname', email: 'E-Mail', emailHint: 'Die E-Mail kann hier nicht geändert werden.', student: 'Schülernummer', username: 'Benutzername', usernameHint: 'Der Benutzername kann nicht geändert werden.', save: 'Speichern', saved: 'Profil gespeichert.', needName: 'Bitte gib einen Namen ein.', saveFail: 'Speichern fehlgeschlagen. Prüfe die Verbindung.', avatar: 'Avatar & Foto', avatarSub: 'Lade ein Foto hoch oder wähle ein Symbol und eine Farbe.', photo: 'Profilfoto', photoPick: 'Foto wählen', photoRemove: 'Foto entfernen', photoBad: 'Diese Datei ist kein Bild.', photoBig: 'Das Bild ist zu groß.', photoOk: 'Foto gespeichert.', icons: 'Avatar-Symbol', colors: 'Farbe', password: 'Passwort ändern', passwordSub: 'Gib zuerst dein aktuelles Passwort ein.', cur: 'Aktuelles Passwort', new: 'Neues Passwort', rep: 'Neues Passwort wiederholen', change: 'Passwort ändern', show: 'Zeigen', hide: 'Verbergen', weak: 'Schwach', ok: 'Mittel', strong: 'Stark', pwHint: 'Mindestens 6 Zeichen. Länger und gemischt ist besser.', pwWrong: 'Das aktuelle Passwort ist falsch.', pwShort: 'Das neue Passwort braucht mindestens 6 Zeichen.', pwMismatch: 'Die beiden neuen Passwörter sind verschieden.', pwSame: 'Das neue Passwort muss anders sein.', pwDone: 'Passwort geändert.', pwFill: 'Bitte alle Felder ausfüllen.', learn: 'Dein Lernstand', topicsDone: 'Themen erledigt', lastActive: 'Zuletzt aktiv', level: 'Level', toNext: 'Noch {n} Themen bis {name}', maxLevel: 'Höchstes Level erreicht!', logout: 'Abmelden', localNote: 'Profil und Lernstand sind online in deinem Konto gespeichert und auf jedem Gerät verfügbar.', notFound: 'Profil nicht gefunden. Bitte melde dich neu an.', roleadmin: 'Administrator', roleteacher: 'Lehrkraft', rolestudent: 'Lernende/r', since: 'Seit ', unknown: 'Mitglied' },
+      en: { title: 'Profile', personal: 'Personal details', personalSub: 'Change your name and student number. Everything is saved online in your account.', first: 'First name', last: 'Last name', email: 'Email', emailHint: 'The email cannot be changed here.', student: 'Student number', username: 'Username', usernameHint: 'The username cannot be changed.', save: 'Save', saved: 'Profile saved.', needName: 'Please enter a name.', saveFail: 'Saving failed. Check your connection.', avatar: 'Avatar & photo', avatarSub: 'Upload a photo, or pick an icon and a color.', photo: 'Profile photo', photoPick: 'Choose photo', photoRemove: 'Remove photo', photoBad: 'This file is not an image.', photoBig: 'The image is too large.', photoOk: 'Photo saved.', icons: 'Avatar icon', colors: 'Color', password: 'Change password', passwordSub: 'Enter your current password first.', cur: 'Current password', new: 'New password', rep: 'Repeat new password', change: 'Change password', show: 'Show', hide: 'Hide', weak: 'Weak', ok: 'Medium', strong: 'Strong', pwHint: 'At least 6 characters. Longer and mixed is better.', pwWrong: 'The current password is wrong.', pwShort: 'The new password needs at least 6 characters.', pwMismatch: 'The two new passwords do not match.', pwSame: 'The new password must be different.', pwDone: 'Password changed.', pwFill: 'Please fill in all fields.', learn: 'Your progress', topicsDone: 'Topics done', lastActive: 'Last active', level: 'Level', toNext: '{n} more topics to {name}', maxLevel: 'Highest level reached!', logout: 'Sign out', localNote: 'Your profile and progress are saved online in your account and available on every device.', notFound: 'Profile not found. Please sign in again.', roleadmin: 'Administrator', roleteacher: 'Teacher', rolestudent: 'Learner', since: 'Since ', unknown: 'Member' },
+      fa: { title: 'پروفایل', personal: 'اطلاعات شخصی', personalSub: 'نام و شمارهٔ دانش‌آموزی را تغییر بده. همه‌چیز آنلاین در حسابت ذخیره می‌شود.', first: 'نام', last: 'نام خانوادگی', email: 'ایمیل', emailHint: 'ایمیل اینجا قابل تغییر نیست.', student: 'شمارهٔ دانش‌آموزی', username: 'نام کاربری', usernameHint: 'نام کاربری قابل تغییر نیست.', save: 'ذخیره', saved: 'پروفایل ذخیره شد.', needName: 'لطفاً یک نام وارد کن.', saveFail: 'ذخیره نشد. اتصال را بررسی کن.', avatar: 'آواتار و عکس', avatarSub: 'یک عکس آپلود کن یا یک نماد و رنگ انتخاب کن.', photo: 'عکس پروفایل', photoPick: 'انتخاب عکس', photoRemove: 'حذف عکس', photoBad: 'این فایل عکس نیست.', photoBig: 'عکس خیلی بزرگ است.', photoOk: 'عکس ذخیره شد.', icons: 'نماد آواتار', colors: 'رنگ', password: 'تغییر رمز عبور', passwordSub: 'اول رمز فعلی‌ات را وارد کن.', cur: 'رمز فعلی', new: 'رمز جدید', rep: 'تکرار رمز جدید', change: 'تغییر رمز', show: 'نمایش', hide: 'پنهان', weak: 'ضعیف', ok: 'متوسط', strong: 'قوی', pwHint: 'دست‌کم ۶ نویسه. طولانی‌تر و ترکیبی بهتر است.', pwWrong: 'رمز فعلی نادرست است.', pwShort: 'رمز جدید دست‌کم ۶ نویسه می‌خواهد.', pwMismatch: 'دو رمز جدید یکی نیستند.', pwSame: 'رمز جدید باید متفاوت باشد.', pwDone: 'رمز عبور تغییر کرد.', pwFill: 'لطفاً همهٔ فیلدها را پر کن.', learn: 'پیشرفت تو', topicsDone: 'موضوع انجام‌شده', lastActive: 'آخرین فعالیت', level: 'لول', toNext: '{n} موضوع تا «{name}»', maxLevel: 'به بالاترین لول رسیدی!', logout: 'خروج', localNote: 'پروفایل و پیشرفت آنلاین در حسابت ذخیره می‌شوند و روی هر دستگاهی در دسترس‌اند.', notFound: 'پروفایل پیدا نشد. دوباره وارد شو.', roleadmin: 'مدیر', roleteacher: 'معلم', rolestudent: 'دانش‌آموز', since: 'از ', unknown: 'عضو' }
     };
     var AV = { lime: ['#d8ef85', '#20342d'], sun: ['#ffd166', '#5c3b00'], coral: ['#ff8f70', '#4a1d0e'], sky: ['#9bd6f5', '#10435e'], lilac: ['#cdbdf2', '#32215c'], mint: ['#a7e8c4', '#0f4a2f'] };
     function $(id) { return document.getElementById(id); }
     function L() { var l = document.documentElement.lang; return T[l] ? l : 'de'; }
     function t(k) { return T[L()][k] || T.de[k] || k; }
     function session() { try { return JSON.parse(sessionStorage.getItem('fisi-auth') || 'null'); } catch (e) { return null; } }
-    function users() { try { return JSON.parse(localStorage.getItem('fisi-users') || '[]'); } catch (e) { return []; } }
-    function saveUsers(list) { localStorage.setItem('fisi-users', JSON.stringify(list)); }
-    function find(list, name) { for (var i = 0; i < list.length; i++) if (list[i].username === name) return list[i]; return null; }
-    async function sha(s) {
-      var d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
-      return Array.from(new Uint8Array(d)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
-    }
     function fullName(r) { return ((r.firstName || '') + ' ' + (r.lastName || '')).trim(); }
     function initials(r) {
       var n = fullName(r) || r.username || '';
@@ -290,9 +285,14 @@
       paintLevel();
     }
 
-    function update(fn) {
-      var list = users(); var r = find(list, rec.username); if (!r) return;
-      fn(r); saveUsers(list); rec = r; paintAvatar();
+    async function update(patch) {
+      try {
+        rec = await SB.updateProfile(patch);
+        paintHero();
+        return true;
+      } catch (e) {
+        return false;
+      }
     }
 
     function buildPickers() {
@@ -303,7 +303,7 @@
         b.style.background = AV[k][0]; b.style.color = AV[k][1];
         b.setAttribute('aria-label', k); b.setAttribute('aria-pressed', 'false');
         b.textContent = 'A';
-        b.addEventListener('click', function () { update(function (r) { r.avatar = k; }); });
+        b.addEventListener('click', function () { update({ avatar: k }); });
         sw.appendChild(b);
       });
       var ic = $('pfIcons');
@@ -311,13 +311,13 @@
       none.type = 'button'; none.className = 'pf-ic'; none.dataset.ic = ''; none.textContent = 'Aa';
       none.style.fontSize = '1rem'; none.style.fontWeight = '800';
       none.setAttribute('aria-label', 'Initials'); none.setAttribute('aria-pressed', 'false');
-      none.addEventListener('click', function () { update(function (r) { r.avatarIcon = ''; r.photo = ''; }); });
+      none.addEventListener('click', function () { update({ avatarIcon: '', photo: '' }); });
       ic.appendChild(none);
       ICONS.forEach(function (e) {
         var b = document.createElement('button');
         b.type = 'button'; b.className = 'pf-ic'; b.dataset.ic = e; b.textContent = e;
         b.setAttribute('aria-pressed', 'false');
-        b.addEventListener('click', function () { update(function (r) { r.avatarIcon = e; r.photo = ''; }); });
+        b.addEventListener('click', function () { update({ avatarIcon: e, photo: '' }); });
         ic.appendChild(b);
       });
     }
@@ -331,7 +331,7 @@
           c.width = size; c.height = size;
           var s = Math.min(img.width, img.height);
           c.getContext('2d').drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, size, size);
-          cb(c.toDataURL('image/jpeg', 0.82));
+          cb(c.toDataURL('image/jpeg', 0.8));
         };
         img.onerror = function () { cb(null); };
         img.src = reader.result;
@@ -350,18 +350,23 @@
       return s;
     }
 
-    function init() {
+    function lockAll() {
+      document.querySelectorAll('#pfForm input,#pfForm button,#pwForm input,#pwForm button.pf-btn,.pf-photo button').forEach(function (e) { e.disabled = true; });
+    }
+
+    async function init() {
       var s = session();
-      if (!s) return;
-      rec = find(users(), s.username);
+      if (!s || !SB) return;
       document.querySelectorAll('.sidenav .nav-item').forEach(function (a) { a.classList.remove('is-active'); a.removeAttribute('aria-current'); });
       buildPickers();
+      try { rec = await SB.fetchProfileRec(); } catch (e) { rec = null; }
+      if (!rec) rec = SB.cachedRec();
       if (!rec) {
-        $('pfName').textContent = s.name || s.username;
-        $('pfUser').textContent = '@' + s.username;
+        $('pfName').textContent = s.name || s.username || '';
+        $('pfUser').textContent = s.username ? '@' + s.username : '';
         paintTexts();
         status($('pfStatus'), 'notFound', 'err');
-        document.querySelectorAll('#pfForm input,#pfForm button,#pwForm input,#pwForm button.pf-btn,.pf-photo button').forEach(function (e) { e.disabled = true; });
+        lockAll();
         return;
       }
       $('pfFirst').value = rec.firstName || '';
@@ -371,31 +376,32 @@
       $('pfUsername').value = rec.username;
       paintTexts();
 
-      $('pfForm').addEventListener('submit', function (e) {
+      $('pfForm').addEventListener('submit', async function (e) {
         e.preventDefault();
         var first = $('pfFirst').value.trim(), last = $('pfLast').value.trim();
-        var email = $('pfEmail').value.trim();
         if (!first && !last) { status($('pfStatus'), 'needName', 'err'); return; }
-        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status($('pfStatus'), 'emailBad', 'err'); return; }
-        update(function (r) { r.firstName = first; r.lastName = last; r.email = email; r.studentId = $('pfStudent').value.trim(); });
-        var sess = session() || {}; sess.name = (first + ' ' + last).trim();
-        sessionStorage.setItem('fisi-auth', JSON.stringify(sess));
-        paintHero(); status($('pfStatus'), 'saved', 'ok');
+        var ok = await update({ firstName: first, lastName: last, studentId: $('pfStudent').value.trim() });
+        status($('pfStatus'), ok ? 'saved' : 'saveFail', ok ? 'ok' : 'err');
       });
 
       $('photoPick').addEventListener('click', function () { $('photoFile').click(); });
       $('photoFile').addEventListener('change', function () {
         var f = this.files && this.files[0];
+        var input = this;
         if (!f) return;
         if (!/^image\//.test(f.type)) { status($('photoStatus'), 'photoBad', 'err'); return; }
-        resizePhoto(f, function (data) {
+        resizePhoto(f, async function (data) {
           if (!data) { status($('photoStatus'), 'photoBad', 'err'); return; }
-          update(function (r) { r.photo = data; });
-          status($('photoStatus'), 'photoOk', 'ok');
+          if (data.length > 120000) { status($('photoStatus'), 'photoBig', 'err'); return; }
+          var ok = await update({ photo: data });
+          status($('photoStatus'), ok ? 'photoOk' : 'saveFail', ok ? 'ok' : 'err');
         });
-        this.value = '';
+        input.value = '';
       });
-      $('photoRemove').addEventListener('click', function () { update(function (r) { r.photo = ''; }); status($('photoStatus'), null); });
+      $('photoRemove').addEventListener('click', async function () {
+        var ok = await update({ photo: '' });
+        status($('photoStatus'), ok ? null : 'saveFail', ok ? '' : 'err');
+      });
 
       document.querySelectorAll('[data-eye]').forEach(function (b) {
         b.addEventListener('click', function () {
@@ -418,19 +424,20 @@
         var cur = $('pwCur').value, nw = $('pwNew').value, rp = $('pwRep').value;
         var st = $('pwStatus');
         if (!cur || !nw || !rp) { status(st, 'pwFill', 'err'); return; }
-        var l = users(); var r = find(l, rec.username); if (!r) return;
-        if ((await sha(cur)) !== r.passwordHash) { status(st, 'pwWrong', 'err'); return; }
         if (nw.length < 6) { status(st, 'pwShort', 'err'); return; }
         if (nw !== rp) { status(st, 'pwMismatch', 'err'); return; }
         if (nw === cur) { status(st, 'pwSame', 'err'); return; }
-        r.passwordHash = await sha(nw);
-        saveUsers(l); rec = r;
-        $('pwForm').reset(); $('pwBar').style.width = '0';
-        status(st, 'pwDone', 'ok');
+        try {
+          await SB.changePassword(cur, nw);
+          $('pwForm').reset(); $('pwBar').style.width = '0';
+          status(st, 'pwDone', 'ok');
+        } catch (err) {
+          status(st, err && err.message === 'wrong_password' ? 'pwWrong' : 'saveFail', 'err');
+        }
       });
 
       $('pfLogout').addEventListener('click', function () {
-        sessionStorage.removeItem('fisi-auth');
+        SB.signOutLocal();
         location.href = 'login.html';
       });
     }
