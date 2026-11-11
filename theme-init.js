@@ -21,7 +21,8 @@
   try {
     var root = document.documentElement;
     root.classList.add('lumo-site');
-    var out = '<link rel="stylesheet" href="lumo-site.css">';
+    var out = '<script src="supabase-config.js"><\/script><script src="supabase-lite.js"><\/script>';
+    out += '<link rel="stylesheet" href="lumo-site.css">';
     if (/(^|\/)(index\.html)?$/.test(location.pathname)) {
       root.classList.add('lumo-home');
       out += '<link rel="stylesheet" href="lumo.css"><script src="lumo.js" defer><\/script>';

@@ -19,13 +19,7 @@
   window.LERNOVA_LEVELS = LEVELS;
 
   function record() {
-    try {
-      var s = JSON.parse(sessionStorage.getItem('fisi-auth') || 'null');
-      if (!s) return null;
-      var list = JSON.parse(localStorage.getItem('fisi-users') || '[]');
-      for (var i = 0; i < list.length; i++) if (list[i].username === s.username) return list[i];
-    } catch (e) {}
-    return null;
+    try { return JSON.parse(sessionStorage.getItem('lernova-profile') || 'null'); } catch (e) { return null; }
   }
 
   function doneCount() {
