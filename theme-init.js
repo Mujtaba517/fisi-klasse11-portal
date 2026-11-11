@@ -27,7 +27,7 @@
       out += '<link rel="stylesheet" href="lumo.css"><script src="lumo.js" defer><\/script>';
     }
     out += '<link rel="stylesheet" href="appearance.css"><script src="appearance.js"><\/script>';
-    out += '<style>html.lumo-site body .sidebar a.nav-item[href="admin.html"]{display:none!important}html.lumo-site body :is(.search input,.list-search,input[type=search]):focus-visible{outline:none!important;border-color:var(--primary-strong)!important;box-shadow:0 0 0 2px var(--blue-soft)}</style>';
+    out += '<style>html.lumo-site body .sidebar a.nav-item[href="admin.html"]{display:none!important}html.lumo-site body :is(.search input,.list-search,input[type=search]):focus-visible{outline:none!important;border-color:var(--primary-strong)!important;box-shadow:0 0 0 2px var(--blue-soft)}html.lumo-site:not(#x) body .search input{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;outline:none!important}html.lumo-site:not(#x) body .search:focus-within{box-shadow:0 0 0 2px var(--blue-soft)}</style>';
     if (/settings(\.html)?$/.test(location.pathname)) out += '<script src="users-tab.js"><\/script>';
     document.write(out);
   } catch (e) {}
