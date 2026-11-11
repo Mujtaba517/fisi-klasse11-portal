@@ -16,3 +16,11 @@
     meta.setAttribute('content', theme === 'light' ? '#f3f5fa' : '#0f172a');
   } catch (e) {}
 })();
+/* Lumo look: dashboard (home page) only. */
+(function () {
+  try {
+    if (!/(^|\/)(index\.html)?$/.test(location.pathname)) return;
+    document.documentElement.classList.add('lumo-home');
+    document.write('<link rel="stylesheet" href="lumo.css"><script src="lumo.js" defer><\/script>');
+  } catch (e) {}
+})();
