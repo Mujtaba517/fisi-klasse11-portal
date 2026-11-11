@@ -10,10 +10,8 @@
   <script>
     try {
       var theme = localStorage.getItem('fisi-theme') || 'dark';
-      var lang = localStorage.getItem('fisi-lang');
-      if (lang !== 'en' && lang !== 'fa') lang = 'de';
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+      document.documentElement.lang = 'de';
+      document.documentElement.dir = 'ltr';
       document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
       var meta = document.querySelector('meta[name="theme-color"]');
       if (meta) meta.setAttribute('content', theme === 'light' ? '#f4efe6' : '#171410');
@@ -22,27 +20,22 @@
   <script src="supabase-config.js"></script>
   <script src="supabase-lite.js"></script>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=20261110c" />
+  <link rel="stylesheet" href="login-lumo.css?v=20261111a" />
 </head>
-<body>
+<body class="login-lumo">
   <main class="auth-screen">
     <div class="auth-shell">
       <section class="auth-aside">
         <a class="brand" href="login.html">
-        <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
-          <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
-          <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
-          <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
-        </svg>
-        <span class="brand-word">Lernova</span>
-      </a>
-        <div class="lang-switch" role="group" id="loginLang" aria-label="Sprache">
-          <button type="button" class="lang-opt" data-lang="de" onclick="setLoginLang('de')">DE</button>
-          <button type="button" class="lang-opt" data-lang="en" onclick="setLoginLang('en')">EN</button>
-          <button type="button" class="lang-opt" data-lang="fa" onclick="setLoginLang('fa')">فا</button>
-        </div>
+          <svg class="brand-logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M7 25.2c-.9 0-1.6-.7-1.6-1.6V8.4c0-.9.7-1.6 1.6-1.6h1.1c.9 0 1.6.7 1.6 1.6V22h11.6c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6H7z"/>
+            <circle fill="currentColor" cx="11.2" cy="20.2" r="2"/>
+            <circle fill="currentColor" cx="18" cy="14.6" r="2"/>
+            <circle fill="currentColor" cx="24.6" cy="9.2" r="2"/>
+          </svg>
+          <span class="brand-word">Lernova</span>
+        </a>
         <h1 id="heroHeadline">Dein Potenzial. Dein Tempo. Deine Zukunft.</h1>
         <p class="hero-support" id="heroSupport"></p>
         <button type="button" class="btn btn-primary" id="heroCta" onclick="startNow()">Jetzt loslegen</button>
@@ -138,149 +131,36 @@
   <script>
     const SB = window.LernovaSB;
 
-    const loginCopy = {
-      de: {
-        headline: 'Dein Potenzial. Dein Tempo. Deine Zukunft.',
-        support: 'Lernova gibt deiner Neugier Raum und deinem Fortschritt eine Richtung. Entdecke, was in dir steckt, wachse an neuen Herausforderungen und gestalte deinen eigenen Weg — Schritt für Schritt, mit Klarheit und Zuversicht.',
-        cta: 'Jetzt loslegen',
-        loginTab: 'Anmelden', registerTab: 'Registrieren',
-        email: 'E-Mail', user: 'Benutzername', pass: 'Passwort',
-        forgot: 'Passwort vergessen?', submit: 'Anmelden',
-        first: 'Vorname', last: 'Nachname', student: 'Schülernummer', register: 'Registrieren',
-        hint: 'Nach der Registrierung bestätigst du deine E-Mail. Danach gibt der Administrator dein Konto frei.',
-        recoveryTitle: 'Passwort vergessen',
-        recoveryLead: 'Gib deine E-Mail-Adresse ein. Wir senden dir einen Link zum Zurücksetzen des Passworts.',
-        recoverSend: 'Link senden', recoveryBack: 'Zurück zur Anmeldung',
-        recoverSent: 'Wenn die Adresse bekannt ist, ist ein Link unterwegs. Prüfe auch den Spam-Ordner.',
-        newPassTitle: 'Neues Passwort festlegen', newPass: 'Neues Passwort', newPassRep: 'Passwort wiederholen', newPassSave: 'Passwort speichern',
-        npMismatch: 'Die Passwörter sind verschieden', npDone: 'Passwort geändert. Du kannst dich jetzt anmelden.',
-        bad: 'E-Mail oder Passwort falsch',
-        pending: 'Dein Konto wartet auf Freigabe durch den Administrator',
-        notConfirmed: 'Bitte bestätige zuerst deine E-Mail-Adresse über den Link in deinem Postfach',
-        noProfile: 'Profil nicht gefunden. Wende dich an den Administrator',
-        taken: 'Benutzername oder E-Mail ist schon vergeben',
-        userBad: 'Benutzername: 3 bis 30 Zeichen (Buchstaben, Zahlen, Punkt, Unterstrich, Bindestrich)',
-        passShort: 'Das Passwort braucht mindestens 6 Zeichen',
-        ok: 'Registrierung erfolgreich! Bestätige deine E-Mail über den Link, den wir gesendet haben. Danach gibt der Administrator dein Konto frei.',
-        okNoMail: 'Registrierung erfolgreich! Der Administrator muss dein Konto noch freigeben.',
-        confirmed: 'E-Mail bestätigt. Der Administrator muss dein Konto noch freigeben.',
-        linkBad: 'Der Link ist ungültig oder abgelaufen',
-        netErr: 'Keine Verbindung. Versuche es später noch einmal',
-        rate: 'Zu viele Versuche. Warte kurz und versuche es erneut',
-        langLabel: 'Sprache'
-      },
-      en: {
-        headline: 'Your potential. Your pace. Your future.',
-        support: 'Lernova gives your curiosity room to grow and your progress a sense of direction. Discover what you are capable of, embrace new challenges, and shape your own path — one step at a time, with clarity and confidence.',
-        cta: 'Get started',
-        loginTab: 'Sign in', registerTab: 'Register',
-        email: 'Email', user: 'Username', pass: 'Password',
-        forgot: 'Forgot password?', submit: 'Sign in',
-        first: 'First name', last: 'Last name', student: 'Student number', register: 'Register',
-        hint: 'After registering, confirm your email. Then an administrator approves your account.',
-        recoveryTitle: 'Forgot password',
-        recoveryLead: 'Enter your email address. We will send you a link to reset your password.',
-        recoverSend: 'Send link', recoveryBack: 'Back to sign in',
-        recoverSent: 'If the address is known, a link is on its way. Check your spam folder too.',
-        newPassTitle: 'Set a new password', newPass: 'New password', newPassRep: 'Repeat password', newPassSave: 'Save password',
-        npMismatch: 'The passwords do not match', npDone: 'Password changed. You can sign in now.',
-        bad: 'Email or password is wrong',
-        pending: 'Your account is waiting for an administrator to approve it',
-        notConfirmed: 'Please confirm your email address first using the link in your inbox',
-        noProfile: 'Profile not found. Contact the administrator',
-        taken: 'That username or email is already taken',
-        userBad: 'Username: 3 to 30 characters (letters, numbers, dot, underscore, hyphen)',
-        passShort: 'The password needs at least 6 characters',
-        ok: 'Registration succeeded! Confirm your email with the link we sent. Then an administrator approves your account.',
-        okNoMail: 'Registration succeeded! An administrator still has to approve your account.',
-        confirmed: 'Email confirmed. An administrator still has to approve your account.',
-        linkBad: 'The link is invalid or has expired',
-        netErr: 'No connection. Please try again later',
-        rate: 'Too many attempts. Wait a moment and try again',
-        langLabel: 'Language'
-      },
-      fa: {
-        headline: 'استعداد تو، سرعت تو، آیندهٔ تو.',
-        support: 'لرنووا فضایی برای شکوفایی کنجکاوی و پیشرفت توست. توانایی‌هایت را کشف کن، با چالش‌های تازه رشد کن و مسیر خودت را با اطمینان بساز؛ قدم‌به‌قدم و با نگاه به آینده.',
-        cta: 'شروع کن',
-        loginTab: 'ورود', registerTab: 'ثبت‌نام',
-        email: 'ایمیل', user: 'نام کاربری', pass: 'رمز عبور',
-        forgot: 'رمز عبور را فراموش کرده‌اید؟', submit: 'ورود',
-        first: 'نام', last: 'نام خانوادگی', student: 'شماره دانش‌آموزی', register: 'ثبت‌نام',
-        hint: 'پس از ثبت‌نام، ایمیلت را تأیید کن. بعد مدیر حساب را تأیید می‌کند.',
-        recoveryTitle: 'بازیابی رمز عبور',
-        recoveryLead: 'نشانی ایمیلت را وارد کن. پیوند بازنشانی رمز برایت فرستاده می‌شود.',
-        recoverSend: 'ارسال پیوند', recoveryBack: 'بازگشت به ورود',
-        recoverSent: 'اگر این نشانی ثبت شده باشد، پیوندی برایش فرستاده شده است. پوشهٔ اسپم را هم ببین.',
-        newPassTitle: 'تعیین رمز عبور تازه', newPass: 'رمز عبور تازه', newPassRep: 'تکرار رمز عبور', newPassSave: 'ذخیرهٔ رمز',
-        npMismatch: 'دو رمز یکی نیستند', npDone: 'رمز عبور تغییر کرد. اکنون می‌توانی وارد شوی.',
-        bad: 'ایمیل یا رمز عبور نادرست است',
-        pending: 'حساب تو منتظر تأیید مدیر است',
-        notConfirmed: 'اول ایمیلت را با پیوندی که در صندوق پست است تأیید کن',
-        noProfile: 'پروفایل پیدا نشد. با مدیر تماس بگیر',
-        taken: 'این نام کاربری یا ایمیل قبلاً گرفته شده',
-        userBad: 'نام کاربری: ۳ تا ۳۰ نویسه (حرف، عدد، نقطه، زیرخط، خط تیره)',
-        passShort: 'رمز عبور دست‌کم ۶ نویسه می‌خواهد',
-        ok: 'ثبت‌نام انجام شد! ایمیلت را با پیوندی که فرستادیم تأیید کن. بعد مدیر حساب را تأیید می‌کند.',
-        okNoMail: 'ثبت‌نام انجام شد! مدیر هنوز باید حساب را تأیید کند.',
-        confirmed: 'ایمیل تأیید شد. مدیر هنوز باید حساب را تأیید کند.',
-        linkBad: 'پیوند نامعتبر یا منقضی شده است',
-        netErr: 'اتصال برقرار نیست. بعداً دوباره تلاش کن',
-        rate: 'تلاش‌های زیاد. کمی صبر کن و دوباره امتحان کن',
-        langLabel: 'زبان'
-      }
+    const t = {
+      headline: 'Dein Potenzial. Dein Tempo. Deine Zukunft.',
+      support: 'Lernova gibt deiner Neugier Raum und deinem Fortschritt eine Richtung. Entdecke, was in dir steckt, wachse an neuen Herausforderungen und gestalte deinen eigenen Weg — Schritt für Schritt, mit Klarheit und Zuversicht.',
+      hint: 'Nach der Registrierung bestätigst du deine E-Mail. Danach gibt der Administrator dein Konto frei.',
+      recoveryLead: 'Gib deine E-Mail-Adresse ein. Wir senden dir einen Link zum Zurücksetzen des Passworts.',
+      recoverSent: 'Wenn die Adresse bekannt ist, ist ein Link unterwegs. Prüfe auch den Spam-Ordner.',
+      npMismatch: 'Die Passwörter sind verschieden', npDone: 'Passwort geändert. Du kannst dich jetzt anmelden.',
+      bad: 'E-Mail oder Passwort falsch',
+      pending: 'Dein Konto wartet auf Freigabe durch den Administrator',
+      notConfirmed: 'Bitte bestätige zuerst deine E-Mail-Adresse über den Link in deinem Postfach',
+      noProfile: 'Profil nicht gefunden. Wende dich an den Administrator',
+      taken: 'Benutzername oder E-Mail ist schon vergeben',
+      userBad: 'Benutzername: 3 bis 30 Zeichen (Buchstaben, Zahlen, Punkt, Unterstrich, Bindestrich)',
+      passShort: 'Das Passwort braucht mindestens 6 Zeichen',
+      ok: 'Registrierung erfolgreich! Bestätige deine E-Mail über den Link, den wir gesendet haben. Danach gibt der Administrator dein Konto frei.',
+      okNoMail: 'Registrierung erfolgreich! Der Administrator muss dein Konto noch freigeben.',
+      confirmed: 'E-Mail bestätigt. Der Administrator muss dein Konto noch freigeben.',
+      linkBad: 'Der Link ist ungültig oder abgelaufen',
+      netErr: 'Keine Verbindung. Versuche es später noch einmal',
+      rate: 'Zu viele Versuche. Warte kurz und versuche es erneut'
     };
-
-    function loginLang() {
-      const saved = localStorage.getItem('fisi-lang');
-      return loginCopy[saved] ? saved : 'de';
-    }
-    function copy() { return loginCopy[loginLang()]; }
+    function copy() { return t; }
     function setText(id, value) {
       const el = document.getElementById(id);
       if (el) el.textContent = value;
     }
 
-    function setLoginLang(lang) {
-      if (!loginCopy[lang]) return;
-      localStorage.setItem('fisi-lang', lang);
-      const t = loginCopy[lang];
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-      setText('heroHeadline', t.headline);
-      setText('heroSupport', t.support);
-      setText('heroCta', t.cta);
-      setText('tab-login', t.loginTab);
-      setText('tab-register', t.registerTab);
-      setText('loginEmailLabel', t.email);
-      setText('loginPassLabel', t.pass);
-      setText('forgotLink', t.forgot);
-      setText('loginSubmit', t.submit);
-      setText('regFirstLabel', t.first);
-      setText('regLastLabel', t.last);
-      setText('regUserLabel', t.user);
-      setText('regEmailLabel', t.email);
-      setText('regStudentLabel', t.student);
-      setText('regPassLabel', t.pass);
-      setText('registerSubmit', t.register);
-      setText('registerHint', t.hint);
-      setText('recoveryTitle', t.recoveryTitle);
-      setText('recoveryLead', t.recoveryLead);
-      setText('recoverEmailLabel', t.email);
-      setText('recoverSubmit', t.recoverSend);
-      setText('recoveryBack', t.recoveryBack);
-      setText('newPassTitle', t.newPassTitle);
-      setText('npPassLabel', t.newPass);
-      setText('npRepLabel', t.newPassRep);
-      setText('npSubmit', t.newPassSave);
-      const group = document.getElementById('loginLang');
-      if (group) group.setAttribute('aria-label', t.langLabel);
-      document.querySelectorAll('#loginLang .lang-opt').forEach(btn => {
-        const on = btn.dataset.lang === lang;
-        btn.classList.toggle('active', on);
-        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      });
-    }
+    setText('heroSupport', t.support);
+    setText('registerHint', t.hint);
+    setText('recoveryLead', t.recoveryLead);
 
     function showMsg(type, text) {
       const box = document.getElementById('msgBox');
@@ -320,7 +200,6 @@
     function startNow() { view('login'); document.getElementById('loginEmail').focus(); }
 
     function mapErr(err) {
-      const t = copy();
       const msg = String((err && err.message) || '');
       const code = (err && err.code) || '';
       if (err instanceof TypeError) return t.netErr;
@@ -344,8 +223,8 @@
       try {
         await SB.signIn(email, pass);
         const rec = await SB.establish();
-        if (!rec) { SB.signOutLocal(); showMsg('error', copy().noProfile); return false; }
-        if (!rec.approved && rec.role !== 'admin') { SB.signOutLocal(); showMsg('pending', copy().pending); return false; }
+        if (!rec) { SB.signOutLocal(); showMsg('error', t.noProfile); return false; }
+        if (!rec.approved && rec.role !== 'admin') { SB.signOutLocal(); showMsg('pending', t.pending); return false; }
         window.location.href = 'index.html';
       } catch (err) {
         showMsg('error', mapErr(err));
@@ -357,7 +236,6 @@
 
     async function doRegister(e) {
       e.preventDefault();
-      const t = copy();
       const first = document.getElementById('regFirst').value.trim();
       const last = document.getElementById('regLast').value.trim();
       const username = document.getElementById('regUser').value.trim();
@@ -387,10 +265,10 @@
       busy('recoverForm', true);
       try {
         await SB.recover(email, window.location.origin + window.location.pathname);
-        showMsg('success', copy().recoverSent);
+        showMsg('success', t.recoverSent);
       } catch (err) {
         if ((err && err.status === 429) || err instanceof TypeError) showMsg('error', mapErr(err));
-        else showMsg('success', copy().recoverSent);
+        else showMsg('success', t.recoverSent);
       } finally {
         busy('recoverForm', false);
       }
@@ -400,7 +278,6 @@
     let recoveryToken = null;
     async function doNewPass(e) {
       e.preventDefault();
-      const t = copy();
       const a = document.getElementById('npPass').value;
       const b = document.getElementById('npRep').value;
       if (a.length < 6) { showMsg('error', t.passShort); return false; }
@@ -420,21 +297,19 @@
       return false;
     }
 
-    setLoginLang(loginLang());
-
     (function handleLinkFromMail() {
       const h = window.location.hash.replace(/^#/, '');
       if (!h) return;
       const p = new URLSearchParams(h);
       history.replaceState(null, '', window.location.pathname + window.location.search);
-      if (p.get('error')) { showMsg('error', copy().linkBad); return; }
+      if (p.get('error')) { showMsg('error', t.linkBad); return; }
       const type = p.get('type');
       if (type === 'recovery' && p.get('access_token')) {
         recoveryToken = p.get('access_token');
         view('newpass');
         document.getElementById('newPassTitle').focus();
       } else if (p.get('access_token')) {
-        showMsg('success', copy().confirmed);
+        showMsg('success', t.confirmed);
       }
     })();
 
@@ -444,5 +319,6 @@
       SB.restore().then(ok => { if (ok) window.location.href = 'index.html'; });
     }
   </script>
+  <script src="login-lumo.js?v=20261111a"></script>
 </body>
 </html>
