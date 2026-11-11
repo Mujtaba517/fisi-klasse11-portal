@@ -17,7 +17,7 @@
     .pf-hero::before{width:130px;height:130px;background:#ffd166;inset-inline-end:-30px;top:-40px}
     .pf-hero::after{width:70px;height:70px;background:#ff8f70;inset-inline-end:90px;bottom:-24px}
     html[data-theme=dark] .pf-hero{background:linear-gradient(135deg,#27402f,#1f3329);color:#f2f5e8}
-    .pf-avatar{flex:none;width:5.5rem;height:5.5rem;border-radius:50%;display:grid;place-items:center;font-size:2rem;font-weight:800;background:#20342d;color:#d8ef85;border:4px solid rgba(255,255,255,.7);box-shadow:0 8px 20px rgba(32,52,45,.2);transition:transform .3s}
+    .pf-avatar{flex:none;width:5.5rem;height:5.5rem;border-radius:50%;display:grid;place-items:center;font-size:2rem;font-weight:800;background:#d8ef85;color:#20342d;border:4px solid rgba(255,255,255,.7);box-shadow:0 8px 20px rgba(32,52,45,.2);transition:transform .3s}
     .pf-avatar:hover{transform:rotate(-6deg) scale(1.05)}
     .pf-name{margin:0;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;line-height:1.2}
     .pf-user{margin:.2rem 0 .6rem;opacity:.8;font-weight:600}
@@ -35,6 +35,7 @@
     .pf-card:nth-child(3) .pf-ico{background:#cfeafb;color:#1f5a7a}
     .pf-card:nth-child(4) .pf-ico{background:#e5dcf8;color:#4a3770}
     .pf-sub{margin:0;color:var(--muted);font-size:.92rem}
+    .pf-h3{margin:.2rem 0 0;font-size:.85rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
     .pf-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
     @media(max-width:560px){.pf-row{grid-template-columns:1fr}.pf-hero{flex-direction:column;text-align:center}.pf-badges{justify-content:center}}
     .pf label{display:block;margin-bottom:.3rem;font-size:.85rem;font-weight:700;color:var(--muted)}
@@ -43,11 +44,11 @@
     .pf input[readonly]{opacity:.7;cursor:not-allowed}
     .pf-hint{display:block;margin-top:.25rem;font-size:.78rem;color:var(--muted)}
     .pf-pass{position:relative}
-    .pf-pass input{padding-inline-end:3rem}
+    .pf-pass input{padding-inline-end:3.4rem}
     .pf-eye{position:absolute;inset-inline-end:.5rem;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--muted);cursor:pointer;font-weight:700;font-size:.78rem;padding:.3rem .5rem;border-radius:8px}
     .pf-eye:hover{background:var(--blue-soft)}
     .pf-meter{height:8px;border-radius:999px;background:var(--border);overflow:hidden}
-    .pf-meter span{display:block;height:100%;width:0;border-radius:999px;transition:width .3s,background .3s}
+    .pf-meter span{display:block;height:100%;width:0;border-radius:999px;transition:width .4s,background .3s}
     .pf-btn{justify-self:start;border:0;border-radius:14px;padding:.7rem 1.3rem;font:inherit;font-weight:800;cursor:pointer;background:var(--primary-strong);color:var(--on-primary);transition:transform .2s,filter .2s}
     .pf-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
     .pf-btn.soft{background:var(--blue-soft);color:var(--text)}
@@ -56,18 +57,34 @@
     .pf-status{margin:0;padding:.55rem .8rem;border-radius:12px;font-weight:600;font-size:.9rem}
     .pf-status.ok{background:rgba(120,190,120,.22);color:var(--text)}
     .pf-status.err{background:rgba(255,143,112,.25);color:var(--text)}
+    .pf-photo{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+    .pf-photo input[type=file]{display:none}
+    .pf-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(3rem,1fr));gap:.5rem}
+    .pf-ic{aspect-ratio:1;border-radius:16px;border:2px solid var(--border);background:var(--bg-soft);font-size:1.5rem;cursor:pointer;transition:transform .2s,border-color .2s}
+    .pf-ic:hover{transform:translateY(-3px) rotate(-4deg)}
+    .pf-ic[aria-pressed=true]{border-color:var(--primary-strong);box-shadow:0 0 0 3px var(--blue-soft)}
     .pf-swatches{display:flex;flex-wrap:wrap;gap:.6rem}
     .pf-sw{width:2.6rem;height:2.6rem;border-radius:50%;border:3px solid transparent;cursor:pointer;display:grid;place-items:center;font-weight:800;transition:transform .2s}
     .pf-sw:hover{transform:scale(1.12)}
     .pf-sw[aria-pressed=true]{border-color:var(--text);box-shadow:0 0 0 3px var(--blue-soft)}
+    .pf-level{display:flex;align-items:center;gap:1rem}
+    .pf-medal{flex:none;width:4.6rem;height:4.6rem;border-radius:50%;display:grid;place-items:center;font-size:2.4rem;background:linear-gradient(135deg,#ffe6a8,#ffd166);box-shadow:0 8px 18px rgba(122,82,0,.25);animation:pfPulse 3s ease-in-out infinite}
+    .pf-lvname{font-size:1.25rem;font-weight:800;color:var(--text)}
+    .pf-lvsub{font-size:.85rem;color:var(--muted)}
+    .pf-bar{height:12px;border-radius:999px;background:var(--border);overflow:hidden}
+    .pf-bar span{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#d8ef85,#6fcf97);transition:width .8s}
+    .pf-medals{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+    .pf-mc{display:grid;justify-items:center;gap:.2rem;padding:.6rem .2rem;border-radius:16px;background:var(--bg-soft);border:1px solid var(--border);text-align:center;font-size:.72rem;color:var(--muted)}
+    .pf-mc i{font-style:normal;font-size:1.7rem}
+    .pf-mc.locked i{filter:grayscale(1);opacity:.35}
+    .pf-mc.current{border-color:var(--primary-strong);box-shadow:0 0 0 3px var(--blue-soft);color:var(--text);font-weight:700}
     .pf-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
     .pf-stat{padding:.9rem;border-radius:16px;background:var(--bg-soft);border:1px solid var(--border)}
-    .pf-stat b{display:block;font-size:1.5rem;color:var(--text)}
+    .pf-stat b{display:block;font-size:1.3rem;color:var(--text)}
     .pf-stat span{font-size:.82rem;color:var(--muted)}
-    .pf-actions{display:flex;flex-wrap:wrap;gap:.7rem}
-    .pf-actions a.pf-btn{text-decoration:none;display:inline-block}
     .pf-note{margin:0;font-size:.82rem;color:var(--muted)}
     @keyframes pfRise{from{opacity:0;transform:translateY(16px)}}
+    @keyframes pfPulse{50%{transform:scale(1.06) rotate(-3deg)}}
     @media(prefers-reduced-motion:reduce){.pf *,.pf-card{animation:none!important;transition:none!important}}
   </style>
 </head>
@@ -83,6 +100,7 @@
           <p class="pf-user" id="pfUser" dir="ltr"></p>
           <div class="pf-badges">
             <span class="pf-badge" id="pfRole"></span>
+            <span class="pf-badge" id="pfLv"></span>
             <span class="pf-badge" id="pfSince"></span>
           </div>
         </div>
@@ -110,6 +128,16 @@
         <section class="pf-card">
           <h2><span class="pf-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></span><span data-p="avatar"></span></h2>
           <p class="pf-sub" data-p="avatarSub"></p>
+          <h3 class="pf-h3" data-p="photo"></h3>
+          <div class="pf-photo">
+            <button type="button" class="pf-btn soft" id="photoPick" data-p="photoPick"></button>
+            <button type="button" class="pf-btn soft" id="photoRemove" data-p="photoRemove" hidden></button>
+            <input type="file" id="photoFile" accept="image/*" />
+          </div>
+          <p class="pf-status" id="photoStatus" role="status" hidden></p>
+          <h3 class="pf-h3" data-p="icons"></h3>
+          <div class="pf-icons" id="pfIcons" role="group"></div>
+          <h3 class="pf-h3" data-p="colors"></h3>
           <div class="pf-swatches" id="pfSwatches" role="group"></div>
         </section>
 
@@ -128,19 +156,21 @@
         </section>
 
         <section class="pf-card">
-          <h2><span class="pf-ico"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span><span data-p="learn"></span></h2>
+          <h2><span class="pf-ico"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span><span data-p="learn"></span></h2>
+          <div class="pf-level">
+            <div class="pf-medal" id="lvMedal" aria-hidden="true">🌱</div>
+            <div>
+              <div class="pf-lvname" id="lvName"></div>
+              <div class="pf-lvsub" id="lvSub"></div>
+            </div>
+          </div>
+          <div class="pf-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="lvBarWrap"><span id="lvBar"></span></div>
+          <div class="pf-medals" id="lvList"></div>
           <div class="pf-stats">
             <div class="pf-stat"><b id="stDone">0</b><span data-p="topicsDone"></span></div>
             <div class="pf-stat"><b id="stLast">–</b><span data-p="lastActive"></span></div>
-            <div class="pf-stat"><b id="stLang">–</b><span data-p="lang"></span></div>
-            <div class="pf-stat"><b id="stTheme">–</b><span data-p="theme"></span></div>
           </div>
-          <div class="pf-actions">
-            <a class="pf-btn soft" href="progress.html" data-p="goStats"></a>
-            <a class="pf-btn soft" href="settings.html" data-p="goSettings"></a>
-            <a class="pf-btn soft" href="settings.html#users" id="goUsers" data-p="goUsers" hidden></a>
-            <button type="button" class="pf-btn danger" id="pfLogout" data-p="logout"></button>
-          </div>
+          <button type="button" class="pf-btn danger" id="pfLogout" data-p="logout"></button>
           <p class="pf-note" data-p="localNote"></p>
         </section>
       </div>
@@ -151,12 +181,23 @@
   <script>
   (function () {
     'use strict';
+    var LV = [
+      { min: 0, ic: '🌱', de: 'Neuling', en: 'Newcomer', fa: 'تازه‌کار' },
+      { min: 3, ic: '🧭', de: 'Entdecker', en: 'Explorer', fa: 'کاشف' },
+      { min: 8, ic: '📘', de: 'Lernprofi', en: 'Learner', fa: 'یادگیرنده' },
+      { min: 15, ic: '🥉', de: 'Bronze', en: 'Bronze', fa: 'برنز' },
+      { min: 25, ic: '🥈', de: 'Silber', en: 'Silver', fa: 'نقره' },
+      { min: 40, ic: '🥇', de: 'Gold', en: 'Gold', fa: 'طلا' },
+      { min: 60, ic: '💎', de: 'Diamant', en: 'Diamond', fa: 'الماس' },
+      { min: 90, ic: '👑', de: 'Meister', en: 'Master', fa: 'استاد' }
+    ];
+    var ICONS = ['🦊', '🐼', '🦉', '🐱', '🐶', '🦄', '🐧', '🐸', '🦁', '🚀', '🎓', '💻', '🎮', '🔥', '⭐', '🌈'];
     var T = {
-      de: { title: 'Profil', personal: 'Persönliche Daten', personalSub: 'Name, E-Mail und Schülernummer ändern.', first: 'Vorname', last: 'Nachname', email: 'E-Mail', student: 'Schülernummer', username: 'Benutzername', usernameHint: 'Der Benutzername kann nicht geändert werden.', save: 'Speichern', saved: 'Profil gespeichert.', needName: 'Bitte gib einen Namen ein.', emailBad: 'Die E-Mail-Adresse ist ungültig.', avatar: 'Avatar', avatarSub: 'Wähle deine Farbe.', password: 'Passwort ändern', passwordSub: 'Gib zuerst dein aktuelles Passwort ein.', cur: 'Aktuelles Passwort', new: 'Neues Passwort', rep: 'Neues Passwort wiederholen', change: 'Passwort ändern', show: 'Zeigen', hide: 'Verbergen', weak: 'Schwach', ok: 'Mittel', strong: 'Stark', pwHint: 'Mindestens 6 Zeichen. Länger und gemischt ist besser.', pwWrong: 'Das aktuelle Passwort ist falsch.', pwShort: 'Das neue Passwort braucht mindestens 6 Zeichen.', pwMismatch: 'Die beiden neuen Passwörter sind verschieden.', pwSame: 'Das neue Passwort muss anders sein.', pwDone: 'Passwort geändert.', pwFill: 'Bitte alle Felder ausfüllen.', learn: 'Dein Lernstand', topicsDone: 'Themen erledigt', lastActive: 'Zuletzt aktiv', lang: 'Sprache', theme: 'Design', light: 'Hell', dark: 'Dunkel', goStats: 'Statistiken', goSettings: 'Einstellungen', goUsers: 'Benutzerverwaltung', logout: 'Abmelden', localNote: 'Deine Daten bleiben in diesem Browser. Es gibt keinen Server und keine automatische Passwort-Wiederherstellung.', notFound: 'Konto in diesem Browser nicht gefunden. Bitte melde dich neu an.', roleadmin: 'Administrator', roleteacher: 'Lehrkraft', rolestudent: 'Lernende/r', since: 'Seit ', unknown: 'Mitglied' },
-      en: { title: 'Profile', personal: 'Personal details', personalSub: 'Change your name, email and student number.', first: 'First name', last: 'Last name', email: 'Email', student: 'Student number', username: 'Username', usernameHint: 'The username cannot be changed.', save: 'Save', saved: 'Profile saved.', needName: 'Please enter a name.', emailBad: 'The email address is not valid.', avatar: 'Avatar', avatarSub: 'Pick your color.', password: 'Change password', passwordSub: 'Enter your current password first.', cur: 'Current password', new: 'New password', rep: 'Repeat new password', change: 'Change password', show: 'Show', hide: 'Hide', weak: 'Weak', ok: 'Medium', strong: 'Strong', pwHint: 'At least 6 characters. Longer and mixed is better.', pwWrong: 'The current password is wrong.', pwShort: 'The new password needs at least 6 characters.', pwMismatch: 'The two new passwords do not match.', pwSame: 'The new password must be different.', pwDone: 'Password changed.', pwFill: 'Please fill in all fields.', learn: 'Your progress', topicsDone: 'Topics done', lastActive: 'Last active', lang: 'Language', theme: 'Theme', light: 'Light', dark: 'Dark', goStats: 'Statistics', goSettings: 'Settings', goUsers: 'User management', logout: 'Sign out', localNote: 'Your data stays in this browser. There is no server and no automatic password recovery.', notFound: 'Account not found in this browser. Please sign in again.', roleadmin: 'Administrator', roleteacher: 'Teacher', rolestudent: 'Learner', since: 'Since ', unknown: 'Member' },
-      fa: { title: 'پروفایل', personal: 'اطلاعات شخصی', personalSub: 'نام، ایمیل و شمارهٔ دانش‌آموزی را تغییر بده.', first: 'نام', last: 'نام خانوادگی', email: 'ایمیل', student: 'شمارهٔ دانش‌آموزی', username: 'نام کاربری', usernameHint: 'نام کاربری قابل تغییر نیست.', save: 'ذخیره', saved: 'پروفایل ذخیره شد.', needName: 'لطفاً یک نام وارد کن.', emailBad: 'نشانی ایمیل معتبر نیست.', avatar: 'آواتار', avatarSub: 'رنگ خودت را انتخاب کن.', password: 'تغییر رمز عبور', passwordSub: 'اول رمز فعلی‌ات را وارد کن.', cur: 'رمز فعلی', new: 'رمز جدید', rep: 'تکرار رمز جدید', change: 'تغییر رمز', show: 'نمایش', hide: 'پنهان', weak: 'ضعیف', ok: 'متوسط', strong: 'قوی', pwHint: 'دست‌کم ۶ نویسه. طولانی‌تر و ترکیبی بهتر است.', pwWrong: 'رمز فعلی نادرست است.', pwShort: 'رمز جدید دست‌کم ۶ نویسه می‌خواهد.', pwMismatch: 'دو رمز جدید یکی نیستند.', pwSame: 'رمز جدید باید متفاوت باشد.', pwDone: 'رمز عبور تغییر کرد.', pwFill: 'لطفاً همهٔ فیلدها را پر کن.', learn: 'پیشرفت تو', topicsDone: 'موضوع انجام‌شده', lastActive: 'آخرین فعالیت', lang: 'زبان', theme: 'پوسته', light: 'روشن', dark: 'تیره', goStats: 'آمار', goSettings: 'تنظیمات', goUsers: 'مدیریت کاربران', logout: 'خروج', localNote: 'داده‌هایت فقط در همین مرورگر می‌ماند. سروری وجود ندارد و بازیابی خودکار رمز هم نیست.', notFound: 'حساب در این مرورگر پیدا نشد. دوباره وارد شو.', roleadmin: 'مدیر', roleteacher: 'معلم', rolestudent: 'دانش‌آموز', since: 'از ', unknown: 'عضو' }
+      de: { title: 'Profil', personal: 'Persönliche Daten', personalSub: 'Name, E-Mail und Schülernummer ändern.', first: 'Vorname', last: 'Nachname', email: 'E-Mail', student: 'Schülernummer', username: 'Benutzername', usernameHint: 'Der Benutzername kann nicht geändert werden.', save: 'Speichern', saved: 'Profil gespeichert.', needName: 'Bitte gib einen Namen ein.', emailBad: 'Die E-Mail-Adresse ist ungültig.', avatar: 'Avatar & Foto', avatarSub: 'Lade ein Foto hoch oder wähle ein Symbol und eine Farbe.', photo: 'Profilfoto', photoPick: 'Foto wählen', photoRemove: 'Foto entfernen', photoBad: 'Diese Datei ist kein Bild.', photoOk: 'Foto gespeichert.', icons: 'Avatar-Symbol', colors: 'Farbe', password: 'Passwort ändern', passwordSub: 'Gib zuerst dein aktuelles Passwort ein.', cur: 'Aktuelles Passwort', new: 'Neues Passwort', rep: 'Neues Passwort wiederholen', change: 'Passwort ändern', show: 'Zeigen', hide: 'Verbergen', weak: 'Schwach', ok: 'Mittel', strong: 'Stark', pwHint: 'Mindestens 6 Zeichen. Länger und gemischt ist besser.', pwWrong: 'Das aktuelle Passwort ist falsch.', pwShort: 'Das neue Passwort braucht mindestens 6 Zeichen.', pwMismatch: 'Die beiden neuen Passwörter sind verschieden.', pwSame: 'Das neue Passwort muss anders sein.', pwDone: 'Passwort geändert.', pwFill: 'Bitte alle Felder ausfüllen.', learn: 'Dein Lernstand', topicsDone: 'Themen erledigt', lastActive: 'Zuletzt aktiv', level: 'Level', toNext: 'Noch {n} Themen bis {name}', maxLevel: 'Höchstes Level erreicht!', logout: 'Abmelden', localNote: 'Deine Daten bleiben in diesem Browser. Es gibt keinen Server und keine automatische Passwort-Wiederherstellung.', notFound: 'Konto in diesem Browser nicht gefunden. Bitte melde dich neu an.', roleadmin: 'Administrator', roleteacher: 'Lehrkraft', rolestudent: 'Lernende/r', since: 'Seit ', unknown: 'Mitglied' },
+      en: { title: 'Profile', personal: 'Personal details', personalSub: 'Change your name, email and student number.', first: 'First name', last: 'Last name', email: 'Email', student: 'Student number', username: 'Username', usernameHint: 'The username cannot be changed.', save: 'Save', saved: 'Profile saved.', needName: 'Please enter a name.', emailBad: 'The email address is not valid.', avatar: 'Avatar & photo', avatarSub: 'Upload a photo, or pick an icon and a color.', photo: 'Profile photo', photoPick: 'Choose photo', photoRemove: 'Remove photo', photoBad: 'This file is not an image.', photoOk: 'Photo saved.', icons: 'Avatar icon', colors: 'Color', password: 'Change password', passwordSub: 'Enter your current password first.', cur: 'Current password', new: 'New password', rep: 'Repeat new password', change: 'Change password', show: 'Show', hide: 'Hide', weak: 'Weak', ok: 'Medium', strong: 'Strong', pwHint: 'At least 6 characters. Longer and mixed is better.', pwWrong: 'The current password is wrong.', pwShort: 'The new password needs at least 6 characters.', pwMismatch: 'The two new passwords do not match.', pwSame: 'The new password must be different.', pwDone: 'Password changed.', pwFill: 'Please fill in all fields.', learn: 'Your progress', topicsDone: 'Topics done', lastActive: 'Last active', level: 'Level', toNext: '{n} more topics to {name}', maxLevel: 'Highest level reached!', logout: 'Sign out', localNote: 'Your data stays in this browser. There is no server and no automatic password recovery.', notFound: 'Account not found in this browser. Please sign in again.', roleadmin: 'Administrator', roleteacher: 'Teacher', rolestudent: 'Learner', since: 'Since ', unknown: 'Member' },
+      fa: { title: 'پروفایل', personal: 'اطلاعات شخصی', personalSub: 'نام، ایمیل و شمارهٔ دانش‌آموزی را تغییر بده.', first: 'نام', last: 'نام خانوادگی', email: 'ایمیل', student: 'شمارهٔ دانش‌آموزی', username: 'نام کاربری', usernameHint: 'نام کاربری قابل تغییر نیست.', save: 'ذخیره', saved: 'پروفایل ذخیره شد.', needName: 'لطفاً یک نام وارد کن.', emailBad: 'نشانی ایمیل معتبر نیست.', avatar: 'آواتار و عکس', avatarSub: 'یک عکس آپلود کن یا یک نماد و رنگ انتخاب کن.', photo: 'عکس پروفایل', photoPick: 'انتخاب عکس', photoRemove: 'حذف عکس', photoBad: 'این فایل عکس نیست.', photoOk: 'عکس ذخیره شد.', icons: 'نماد آواتار', colors: 'رنگ', password: 'تغییر رمز عبور', passwordSub: 'اول رمز فعلی‌ات را وارد کن.', cur: 'رمز فعلی', new: 'رمز جدید', rep: 'تکرار رمز جدید', change: 'تغییر رمز', show: 'نمایش', hide: 'پنهان', weak: 'ضعیف', ok: 'متوسط', strong: 'قوی', pwHint: 'دست‌کم ۶ نویسه. طولانی‌تر و ترکیبی بهتر است.', pwWrong: 'رمز فعلی نادرست است.', pwShort: 'رمز جدید دست‌کم ۶ نویسه می‌خواهد.', pwMismatch: 'دو رمز جدید یکی نیستند.', pwSame: 'رمز جدید باید متفاوت باشد.', pwDone: 'رمز عبور تغییر کرد.', pwFill: 'لطفاً همهٔ فیلدها را پر کن.', learn: 'پیشرفت تو', topicsDone: 'موضوع انجام‌شده', lastActive: 'آخرین فعالیت', level: 'لول', toNext: '{n} موضوع تا «{name}»', maxLevel: 'به بالاترین لول رسیدی!', logout: 'خروج', localNote: 'داده‌هایت فقط در همین مرورگر می‌ماند. سروری وجود ندارد و بازیابی خودکار رمز هم نیست.', notFound: 'حساب در این مرورگر پیدا نشد. دوباره وارد شو.', roleadmin: 'مدیر', roleteacher: 'معلم', rolestudent: 'دانش‌آموز', since: 'از ', unknown: 'عضو' }
     };
-    var AV = window.LERNOVA_AVATARS || { lime: ['#d8ef85', '#20342d'] };
+    var AV = { lime: ['#d8ef85', '#20342d'], sun: ['#ffd166', '#5c3b00'], coral: ['#ff8f70', '#4a1d0e'], sky: ['#9bd6f5', '#10435e'], lilac: ['#cdbdf2', '#32215c'], mint: ['#a7e8c4', '#0f4a2f'] };
     function $(id) { return document.getElementById(id); }
     function L() { var l = document.documentElement.lang; return T[l] ? l : 'de'; }
     function t(k) { return T[L()][k] || T.de[k] || k; }
@@ -175,17 +216,52 @@
       return p.length ? p.slice(0, 2).map(function (x) { return x.charAt(0); }).join('').toUpperCase() : '·';
     }
     function status(el, key, type) { el.hidden = !key; el.className = 'pf-status ' + (type || ''); el.textContent = key ? t(key) : ''; el._k = key; el._t = type; }
+    function levelOf(done) { var i = 0; for (var k = 0; k < LV.length; k++) if (done >= LV[k].min) i = k; return i; }
+    function doneCount() {
+      var all = typeof readActivity === 'function' ? readActivity() : {};
+      var done = 0, last = 0;
+      Object.keys(all || {}).forEach(function (page) {
+        Object.keys(all[page] || {}).forEach(function (id) {
+          var row = all[page][id]; if (!row) return;
+          if (row.checked) done += 1;
+          if (row.updated > last) last = row.updated;
+        });
+      });
+      return { done: done, last: last };
+    }
 
     var rec = null;
 
     function paintAvatar() {
-      var key = rec && rec.avatar && AV[rec.avatar] ? rec.avatar : null;
       var big = $('pfAvatar');
+      big.style.backgroundImage = '';
       big.textContent = initials(rec);
-      if (key) { big.style.background = AV[key][0]; big.style.color = AV[key][1]; }
       var side = document.querySelector('.profile .avatar');
-      if (side) { side.textContent = initials(rec); if (key) { side.style.background = AV[key][0]; side.style.color = AV[key][1]; } }
-      document.querySelectorAll('#pfSwatches .pf-sw').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.key === key ? 'true' : 'false'); });
+      if (side) { side.style.backgroundImage = ''; side.textContent = initials(rec); }
+      if (typeof lernovaPaintAvatar === 'function') { lernovaPaintAvatar(big, rec); lernovaPaintAvatar(side, rec); }
+      document.querySelectorAll('#pfSwatches .pf-sw').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.key === rec.avatar ? 'true' : 'false'); });
+      document.querySelectorAll('#pfIcons .pf-ic').forEach(function (b) { b.setAttribute('aria-pressed', (!rec.photo && b.dataset.ic === (rec.avatarIcon || '')) ? 'true' : 'false'); });
+      $('photoRemove').hidden = !rec.photo;
+    }
+
+    function paintLevel() {
+      var s = doneCount(), i = levelOf(s.done), cur = LV[i], next = LV[i + 1];
+      var lg = L();
+      $('lvMedal').textContent = cur.ic;
+      $('lvName').textContent = t('level') + ' ' + (i + 1) + ' · ' + cur[lg];
+      var pct = 100;
+      if (next) {
+        pct = Math.round((s.done - cur.min) / (next.min - cur.min) * 100);
+        $('lvSub').textContent = t('toNext').replace('{n}', next.min - s.done).replace('{name}', next[lg]);
+      } else { $('lvSub').textContent = t('maxLevel'); }
+      $('lvBar').style.width = pct + '%';
+      $('lvBarWrap').setAttribute('aria-valuenow', pct);
+      $('lvList').innerHTML = LV.map(function (l, k) {
+        return '<div class="pf-mc' + (k > i ? ' locked' : '') + (k === i ? ' current' : '') + '"><i>' + l.ic + '</i><span>' + l[lg] + '</span></div>';
+      }).join('');
+      $('stDone').textContent = s.done;
+      $('stLast').textContent = s.last ? new Date(s.last).toLocaleDateString(lg) : '–';
+      $('pfLv').textContent = cur.ic + ' ' + t('level') + ' ' + (i + 1) + ' · ' + cur[lg];
     }
 
     function paintHero() {
@@ -199,22 +275,6 @@
       paintAvatar();
     }
 
-    function paintStats() {
-      var all = typeof readActivity === 'function' ? readActivity() : {};
-      var done = 0, last = 0;
-      Object.keys(all || {}).forEach(function (page) {
-        Object.keys(all[page] || {}).forEach(function (id) {
-          var row = all[page][id]; if (!row) return;
-          if (row.checked) done += 1;
-          if (row.updated > last) last = row.updated;
-        });
-      });
-      $('stDone').textContent = done;
-      $('stLast').textContent = last ? new Date(last).toLocaleDateString(L()) : '–';
-      $('stLang').textContent = ({ de: 'Deutsch', en: 'English', fa: 'فارسی' })[L()];
-      $('stTheme').textContent = (document.documentElement.getAttribute('data-theme') === 'dark') ? t('dark') : t('light');
-    }
-
     function paintTexts() {
       document.querySelectorAll('[data-p]').forEach(function (el) { el.textContent = t(el.getAttribute('data-p')); });
       document.querySelectorAll('[data-eye]').forEach(function (b) {
@@ -226,24 +286,58 @@
       document.title = t('title') + ' | Lernova';
       $('pwHint').textContent = t('pwHint');
       if (rec) paintHero();
-      ['pfStatus', 'pwStatus'].forEach(function (id) { var el = $(id); if (el._k) status(el, el._k, el._t); });
-      paintStats();
+      ['pfStatus', 'pwStatus', 'photoStatus'].forEach(function (id) { var el = $(id); if (el._k) status(el, el._k, el._t); });
+      paintLevel();
     }
 
-    function buildSwatches() {
-      var box = $('pfSwatches');
+    function update(fn) {
+      var list = users(); var r = find(list, rec.username); if (!r) return;
+      fn(r); saveUsers(list); rec = r; paintAvatar();
+    }
+
+    function buildPickers() {
+      var sw = $('pfSwatches');
       Object.keys(AV).forEach(function (k) {
         var b = document.createElement('button');
         b.type = 'button'; b.className = 'pf-sw'; b.dataset.key = k;
         b.style.background = AV[k][0]; b.style.color = AV[k][1];
         b.setAttribute('aria-label', k); b.setAttribute('aria-pressed', 'false');
         b.textContent = 'A';
-        b.addEventListener('click', function () {
-          var list = users(); var r = find(list, rec.username); if (!r) return;
-          r.avatar = k; saveUsers(list); rec = r; paintAvatar();
-        });
-        box.appendChild(b);
+        b.addEventListener('click', function () { update(function (r) { r.avatar = k; }); });
+        sw.appendChild(b);
       });
+      var ic = $('pfIcons');
+      var none = document.createElement('button');
+      none.type = 'button'; none.className = 'pf-ic'; none.dataset.ic = ''; none.textContent = 'Aa';
+      none.style.fontSize = '1rem'; none.style.fontWeight = '800';
+      none.setAttribute('aria-label', 'Initials'); none.setAttribute('aria-pressed', 'false');
+      none.addEventListener('click', function () { update(function (r) { r.avatarIcon = ''; r.photo = ''; }); });
+      ic.appendChild(none);
+      ICONS.forEach(function (e) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'pf-ic'; b.dataset.ic = e; b.textContent = e;
+        b.setAttribute('aria-pressed', 'false');
+        b.addEventListener('click', function () { update(function (r) { r.avatarIcon = e; r.photo = ''; }); });
+        ic.appendChild(b);
+      });
+    }
+
+    function resizePhoto(file, cb) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var img = new Image();
+        img.onload = function () {
+          var size = 192, c = document.createElement('canvas');
+          c.width = size; c.height = size;
+          var s = Math.min(img.width, img.height);
+          c.getContext('2d').drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, size, size);
+          cb(c.toDataURL('image/jpeg', 0.82));
+        };
+        img.onerror = function () { cb(null); };
+        img.src = reader.result;
+      };
+      reader.onerror = function () { cb(null); };
+      reader.readAsDataURL(file);
     }
 
     function strength(p) {
@@ -259,16 +353,15 @@
     function init() {
       var s = session();
       if (!s) return;
-      var list = users();
-      rec = find(list, s.username);
+      rec = find(users(), s.username);
       document.querySelectorAll('.sidenav .nav-item').forEach(function (a) { a.classList.remove('is-active'); a.removeAttribute('aria-current'); });
-      buildSwatches();
+      buildPickers();
       if (!rec) {
         $('pfName').textContent = s.name || s.username;
         $('pfUser').textContent = '@' + s.username;
         paintTexts();
         status($('pfStatus'), 'notFound', 'err');
-        document.querySelectorAll('#pfForm input,#pfForm button,#pwForm input,#pwForm button.pf-btn').forEach(function (e) { e.disabled = true; });
+        document.querySelectorAll('#pfForm input,#pfForm button,#pwForm input,#pwForm button.pf-btn,.pf-photo button').forEach(function (e) { e.disabled = true; });
         return;
       }
       $('pfFirst').value = rec.firstName || '';
@@ -276,7 +369,6 @@
       $('pfEmail').value = rec.email || '';
       $('pfStudent').value = rec.studentId || '';
       $('pfUsername').value = rec.username;
-      if (rec.role === 'admin') $('goUsers').hidden = false;
       paintTexts();
 
       $('pfForm').addEventListener('submit', function (e) {
@@ -285,13 +377,25 @@
         var email = $('pfEmail').value.trim();
         if (!first && !last) { status($('pfStatus'), 'needName', 'err'); return; }
         if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status($('pfStatus'), 'emailBad', 'err'); return; }
-        var l = users(); var r = find(l, rec.username); if (!r) return;
-        r.firstName = first; r.lastName = last; r.email = email; r.studentId = $('pfStudent').value.trim();
-        saveUsers(l); rec = r;
+        update(function (r) { r.firstName = first; r.lastName = last; r.email = email; r.studentId = $('pfStudent').value.trim(); });
         var sess = session() || {}; sess.name = (first + ' ' + last).trim();
         sessionStorage.setItem('fisi-auth', JSON.stringify(sess));
         paintHero(); status($('pfStatus'), 'saved', 'ok');
       });
+
+      $('photoPick').addEventListener('click', function () { $('photoFile').click(); });
+      $('photoFile').addEventListener('change', function () {
+        var f = this.files && this.files[0];
+        if (!f) return;
+        if (!/^image\//.test(f.type)) { status($('photoStatus'), 'photoBad', 'err'); return; }
+        resizePhoto(f, function (data) {
+          if (!data) { status($('photoStatus'), 'photoBad', 'err'); return; }
+          update(function (r) { r.photo = data; });
+          status($('photoStatus'), 'photoOk', 'ok');
+        });
+        this.value = '';
+      });
+      $('photoRemove').addEventListener('click', function () { update(function (r) { r.photo = ''; }); status($('photoStatus'), null); });
 
       document.querySelectorAll('[data-eye]').forEach(function (b) {
         b.addEventListener('click', function () {
@@ -332,9 +436,7 @@
     }
 
     document.addEventListener('fisi-lang', paintTexts);
-    document.addEventListener('DOMContentLoaded', function () {
-      setTimeout(init, 0);
-    });
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(init, 0); });
   })();
   </script>
 </body>

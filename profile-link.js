@@ -1,4 +1,4 @@
-/* Makes the sidebar profile box a link to profile.html and applies the chosen avatar color. */
+/* Makes the sidebar profile box a link to profile.html and paints the chosen avatar (photo, icon or color). */
 (function () {
   'use strict';
   var COLORS = {
@@ -17,10 +17,18 @@
     return null;
   }
 
-  window.lernovaApplyAvatar = function (el, key) {
-    if (!el) return;
-    var c = COLORS[key];
+  window.lernovaPaintAvatar = function (el, r) {
+    if (!el || !r) return;
+    var c = COLORS[r.avatar];
     if (c) { el.style.background = c[0]; el.style.color = c[1]; }
+    if (r.photo) {
+      el.textContent = '';
+      el.style.backgroundImage = 'url(' + r.photo + ')';
+      el.style.backgroundSize = 'cover';
+      el.style.backgroundPosition = 'center';
+    } else if (r.avatarIcon) {
+      el.textContent = r.avatarIcon;
+    }
   };
 
   var css = document.createElement('style');
@@ -34,8 +42,7 @@
     p.setAttribute('role', 'link');
     p.tabIndex = 0;
     p.setAttribute('aria-label', 'Profil');
-    var r = record();
-    if (r && r.avatar) window.lernovaApplyAvatar(p.querySelector('.avatar'), r.avatar);
+    window.lernovaPaintAvatar(p.querySelector('.avatar'), record());
     p.addEventListener('click', function (e) {
       if (e.target.closest('#shellLogout')) return;
       location.href = 'profile.html';
