@@ -16,7 +16,7 @@
     meta.setAttribute('content', theme === 'light' ? '#f3f5fa' : '#0f172a');
   } catch (e) {}
 })();
-/* Lumo look: one color system on every page; mascot and hero styles on the home page only. */
+/* Lumo look: one color system on every page; mascot and hero styles on the home page only; appearance options on every page. */
 (function () {
   try {
     var root = document.documentElement;
@@ -26,6 +26,7 @@
       root.classList.add('lumo-home');
       out += '<link rel="stylesheet" href="lumo.css"><script src="lumo.js" defer><\/script>';
     }
+    out += '<link rel="stylesheet" href="appearance.css"><script src="appearance.js"><\/script>';
     document.write(out);
   } catch (e) {}
 })();
