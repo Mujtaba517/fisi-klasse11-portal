@@ -11,12 +11,23 @@
     try {
       var theme = localStorage.getItem('fisi-theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
+      document.documentElement.classList.add('lumo-site');
       var meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute('content', theme === 'light' ? '#f3f5f7' : '#101418');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#f4f1e4' : '#15251e');
     } catch (e) {}
   </script>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=20261110c" />
+  <link rel="stylesheet" href="lumo-site.css" />
+  <style>
+    html.lumo-site body .login-gate,html.lumo-site body .admin-card{border-radius:22px;background:var(--surface);border:1px solid var(--border)}
+    html.lumo-site body .form-group input{border-radius:14px;border:2px solid var(--border);background:var(--bg-soft);color:var(--text)}
+    html.lumo-site body .form-group input:focus{border-color:var(--primary-strong)}
+    html.lumo-site body .btn-add{border-radius:14px;background:var(--primary-strong);color:var(--on-primary);font-weight:700}
+    html.lumo-site body .btn-del{border-radius:12px}
+    html.lumo-site body .user-item{border-radius:16px;background:var(--bg-soft);border:1px solid var(--border)}
+    html.lumo-site body .export-box{border-radius:16px;background:var(--code-bg);color:var(--code-text)}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt</a>
