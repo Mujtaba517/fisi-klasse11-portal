@@ -1,0 +1,63 @@
+.login-lumo{--lg-ink:#20342d;--lg-green:#215c43;--lg-cream:#fffdf6;--lg-line:#d8e3c0}
+body.login-lumo{background:#f4f1e4;min-height:100vh}
+html[data-theme=dark] body.login-lumo{background:#14221b}
+.login-lumo .auth-screen{min-height:100vh;display:grid;place-items:center;padding:1.5rem;background:none}
+.login-lumo .auth-shell{width:min(1040px,100%);display:grid;grid-template-columns:1.05fr 1fr;border-radius:32px;overflow:hidden;background:var(--lg-cream);border:1px solid #e3e8d4;box-shadow:0 24px 60px rgba(32,52,45,.14)}
+.login-lumo .auth-aside{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:1rem;padding:2.2rem;min-height:32rem;background:linear-gradient(135deg,#d8ef85,#c2e7aa);color:#1f3a2c;border:0}
+.login-lumo .auth-aside::before,.login-lumo .auth-aside::after{content:'';position:absolute;border-radius:50%;z-index:-1;opacity:.55;animation:lgDrift 9s ease-in-out infinite}
+.login-lumo .auth-aside::before{width:120px;height:120px;background:#ffd166;inset-inline-end:-30px;top:-30px}
+.login-lumo .auth-aside::after{width:64px;height:64px;background:#ff8f70;inset-inline-start:42%;bottom:26px;animation-delay:-4s}
+.login-lumo .auth-aside .brand,.login-lumo .auth-aside .brand-word{color:#20342d}
+.login-lumo .auth-aside h1{font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;font-weight:750;color:#1f3a2c;margin:.4rem 0 0;max-width:20rem}
+.login-lumo .hero-support{color:#35523a;line-height:1.6;max-width:26rem;margin:0}
+.login-lumo #heroCta{align-self:flex-start;background:#20342d;color:#fff;border:0;border-radius:999px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer;transition:transform .2s}
+.login-lumo #heroCta:hover{transform:translateY(-2px) rotate(-1deg)}
+.login-lumo .auth-panel{background:var(--lg-cream);padding:2.4rem 2.2rem;display:flex;flex-direction:column;justify-content:center;border:0}
+.login-lumo .tabs{display:flex;gap:.4rem;padding:.3rem;background:#eef3df;border-radius:999px;margin-bottom:1.2rem}
+.login-lumo .tab{flex:1;border:0;border-radius:999px;padding:.6rem 1rem;font-weight:700;background:transparent;color:var(--lg-ink);cursor:pointer;transition:background .2s,transform .2s}
+.login-lumo .tab:hover{transform:translateY(-1px)}
+.login-lumo .tab.active{background:var(--lg-ink);color:#fff}
+.login-lumo .form-group label{color:var(--lg-ink);font-weight:700}
+.login-lumo .form-group input{background:#fff;border:2px solid var(--lg-line);border-radius:14px;color:var(--lg-ink);padding:.7rem .9rem;transition:border-color .2s,box-shadow .2s}
+.login-lumo .form-group input:focus{outline:0;border-color:var(--lg-green);box-shadow:0 0 0 4px rgba(216,239,133,.55)}
+.login-lumo .btn-submit{width:100%;background:var(--lg-green);color:#fff;border:0;border-radius:999px;padding:.8rem 1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.login-lumo .btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(33,92,67,.25)}
+.login-lumo .btn-submit:disabled{opacity:.6;cursor:wait;transform:none}
+.login-lumo .text-link{color:var(--lg-green);font-weight:700;background:none;border:0;cursor:pointer;text-decoration:underline}
+.login-lumo .btn-soft{background:#eef3df;color:var(--lg-ink);border:0;border-radius:999px}
+.login-lumo .recovery-view h2{color:var(--lg-ink)}
+.login-lumo .footer-text,.login-lumo .form-hint{color:#4f6258}
+.login-lumo .msg.error{background:#ffe3da;color:#8a3a22;border-radius:14px}
+.login-lumo .msg.success{background:#e4f3c4;color:#215c43;border-radius:14px}
+.login-lumo .msg.pending{background:#fff0c2;color:#7a5200;border-radius:14px}
+html[data-theme=dark] .login-lumo .auth-shell{background:#1a2c23;border-color:#3b5446;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+html[data-theme=dark] .login-lumo .auth-panel{background:#1a2c23}
+html[data-theme=dark] .login-lumo .tabs{background:#223a2e}
+html[data-theme=dark] .login-lumo .tab{color:#f2f5e8}
+html[data-theme=dark] .login-lumo .tab.active{background:#d8ef85;color:#20342d}
+html[data-theme=dark] .login-lumo .form-group label,html[data-theme=dark] .login-lumo .recovery-view h2{color:#f2f5e8}
+html[data-theme=dark] .login-lumo .form-group input{background:#1f3329;border-color:#3b5446;color:#f2f5e8}
+html[data-theme=dark] .login-lumo .btn-submit{background:#d8ef85;color:#20342d}
+html[data-theme=dark] .login-lumo .text-link{color:#a7d7b3}
+html[data-theme=dark] .login-lumo .btn-soft{background:#223a2e;color:#f2f5e8}
+html[data-theme=dark] .login-lumo .footer-text,html[data-theme=dark] .login-lumo .form-hint{color:#c4d4c8}
+.login-lumo .lg-pet{position:relative;margin-top:auto;align-self:flex-end;width:min(13rem,60%);padding:0;border:0;background:none;cursor:pointer}
+.login-lumo .lg-pet svg{width:100%;height:auto;display:block;overflow:visible}
+.login-lumo .lg-bubble{position:absolute;top:-1.4rem;inset-inline-end:55%;max-width:12rem;padding:.4rem .8rem;font-size:.85rem;font-weight:600;line-height:1.4;color:#20342d;background:#fff;border:2px solid #20342d;border-radius:16px;animation:lgPop .4s both}
+.lm-body{transform-origin:50% 100%;animation:lgBreathe 3s ease-in-out infinite}
+.lm-eye{transform-box:fill-box;transform-origin:center;animation:lgBlink 4.5s infinite}
+.lm-arm{transform-box:fill-box;transform-origin:10% 80%;animation:lgWave 2.4s ease-in-out infinite}
+.lm-tail{transform-box:fill-box;transform-origin:0 50%;animation:lgWag 1.4s ease-in-out infinite}
+.lm-spark{transform-box:fill-box;transform-origin:center;animation:lgTwinkle 2s infinite}
+.lm-s2{animation-delay:.9s}
+.login-lumo .auth-panel>*{animation:lgRise .5s both}
+@keyframes lgBreathe{50%{transform:scaleY(1.04) translateY(-4px)}}
+@keyframes lgBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes lgWave{50%{transform:rotate(-28deg)}}
+@keyframes lgWag{50%{transform:rotate(18deg)}}
+@keyframes lgTwinkle{50%{transform:scale(1.5) rotate(25deg);opacity:.5}}
+@keyframes lgDrift{50%{transform:translate(18px,-18px) scale(1.1)}}
+@keyframes lgRise{from{opacity:0;transform:translateY(16px)}}
+@keyframes lgPop{from{opacity:0;transform:scale(.3)}}
+@media(max-width:820px){.login-lumo .auth-screen{padding:.8rem}.login-lumo .auth-shell{grid-template-columns:1fr;border-radius:24px}.login-lumo .auth-aside{min-height:0;padding:1.6rem}.login-lumo .lg-pet{width:9rem;margin-top:.8rem}.login-lumo .auth-panel{padding:1.6rem 1.3rem}}
+@media(prefers-reduced-motion:reduce){.login-lumo *,.login-lumo *::before,.login-lumo *::after{animation:none!important;transition:none!important}}
