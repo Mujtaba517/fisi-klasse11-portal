@@ -26,3 +26,5 @@
 
 ساخته شده برای دانش‌آموزان Systemintegration  
 **Mujtaba Najafi – 2026**
+
+Login: Lumo-Design, nur Deutsch.
