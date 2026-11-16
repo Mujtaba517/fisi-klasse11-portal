@@ -610,3 +610,16 @@ function applySavedPreferences() {
    for any node inserted later. */
 applySavedPreferences();
 document.addEventListener('DOMContentLoaded', applySavedPreferences);
+
+/* Lernova PWA: register the service worker for this site folder.
+   Relative URLs keep the scope on /fisi-klasse11-portal/ when GitHub Pages serves the repo. */
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+  function registerLernovaSW() {
+    var scriptUrl = new URL('sw.js', document.baseURI);
+    var scopeUrl = new URL('./', scriptUrl);
+    navigator.serviceWorker.register(scriptUrl.href, { scope: scopeUrl.href, updateViaCache: 'none' }).catch(function () {});
+  }
+  if (document.readyState === 'complete') registerLernovaSW();
+  else window.addEventListener('load', registerLernovaSW);
+})();

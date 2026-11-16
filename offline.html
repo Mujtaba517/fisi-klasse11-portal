@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a5fd6" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" sizes="180x180" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Lernova" />
+  <title>Offline | Lernova</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .offline-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .card.offline-card {
+      max-width: 28rem;
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      padding: 2rem 1.4rem 1.5rem;
+    }
+    .offline-mark {
+      width: 4.5rem;
+      height: 4.5rem;
+      margin: 0 auto 1rem;
+      display: block;
+      border-radius: 1rem;
+    }
+    .offline-card h1 { margin: 0 0 0.6rem; font-size: 1.6rem; }
+    .offline-card p { color: var(--muted); margin: 0 0 1.2rem; }
+    .offline-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+  </style>
+</head>
+<body>
+  <main class="offline-wrap" id="main">
+    <section class="card offline-card">
+      <img class="offline-mark" src="assets/icons/icon-192.png" width="72" height="72" alt="" />
+      <h1>Du bist offline</h1>
+      <p>Diese Seite ist auf diesem Gerät nicht gespeichert. Prüfe deine Verbindung und versuche es noch einmal. Seiten, die Lernova schon gespeichert hat, bleiben über die Startseite erreichbar.</p>
+      <div class="offline-actions">
+        <button type="button" class="btn btn-primary" id="offlineRetry">Erneut versuchen</button>
+        <a class="btn btn-soft" href="./">Zur Startseite</a>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.getElementById('offlineRetry').addEventListener('click', function () {
+      location.reload();
+    });
+    if ('serviceWorker' in navigator) {
+      var registerLernovaSW = function () {
+        var scriptUrl = new URL('sw.js', document.baseURI);
+        var scopeUrl = new URL('./', scriptUrl);
+        navigator.serviceWorker.register(scriptUrl.href, { scope: scopeUrl.href, updateViaCache: 'none' }).catch(function () {});
+      };
+      if (document.readyState === 'complete') registerLernovaSW();
+      else window.addEventListener('load', registerLernovaSW);
+    }
+  </script>
+</body>
+</html>
