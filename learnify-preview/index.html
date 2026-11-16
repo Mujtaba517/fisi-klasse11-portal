@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a5fd6" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Lernova" />
   <title>Einstellungen · Learnify</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a5fd6'%3E%3Cpath d='M12 3 1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3Cpath d='M11 12.84 4.26 9.16 3 9.85 11 14.3l8-4.45-1.26-.69L13 12.84V20h-2v-7.16z'/%3E%3C/svg%3E" />
@@ -455,5 +462,16 @@
   </dialog>
 
   <script src="app.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      var registerLernovaSW = function () {
+        var scriptUrl = new URL('../sw.js', document.baseURI);
+        var scopeUrl = new URL('./', scriptUrl);
+        navigator.serviceWorker.register(scriptUrl.href, { scope: scopeUrl.href, updateViaCache: 'none' }).catch(function () {});
+      };
+      if (document.readyState === 'complete') registerLernovaSW();
+      else window.addEventListener('load', registerLernovaSW);
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Lernova cap. Paths match the mark in shell.js. Drawn here for the PWA icon. -->
+  <rect width="512" height="512" fill="#1a5fd6"/>
+  <g transform="translate(256 258) scale(11.2) translate(-16 -15.6)">
+    
+    <path d="M4 13.2 16 7l12 6.2-12 6.3L4 13.2Z" fill="#ffffff" stroke="none"/>
+    <path d="M8.2 15.4v5.1c0 .4.3 1.2 1.4 2 1.2.8 3.4 1.7 6.4 1.7s5.2-.9 6.4-1.7c1.1-.8 1.4-1.6 1.4-2v-5.1" fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"/>
+    <path d="M26.4 14.6V21" fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"/>
+
+  </g>
+</svg>
