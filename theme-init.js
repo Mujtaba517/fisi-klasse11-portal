@@ -25,7 +25,7 @@
     out += '<link rel="stylesheet" href="lumo-site.css">';
     if (/(^|\/)(index\.html)?$/.test(location.pathname)) {
       root.classList.add('lumo-home');
-      out += '<link rel="stylesheet" href="lumo.css"><script src="lumo.js" defer><\/script>';
+      out += '<link rel="stylesheet" href="lumo.css"><script src="mascot.js" defer><\/script><script src="lumo.js" defer><\/script>';
     }
     out += '<link rel="stylesheet" href="appearance.css"><script src="appearance.js"><\/script>';
     out += '<script src="profile-link.js" defer><\/script>';
