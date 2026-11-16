@@ -6,7 +6,7 @@
    Other same-origin GETs are stale-while-revalidate.
    Video files are not intercepted, so range playback stays with the browser,
    and nothing over RUNTIME_BYTE_CAP is written into the runtime cache. */
-var CACHE = 'lernova-v3-lumo-quality-20261116';
+var CACHE = 'lernova-v4-cat-mascot-20261116';
 var RUNTIME_BYTE_CAP = 512 * 1024;
 var PRECACHE = [
   './learning-v2.css',
@@ -16,8 +16,9 @@ var PRECACHE = [
   './learning-app.js',
   './learning-media.js',
   './lumo-template-v2.js',
-  './assets/lumo-3d-clean.png',
   './lumo-motion-v2.js',
+  './mascot.js',
+  './assets/mascot/cat.webp',
 
   './',
   './index.html',
@@ -108,8 +109,9 @@ var PRECACHE = [
   './lf7.html',
   './lf8.html',
   './lf9.html',
-  './login-lumo.css?v=20261111a',
-  './login-lumo.js?v=20261111a',
+  './login-lumo.css?v=20261116cat',
+  './login-lumo.js?v=20261116cat',
+  './mascot.js?v=20261116cat',
   './login.html',
   './preview-lumo.html',
   './profile.html',

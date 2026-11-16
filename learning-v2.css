@@ -71,3 +71,15 @@
 @media(max-width:359px){.lumo-visual{height:235px}}
 
 @media(max-width:420px){.section-head{flex-wrap:wrap;gap:12px}.section-head .tabs{max-width:100%;flex-wrap:wrap}}
+
+
+.lumo-visual{overflow:hidden}
+.lumo-visual .cat-mascot{position:absolute;inset:0;display:block;line-height:0}
+.lumo-visual .cat-mascot-video,.lumo-visual .cat-mascot-fallback,.lumo-visual .cat-mascot-still{display:none;width:100%;height:100%;object-fit:contain;object-position:center bottom;background:transparent;pointer-events:none}
+.lumo-visual .cat-mascot-video{display:block}
+.lumo-visual .cat-mascot.is-fallback .cat-mascot-video{display:none}
+.lumo-visual .cat-mascot.is-fallback .cat-mascot-fallback{display:block}
+.lumo-visual .cat-mascot.is-still .cat-mascot-video,.lumo-visual .cat-mascot.is-still .cat-mascot-fallback{display:none}
+.lumo-visual .cat-mascot.is-still .cat-mascot-still{display:block}
+@media(prefers-reduced-motion:reduce){.lumo-visual .cat-mascot-video,.lumo-visual .cat-mascot-fallback{display:none!important}.lumo-visual .cat-mascot-still{display:block!important}}
+
