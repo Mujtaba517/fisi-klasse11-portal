@@ -28,3 +28,11 @@
 **Mujtaba Najafi – 2026**
 
 Login: Lumo-Design, nur Deutsch.
+
+## Lernova learning dashboard (November 2026)
+
+`index.html` now serves the reviewed dashboard with classes 10–12, 99 DE/FA lessons, 701 study cards and the animated Lumo mascot. `learning-app.js` uses the existing Supabase login, account/profile and settings pages. Its local learning state is scoped to the signed-in account; existing checked lessons are imported from `fisi-activity`. Language and theme use the existing preference keys.
+
+All 71 existing videos and their captions remain unchanged. `learning-media.js` maps them into the matching lessons with native controls and `preload="none"`. The Resources page links the full video library, previous quizzes, English content, materials and progress; the previous home is retained as `materials.html`. No previous lesson pages or media files were removed. The service worker cache version is bumped for installed PWA updates.
+
+Validation: `node scripts/check-learning.cjs` checks all 99 lessons in both languages and the card banks. The new source modules are buildless and served by GitHub Pages.
